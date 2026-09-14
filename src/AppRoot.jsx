@@ -14,6 +14,7 @@ import ExperienceSection from "./components/sections/ExperienceSection";
 import FeaturedProjectsSection from "./components/sections/FeaturedProjectsSection";
 import SolutionsSection from "./components/sections/SolutionsSection";
 import ChatboSpotlight from "./components/sections/ChatboSpotlight";
+import ClubHighlight from "./components/sections/ClubHighlight";
 import CasesSection from "./components/sections/CasesSection";
 import ProcessSection from "./components/sections/ProcessSection";
 import WhyChooseSection from "./components/sections/WhyChooseSection";
@@ -63,6 +64,7 @@ export default function AppRoot() {
 
         <main className="tt2-site-main">
           <HeroSection t={t} />
+          <ClubHighlight />
           <TrustedBySection t={t} clients={CLIENTS} />
           <ExperienceStatsSection t={t} />
           <ExperienceSection t={t} />

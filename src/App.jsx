@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useState } from "react";
 import ResponsiveHome from "./responsive/ResponsiveHome";
 import LegalPolicyPage from "./components/pages/LegalPolicyPage";
+import ClubPage from "./components/pages/ClubPage";
 import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
 
@@ -23,6 +24,10 @@ function ConsentAwareAnalytics() {
 
 function AppContent() {
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+
+  if (pathname === "/club" || pathname === "/club/") {
+    return <ClubPage />;
+  }
 
   if (pathname === "/politica-privacidade") {
     return <LegalPolicyPage policy="privacy" />;

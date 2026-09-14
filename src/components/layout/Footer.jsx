@@ -30,6 +30,7 @@ export default function Footer({ t, contactEmail, whatsappNumber, language, setL
           <a href="/#projetos">{t.nav.projects}</a>
           <a href="/#solucoes">{t.nav.services}</a>
           <a href="/#contato">{t.nav.contact}</a>
+          <a href="/club">Tironi Tech Club</a>
         </div>
 
         <div>

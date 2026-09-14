@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
+import ClubHighlight from "../components/sections/ClubHighlight";
 import CookieConsent from "../components/shared/CookieConsent";
 import CountUpStat from "../components/shared/CountUpStat";
 import FloatingWhatsAppButton from "../components/ui/FloatingWhatsAppButton";
@@ -108,6 +109,11 @@ export default function MobileHome() {
         </div>
       </header>
 
+      <nav className="tt-club-mobile-nav" aria-label={t.footer.navTitle}>
+        <a href="#contato">{t.nav.contact}</a>
+        <a href="/club">Club <span aria-hidden="true">↗</span></a>
+      </nav>
+
       <main className="mobile-main">
         <section className="mobile-hero" id="inicio">
           <span className="mobile-eyebrow">{t.hero.eyebrow}</span>
@@ -118,6 +124,8 @@ export default function MobileHome() {
             <a className="mobile-btn mobile-btn-secondary" href="#servicos">{t.hero.secondaryCta}</a>
           </div>
         </section>
+
+        <ClubHighlight />
 
         <section className="mobile-section mobile-trust-section" id="clientes">
           <div className="mobile-section-head">
