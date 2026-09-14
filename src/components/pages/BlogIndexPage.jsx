@@ -7,7 +7,7 @@ import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import '../../styles/blog.css';
 
-const SITE_URL = 'https://tironitech.com';
+const SITE_URL = 'https://www.tironitech.com';
 
 function setMeta(name, content, property = false) {
   const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;

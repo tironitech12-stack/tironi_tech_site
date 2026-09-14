@@ -7,7 +7,7 @@ import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import '../../styles/blog.css';
 
-const SITE_URL = 'https://tironitech.com';
+const SITE_URL = 'https://www.tironitech.com';
 
 function updateMeta(selector, attribute, value) {
   let node = document.head.querySelector(selector);

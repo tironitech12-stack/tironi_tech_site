@@ -4,7 +4,7 @@ import { blogArticles } from '../src/content/blogArticles.js';
 
 const root = resolve('dist');
 const template = await readFile(resolve(root, 'index.html'), 'utf8');
-const origin = 'https://tironitech.com';
+const origin = 'https://www.tironitech.com';
 
 const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -12,6 +12,9 @@ const escapeHtml = (value = '') => String(value)
 
 function pageTemplate({ title, description, path, body, schema }) {
   const url = `${origin}${path}`;
+  const cleanTemplate = template
+    .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
+    .replace(/\s*<meta\s+property="og:(?:type|title|description|url)"[^>]*>/gi, '');
   const tags = [
     `<link rel="canonical" href="${url}">`,
     `<meta property="og:title" content="${escapeHtml(title)}">`,
@@ -24,7 +27,7 @@ function pageTemplate({ title, description, path, body, schema }) {
     `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`
   ].join('\n    ');
 
-  return template
+  return cleanTemplate
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
     .replace('</head>', `    ${tags}\n  </head>`)

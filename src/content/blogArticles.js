@@ -243,6 +243,166 @@ const rawBlogArticles = [
       { heading: 'Primeira versão e critérios de aceite', paragraphs: ['A primeira versão deve concluir uma jornada relevante, mesmo com escopo reduzido. Defina exemplos de entrada, saída, erro e desempenho aceitável. Priorize o que testa a hipótese de negócio e as integrações mais incertas.', 'Demonstrações frequentes permitem corrigir entendimento enquanto a mudança ainda é barata. Feedback precisa resultar em prioridade, não em uma fila sem limite.']},
       { heading: 'Operação depois do lançamento', paragraphs: ['Planeje monitoramento, suporte, cópias de segurança, permissões, treinamento e processo de mudança. Registre decisões técnicas e regras de negócio. Determine como incidentes e solicitações serão classificados.', 'A Tironi Tech desenvolve software personalizado com visão de produto: descoberta, construção, integração e evolução orientadas pelo resultado da empresa.']}
     ], cta: { title: 'Tem um processo que merece um software próprio?', text: 'Estruturamos o projeto e construímos a primeira versão com foco no resultado.', label: 'Apresentar meu projeto', href: '/#contato' }, sources: [sebrae, cetic]
+  },
+  {
+    slug: 'chatbot-para-empresas-como-funciona-beneficios',
+    title: 'Chatbot para empresas: como funciona, benefícios e quando vale a pena contratar',
+    description: 'Um guia para decidir onde um chatbot com IA gera valor em atendimento, vendas e suporte.',
+    category: 'ChatBô e atendimento', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['chatbot para empresas', 'chatbot empresarial', 'chatbot com inteligência artificial'],
+    intro: 'Um chatbot empresarial vale a pena quando existe volume de conversas, demora para responder ou dificuldade para transformar mensagens em ações. A tecnologia funciona melhor quando assume tarefas claras e entrega contexto para a equipe continuar o relacionamento.',
+    takeaways: ['Chatbot empresarial precisa estar ligado a um processo.', 'Atendimento, qualificação e suporte são aplicações diferentes.', 'Integrações transformam respostas em ações.', 'Resultado deve ser medido em tempo, qualidade e conversão.'],
+    sections: [
+      { heading: 'O que é um chatbot empresarial', paragraphs: ['É uma interface conversacional capaz de receber mensagens, identificar a necessidade e responder ou executar um próximo passo. Modelos com IA compreendem linguagem natural e consultam fontes autorizadas; fluxos estruturados controlam escolhas, dados e ações críticas.', 'A arquitetura pode combinar IA, botões, formulários e atendimento humano. Essa combinação costuma ser mais confiável do que tentar resolver toda situação com um único modelo.']},
+      { heading: 'Onde ele gera valor', paragraphs: ['Em vendas, pode apresentar soluções, coletar informações e organizar oportunidades. No suporte, orienta dúvidas frequentes e consulta status. Em operações, registra solicitações, agenda serviços e encaminha cada caso para a área correta.', 'O benefício aparece quando a conversa deixa de depender de disponibilidade imediata e passa a seguir um padrão que pode ser acompanhado.']},
+      { heading: 'Quando ainda não é a hora', paragraphs: ['Se informações estão contraditórias, não existe responsável pelo atendimento ou cada caso exige uma decisão excepcional, o primeiro trabalho é organizar o processo. Automatizar uma operação confusa apenas torna a falha mais rápida.', 'Comece reunindo perguntas reais, respostas aprovadas, regras de transferência e indicadores atuais.']},
+      { heading: 'Como escolher uma solução', paragraphs: ['Avalie integração com os canais e sistemas usados, controle das fontes, transferência para pessoas, histórico, relatórios, segurança e capacidade de evolução. Uma demonstração bonita não prova aderência à rotina.', 'O ChatBô é o produto da Tironi Tech para estruturar conversas que atendem, qualificam e movimentam processos conforme as regras da empresa.']},
+      { heading: 'Como medir o retorno', paragraphs: ['Compare tempo até a primeira resposta, conclusão, contatos qualificados, resolução, transferências e conversão. Observe também as perguntas que o sistema não compreende e os pontos de abandono.', 'Um chatbot bem gerido melhora continuamente. As conversas reais mostram quais informações e automações devem entrar na próxima versão.']}
+    ], cta: { title: 'Quer um chatbot alinhado à sua empresa?', text: 'Conheça o ChatBô e transforme atendimento em um processo comercial organizado.', label: 'Conhecer o ChatBô', href: 'https://www.chatbo.com.br/' }, sources: [metaPlatform, metaFlows, cetic]
+  },
+  {
+    slug: 'quanto-custa-chatbot-com-ia-whatsapp',
+    title: 'Quanto custa um chatbot com IA para WhatsApp?',
+    description: 'Entenda os componentes do investimento e como comparar propostas sem olhar apenas a mensalidade.',
+    category: 'ChatBô e atendimento', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['quanto custa chatbot com IA', 'preço chatbot WhatsApp', 'valor chatbot para empresas'],
+    intro: 'O custo de um chatbot com IA depende menos do número de telas e mais do processo que ele precisa compreender, dos sistemas que deve acessar e do risco das ações realizadas. Comparar apenas mensalidades costuma esconder implantação, uso, integração e manutenção.',
+    takeaways: ['Separe implantação, plataforma, mensagens e evolução.', 'Integrações e autonomia aumentam complexidade.', 'Calcule o custo atual do atendimento e das oportunidades perdidas.', 'Exija escopo, métricas e responsabilidades claras.'],
+    sections: [
+      { heading: 'O que compõe o preço', paragraphs: ['O investimento pode incluir diagnóstico, desenho das jornadas, configuração do canal oficial, base de conhecimento, desenvolvimento de integrações, treinamento, infraestrutura, consumo de IA e acompanhamento. Cada fornecedor agrupa esses itens de forma diferente.', 'Uma proposta precisa declarar limites de conversas, usuários, canais, integrações, suporte e mudanças incluídas.']},
+      { heading: 'Por que integrações mudam o orçamento', paragraphs: ['Responder uma dúvida pública é diferente de consultar pedido, agenda ou contrato. Acesso a sistemas exige autenticação, regras, tratamento de falhas e testes. Atualizar dados ou executar ações exige ainda mais controle.', 'O preço deve refletir a jornada necessária e o impacto de um erro, não apenas o volume de perguntas.']},
+      { heading: 'Como calcular o retorno', paragraphs: ['Meça horas gastas em triagem, demora, retrabalho, contatos abandonados e capacidade limitada fora do horário. Depois estime quanto o sistema pode reduzir ou absorver, usando um cenário conservador.', 'Tempo liberado só vira benefício quando a equipe o direciona a negociações, casos complexos ou maior capacidade de atendimento.']},
+      { heading: 'O barato que sai caro', paragraphs: ['Soluções sem transferência adequada, fontes controladas ou integração produzem respostas, mas não resolvem o processo. A equipe continua copiando dados e o cliente continua repetindo informações.', 'Também verifique o uso da API oficial do WhatsApp, as regras para mensagens e a possibilidade de exportar seus dados.']},
+      { heading: 'Como pedir uma proposta comparável', paragraphs: ['Descreva volume, canais, principais intenções, sistemas, horários, metas e exceções. Peça uma primeira fase com critérios de aceite e indicadores. Isso permite comparar abordagens e não apenas tabelas de funcionalidades.', 'O ChatBô é configurado a partir da necessidade operacional, permitindo que a implantação seja dimensionada de forma responsável.']}
+    ], cta: { title: 'Quer dimensionar o investimento do seu atendimento?', text: 'Apresente sua operação e descubra como o ChatBô pode ser implantado.', label: 'Solicitar uma conversa', href: 'https://www.chatbo.com.br/' }, sources: [metaPlatform, metaFlows]
+  },
+  {
+    slug: 'melhor-chatbot-para-whatsapp-como-escolher',
+    title: 'Melhor chatbot para WhatsApp: 12 critérios para escolher com segurança',
+    description: 'O que avaliar em IA, integrações, atendimento humano, dados e capacidade de evolução.',
+    category: 'ChatBô e atendimento', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['melhor chatbot para WhatsApp', 'chatbot WhatsApp com IA', 'plataforma de chatbot'],
+    intro: 'O melhor chatbot não é o que reúne mais recursos. É o que resolve a jornada prioritária, opera dentro das regras do canal e pode ser administrado sem transformar cada mudança em um novo problema.',
+    takeaways: ['Escolha pela jornada e pelo risco.', 'Confirme o uso da plataforma oficial.', 'Teste transferência, fontes e falhas.', 'Avalie custo total e capacidade de evolução.'],
+    sections: [
+      { heading: '1. Canal oficial e conformidade', paragraphs: ['Confirme como a solução se conecta à WhatsApp Business Platform, quem administra a conta e como funcionam templates, consentimento e janelas de atendimento. Atalhos não oficiais podem comprometer continuidade e reputação.', 'Verifique também proteção, retenção e acesso aos dados das conversas.']},
+      { heading: '2. Inteligência e controle', paragraphs: ['Pergunte de onde vêm as respostas, como fontes são atualizadas e o que acontece quando a IA não tem confiança. Teste perguntas incompletas, contraditórias e fora do escopo.', 'Uma boa solução reconhece limites, evita improviso e oferece saída clara.']},
+      { heading: '3. Integrações e ações', paragraphs: ['CRM, agenda, ERP e sistemas próprios tornam a conversa útil para a operação. Avalie consultas, registros, autenticação, logs e tratamento de indisponibilidade.', 'Prefira começar com uma integração que conclua a jornada principal.']},
+      { heading: '4. Pessoas e gestão', paragraphs: ['A transferência deve levar histórico e resumo, permitir distribuição e mostrar quem assumiu. A equipe precisa revisar conversas, atualizar conteúdo e acompanhar indicadores sem depender de desenvolvimento para tarefas comuns.', 'Teste a experiência do atendente além da experiência do cliente.']},
+      { heading: '5. Resultado e evolução', paragraphs: ['Compare implantação, consumo, suporte e melhorias. Exija indicadores de resposta, conclusão, qualificação, resolução e conversão. O fornecedor deve ajudar a transformar esses dados em ajustes.', 'O ChatBô combina experiência conversacional e desenho de automação com a capacidade de desenvolvimento da Tironi Tech.']}
+    ], cta: { title: 'Avalie o ChatBô no contexto da sua operação.', text: 'Mapeie a jornada prioritária e veja como ela pode funcionar no WhatsApp.', label: 'Conhecer o ChatBô', href: 'https://www.chatbo.com.br/' }, sources: [metaPlatform, metaFlows]
+  },
+  {
+    slug: 'chatbot-para-captacao-de-leads',
+    title: 'Chatbot para captação de leads: como transformar visitantes em oportunidades',
+    description: 'Estruture abordagem, qualificação e encaminhamento sem depender de formulários longos.',
+    category: 'ChatBô e atendimento', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['chatbot para captação de leads', 'chatbot para vendas', 'automação de leads'],
+    intro: 'Um chatbot de captação funciona quando entrega valor antes de pedir dados e conduz o visitante ao próximo passo. A conversa precisa reduzir dúvida, entender intenção e registrar contexto suficiente para uma abordagem comercial relevante.',
+    takeaways: ['Ofereça orientação antes de pedir contato.', 'Faça perguntas que mudam o próximo passo.', 'Preserve origem e contexto do lead.', 'Meça qualidade e conversão, não somente volume.'],
+    sections: [
+      { heading: 'Por que formulários perdem contexto', paragraphs: ['Campos capturam dados, mas raramente registram a dúvida, a urgência e o que motivou a pessoa. Uma conversa pode adaptar perguntas e esclarecer a oferta enquanto identifica a necessidade.', 'O objetivo não é tornar o fluxo longo. É coletar o mínimo que permite avançar.']},
+      { heading: 'A primeira mensagem', paragraphs: ['Evite saudações genéricas seguidas de uma lista interminável. Use a origem da página para oferecer caminhos relevantes e permita que a pessoa escreva livremente.', 'Confirme o entendimento e explique o benefício do próximo dado solicitado.']},
+      { heading: 'Qualificação sem interrogatório', paragraphs: ['Combine perguntas fechadas para dados estruturados com uma pergunta aberta sobre o problema. Necessidade, prazo, perfil e disponibilidade costumam ser mais úteis do que dezenas de campos.', 'Dados pessoais devem ter finalidade clara e tratamento compatível com a operação.']},
+      { heading: 'Encaminhamento e acompanhamento', paragraphs: ['Entregue ao comercial um resumo, origem, respostas e ação esperada. Se possível, registre no CRM e crie a tarefa seguinte. O cliente não deve repetir o que já informou.', 'O ChatBô pode conectar site e WhatsApp a essa jornada, mantendo continuidade entre conversa e equipe.']},
+      { heading: 'Indicadores de aquisição', paragraphs: ['Acompanhe início, conclusão, contatos válidos, leads aceitos, reuniões e vendas. Compare páginas e campanhas, pois públicos diferentes geram taxas diferentes.', 'Analise onde as pessoas abandonam e quais dúvidas aparecem antes da conversão para melhorar conteúdo e oferta.']}
+    ], cta: { title: 'Converta interesse em uma conversa útil.', text: 'Use o ChatBô para orientar, captar e organizar oportunidades.', label: 'Conhecer o ChatBô', href: 'https://www.chatbo.com.br/' }, sources: [metaFlows, metaPlatform]
+  },
+  {
+    slug: 'chatbot-integrado-ao-crm',
+    title: 'Chatbot integrado ao CRM: como conectar atendimento, histórico e vendas',
+    description: 'O desenho técnico e comercial para evitar cadastros duplicados e leads sem acompanhamento.',
+    category: 'ChatBô e atendimento', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['chatbot integrado ao CRM', 'integração WhatsApp CRM', 'chatbot para vendas'],
+    intro: 'Sem integração, o chatbot termina onde o trabalho comercial começa. Conectado ao CRM, ele pode localizar contatos, registrar intenção, atualizar campos e criar a próxima atividade, preservando o contexto da conversa.',
+    takeaways: ['Defina o CRM como fonte de verdade comercial.', 'Evite criar contatos sem critérios de deduplicação.', 'Registre resumo e próxima ação.', 'Projete filas e recuperação para falhas.'],
+    sections: [
+      { heading: 'O fluxo de ponta a ponta', paragraphs: ['Mapeie a entrada da mensagem, identificação do contato, qualificação, criação ou atualização do registro, distribuição e acompanhamento. Determine quais dados são obrigatórios e quem pode alterá-los.', 'A integração deve concluir uma jornada, não apenas enviar um nome para outra ferramenta.']},
+      { heading: 'Identificação e duplicidade', paragraphs: ['Telefone, e-mail e identificadores internos ajudam a localizar registros existentes. Defina como tratar números compartilhados, mudanças de contato e cadastros incompletos.', 'Uma regra ruim multiplica leads e destrói a visão do histórico.']},
+      { heading: 'O que registrar', paragraphs: ['Além dos campos estruturados, salve origem, intenção, resumo, consentimentos e próximo passo. O histórico completo pode permanecer no sistema de atendimento, com um link ou resumo no CRM.', 'Registre somente o necessário para a finalidade comercial e operacional.']},
+      { heading: 'Falhas e consistência', paragraphs: ['A API pode ficar indisponível ou rejeitar dados. Use tentativas controladas, identificadores únicos e uma fila visível para impedir duplicação ou perda. Informe à equipe quando uma etapa precisa de correção.', 'Webhooks ajudam a acompanhar eventos da conversa e manter estados sincronizados.']},
+      { heading: 'ChatBô como parte da operação', paragraphs: ['O ChatBô pode ser conectado ao ambiente comercial por integrações desenvolvidas conforme o CRM e as regras da empresa. A Tironi Tech cuida do elo entre experiência conversacional e software.', 'O resultado esperado é menos trabalho de cadastro, mais contexto e acompanhamento consistente.']}
+    ], cta: { title: 'Faça o atendimento continuar dentro do seu CRM.', text: 'Conecte o ChatBô ao processo comercial da empresa.', label: 'Conversar sobre integração', href: 'https://www.chatbo.com.br/' }, sources: [metaPlatform, metaFlows]
+  },
+  {
+    slug: 'empresa-de-desenvolvimento-de-ia-como-escolher',
+    title: 'Empresa de desenvolvimento de IA: como escolher uma parceira para o seu projeto',
+    description: 'Critérios para avaliar diagnóstico, dados, integração, segurança e capacidade de entregar resultado.',
+    category: 'Automação com IA', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['empresa de desenvolvimento de IA', 'desenvolvimento com inteligência artificial', 'empresa de IA'],
+    intro: 'Escolher uma empresa de desenvolvimento de IA exige avaliar muito mais do que modelos e demonstrações. A parceira precisa compreender o processo, trabalhar com dados reais, integrar sistemas e assumir critérios de qualidade depois do lançamento.',
+    takeaways: ['Procure visão de negócio e engenharia.', 'Peça uma fase de diagnóstico mensurável.', 'Valide segurança, fontes e limites.', 'Avalie sustentação e evolução.'],
+    sections: [
+      { heading: 'Comece pelo problema apresentado', paragraphs: ['Uma boa empresa pergunta sobre usuários, volume, exceções, custo atual e resultado esperado antes de indicar tecnologia. Desconfie de propostas que começam pelo nome de um modelo ou por uma lista genérica de recursos.', 'O projeto deve ter uma hipótese clara e um processo prioritário.']},
+      { heading: 'Examine a capacidade de integração', paragraphs: ['IA aplicada costuma depender de CRM, ERP, documentos, banco de dados ou APIs. A equipe precisa dominar autenticação, dados, tratamento de falhas e observabilidade, além da camada de modelo.', 'Peça exemplos de como o sistema funciona quando uma fonte está indisponível ou uma resposta é incerta.']},
+      { heading: 'Dados, segurança e avaliação', paragraphs: ['Confirme quais informações serão usadas, onde ficam, quem acessa e como são descartadas. Defina um conjunto de casos para medir correção, cobertura, segurança e desempenho.', 'A aprovação deve considerar o comportamento no processo real, não uma conversa selecionada para demonstração.']},
+      { heading: 'Modelo de entrega', paragraphs: ['Um piloto curto deve percorrer a jornada principal e produzir aprendizado. Critérios de aceite, responsabilidades, documentação e rotina de revisão precisam aparecer na proposta.', 'Pergunte também como custos variáveis serão acompanhados e como mudanças de modelo afetam o produto.']},
+      { heading: 'Por que escolher a Tironi Tech', paragraphs: ['A Tironi Tech combina desenvolvimento de software, automação, integração e IA aplicada. Isso permite construir a solução completa ao redor da operação, incluindo interfaces, dados e evolução.', 'O foco é transformar um gargalo mensurável em produto digital confiável.']}
+    ], cta: { title: 'Tem um projeto de IA para tirar do papel?', text: 'Apresente o processo e receba uma direção técnica e comercial.', label: 'Falar com a Tironi Tech', href: '/#contato' }, sources: [sebrae, cetic]
+  },
+  {
+    slug: 'desenvolvimento-de-ia-sob-medida',
+    title: 'Desenvolvimento de IA sob medida: etapas, custos e cuidados essenciais',
+    description: 'Como uma solução personalizada sai do diagnóstico e chega à operação com segurança.',
+    category: 'Automação com IA', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['desenvolvimento de IA sob medida', 'solução de IA personalizada', 'software com IA'],
+    intro: 'IA sob medida não significa treinar um modelo do zero. Na maioria dos projetos, significa combinar modelos disponíveis, dados autorizados, regras, integrações e uma experiência construída para um processo específico.',
+    takeaways: ['Personalização está no processo e nos dados.', 'Comece por uma hipótese de valor.', 'Avalie qualidade com casos representativos.', 'Planeje custos de uso e manutenção.'],
+    sections: [
+      { heading: 'Diagnóstico e viabilidade', paragraphs: ['Mapeie a tarefa, volume, dados, pessoas, exceções e impacto de erro. Determine se IA é necessária ou se regras e automação convencional resolvem com mais previsibilidade.', 'Defina uma linha de base e o resultado que justificará continuar.']},
+      { heading: 'Arquitetura da solução', paragraphs: ['Escolha como o sistema recupera conhecimento, chama ferramentas, valida respostas e registra ações. Separe componentes para que modelos ou fornecedores possam mudar sem reconstruir todo o produto.', 'Use permissões mínimas e mantenha decisões críticas sob controle adequado.']},
+      { heading: 'Protótipo e avaliação', paragraphs: ['Crie casos de teste com exemplos comuns, difíceis e proibidos. Meça correção, cobertura, tempo, custo e comportamento quando não há resposta. Usuários reais devem participar da avaliação.', 'Um protótipo só é útil quando testa as maiores incertezas do projeto.']},
+      { heading: 'Implantação e operação', paragraphs: ['Integre gradualmente, acompanhe logs e mantenha rota manual. Documente fontes, instruções, versões e mudanças. Defina quem atualiza conteúdo e quem responde por incidentes.', 'IA em produção exige acompanhamento porque dados, modelos e necessidades mudam.']},
+      { heading: 'Como o custo é formado', paragraphs: ['O investimento inclui descoberta, software, integrações, infraestrutura, consumo de modelos, segurança e evolução. O retorno deve ser comparado ao custo atual e ao ganho de capacidade.', 'A Tironi Tech estrutura esse ciclo completo, usando componentes prontos quando fazem sentido e desenvolvimento próprio onde existe diferenciação.']}
+    ], cta: { title: 'Construa IA em torno do seu processo.', text: 'Desenhamos, integramos e evoluímos soluções personalizadas.', label: 'Iniciar um diagnóstico', href: '/#contato' }, sources: [sebrae, cetic]
+  },
+  {
+    slug: 'empresa-de-automacao-com-ia-o-que-faz',
+    title: 'Empresa de automação com IA: o que faz e como pode reduzir gargalos',
+    description: 'Entenda serviços, entregáveis e resultados esperados de uma parceira de automação inteligente.',
+    category: 'Automação com IA', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['empresa de automação com IA', 'automação inteligente', 'serviços de automação de processos'],
+    intro: 'Uma empresa de automação com IA analisa processos, conecta sistemas e aplica inteligência onde interpretação ou geração ajudam o fluxo. O trabalho vai do diagnóstico ao monitoramento e deve produzir uma operação mais rápida, confiável ou capaz.',
+    takeaways: ['Automação começa pelo mapeamento.', 'IA entra onde regras fixas não bastam.', 'Integração é parte central da entrega.', 'O contrato deve prever acompanhamento e evolução.'],
+    sections: [
+      { heading: 'Diagnóstico de oportunidades', paragraphs: ['A equipe identifica repetição, espera, erros, decisões e movimentação manual de dados. Cada oportunidade é avaliada por impacto, viabilidade, risco e dependências.', 'O resultado deve ser uma prioridade clara, não apenas uma lista de ideias.']},
+      { heading: 'Desenho do processo futuro', paragraphs: ['Etapas desnecessárias são removidas, responsáveis e exceções são definidos e a fonte de verdade de cada dado é escolhida. Só então entram conectores, regras e IA.', 'Esse desenho impede que a empresa automatize retrabalho.']},
+      { heading: 'Desenvolvimento e integração', paragraphs: ['A solução pode combinar APIs, filas, bancos de dados, modelos de IA, painéis e notificações. Controles de acesso, registros e recuperação de falhas precisam ser tratados como requisitos.', 'Uma primeira versão deve concluir uma jornada relevante.']},
+      { heading: 'Implantação e melhoria', paragraphs: ['A empresa parceira acompanha uso, falhas e indicadores, treina responsáveis e ajusta regras. Automação sem gestão tende a perder aderência conforme a operação muda.', 'A documentação deve permitir entender o fluxo e seus limites.']},
+      { heading: 'A atuação da Tironi Tech', paragraphs: ['A Tironi Tech desenvolve automações com IA, integrações, chatbots e software personalizado. Isso permite escolher a arquitetura conforme a necessidade, sem limitar o projeto a uma ferramenta única.', 'O objetivo é reduzir atrito e criar capacidade operacional mensurável.']}
+    ], cta: { title: 'Quer identificar o melhor processo para automatizar?', text: 'A Tironi Tech transforma gargalos em fluxos inteligentes.', label: 'Solicitar diagnóstico', href: '/#contato' }, sources: [sebrae, cetic]
+  },
+  {
+    slug: 'automacao-comercial-com-ia',
+    title: 'Automação comercial com IA: como organizar leads, propostas e follow-up',
+    description: 'Um fluxo prático para conectar aquisição, atendimento e acompanhamento de oportunidades.',
+    category: 'Automação com IA', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['automação comercial com IA', 'IA para vendas', 'automação de vendas'],
+    intro: 'A automação comercial deve reduzir o intervalo entre interesse e próxima ação. Ela organiza dados, sugere prioridades e executa tarefas repetitivas, enquanto vendedores concentram esforço em diagnóstico, negociação e relacionamento.',
+    takeaways: ['Mapeie o funil real antes de automatizar.', 'Conecte origem, conversa e CRM.', 'Automatize follow-up com contexto e consentimento.', 'Mantenha o vendedor responsável pela decisão.'],
+    sections: [
+      { heading: 'Entrada e identificação', paragraphs: ['Capture origem, campanha, página, contato e intenção sem criar cadastros duplicados. Um chatbot como o ChatBô pode iniciar a conversa e estruturar informações antes do encaminhamento.', 'O CRM deve receber dados suficientes para definir a próxima ação.']},
+      { heading: 'Qualificação e prioridade', paragraphs: ['Use regras para critérios objetivos e IA para resumir mensagens ou classificar necessidades. Explique a pontuação à equipe e revise com oportunidades ganhas e perdidas.', 'Nenhum score deve eliminar silenciosamente um contato relevante.']},
+      { heading: 'Propostas e materiais', paragraphs: ['Automação pode preencher modelos, selecionar materiais e preparar rascunhos com dados confirmados. Valores, condições e compromissos devem seguir aprovação compatível com o risco.', 'Registre versão e responsável para evitar documentos divergentes.']},
+      { heading: 'Follow-up responsável', paragraphs: ['Crie tarefas e mensagens a partir do estágio, do interesse e do próximo passo combinado. Respeite regras do canal e permita interrupção. Sequências genéricas em excesso prejudicam confiança.', 'A IA pode ajudar a personalizar o contexto, mas não deve inventar urgência.']},
+      { heading: 'Métricas do fluxo', paragraphs: ['Acompanhe tempo de resposta, avanço, reuniões, propostas, conversão e ciclo de venda. Separe ganho de eficiência de aumento de receita e compare por origem.', 'A Tironi Tech integra atendimento, CRM e automações para formar uma operação comercial contínua.']}
+    ], cta: { title: 'Conecte atendimento e vendas em um único fluxo.', text: 'Combine ChatBô, CRM e automações desenvolvidas para sua empresa.', label: 'Conversar sobre automação comercial', href: '/#contato' }, sources: [metaPlatform, cetic]
+  },
+  {
+    slug: 'ia-personalizada-para-empresas',
+    title: 'IA personalizada para empresas: aplicações, arquitetura e primeiros passos',
+    description: 'Como adaptar inteligência artificial a dados, regras e sistemas específicos do negócio.',
+    category: 'Automação com IA', date: '2026-09-14', updated: '2026-09-14',
+    keywords: ['IA personalizada para empresas', 'inteligência artificial personalizada', 'soluções de IA para empresas'],
+    intro: 'Uma IA personalizada conhece fontes autorizadas, respeita regras do negócio e participa de um processo específico. A personalização pode ocorrer em conhecimento, instruções, ferramentas, interface, avaliações e integrações, sem exigir a criação de um modelo fundamental.',
+    takeaways: ['Defina o que precisa ser específico.', 'Organize fontes e permissões.', 'Use a arquitetura mais simples que resolve.', 'Avalie continuamente com situações reais.'],
+    sections: [
+      { heading: 'O que pode ser personalizado', paragraphs: ['Tom, vocabulário, documentos, catálogos, políticas, critérios, ações e interface podem refletir a empresa. A IA também pode consultar dados do usuário conforme autenticação e finalidade.', 'Personalização útil reduz ambiguidade e melhora a execução, em vez de apenas mudar a aparência.']},
+      { heading: 'Principais aplicações', paragraphs: ['Atendimento, busca interna, análise documental, classificação, apoio comercial, relatórios e assistência operacional são pontos comuns. Priorize uma tarefa com volume e resultado observável.', 'O ChatBô aplica personalização ao atendimento; outras jornadas podem exigir software próprio.']},
+      { heading: 'Arquitetura e dados', paragraphs: ['Mantenha fontes organizadas, defina atualização e controle quem pode consultar ou alterar. Conectores devem expor apenas as ações necessárias. Registre entradas, decisões e resultados conforme a sensibilidade.', 'A resposta precisa indicar quando não há evidência suficiente.']},
+      { heading: 'Avaliação antes de publicar', paragraphs: ['Teste casos comuns, limites, dados ausentes, instruções maliciosas e indisponibilidade. Avalie correção, utilidade, segurança, tempo e custo. Pessoas responsáveis precisam aprovar o comportamento esperado.', 'A qualidade deve ser acompanhada após mudanças de conteúdo ou modelo.']},
+      { heading: 'Comece com uma jornada', paragraphs: ['Escolha um grupo, uma fonte e uma ação final. Implante com rota manual e compare com a linha de base. Expanda somente quando o fluxo provar valor e confiança.', 'A Tironi Tech cria soluções de IA personalizadas conectando produto, software e automação.']}
+    ], cta: { title: 'A IA precisa aprender o contexto do seu negócio?', text: 'Criamos uma solução personalizada para dados, regras e jornadas reais.', label: 'Apresentar uma oportunidade', href: '/#contato' }, sources: [sebrae, cetic]
   }
 ];
 
