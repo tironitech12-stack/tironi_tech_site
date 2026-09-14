@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
 import ClubHighlight from "../components/sections/ClubHighlight";
+import HeroPitch from "../components/shared/HeroPitch";
 import CookieConsent from "../components/shared/CookieConsent";
 import CountUpStat from "../components/shared/CountUpStat";
 import FloatingWhatsAppButton from "../components/ui/FloatingWhatsAppButton";
@@ -115,14 +116,8 @@ export default function MobileHome() {
       </nav>
 
       <main className="mobile-main">
-        <section className="mobile-hero" id="inicio">
-          <span className="mobile-eyebrow">{t.hero.eyebrow}</span>
-          <h1 className="mobile-hero-title">{t.hero.title}</h1>
-          <p className="mobile-hero-text">{t.hero.description}</p>
-          <div className="mobile-hero-actions">
-            <a className="mobile-btn mobile-btn-primary" href="#contato">{t.hero.primaryCta}</a>
-            <a className="mobile-btn mobile-btn-secondary" href="#servicos">{t.hero.secondaryCta}</a>
-          </div>
+        <section className="mobile-hero tt-hero-impact" id="inicio">
+          <HeroPitch copy={t.hero} mobile />
         </section>
 
         <ClubHighlight />
