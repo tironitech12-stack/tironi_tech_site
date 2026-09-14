@@ -1,0 +1,199 @@
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.site-intro__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(146, 66, 255, 0.16), transparent 34%),
+    radial-gradient(circle at top right, rgba(44, 97, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #040611 0%, #050816 55%, #070b18 100%);
+}
+
+.site-intro__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(144, 112, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(144, 112, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.18;
+}
+
+.site-intro__glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(28px);
+  animation: introGlowPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.site-intro__glow--one {
+  width: 280px;
+  height: 280px;
+  background: rgba(148, 71, 255, 0.28);
+}
+
+.site-intro__glow--two {
+  width: 220px;
+  height: 220px;
+  background: rgba(45, 101, 255, 0.2);
+  animation-delay: 0.4s;
+}
+
+.site-intro__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: introRise 0.9s ease;
+}
+
+.site-intro__logoWrap {
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(120, 0, 255, 0.18), rgba(42, 101, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+}
+
+.site-intro__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(119, 97, 255, 0.28));
+}
+
+.site-intro__title {
+  margin: 0;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+}
+
+.site-intro__subtitle {
+  margin: 14px 0 0;
+  color: rgba(240, 243, 255, 0.78);
+}
+
+.site-intro.is-desktop .site-intro__title {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+}
+
+.site-intro.is-desktop .site-intro__subtitle {
+  font-size: 1.15rem;
+}
+
+.site-intro.is-mobile .site-intro__title {
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
+}
+
+.site-intro.is-mobile .site-intro__subtitle {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.site-intro.enter {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-intro.fade {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.site-intro.is-desktop .site-intro__content {
+  padding: 28px;
+}
+
+/* Símbolo bem grande */
+.site-intro.is-desktop .site-intro__logoWrap {
+  width: min(720px, 92vw);
+  height: min(720px, 92vw);
+  border-radius: 28px;
+  margin-bottom: 18px;
+}
+
+.site-intro.is-mobile .site-intro__content {
+  width: min(92vw, 390px);
+  padding: 16px 18px 22px;
+  text-align: center;
+}
+
+.site-intro.is-mobile .site-intro__logoWrap {
+  width: auto;
+  height: auto;
+  margin: 0 auto 18px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.site-intro.is-mobile .site-intro__logoWrap::before,
+.site-intro.is-mobile .site-intro__logoWrap::after {
+  display: none !important;
+  content: none !important;
+}
+
+.site-intro.is-mobile .site-intro__logo {
+  width: clamp(220px, 58vw, 290px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 28px rgba(122, 77, 255, 0.18));
+}
+
+.site-intro.is-mobile .site-intro__title {
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  line-height: 0.98;
+}
+
+.site-intro.is-mobile .site-intro__subtitle {
+  max-width: 18ch;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(240, 243, 255, 0.82);
+}
+
+@keyframes introRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes introGlowPulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
