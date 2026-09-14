@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
+import BlogHighlight from "../components/sections/BlogHighlight";
 import ClubHighlight from "../components/sections/ClubHighlight";
 import HeroPitch from "../components/shared/HeroPitch";
 import CookieConsent from "../components/shared/CookieConsent";
@@ -177,6 +178,7 @@ export default function MobileHome() {
         </section>
 
         <ChatboSpotlight t={t} />
+        <BlogHighlight />
 
         <section className="mobile-section" id="projetos">
           <div className="mobile-section-head">

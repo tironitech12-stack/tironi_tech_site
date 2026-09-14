@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import ResponsiveHome from "./responsive/ResponsiveHome";
 import LegalPolicyPage from "./components/pages/LegalPolicyPage";
 import ClubPage from "./components/pages/ClubPage";
+import BlogIndexPage from "./components/pages/BlogIndexPage";
+import BlogArticlePage from "./components/pages/BlogArticlePage";
 import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
 
@@ -27,6 +29,14 @@ function AppContent() {
 
   if (pathname === "/club" || pathname === "/club/") {
     return <ClubPage />;
+  }
+
+  if (pathname === "/blog" || pathname === "/blog/") {
+    return <BlogIndexPage />;
+  }
+
+  if (pathname.startsWith("/blog/")) {
+    return <BlogArticlePage slug={decodeURIComponent(pathname.replace(/^\/blog\//, "").replace(/\/$/, ""))} />;
   }
 
   if (pathname === "/politica-privacidade") {

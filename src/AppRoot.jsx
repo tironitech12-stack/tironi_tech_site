@@ -15,6 +15,7 @@ import FeaturedProjectsSection from "./components/sections/FeaturedProjectsSecti
 import SolutionsSection from "./components/sections/SolutionsSection";
 import ChatboSpotlight from "./components/sections/ChatboSpotlight";
 import ClubHighlight from "./components/sections/ClubHighlight";
+import BlogHighlight from "./components/sections/BlogHighlight";
 import CasesSection from "./components/sections/CasesSection";
 import ProcessSection from "./components/sections/ProcessSection";
 import WhyChooseSection from "./components/sections/WhyChooseSection";
@@ -70,6 +71,7 @@ export default function AppRoot() {
           <ExperienceSection t={t} />
           <SolutionsSection t={t} />
           <ChatboSpotlight t={t} />
+          <BlogHighlight />
           <FeaturedProjectsSection t={t} />
           <CasesSection t={t} />
           <ProcessSection t={t} />

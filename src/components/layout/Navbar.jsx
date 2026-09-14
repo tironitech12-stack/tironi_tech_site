@@ -68,6 +68,7 @@ export default function Navbar({ t, language, setLanguage, languageOptions }) {
           <a href={`${sectionHrefPrefix}#experiencia`} onClick={closeMenu}>{structureLabel}</a>
           <a href={`${sectionHrefPrefix}#projetos`} onClick={closeMenu}>{t.nav.projects}</a>
           <a href={`${sectionHrefPrefix}#solucoes`} onClick={closeMenu}>{t.nav.services}</a>
+          <a href="/blog" onClick={closeMenu} aria-current={typeof window !== "undefined" && /^\/blog(?:\/|$)/.test(window.location.pathname) ? "page" : undefined}>Blog</a>
           <a href={`${sectionHrefPrefix}#contato`} onClick={closeMenu}>{t.nav.contact}</a>
           <a href="/club" onClick={closeMenu} aria-current={typeof window !== "undefined" && /^\/club\/?$/.test(window.location.pathname) ? "page" : undefined}>Club</a>
         </nav>
