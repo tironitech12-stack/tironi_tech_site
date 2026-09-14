@@ -67,3 +67,73 @@ html[data-theme="club"] .tt-hero-pitch-promise { max-width: 660px; margin: 0 aut
   .tt-hero-ray-three { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .tt-hero-pitch-primary { transition: none; } .tt-hero-impact::before, .tt-hero-fx::before, .tt-hero-fx::after, .tt-hero-ray, .tt-hero-orb, .tt-hero-spark { animation: none; } }
+
+/* Two-column creative-dev hero, adapted to TironiTech's blue identity. */
+.tt-hero-impact .tt2-hero-inner-simple { display: block !important; max-width: 1280px; }
+html[data-theme="club"] .tt-hero-impact { min-height: 690px; padding: clamp(62px, 7vw, 94px) 0 76px; }
+.tt-hero-pitch { display: grid; grid-template-columns: minmax(0, .94fr) minmax(450px, 1.06fr); align-items: center; gap: clamp(44px, 6vw, 88px); width: 100%; text-align: left; }
+.tt-hero-pitch-copy { min-width: 0; }
+.tt-hero-fx { inset: -180px -18vw -120px; background-image: radial-gradient(circle, #b7dfff24 1px, transparent 1.3px); background-size: 17px 17px; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); opacity: .92; animation: ttHeroDots 28s linear infinite; }
+.tt-hero-fx::before { width: 720px; height: 720px; left: 28%; top: 52%; background: radial-gradient(circle, #5750c838, #087ec51b 42%, transparent 72%); filter: blur(12px); }
+.tt-hero-fx::after { width: 92%; height: 280px; top: 42%; background: linear-gradient(90deg, transparent, #2467d436 20%, #a653ff55 52%, #287bd138 78%, transparent); filter: blur(48px); opacity: .65; }
+.tt-hero-ray { top: 5%; width: 54%; height: 34%; border-radius: 50%; transform: rotate(-13deg); background: linear-gradient(90deg, transparent, #195da22e 26%, #974eff3d 52%, #3f9fd72f 75%, transparent); filter: blur(34px); }
+.tt-hero-ray::after { display: none; }
+.tt-hero-ray-one { left: -24%; top: 34%; }
+.tt-hero-ray-two { left: 25%; top: 12%; width: 62%; opacity: .68; }
+.tt-hero-ray-three { right: -24%; top: 53%; width: 58%; opacity: .52; }
+.tt-hero-orb-one { left: 32%; top: 10%; background: #6e38df24; }
+.tt-hero-orb-two { right: 0; bottom: 0; background: #136ecb22; }
+
+html[data-theme="club"] .tt-hero-pitch-title { margin: 26px 0 24px; font-size: clamp(43px, 4.5vw, 68px); line-height: 1.03; text-wrap: balance; }
+.tt-hero-pitch-title > span, .tt-hero-pitch-title > strong { display: inline; }
+.tt-hero-pitch-title > strong { background: linear-gradient(105deg, #70ccff 2%, #9587ff 54%, #bd59ff 98%); background-clip: text; -webkit-background-clip: text; }
+html[data-theme="club"] .tt-hero-pitch-promise { max-width: 570px; margin: 0; font-size: 17px; line-height: 1.7; }
+.tt-hero-pitch-actions { justify-content: flex-start; margin-top: 30px; }
+.tt-hero-transformations { justify-content: flex-start; margin-top: 28px; }
+
+.tt-hero-console { position: relative; min-width: 0; border: 1px solid #8061aa5c; border-radius: 18px; background: #120d1bc9; box-shadow: 0 28px 90px #0008, 0 0 80px #8f43df18, inset 0 1px 0 #ffffff0d; backdrop-filter: blur(16px); overflow: hidden; transform: perspective(1200px) rotateY(-2deg); }
+.tt-hero-console::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, #ffffff08, transparent 35%, #9e58de0b); }
+.tt-hero-console-bar { display: flex; justify-content: space-between; align-items: center; min-height: 50px; padding: 0 18px; border-bottom: 1px solid #8c6aa62b; color: #a995b7; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; }
+.tt-hero-console-dots { display: flex; gap: 7px; }
+.tt-hero-console-dots i { width: 10px; height: 10px; border-radius: 50%; background: #ffffff18; border: 1px solid #ffffff09; }
+.tt-hero-console-body { position: relative; padding: 30px; }
+.tt-hero-console-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 24px; }
+.tt-hero-console-head small { color: #b27aff; font-size: 9px; letter-spacing: .16em; }
+html[data-theme="club"] .tt-hero-console-head h2 { margin: 8px 0 0; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.035em; }
+.tt-hero-console-status { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid #7e60965e; border-radius: 999px; color: #ccb8db; font-size: 10px; white-space: nowrap; }
+.tt-hero-console-status i { width: 6px; height: 6px; border-radius: 50%; background: #65d7ff; box-shadow: 0 0 10px #65d7ff; animation: ttConsolePulse 2s ease-in-out infinite; }
+.tt-hero-console-flow { display: grid; gap: 10px; }
+.tt-hero-console-row { display: grid; grid-template-columns: 28px minmax(0, 1fr) 82px; align-items: center; gap: 12px; padding: 14px; border: 1px solid #8d69ab32; border-radius: 11px; background: #ffffff05; }
+.tt-hero-console-row > span { color: #86699e; font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.tt-hero-console-row small { display: block; color: #a793b7; font-size: 10px; margin-bottom: 5px; }
+.tt-hero-console-row strong { display: block; color: #f2eafd; font-size: 12px; font-weight: 550; }
+.tt-hero-console-row > i { display: block; height: 4px; border-radius: 99px; background: #ffffff0e; overflow: hidden; }
+.tt-hero-console-row > i b { display: block; width: var(--progress); height: 100%; border-radius: inherit; background: linear-gradient(90deg, #3696dc, #a855f7); box-shadow: 0 0 12px #a855f780; animation: ttConsoleLoad 1.5s cubic-bezier(.22,1,.36,1) both; transform-origin: left; }
+.tt-hero-console-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; padding: 17px 4px 0; border-top: 1px solid #8d69ab2b; color: #aa98b8; font-size: 10px; }
+.tt-hero-console-footer strong { color: #78d6ff; font-size: 18px; }
+@keyframes ttHeroDots { to { background-position: 136px 85px; } }
+@keyframes ttConsolePulse { 50% { opacity: .4; transform: scale(.75); } }
+@keyframes ttConsoleLoad { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (max-width: 980px) {
+  html[data-theme="club"] .tt-hero-impact { min-height: auto; }
+  .tt-hero-pitch { grid-template-columns: 1fr; gap: 44px; }
+  .tt-hero-pitch-copy { max-width: 720px; }
+  .tt-hero-console { width: min(100%, 680px); transform: none; }
+}
+
+@media (max-width: 767px) {
+  html[data-theme="club"] .tt-hero-impact { padding: 42px 0 30px; }
+  .tt-hero-pitch { gap: 34px; }
+  .tt-hero-pitch-title > span, .tt-hero-pitch-title > strong { display: block; }
+  html[data-theme="club"] .tt-hero-pitch-title { font-size: clamp(35px, 10vw, 50px); }
+  html[data-theme="club"] .tt-hero-pitch-promise { font-size: 14px; }
+  .tt-hero-console-body { padding: 20px 16px; }
+  .tt-hero-console-head { display: block; }
+  .tt-hero-console-status { margin-top: 14px; }
+  .tt-hero-console-row { grid-template-columns: 22px minmax(0, 1fr); }
+  .tt-hero-console-row > i { grid-column: 2; width: 100%; }
+  .tt-hero-transformations { margin-top: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .tt-hero-fx, .tt-hero-console-status i, .tt-hero-console-row > i b { animation: none; } }
