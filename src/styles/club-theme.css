@@ -1,0 +1,239 @@
+/* Shared Club palette. Scoped overrides also cover the dynamically loaded
+   mobile stylesheet; !important only overrides the legacy theme's fixed colors. */
+html[data-theme="club"] {
+  color-scheme: dark;
+  --bg: #040d17;
+  --bg-soft: #071522;
+  --surface: #0b1c2c;
+  --surface-strong: #10273b;
+  --line: #28465e;
+  --text: #f0f6fc;
+  --muted: #b1c3d3;
+  --muted-soft: #9ab1c5;
+  --cyan: #7ed0ff;
+  --shadow: 0 18px 45px #00000030;
+  --mobile-bg: var(--bg);
+  --mobile-surface: var(--surface);
+  --mobile-border: var(--line);
+  --mobile-text: var(--text);
+  --mobile-muted: var(--muted);
+  --mobile-blue: #7ed0ff;
+  --mobile-blue-soft: #10273b;
+  background: var(--bg);
+}
+
+html[data-theme="club"] :is(body, #root, .tt2-page, .tt2-page-inner, .tt2-site-main, .mobile-site-shell) {
+  color: var(--text);
+  background: var(--bg) !important;
+}
+
+html[data-theme="club"] :is(.tt2-corporate-hero, .mobile-hero) {
+  background:
+    linear-gradient(0deg, #040d17, transparent 35%),
+    radial-gradient(ellipse at 84% 15%, #0d568466, transparent 57%),
+    radial-gradient(ellipse at 12% 35%, #25326640, transparent 55%),
+    linear-gradient(165deg, #06111f, #0a2237 45%, #040d17 100%) !important;
+}
+
+html[data-theme="club"] :is(.tt2-clients-section, .tt2-services-section, .tt2-process-section, .tt2-why-section, .tt2-stats-footer-section, .mobile-trust-section) {
+  background: linear-gradient(180deg, #040d17, #0a1c2e 48%, #040d17) !important;
+}
+
+html[data-theme="club"] :is(.tt2-about-section, .tt2-featured-projects, .tt2-impact-section, .tt2-final-cta, .tt2-legal-page-shell) {
+  background:
+    linear-gradient(180deg, #040d17, transparent 20%, transparent 80%, #040d17),
+    radial-gradient(ellipse at var(--section-light-x, 85%) 40%, #124e725c, transparent 65%),
+    linear-gradient(180deg, #040d17, #0b2035 48%, #040d17) !important;
+}
+
+html[data-theme="club"] .tt2-about-section { --section-light-x: 8%; }
+html[data-theme="club"] .tt2-impact-section { --section-light-x: 15%; }
+html[data-theme="club"] .tt2-final-cta { --section-light-x: 50%; }
+
+/* Static light seams: a short bright center fades into each section edge.
+   No scroll handlers, animated filters or overlays above the content. */
+html[data-theme="club"] :is(.tt2-clients-section, .tt2-about-section, .tt2-services-section, .tt2-featured-projects, .tt2-process-section, .tt2-final-cta, .tt-club-join, .mobile-section:not(.mobile-proof-section)) {
+  position: relative;
+  isolation: isolate;
+  --seam-position: 50%;
+  --seam-color: #51bbff;
+}
+
+html[data-theme="club"] :is(.tt2-about-section, .tt2-process-section, .mobile-section:nth-of-type(3n)) { --seam-position: 28%; --seam-color: #689bfa; }
+html[data-theme="club"] :is(.tt2-services-section, .tt2-featured-projects, .mobile-section:nth-of-type(3n + 1)) { --seam-position: 72%; }
+
+html[data-theme="club"] :is(.tt2-clients-section, .tt2-about-section, .tt2-services-section, .tt2-featured-projects, .tt2-process-section, .tt2-final-cta, .tt-club-join, .mobile-section:not(.mobile-proof-section))::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: 0 0 auto;
+  height: 160px;
+  background: radial-gradient(ellipse at var(--seam-position) 0%, #218dcc26, transparent 67%);
+}
+
+html[data-theme="club"] :is(.tt2-clients-section, .tt2-about-section, .tt2-services-section, .tt2-featured-projects, .tt2-process-section, .tt2-final-cta, .tt-club-join, .mobile-section:not(.mobile-proof-section))::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2c689333 18%, var(--seam-color) var(--seam-position), #2c689333 82%, transparent);
+  filter: drop-shadow(0 0 5px #39a8ff90) drop-shadow(0 0 15px #168cff50);
+  opacity: .7;
+}
+
+html[data-theme="club"] .tt-club-highlight-inner {
+  background: radial-gradient(ellipse at 10% 100%, #11628a45, transparent 65%), linear-gradient(110deg, #102537, #091522 65%, #0e2338);
+  border-color: #36739480;
+  box-shadow: 0 12px 38px #00000025, inset 0 1px 0 #6acbff14;
+}
+
+html[data-theme="club"] :is(.tt2-header, .mobile-header) {
+  background: linear-gradient(100deg, #040b14f5, #0a2337f5) !important;
+  border-bottom-color: var(--line) !important;
+  box-shadow: 0 8px 28px #00000025 !important;
+}
+
+html[data-theme="club"] :is(.tt2-page, .mobile-site-shell) :is(h1, h2, h3, h4) {
+  color: var(--text) !important;
+}
+
+html[data-theme="club"] :is(.tt2-page, .mobile-site-shell) p {
+  color: var(--muted) !important;
+}
+
+html[data-theme="club"] :is(.tt2-nav a, .tt2-brand-copy strong, .mobile-brand-copy strong, .mobile-highlight-pill) {
+  color: var(--text) !important;
+}
+
+html[data-theme="club"] :is(.tt2-brand-copy span, .mobile-brand-copy span, .tt2-featured-bullets span, .tt2-footer-copyright, .mobile-count-card span) {
+  color: var(--muted) !important;
+}
+
+html[data-theme="club"] :is(.tt2-gradient-text, .mobile-count-card strong, .tt2-nav a[aria-current="page"]) {
+  color: var(--cyan) !important;
+}
+
+html[data-theme="club"] :is(.tt2-about-card, .tt2-method-card, .tt2-service-card, .tt2-featured-card, .tt2-impact-card, .tt2-process-step, .tt2-why-card, .tt2-diagnosis-widget, .tt2-legal-page-card, .mobile-info-card, .mobile-project-card, .mobile-cta-section, .mobile-highlight-pill) {
+  color: var(--text) !important;
+  background: linear-gradient(135deg, #102538, #091927) !important;
+  border-color: var(--line) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+html[data-theme="club"] :is(.tt2-service-card, .tt2-featured-card, .tt2-impact-card, .tt2-why-card, .mobile-project-card):hover {
+  border-color: #5387aa !important;
+  box-shadow: 0 16px 40px #00000040, 0 0 24px #1597d410 !important;
+}
+
+html[data-theme="club"] :is(.tt2-stats-footer, .mobile-proof-section) {
+  background: linear-gradient(120deg, #0a1d2e, #10314a) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="club"] :is(.tt2-kicker, .tt2-hero-badge, .tt2-capability-chip, .tt2-service-icon, .tt2-featured-tag, .tt2-method-card > span, .tt2-process-step > span, .mobile-section-tag, .mobile-section-head > span, .mobile-project-label, .mobile-process-card > span, .tt2-diagnosis-badge, .tt2-diagnosis-step-count, .tt2-diagnosis-result-label, .tt2-diagnosis-summary span, .tt2-cookie-modal-kicker, .tt2-cookie-always-active) {
+  color: #9bdbff !important;
+  background: #102c42 !important;
+  border-color: #315774 !important;
+}
+
+/* White labels remain legible across the whole blue gradient, including hover. */
+html[data-theme="club"] :is(.tt2-btn-primary, .tt2-floating-lead, .tt2-cookie-primary, .tt2-diagnosis-primary, .mobile-btn-primary, .mobile-header-cta, .tt-club-cta) {
+  color: #ffffff !important;
+  background: linear-gradient(110deg, #086bb3, #0753c5) !important;
+  border-color: #328acb !important;
+  box-shadow: 0 10px 30px #008cff20 !important;
+}
+
+html[data-theme="club"] :is(.tt2-btn-primary, .tt2-floating-lead, .tt2-cookie-primary, .tt2-diagnosis-primary, .mobile-btn-primary, .mobile-header-cta, .tt-club-cta):hover {
+  background: #075ca8 !important;
+}
+
+html[data-theme="club"] :is(.tt2-btn-ghost, .tt2-featured-cta, .mobile-btn-secondary, .mobile-project-copy strong, .tt2-diagnosis-secondary, .tt2-diagnosis-secondary-link, .tt2-diagnosis-tertiary-link, .tt2-diagnosis-restart, .tt2-cookie-secondary, .tt2-footer-link-button, .tt2-cookie-close, .tt2-nav-toggle, .tt2-language-select, .tt2-language-select option) {
+  color: #c6e7fc !important;
+  background: #10273b !important;
+  border-color: #416681 !important;
+  color-scheme: dark !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="club"] .tt2-diagnosis-option {
+  color: var(--text) !important;
+  background: #0e2538 !important;
+  border-color: #416681 !important;
+}
+
+html[data-theme="club"] .tt2-diagnosis-option:hover {
+  background: #173a54 !important;
+  border-color: #7ed0ff !important;
+}
+
+html[data-theme="club"] .tt2-diagnosis-secondary:disabled {
+  color: #8fa7bb !important;
+  background: #0b1b29 !important;
+  border-color: #28465e !important;
+}
+
+html[data-theme="club"] .tt2-diagnosis-dot { background: #345069 !important; }
+html[data-theme="club"] .tt2-diagnosis-dot:is(.is-active, .is-done) { background: #7ed0ff !important; }
+
+html[data-theme="club"] :is(.tt2-cookie-banner, .tt2-cookie-modal, .tt2-legal-modal) {
+  color: var(--text) !important;
+  background: #0b1c2c !important;
+  border-color: #416681 !important;
+  box-shadow: 0 24px 80px #00000080 !important;
+}
+
+html[data-theme="club"] .tt2-cookie-category {
+  background: #10273b !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="club"] :is(.tt2-cookie-banner a, .tt2-cookie-copy a, .tt2-legal-back-link, .tt2-legal-contact, .tt2-legal-page-updated) { color: #9bdbff !important; }
+html[data-theme="club"] .tt2-legal-back-link { background: #102c42 !important; border-color: #416681 !important; }
+html[data-theme="club"] .tt2-legal-back-link:hover { background: #173a54 !important; }
+html[data-theme="club"] .tt2-cookie-toggle { color: var(--muted) !important; }
+html[data-theme="club"] .tt2-cookie-toggle-track { background: #476279 !important; border: 1px solid #90afc6; }
+html[data-theme="club"] .tt2-cookie-toggle input:checked + .tt2-cookie-toggle-track { background: #086bb3 !important; }
+html[data-theme="club"] :is(.tt2-cookie-modal, .tt2-legal-modal) :is(h2, h3) { color: var(--text) !important; }
+html[data-theme="club"] :is(.tt2-cookie-modal, .tt2-legal-modal) p { color: var(--muted) !important; }
+html[data-theme="club"] .tt2-footer { background: #020912 !important; border-top: 1px solid var(--line) !important; }
+
+/* Keep original logo artwork on light, neutral mats instead of recoloring brands. */
+html[data-theme="club"] :is(.tt2-marquee-card, .tt2-marquee-card.is-dark, .mobile-marquee-track span, .mobile-marquee-track span.is-dark, .mobile-project-logo-wrap) {
+  background: #e8f0f6 !important;
+  border-color: #b5cada !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="club"] .tt2-project-logo {
+  background: #e8f0f6 !important;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+html[data-theme="club"] :is(a, button, select, input):focus-visible {
+  outline: 3px solid #9bdbff !important;
+  outline-offset: 4px !important;
+}
+
+html[data-theme="club"] ::selection { color: #fff; background: #1c6398; }
+
+@media (max-width: 1120px) {
+  html[data-theme="club"] .tt2-nav { background: #071522 !important; border-color: var(--line) !important; }
+}
+
+@media (max-width: 767px) {
+  html[data-theme="club"] .mobile-site-shell {
+    background: linear-gradient(180deg, #06111e, #0b2237 12%, #040d17 28%, #0b2033 50%, #040d17 68%, #10263c 85%, #040d17) !important;
+  }
+  html[data-theme="club"] :is(.mobile-hero, .mobile-trust-section) { background: transparent !important; }
+  html[data-theme="club"] .mobile-section:not(.mobile-proof-section) { margin-top: 32px; padding-top: 38px !important; }
+  html[data-theme="club"] .mobile-section:not(.mobile-proof-section)::before { left: -16px; right: -16px; height: 120px; }
+  html[data-theme="club"] .mobile-section:not(.mobile-proof-section)::after { left: 4%; right: 4%; opacity: .55; }
+  html[data-theme="club"] .mobile-cta-section::after { left: 18%; right: 18%; }
+}
