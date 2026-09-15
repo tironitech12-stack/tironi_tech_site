@@ -1,0 +1,127 @@
+.logoloop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  --logoloop-gap: 28px;
+  --logoloop-logo-height: 58px;
+  --logoloop-fade-color: #071522;
+}
+
+.logoloop__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  user-select: none;
+}
+
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  gap: var(--logoloop-gap);
+  margin: 0;
+  padding: 12px var(--logoloop-gap) 12px 0;
+  list-style: none;
+}
+
+.logoloop__item {
+  flex: 0 0 auto;
+}
+
+.logoloop__logo-wrap {
+  position: relative;
+  width: 224px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  padding: 22px 28px;
+  overflow: hidden;
+  border: 1px solid rgba(125, 201, 255, 0.2);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(245, 251, 255, 0.98), rgba(220, 237, 248, 0.94));
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 300ms cubic-bezier(.2, .8, .2, 1), border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.logoloop__logo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.5) 47%, transparent 64%);
+  transform: translateX(-120%);
+  transition: transform 700ms ease;
+}
+
+.logoloop__item:hover .logoloop__logo-wrap {
+  transform: translateY(-4px);
+  border-color: rgba(95, 191, 255, 0.46);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.27), 0 0 30px rgba(40, 169, 255, 0.09);
+}
+
+.logoloop__item:hover .logoloop__logo-wrap::after {
+  transform: translateX(120%);
+}
+
+.logoloop__item.is-inverse .logoloop__logo-wrap {
+  border-color: rgba(100, 194, 255, 0.28);
+  background: linear-gradient(145deg, #102a40, #081a2b);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(150, 215, 255, 0.12);
+}
+
+.logoloop__item img {
+  width: 100%;
+  height: var(--logoloop-logo-height);
+  max-width: 170px;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  pointer-events: none;
+}
+
+.logoloop__item.is-ziquita img,
+.logoloop__item.is-potala img {
+  max-width: 194px;
+  height: calc(var(--logoloop-logo-height) + 10px);
+}
+
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: clamp(36px, 9vw, 150px);
+  pointer-events: none;
+}
+
+.logoloop--fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--logoloop-fade-color), transparent);
+}
+
+.logoloop--fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--logoloop-fade-color), transparent);
+}
+
+@media (max-width: 720px) {
+  .logoloop__list { padding-block: 8px; }
+  .logoloop__logo-wrap { width: 174px; height: 88px; padding: 17px 21px; border-radius: 16px; }
+  .logoloop__item img { max-width: 132px; }
+  .logoloop__item.is-ziquita img,
+  .logoloop__item.is-potala img { max-width: 148px; }
+  .logoloop--fade::before,
+  .logoloop--fade::after { width: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoloop { overflow-x: auto; scrollbar-width: none; }
+  .logoloop::-webkit-scrollbar { display: none; }
+  .logoloop__track { transform: translate3d(0, 0, 0) !important; }
+  .logoloop__logo-wrap { transition: none; }
+}

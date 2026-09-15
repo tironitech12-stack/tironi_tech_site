@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
 import BlogHighlight from "../components/sections/BlogHighlight";
+import LogoLoop from "../components/ui/LogoLoop";
+import "../styles/client-showcase.css";
 import ClubHighlight from "../components/sections/ClubHighlight";
 import HeroPitch from "../components/shared/HeroPitch";
 import CookieConsent from "../components/shared/CookieConsent";
@@ -123,23 +125,22 @@ export default function MobileHome() {
 
         <ClubHighlight />
 
-        <section className="mobile-section mobile-trust-section" id="clientes">
+        <section className="mobile-section mobile-trust-section tt2-clients-section tt-client-showcase" id="clientes">
           <div className="mobile-section-head">
             <span className="mobile-section-tag">{t.nav.clients}</span>
             <h2>{t.trustedBy.title}</h2>
             <p>{t.trustedBy.description}</p>
           </div>
-          <div className="mobile-marquee" aria-label={t.trustedBy.title}>
-            <div className="mobile-marquee-track">
-              {[...mobileMarqueeLogos, ...mobileMarqueeLogos, ...mobileMarqueeLogos].map((client, index) => (
-                <span
-                  key={`${client.name}-${index}`}
-                  className={`${client.name === "XNAMAI" ? "is-dark" : ""}${client.name === "Ziquita Agro-Paraná" ? " is-ziquita" : ""}${client.name === "Instituto Potala" ? " is-potala" : ""}`.trim() || undefined}
-                >
-                  <img src={client.logo} alt={client.name} loading="lazy" />
-                </span>
-              ))}
-            </div>
+          <div className="tt-client-showcase-loop">
+            <LogoLoop
+              logos={mobileMarqueeLogos.map((client) => ({ ...client, className: client.name === "Multiplier" ? "is-inverse" : client.name === "Ziquita Agro-Paraná" ? "is-ziquita" : client.name === "Instituto Potala" ? "is-potala" : "" }))}
+              speed={50}
+              hoverSpeed={15}
+              logoHeight={44}
+              gap={18}
+              fadeOutColor="#071522"
+              ariaLabel={t.trustedBy.title}
+            />
           </div>
         </section>
 

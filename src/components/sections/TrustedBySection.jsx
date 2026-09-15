@@ -1,4 +1,6 @@
 import { motion as Motion, useReducedMotion } from "framer-motion";
+import LogoLoop from "../ui/LogoLoop";
+import "../../styles/client-showcase.css";
 
 const XNAMAI_CLIENT = {
   name: "XNAMAI",
@@ -12,13 +14,15 @@ function withXnamai(clients = []) {
 
 export default function TrustedBySection({ t, clients }) {
   const reduceMotion = useReducedMotion();
-  const logoClients = withXnamai(clients);
-  const repeatedItems = [...logoClients, ...logoClients, ...logoClients];
+  const logoClients = withXnamai(clients).map((client) => ({
+    ...client,
+    className: client.name === "Multiplier" ? "is-inverse" : client.name === "Ziquita Agro-Paraná" ? "is-ziquita" : client.name === "Instituto Potala" ? "is-potala" : "",
+  }));
 
   return (
     <Motion.section
       id="clientes"
-      className="tt2-section tt2-clients-section"
+      className="tt2-section tt2-clients-section tt-client-showcase"
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -32,17 +36,8 @@ export default function TrustedBySection({ t, clients }) {
         </div>
       </div>
 
-      <div className="tt2-logo-marquee tt2-project-marquee" aria-label={t.trustedBy.title}>
-        <div className="tt2-logo-track">
-          {repeatedItems.map((client, index) => (
-            <article
-              className={`tt2-logo-card tt2-marquee-card${client.name === "XNAMAI" ? " is-dark" : ""}${client.name === "Ziquita Agro-Paraná" ? " is-ziquita" : ""}${client.name === "Instituto Potala" ? " is-potala" : ""}`}
-              key={`${client.name}-${index}`}
-            >
-              <img src={client.logo} alt={client.name} loading="lazy" />
-            </article>
-          ))}
-        </div>
+      <div className="tt-client-showcase-loop">
+        <LogoLoop logos={logoClients} speed={72} hoverSpeed={18} logoHeight={58} gap={30} fadeOutColor="#071522" ariaLabel={t.trustedBy.title} />
       </div>
     </Motion.section>
   );
