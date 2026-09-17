@@ -16,9 +16,7 @@ import SolutionsSection from "./components/sections/SolutionsSection";
 import ChatboSpotlight from "./components/sections/ChatboSpotlight";
 import ClubHighlight from "./components/sections/ClubHighlight";
 import BlogHighlight from "./components/sections/BlogHighlight";
-import CasesSection from "./components/sections/CasesSection";
 import ProcessSection from "./components/sections/ProcessSection";
-import WhyChooseSection from "./components/sections/WhyChooseSection";
 import FinalCtaSection from "./components/sections/FinalCtaSection";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
@@ -67,13 +65,11 @@ export default function AppRoot() {
           <HeroSection t={t} />
           <TrustedBySection t={t} clients={CLIENTS} />
           <ExperienceStatsSection t={t} />
-          <FeaturedProjectsSection t={t} />
+          <FeaturedProjectsSection t={t} language={language} />
           <SolutionsSection t={t} />
           <ChatboSpotlight t={t} />
           <ExperienceSection t={t} />
-          <CasesSection t={t} />
           <ProcessSection t={t} />
-          <WhyChooseSection t={t} />
           <ClubHighlight />
           <BlogHighlight />
           <FinalCtaSection t={t} contactEmail={CONTACT_EMAIL} whatsappNumber={WHATSAPP_NUMBER} />

@@ -2015,3 +2015,103 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
   font-size: 0.72rem;
   font-weight: 700;
 }
+
+/* ChatBô conversion section on small screens. */
+.tt2-chatbo.tt2-chatbo-commercial {
+  width: 100%;
+  margin-inline: 0;
+  padding: 66px 0 !important;
+  border-radius: 24px;
+}
+
+.tt2-chatbo-commercial-inner {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 36px !important;
+  padding-inline: 18px !important;
+}
+
+.tt2-chatbo-commercial-copy {
+  min-width: 0;
+}
+
+.tt2-chatbo-brandline {
+  font-size: 0.68rem !important;
+  letter-spacing: 0.1em !important;
+}
+
+.tt2-chatbo-commercial-copy h2 {
+  max-width: 13ch !important;
+  margin: 18px 0 15px !important;
+  font-size: clamp(2.15rem, 8.5vw, 3rem) !important;
+}
+
+.tt2-chatbo-commercial-description {
+  font-size: 0.95rem !important;
+  line-height: 1.62 !important;
+}
+
+.tt2-chatbo-feature-grid {
+  grid-template-columns: 1fr !important;
+  gap: 9px !important;
+  margin-top: 22px !important;
+}
+
+.tt2-chatbo-feature-grid article {
+  padding: 14px !important;
+}
+
+.tt2-chatbo-feature-grid h3 {
+  font-size: 0.92rem !important;
+}
+
+.tt2-chatbo-feature-grid p {
+  font-size: 0.8rem !important;
+}
+
+.tt2-chatbo-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 9px !important;
+  margin-top: 22px !important;
+}
+
+.tt2-chatbo-primary,
+.tt2-chatbo-secondary {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.tt2-chatbo-trust {
+  gap: 8px 12px !important;
+  font-size: 0.69rem !important;
+}
+
+.tt2-chatbo-product {
+  width: 100% !important;
+  border-radius: 16px !important;
+  transform: none !important;
+}
+
+.tt2-chatbo-product-bar {
+  grid-template-columns: 1fr auto !important;
+  min-height: 42px !important;
+}
+
+.tt2-chatbo-product-bar small {
+  display: none;
+}
+
+.tt2-chatbo-product-media {
+  padding: 9px !important;
+}
+
+.tt2-chatbo-product-media img {
+  border-radius: 9px !important;
+}
+
+.tt2-chatbo-channel-row {
+  padding: 4px 12px 14px !important;
+}

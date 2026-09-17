@@ -16,11 +16,13 @@ import {
   reportWhatsAppConversionAndRedirect,
 } from "../utils/googleAdsConversion";
 import { trackFunnelEvent } from "../utils/conversionTracking";
+import { getProjectStory } from "../content/projectStories";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
 
 const CONTACT_WHATSAPP_HREF = DEFAULT_WHATSAPP_URL;
+const MOBILE_CTA_LABELS = { pt: "Diagnóstico", en: "Diagnosis", es: "Diagnóstico" };
 
 const mobileMarqueeLogos = [
   {
@@ -109,7 +111,7 @@ export default function MobileHome() {
               reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
             }}
           >
-            {t.nav.cta}
+            {MOBILE_CTA_LABELS[language] || t.nav.cta}
           </a>
         </div>
       </header>
@@ -183,6 +185,7 @@ export default function MobileHome() {
           <div className="mobile-projects">
             {t.featuredProjects.items.map((project) => {
               const href = projectLinks[project.title] || "#contato";
+              const story = getProjectStory(language, project.title);
               return (
                 <a
                   key={project.title}
@@ -198,12 +201,12 @@ export default function MobileHome() {
                   <div className="mobile-project-copy">
                     <span className="mobile-project-label">{project.tag}</span>
                     <h3>{project.title}</h3>
-                    <small className="mobile-project-case-label">{t.featuredProjects.caseLabels?.solution}</small>
+                    <small className="mobile-project-case-label">{story.labels.challenge}</small>
+                    <p>{story.challenge}</p>
+                    <small className="mobile-project-case-label">{story.labels.solution}</small>
                     <p>{project.description}</p>
-                    <small className="mobile-project-case-label">{t.featuredProjects.caseLabels?.impact}</small>
-                    <ul className="mobile-project-capabilities">
-                      {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                    </ul>
+                    <small className="mobile-project-case-label">{story.labels.result}</small>
+                    <p>{story.result}</p>
                     <strong>{project.cta}</strong>
                   </div>
                 </a>
@@ -222,22 +225,6 @@ export default function MobileHome() {
           </div>
           <div className="mobile-highlight-grid">
             {t.about.items.map((item) => <div key={item.title} className="mobile-highlight-pill">{item.title}</div>)}
-          </div>
-        </section>
-
-        <section className="mobile-section" id="impacto">
-          <div className="mobile-section-head">
-            <span className="mobile-section-tag">{t.impact.eyebrow}</span>
-            <h2>{t.impact.title}</h2>
-            <p>{t.impact.description}</p>
-          </div>
-          <div className="mobile-card-stack">
-            {t.impact.items.map((item) => (
-              <article key={item.title} className="mobile-info-card">
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
           </div>
         </section>
 

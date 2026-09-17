@@ -72,7 +72,7 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = "#contat
           </div>
           <div className="tt-hero-console-footer">
             <span>{copy.demoFooter}</span>
-            <strong>+{copy.demoGain}</strong>
+            <strong>{copy.demoGain}</strong>
           </div>
         </div>
       </div>

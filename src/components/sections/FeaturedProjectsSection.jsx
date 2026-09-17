@@ -2,6 +2,7 @@ import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import newstoreSorteiosLogo from "../../assets/newstore-sorteios-logo.png";
 import { trackFunnelEvent } from "../../utils/conversionTracking";
+import { getProjectStory } from "../../content/projectStories";
 
 const SIGNGUARD_URL = "https://www.walletsignguard.com/";
 const DELETEACTPRO_URL = "https://www.deleteactpro.com/";
@@ -41,7 +42,7 @@ function ProjectLogo({ title }) {
   );
 }
 
-export default function FeaturedProjectsSection({ t }) {
+export default function FeaturedProjectsSection({ t, language = "pt" }) {
   const reduceMotion = useReducedMotion();
   const ease = [0.22, 1, 0.36, 1];
 
@@ -65,6 +66,7 @@ export default function FeaturedProjectsSection({ t }) {
           {t.featuredProjects.items.map((item, index) => {
             const isSignGuard = item.title === "SignGuard";
             const isDeleteActPro = item.title === "DeleteActPro";
+            const story = getProjectStory(language, item.title);
 
             return (
               <Motion.article
@@ -81,17 +83,17 @@ export default function FeaturedProjectsSection({ t }) {
                 </div>
                 <h3>{item.title}</h3>
                 <div className="tt2-featured-case-block">
-                  <span>{t.featuredProjects.caseLabels?.solution}</span>
+                  <span>{story.labels.challenge}</span>
+                  <p>{story.challenge}</p>
+                </div>
+                <div className="tt2-featured-case-block">
+                  <span>{story.labels.solution}</span>
                   <p>{item.description}</p>
                 </div>
 
                 <div className="tt2-featured-case-block">
-                  <span>{t.featuredProjects.caseLabels?.impact}</span>
-                  <div className="tt2-featured-bullets">
-                    {item.bullets.map((b) => (
-                      <span key={b}>{b}</span>
-                    ))}
-                  </div>
+                  <span>{story.labels.result}</span>
+                  <p>{story.result}</p>
                 </div>
 
                 <a
