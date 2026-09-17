@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { reportWhatsAppConversionAndRedirect } from "../utils/googleAdsConversion";
+import { trackFunnelEvent } from "../utils/conversionTracking";
 
 function buildRecommendation(answers, recommendations) {
   const need = answers.need || "";
@@ -27,7 +28,6 @@ export default function LeadDiagnosisWidget({
   t,
   whatsappNumber = "",
   contactEmail = "",
-  scheduleHref = "#contato",
 }) {
   const diagnosis = t.diagnosis;
   const steps = diagnosis.steps;
@@ -42,7 +42,7 @@ export default function LeadDiagnosisWidget({
   );
 
   const whatsappHref = useMemo(() => {
-    if (!whatsappNumber) return scheduleHref;
+    if (!whatsappNumber) return "#contato";
     const text = `${diagnosis.whatsappMessage}
 
 ${diagnosis.labels.need}: ${getOptionLabel(steps, "need", answers.need)}
@@ -51,10 +51,10 @@ ${diagnosis.labels.priority}: ${getOptionLabel(steps, "priority", answers.priori
 
 ${diagnosis.labels.result}: ${recommendation.title}`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
-  }, [answers, diagnosis, recommendation.title, scheduleHref, steps, whatsappNumber]);
+  }, [answers, diagnosis, recommendation.title, steps, whatsappNumber]);
 
   const proposalHref = useMemo(() => {
-    if (!contactEmail) return scheduleHref;
+    if (!contactEmail) return "#contato";
     const body = `${diagnosis.emailBodyIntro}
 
 ${diagnosis.labels.need}: ${getOptionLabel(steps, "need", answers.need)}
@@ -65,16 +65,25 @@ ${diagnosis.labels.result}: ${recommendation.title}
 
 ${diagnosis.emailBodyFooter}`;
     return `mailto:${contactEmail}?subject=${encodeURIComponent(diagnosis.emailSubject)}&body=${encodeURIComponent(body)}`;
-  }, [answers, contactEmail, diagnosis, recommendation.title, scheduleHref, steps]);
+  }, [answers, contactEmail, diagnosis, recommendation.title, steps]);
 
   function handleSelect(value) {
     const updated = { ...answers, [currentStep.key]: value };
     setAnswers(updated);
+    trackFunnelEvent(stepIndex === 0 ? "diagnosis_started" : "diagnosis_step_completed", {
+      step: stepIndex + 1,
+      answer: value,
+    });
 
     if (stepIndex < steps.length - 1) {
       setStepIndex((prev) => prev + 1);
     } else {
       setStepIndex(steps.length);
+      trackFunnelEvent("diagnosis_completed", {
+        need: updated.need,
+        stage: updated.stage,
+        priority: updated.priority,
+      });
     }
   }
 
@@ -173,23 +182,25 @@ ${diagnosis.emailBodyFooter}`;
             </div>
 
             <div className="tt2-diagnosis-result-actions">
-              <a href={scheduleHref} className="tt2-diagnosis-primary">
-                {diagnosis.schedule}
-              </a>
               <a
                 href={whatsappHref}
                 target={whatsappHref.startsWith("http") ? "_blank" : undefined}
                 rel={whatsappHref.startsWith("http") ? "noreferrer" : undefined}
-                className="tt2-diagnosis-secondary-link"
+                className="tt2-diagnosis-primary"
                 onClick={(event) => {
                   if (!whatsappHref.startsWith("https://wa.me/5543996676633")) return;
                   event.preventDefault();
+                  trackFunnelEvent("diagnosis_whatsapp_click", { recommendation: recommendation.title });
                   reportWhatsAppConversionAndRedirect(whatsappHref);
                 }}
               >
-                {diagnosis.whatsapp}
+                {diagnosis.schedule}
               </a>
-              <a href={proposalHref} className="tt2-diagnosis-tertiary-link">
+              <a
+                href={proposalHref}
+                className="tt2-diagnosis-tertiary-link"
+                onClick={() => trackFunnelEvent("diagnosis_email_click", { recommendation: recommendation.title })}
+              >
                 {diagnosis.proposal}
               </a>
             </div>

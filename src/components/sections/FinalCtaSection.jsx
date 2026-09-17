@@ -23,7 +23,6 @@ export default function FinalCtaSection({ t, contactEmail, whatsappNumber }) {
           t={t}
           contactEmail={contactEmail}
           whatsappNumber={whatsappNumber}
-          scheduleHref="#contato"
         />
       </div>
     </Motion.section>

@@ -3876,3 +3876,76 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
 }
 
 /* ===== Fim do bloco ChatBô ============================================== */
+
+/* Conversion pass: compact consent, clear case framing and a non-blocking intro. */
+.tt2-intro-overlay.is-quick {
+  pointer-events: none;
+}
+
+.tt2-cookie-banner {
+  left: auto;
+  right: 20px;
+  bottom: 20px;
+  width: min(520px, calc(100% - 40px));
+  transform: none;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.tt2-cookie-banner p {
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.tt2-cookie-actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.tt2-cookie-primary,
+.tt2-cookie-secondary {
+  min-height: 40px;
+  padding-inline: 13px;
+  font-size: 0.82rem;
+}
+
+.tt2-featured-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.tt2-featured-case-block {
+  margin-top: 18px;
+}
+
+.tt2-featured-case-block > span {
+  display: block;
+  margin-bottom: 8px;
+  color: #1677c8;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tt2-featured-case-block .tt2-featured-bullets {
+  margin-top: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tt2-featured-cta {
+  margin-top: auto;
+}
+
+.tt2-diagnosis-result-actions {
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+}
+
+.tt-hero-pitch-reassurance {
+  margin: 12px 0 0;
+  color: #9fb4c8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}

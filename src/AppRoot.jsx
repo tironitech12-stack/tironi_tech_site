@@ -65,17 +65,17 @@ export default function AppRoot() {
 
         <main className="tt2-site-main">
           <HeroSection t={t} />
-          <ClubHighlight />
           <TrustedBySection t={t} clients={CLIENTS} />
           <ExperienceStatsSection t={t} />
-          <ExperienceSection t={t} />
+          <FeaturedProjectsSection t={t} />
           <SolutionsSection t={t} />
           <ChatboSpotlight t={t} />
-          <BlogHighlight />
-          <FeaturedProjectsSection t={t} />
+          <ExperienceSection t={t} />
           <CasesSection t={t} />
           <ProcessSection t={t} />
           <WhyChooseSection t={t} />
+          <ClubHighlight />
+          <BlogHighlight />
           <FinalCtaSection t={t} contactEmail={CONTACT_EMAIL} whatsappNumber={WHATSAPP_NUMBER} />
         </main>
 

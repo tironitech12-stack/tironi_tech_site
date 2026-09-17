@@ -1,6 +1,7 @@
 import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import newstoreSorteiosLogo from "../../assets/newstore-sorteios-logo.png";
+import { trackFunnelEvent } from "../../utils/conversionTracking";
 
 const SIGNGUARD_URL = "https://www.walletsignguard.com/";
 const DELETEACTPRO_URL = "https://www.deleteactpro.com/";
@@ -79,12 +80,18 @@ export default function FeaturedProjectsSection({ t }) {
                   <ProjectLogo title={item.title} />
                 </div>
                 <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <div className="tt2-featured-case-block">
+                  <span>{t.featuredProjects.caseLabels?.solution}</span>
+                  <p>{item.description}</p>
+                </div>
 
-                <div className="tt2-featured-bullets">
-                  {item.bullets.map((b) => (
-                    <span key={b}>{b}</span>
-                  ))}
+                <div className="tt2-featured-case-block">
+                  <span>{t.featuredProjects.caseLabels?.impact}</span>
+                  <div className="tt2-featured-bullets">
+                    {item.bullets.map((b) => (
+                      <span key={b}>{b}</span>
+                    ))}
+                  </div>
                 </div>
 
                 <a
@@ -92,6 +99,7 @@ export default function FeaturedProjectsSection({ t }) {
                   href={isSignGuard ? SIGNGUARD_URL : isDeleteActPro ? DELETEACTPRO_URL : "#contato"}
                   target={isSignGuard || isDeleteActPro ? "_blank" : undefined}
                   rel={isSignGuard || isDeleteActPro ? "noreferrer" : undefined}
+                  onClick={() => trackFunnelEvent("project_case_click", { project: item.title })}
                 >
                   {item.cta}
                 </a>

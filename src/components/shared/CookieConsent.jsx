@@ -155,7 +155,7 @@ export default function CookieConsent({ t }) {
         <div className="tt2-cookie-banner" role="dialog" aria-label={copy.label}>
           <div className="tt2-cookie-copy">
             <p>{copy.banner}</p>
-            <a href="#privacidade">{copy.privacy}</a>
+            <a href="/politica-privacidade">{copy.privacy}</a>
           </div>
           <div className="tt2-cookie-actions">
             <button type="button" className="tt2-cookie-secondary" onClick={rejectNonEssential}>

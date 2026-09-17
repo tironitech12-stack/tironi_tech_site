@@ -1946,3 +1946,72 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
 }
 
 /* ===== Fim do bloco ChatBô (mobile) ===================================== */
+
+/* Conversion pass: compact consent and stronger project proof. */
+.tt2-cookie-banner {
+  max-height: min(58vh, 330px) !important;
+  padding: 12px !important;
+}
+
+.tt2-cookie-banner p {
+  font-size: 0.8rem !important;
+  line-height: 1.4 !important;
+}
+
+.tt2-cookie-banner a {
+  margin-top: 3px !important;
+  font-size: 0.78rem !important;
+}
+
+.tt2-cookie-actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+}
+
+.tt2-cookie-actions button {
+  min-height: 40px !important;
+  padding: 6px !important;
+  font-size: 0.72rem !important;
+}
+
+body.tt2-cookie-banner-visible .tt2-floating-whatsapp,
+body.tt2-cookie-banner-visible .tt2-floating-lead {
+  bottom: min(220px, 35vh) !important;
+}
+
+.mobile-project-case-label {
+  display: block;
+  margin: 14px 0 6px;
+  color: #1677c8;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-project-capabilities {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-project-capabilities li {
+  color: #49667e;
+  font-size: 0.82rem;
+}
+
+.mobile-project-capabilities li::before {
+  content: "✓";
+  margin-right: 7px;
+  color: #168cd8;
+  font-weight: 900;
+}
+
+.tt-hero-pitch-reassurance {
+  margin: 10px 0 0;
+  color: #9fb4c8;
+  font-size: 0.72rem;
+  font-weight: 700;
+}

@@ -15,6 +15,7 @@ import {
   DEFAULT_WHATSAPP_URL,
   reportWhatsAppConversionAndRedirect,
 } from "../utils/googleAdsConversion";
+import { trackFunnelEvent } from "../utils/conversionTracking";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
@@ -120,10 +121,16 @@ export default function MobileHome() {
 
       <main className="mobile-main">
         <section className="mobile-hero tt-hero-impact" id="inicio">
-          <HeroPitch copy={t.hero} mobile />
+          <HeroPitch
+            copy={t.hero}
+            mobile
+            primaryHref={CONTACT_WHATSAPP_HREF}
+            onPrimaryClick={(event) => {
+              event.preventDefault();
+              reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
+            }}
+          />
         </section>
-
-        <ClubHighlight />
 
         <section className="mobile-section mobile-trust-section tt2-clients-section tt-client-showcase" id="clientes">
           <div className="mobile-section-head">
@@ -167,20 +174,6 @@ export default function MobileHome() {
           </div>
         </section>
 
-        <section className="mobile-section" id="experiencia">
-          <div className="mobile-section-head">
-            <span className="mobile-section-tag">{t.about.eyebrow}</span>
-            <h2>{t.about.title}</h2>
-            <p>{t.about.description}</p>
-          </div>
-          <div className="mobile-highlight-grid">
-            {t.about.items.map((item) => <div key={item.title} className="mobile-highlight-pill">{item.title}</div>)}
-          </div>
-        </section>
-
-        <ChatboSpotlight t={t} />
-        <BlogHighlight />
-
         <section className="mobile-section" id="projetos">
           <div className="mobile-section-head">
             <span className="mobile-section-tag">{t.featuredProjects.eyebrow}</span>
@@ -191,19 +184,44 @@ export default function MobileHome() {
             {t.featuredProjects.items.map((project) => {
               const href = projectLinks[project.title] || "#contato";
               return (
-                <a key={project.title} className="mobile-project-card" href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>
+                <a
+                  key={project.title}
+                  className="mobile-project-card"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  onClick={() => trackFunnelEvent("project_case_click", { project: project.title, device: "mobile" })}
+                >
                   <div className="mobile-project-logo-wrap">
                     <img src={projectLogos[project.title]} alt={project.title} className="mobile-project-logo" />
                   </div>
                   <div className="mobile-project-copy">
                     <span className="mobile-project-label">{project.tag}</span>
                     <h3>{project.title}</h3>
+                    <small className="mobile-project-case-label">{t.featuredProjects.caseLabels?.solution}</small>
                     <p>{project.description}</p>
+                    <small className="mobile-project-case-label">{t.featuredProjects.caseLabels?.impact}</small>
+                    <ul className="mobile-project-capabilities">
+                      {project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                    </ul>
                     <strong>{project.cta}</strong>
                   </div>
                 </a>
               );
             })}
+          </div>
+        </section>
+
+        <ChatboSpotlight t={t} />
+
+        <section className="mobile-section" id="experiencia">
+          <div className="mobile-section-head">
+            <span className="mobile-section-tag">{t.about.eyebrow}</span>
+            <h2>{t.about.title}</h2>
+            <p>{t.about.description}</p>
+          </div>
+          <div className="mobile-highlight-grid">
+            {t.about.items.map((item) => <div key={item.title} className="mobile-highlight-pill">{item.title}</div>)}
           </div>
         </section>
 
@@ -238,6 +256,9 @@ export default function MobileHome() {
             ))}
           </div>
         </section>
+
+        <ClubHighlight />
+        <BlogHighlight />
 
         <section className="mobile-section mobile-cta-section" id="contato">
           <span className="mobile-section-tag">{t.nav.contact}</span>

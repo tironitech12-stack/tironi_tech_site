@@ -1,6 +1,7 @@
 import '../../styles/hero-pitch.css';
+import { trackFunnelEvent } from '../../utils/conversionTracking';
 
-export default function HeroPitch({ copy, mobile = false }) {
+export default function HeroPitch({ copy, mobile = false, primaryHref = "#contato", onPrimaryClick }) {
   return (
     <div className="tt-hero-pitch">
       <div className="tt-hero-fx" aria-hidden="true">
@@ -21,9 +22,25 @@ export default function HeroPitch({ copy, mobile = false }) {
         </h1>
         <p className="tt-hero-pitch-promise">{copy.promise}</p>
         <div className="tt-hero-pitch-actions">
-          <a className="tt-hero-pitch-primary" href="#contato">{copy.primaryCta}<span aria-hidden="true">↗</span></a>
-          <a className="tt-hero-pitch-secondary" href={mobile ? '#servicos' : '#solucoes'}>{copy.secondaryCta}<span aria-hidden="true">→</span></a>
+          <a
+            className="tt-hero-pitch-primary"
+            href={primaryHref}
+            onClick={(event) => {
+              trackFunnelEvent('hero_primary_cta_click', { device: mobile ? 'mobile' : 'desktop' });
+              onPrimaryClick?.(event);
+            }}
+          >
+            {copy.primaryCta}<span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="tt-hero-pitch-secondary"
+            href={mobile ? '#servicos' : '#solucoes'}
+            onClick={() => trackFunnelEvent('hero_solutions_click', { device: mobile ? 'mobile' : 'desktop' })}
+          >
+            {copy.secondaryCta}<span aria-hidden="true">→</span>
+          </a>
         </div>
+        <p className="tt-hero-pitch-reassurance">{copy.reassurance}</p>
         <div className="tt-hero-transformations" role="group" aria-label={copy.transformationLabel}>
           {copy.transformations.map(({ outcome }) => (
             <div className="tt-hero-transformation" key={outcome}>

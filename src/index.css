@@ -134,7 +134,7 @@ summary {
 }
 
 body.tt2-cookie-banner-visible .tt2-floating-whatsapp {
-  bottom: clamp(162px, 24vh, 286px) !important;
+  bottom: 230px !important;
 }
 
 @keyframes tt2-whatsapp-attention {
@@ -185,7 +185,7 @@ body.tt2-cookie-banner-visible .tt2-floating-whatsapp {
   }
 
   body.tt2-cookie-banner-visible .tt2-floating-whatsapp {
-    bottom: 236px;
+    bottom: 252px;
   }
 }
 
