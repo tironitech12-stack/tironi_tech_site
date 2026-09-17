@@ -3,7 +3,7 @@ export const GOOGLE_ADS_WHATSAPP_CONVERSION_LABEL = "sg2oCLyq-MscELXH7pNE";
 export const GOOGLE_ADS_WHATSAPP_SEND_TO = `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_WHATSAPP_CONVERSION_LABEL}`;
 
 export const DEFAULT_WHATSAPP_URL =
-  "https://wa.me/558599498149?text=Ol%C3%A1,%20vim%20pelo%20site%20da%20TironiTech%20e%20quero%20falar%20sobre%20um%20projeto.";
+  "https://wa.me/5543996676633?text=Ol%C3%A1,%20vim%20pelo%20site%20da%20TironiTech%20e%20quero%20falar%20sobre%20um%20projeto.";
 
 let conversionRedirectStarted = false;
 

@@ -182,7 +182,7 @@ ${diagnosis.emailBodyFooter}`;
                 rel={whatsappHref.startsWith("http") ? "noreferrer" : undefined}
                 className="tt2-diagnosis-secondary-link"
                 onClick={(event) => {
-                  if (!whatsappHref.startsWith("https://wa.me/558599498149")) return;
+                  if (!whatsappHref.startsWith("https://wa.me/5543996676633")) return;
                   event.preventDefault();
                   reportWhatsAppConversionAndRedirect(whatsappHref);
                 }}

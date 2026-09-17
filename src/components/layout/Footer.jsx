@@ -43,7 +43,7 @@ export default function Footer({ t, contactEmail, whatsappNumber, language, setL
             rel="noreferrer"
             onClick={(event) => {
               const href = `https://wa.me/${whatsappNumber}`;
-              if (!href.startsWith("https://wa.me/558599498149")) return;
+              if (!href.startsWith("https://wa.me/5543996676633")) return;
               event.preventDefault();
               reportWhatsAppConversionAndRedirect(href);
             }}

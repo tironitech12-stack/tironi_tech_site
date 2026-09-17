@@ -95,7 +95,7 @@ export default function BlogArticlePage({ slug }) {
           {related.length ? <section className="tt-blog-related"><div className="tt2-container"><div className="tt-blog-library-head"><div><span className="tt-blog-kicker">CONTINUE EXPLORANDO</span><h2>Artigos relacionados</h2></div><a className="tt-blog-text-link" href="/blog">Ver biblioteca completa →</a></div><div className="tt-blog-grid">{related.map((item, index) => <article className="tt-blog-card" key={item.slug}><div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div><div className="tt-blog-preview-meta"><span>{item.category}</span><span>{item.readTime}</span></div><h3><a href={`/blog/${item.slug}`}>{item.title}</a></h3><p>{item.description}</p><footer><time dateTime={item.date}>{formatBlogDate(item.date)}</time><a className="tt-blog-read" href={`/blog/${item.slug}`}>Ler <span aria-hidden="true">↗</span></a></footer></article>)}</div></div></section> : null}
         </main>
         <FloatingWhatsAppButton />
-        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="558599498149" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
+        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
         <CookieConsent t={t} />
       </div>
     </div>

@@ -15,7 +15,7 @@ const icons = [
 export default function ClubSection() {
   const { language } = useLanguage();
   const copy = clubContent[language] || clubContent.pt;
-  const href = `https://wa.me/558599498149?text=${encodeURIComponent(copy.message)}`;
+  const href = `https://wa.me/5543996676633?text=${encodeURIComponent(copy.message)}`;
 
   return (
     <section id="club" className="tt-club" aria-labelledby="club-title">

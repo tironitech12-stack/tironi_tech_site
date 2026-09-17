@@ -8,7 +8,7 @@ import CookieConsent from "../shared/CookieConsent";
 import FloatingWhatsAppButton from "../ui/FloatingWhatsAppButton";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
-const WHATSAPP_NUMBER = "558599498149";
+const WHATSAPP_NUMBER = "5543996676633";
 
 export default function LegalPolicyPage({ policy }) {
   const { t, language, setLanguage, languageOptions } = useLanguage();

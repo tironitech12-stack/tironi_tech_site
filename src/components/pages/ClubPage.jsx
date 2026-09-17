@@ -11,7 +11,7 @@ import { reportWhatsAppConversionAndRedirect } from '../../utils/googleAdsConver
 export default function ClubPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
   const copy = clubContent[language] || clubContent.pt;
-  const href = `https://wa.me/558599498149?text=${encodeURIComponent(copy.message)}`;
+  const href = `https://wa.me/5543996676633?text=${encodeURIComponent(copy.message)}`;
   const back = { pt: 'Voltar para a TironiTech', en: 'Back to TironiTech', es: 'Volver a TironiTech' }[language] || 'TironiTech';
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function ClubPage() {
             <a className="tt-club-back" href="/">← {back}</a>
           </section>
         </main>
-        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="558599498149" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
+        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
         <CookieConsent t={t} />
       </div>
     </div>

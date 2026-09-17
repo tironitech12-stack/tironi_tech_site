@@ -99,7 +99,7 @@ export default function BlogIndexPage() {
           </section>
         </main>
         <FloatingWhatsAppButton />
-        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="558599498149" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
+        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
         <CookieConsent t={t} />
       </div>
     </div>

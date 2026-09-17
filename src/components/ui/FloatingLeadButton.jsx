@@ -10,7 +10,7 @@ export default function FloatingLeadButton({ whatsappNumber, label }) {
       target="_blank"
       rel="noreferrer"
       onClick={(event) => {
-        if (!href.startsWith("https://wa.me/558599498149")) return;
+        if (!href.startsWith("https://wa.me/5543996676633")) return;
         event.preventDefault();
         reportWhatsAppConversionAndRedirect(href);
       }}

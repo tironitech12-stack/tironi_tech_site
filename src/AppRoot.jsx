@@ -22,7 +22,7 @@ import WhyChooseSection from "./components/sections/WhyChooseSection";
 import FinalCtaSection from "./components/sections/FinalCtaSection";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
-const WHATSAPP_NUMBER = "558599498149";
+const WHATSAPP_NUMBER = "5543996676633";
 
 const CLIENTS = [
   {
