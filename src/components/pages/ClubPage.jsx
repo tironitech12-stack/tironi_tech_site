@@ -16,8 +16,11 @@ export default function ClubPage() {
 
   useEffect(() => {
     const previousTitle = document.title;
+    const canonical = document.head.querySelector('link[rel="canonical"]');
+    const previousCanonical = canonical?.getAttribute('href');
     document.title = `Tironi Tech Club | ${copy.title.join(' ')}`;
-    return () => { document.title = previousTitle; };
+    if (canonical) canonical.href = 'https://www.tironitech.com/club';
+    return () => { document.title = previousTitle; if (canonical && previousCanonical) canonical.href = previousCanonical; };
   }, [copy]);
 
   return (

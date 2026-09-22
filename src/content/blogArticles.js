@@ -1,3 +1,5 @@
+import { pillarArticles } from './pillarArticles.js';
+
 const googleHelpful = { label: 'Google — conteúdo útil e confiável', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' };
 const googleAI = { label: 'Google — otimização para recursos de busca com IA', url: 'https://developers.google.com/search/docs/fundamentals/ai-optimization-guide' };
 const metaPlatform = { label: 'Meta — visão geral da WhatsApp Business Platform', url: 'https://developers.facebook.com/docs/whatsapp/overview/' };
@@ -508,7 +510,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-export const blogArticles = rawBlogArticles.map((article) => {
+export const blogArticles = [...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],

@@ -36,13 +36,13 @@ export default function BlogArticlePage({ slug }) {
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
     canonical.href = url;
-    const schema = document.createElement('script');
-    schema.type = 'application/ld+json';
-    schema.dataset.blogSchema = 'true';
-    schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.date, dateModified: article.updated, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', ') });
-    document.head.appendChild(schema);
+    let schema = document.head.querySelector('#tt-page-schema');
+    const createdSchema = !schema;
+    if (!schema) { schema = document.createElement('script'); schema.id = 'tt-page-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
+    const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])])].join(' ').trim().split(/\s+/).length;
+    schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: 'pt-BR', articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }] });
     window.scrollTo(0, 0);
-    return () => schema.remove();
+    return () => { if (createdSchema) schema.remove(); };
   }, [article]);
 
   if (!article) {

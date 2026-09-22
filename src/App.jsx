@@ -1,12 +1,13 @@
 import { Analytics } from '@vercel/analytics/react';
-import { useEffect, useState } from "react";
-import ResponsiveHome from "./responsive/ResponsiveHome";
-import LegalPolicyPage from "./components/pages/LegalPolicyPage";
-import ClubPage from "./components/pages/ClubPage";
-import BlogIndexPage from "./components/pages/BlogIndexPage";
-import BlogArticlePage from "./components/pages/BlogArticlePage";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
+
+const ResponsiveHome = lazy(() => import('./responsive/ResponsiveHome'));
+const LegalPolicyPage = lazy(() => import('./components/pages/LegalPolicyPage'));
+const ClubPage = lazy(() => import('./components/pages/ClubPage'));
+const BlogIndexPage = lazy(() => import('./components/pages/BlogIndexPage'));
+const BlogArticlePage = lazy(() => import('./components/pages/BlogArticlePage'));
 
 function ConsentAwareAnalytics() {
   const [analyticsAllowed, setAnalyticsAllowed] = useState(() => Boolean(getStoredCookieConsent()?.analytics));
@@ -53,7 +54,7 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <Suspense fallback={null}><AppContent /></Suspense>
       <ConsentAwareAnalytics />
     </LanguageProvider>
   );

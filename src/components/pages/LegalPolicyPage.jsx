@@ -16,8 +16,10 @@ export default function LegalPolicyPage({ policy }) {
   const policyDocument = legalCopy[policy] || legalCopy.privacy;
 
   useEffect(() => {
+    const canonical = document.head.querySelector('link[rel="canonical"]');
     document.title = policyDocument.pageTitle;
-  }, [policyDocument.pageTitle]);
+    if (canonical) canonical.href = `https://www.tironitech.com/${policy === 'cookies' ? 'politica-cookies' : 'politica-privacidade'}`;
+  }, [policy, policyDocument.pageTitle]);
 
   return (
     <div className="tt2-page tt2-legal-page-shell">
