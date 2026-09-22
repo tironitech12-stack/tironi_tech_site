@@ -1,4 +1,7 @@
 import { pillarArticles } from './pillarArticles.js';
+import { growthArticles } from './growthArticles.js';
+import { leadGenerationArticles } from './leadGenerationArticles.js';
+import { whatsappSearchArticles } from './whatsappSearchArticles.js';
 
 const googleHelpful = { label: 'Google — conteúdo útil e confiável', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' };
 const googleAI = { label: 'Google — otimização para recursos de busca com IA', url: 'https://developers.google.com/search/docs/fundamentals/ai-optimization-guide' };
@@ -8,7 +11,7 @@ const cetic = { label: 'Cetic.br/NIC.br — TIC Empresas 2025', url: 'https://ni
 const sebrae = { label: 'Sebrae — Inteligência Artificial para Pequenos Negócios', url: 'https://pa.loja.sebrae.com.br/inteligencia-artificial-para-pequenos-negocios' };
 const geoPaper = { label: 'ACM KDD — GEO: Generative Engine Optimization', url: 'https://dl.acm.org/doi/10.1145/3637528.3671900' };
 
-export const blogCategories = ['Todos', 'ChatBô e atendimento', 'Automação com IA', 'Software personalizado', 'SEO e GEO'];
+export const blogCategories = ['Todos', 'IA para WhatsApp', 'ChatBô e atendimento', 'Desenvolvimento com IA', 'Tecnologia para empresas', 'Automação com IA', 'Software personalizado', 'GeoAura e GEO', 'SEO e GEO'];
 
 const rawBlogArticles = [
   {
@@ -510,7 +513,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-export const blogArticles = [...pillarArticles, ...rawBlogArticles].map((article) => {
+export const blogArticles = [...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],

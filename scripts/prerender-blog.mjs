@@ -16,10 +16,12 @@ function pageTemplate({ title, description, path, body, schema }) {
   const url = `${origin}${path}`;
   const cleanTemplate = template
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
+    .replace(/\s*<meta\s+name="robots"[^>]*>/gi, '')
     .replace(/\s*<meta\s+property="og:(?:type|title|description|url|image)"[^>]*>/gi, '')
     .replace(/\s*<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
   const tags = [
     `<link rel="canonical" href="${url}">`,
+    `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">`,
     `<meta property="og:title" content="${escapeHtml(title)}">`,
     `<meta property="og:description" content="${escapeHtml(description)}">`,
     `<meta property="og:type" content="${path === '/blog' ? 'website' : 'article'}">`,
@@ -39,7 +41,8 @@ function pageTemplate({ title, description, path, body, schema }) {
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 }
 
-const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><section><h2>Artigos</h2>${blogArticles.map((article) => `<article><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section></main>`;
+const blogGroups = [...new Set(blogArticles.map((article) => article.category))].map((category) => ({ category, articles: blogArticles.filter((article) => article.category === category) }));
+const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa completo de conteúdo</a></nav>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2>${group.articles.map((article) => `<article><p>${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section>`).join('')}</main>`;
 const indexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Blog Tironi Tech', description: 'Guias sobre IA, automação, ChatBô e software personalizado.', url: `${origin}/blog`, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'blog'), { recursive: true });
 await writeFile(resolve(root, 'blog', 'index.html'), pageTemplate({ title: 'Blog Tironi Tech | IA, Automação, ChatBô e Software', description: 'Guias práticos e pesquisas sobre inteligência artificial, automação de processos, ChatBô, atendimento no WhatsApp e software personalizado.', path: '/blog', body: indexBody, schema: indexSchema }));
@@ -88,16 +91,23 @@ const homeSchema = { '@context': 'https://schema.org', '@graph': [
 ] };
 await writeFile(resolve(root, 'index.html'), pageTemplate({ title: 'Tironi Tech | Software Sob Medida e Automação com IA', description: homeDescription, path: '/', body: homeBody, schema: homeSchema }));
 
+const mapPath = '/mapa-do-site';
+const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a></nav>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
+const mapSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Mapa de conteúdo Tironi Tech', description: 'Todos os guias da Tironi Tech organizados por assunto.', url: `${origin}${mapPath}`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } };
+await mkdir(resolve(root, 'mapa-do-site'), { recursive: true });
+await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ title: 'Mapa de conteúdo | Tironi Tech', description: 'Todos os guias da Tironi Tech sobre IA, WhatsApp, software, automação, SEO e GEO organizados por assunto.', path: mapPath, body: mapBody, schema: mapSchema }));
+
 const urls = [
   { path: '/', lastmod: '2026-09-22', priority: '1.0', frequency: 'weekly' },
   { path: '/club', lastmod: '2026-09-22', priority: '0.8', frequency: 'monthly' },
   { path: '/blog', lastmod: '2026-09-22', priority: '0.9', frequency: 'weekly' },
+  { path: '/mapa-do-site', lastmod: '2026-09-22', priority: '0.7', frequency: 'weekly' },
   { path: '/politica-privacidade', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
   { path: '/politica-cookies', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
   ...blogArticles.map((article) => ({ path: `/blog/${article.slug}`, lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' }))
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
 await writeFile(resolve(root, 'sitemap.xml'), sitemap);
-await writeFile(resolve(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
+await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
-console.log(`Prerendered homepage, Club, legal pages, blog index and ${blogArticles.length} articles.`);
+console.log(`Prerendered homepage, Club, legal pages, content map, blog index and ${blogArticles.length} articles.`);

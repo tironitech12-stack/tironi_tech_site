@@ -8,6 +8,7 @@ const LegalPolicyPage = lazy(() => import('./components/pages/LegalPolicyPage'))
 const ClubPage = lazy(() => import('./components/pages/ClubPage'));
 const BlogIndexPage = lazy(() => import('./components/pages/BlogIndexPage'));
 const BlogArticlePage = lazy(() => import('./components/pages/BlogArticlePage'));
+const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
 
 function ConsentAwareAnalytics() {
   const [analyticsAllowed, setAnalyticsAllowed] = useState(() => Boolean(getStoredCookieConsent()?.analytics));
@@ -38,6 +39,10 @@ function AppContent() {
 
   if (pathname.startsWith("/blog/")) {
     return <BlogArticlePage slug={decodeURIComponent(pathname.replace(/^\/blog\//, "").replace(/\/$/, ""))} />;
+  }
+
+  if (pathname === "/mapa-do-site" || pathname === "/mapa-do-site/") {
+    return <ContentMapPage />;
   }
 
   if (pathname === "/politica-privacidade") {

@@ -23,7 +23,16 @@ function setMeta(name, content, property = false) {
 export default function BlogIndexPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
   const [category, setCategory] = useState('Todos');
-  const articles = useMemo(() => category === 'Todos' ? blogArticles : blogArticles.filter((article) => article.category === category), [category]);
+  const [query, setQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(18);
+  const normalizedQuery = query.trim().toLocaleLowerCase('pt-BR');
+  const articles = useMemo(() => blogArticles.filter((article) => {
+    const categoryMatches = category === 'Todos' || article.category === category;
+    const searchMatches = !normalizedQuery || [article.title, article.description, article.category, ...(article.keywords || [])]
+      .join(' ').toLocaleLowerCase('pt-BR').includes(normalizedQuery);
+    return categoryMatches && searchMatches;
+  }), [category, normalizedQuery]);
+  const categoryCounts = useMemo(() => Object.fromEntries(blogCategories.filter((item) => item !== 'Todos').map((item) => [item, blogArticles.filter((article) => article.category === item).length])), []);
   const featured = blogArticles[0];
 
   useEffect(() => {
@@ -79,13 +88,33 @@ export default function BlogIndexPage() {
             <div className="tt2-container">
               <div className="tt-blog-library-head">
                 <div><span className="tt-blog-kicker">BIBLIOTECA</span><h2 id="blog-library-title">Conhecimento para aplicar</h2></div>
-                <p>{blogArticles.length} análises e guias para líderes, equipes comerciais e operações.</p>
+                <p>{blogArticles.length} análises organizadas por intenção, para encontrar uma resposta e avançar para a próxima decisão.</p>
               </div>
+              <div className="tt-blog-search-row">
+                <label className="tt-blog-search">
+                  <span className="sr-only">Buscar no blog</span>
+                  <span aria-hidden="true">⌕</span>
+                  <input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleCount(18); }} placeholder="Busque por IA para WhatsApp, automação, software, GEO..." />
+                </label>
+                <span className="tt-blog-result-count" aria-live="polite">{articles.length} {articles.length === 1 ? 'guia encontrado' : 'guias encontrados'}</span>
+              </div>
+              {!normalizedQuery && category === 'Todos' && (
+                <div className="tt-blog-tracks" aria-label="Trilhas de conteúdo">
+                  {blogCategories.filter((item) => item !== 'Todos').map((item) => (
+                    <button type="button" key={item} onClick={() => { setCategory(item); setVisibleCount(18); }}>
+                      <span>{String(categoryCounts[item] || 0).padStart(2, '0')} GUIAS</span>
+                      <strong>{item}</strong>
+                      <small>Explorar trilha <b aria-hidden="true">→</b></small>
+                    </button>
+                  ))}
+                </div>
+              )}
               <div className="tt-blog-filters" aria-label="Filtrar artigos por assunto">
-                {blogCategories.map((item) => <button type="button" key={item} className={category === item ? 'is-active' : ''} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}
+                {blogCategories.map((item) => <button type="button" key={item} className={category === item ? 'is-active' : ''} aria-pressed={category === item} onClick={() => { setCategory(item); setVisibleCount(18); }}>{item}</button>)}
               </div>
+              {category !== 'Todos' && <div className="tt-blog-active-trail"><span>TRILHA ATIVA</span><strong>{category}</strong><button type="button" onClick={() => { setCategory('Todos'); setVisibleCount(18); }}>Ver todas</button></div>}
               <div className="tt-blog-grid">
-                {articles.map((article, index) => (
+                {articles.slice(0, visibleCount).map((article, index) => (
                   <article className="tt-blog-card" key={article.slug}>
                     <div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
                     <div className="tt-blog-preview-meta"><span>{article.category}</span><span>{article.readTime}</span></div>
@@ -95,6 +124,8 @@ export default function BlogIndexPage() {
                   </article>
                 ))}
               </div>
+              {visibleCount < articles.length && <div className="tt-blog-more"><button type="button" onClick={() => setVisibleCount((count) => count + 18)}>Mostrar mais 18 guias</button><span>{Math.min(visibleCount, articles.length)} de {articles.length}</span></div>}
+              {articles.length === 0 && <div className="tt-blog-empty"><strong>Nenhum guia encontrado.</strong><p>Tente outra expressão ou volte para todas as trilhas.</p><button type="button" onClick={() => { setQuery(''); setCategory('Todos'); }}>Limpar filtros</button></div>}
             </div>
           </section>
         </main>
