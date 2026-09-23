@@ -11,6 +11,7 @@ const LegalPolicyPage = lazy(() => import('./components/pages/LegalPolicyPage'))
 const ClubPage = lazy(() => import('./components/pages/ClubPage'));
 const BlogIndexPage = lazy(loadBlogIndexPage);
 const BlogArticlePage = lazy(() => import('./components/pages/BlogArticlePage'));
+const BlogArchivePage = lazy(() => import('./components/pages/BlogArchivePage'));
 const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
 const ServiceLandingPage = lazy(() => import('./components/pages/ServiceLandingPage'));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
@@ -105,6 +106,7 @@ function AppContent({ pathname }) {
 
   if (localizedBlog) {
     const [, locale, slug] = localizedBlog;
+    if (slug?.replace(/\/$/, '') === 'archive') return <BlogArchivePage locale={locale} />;
     return slug ? <BlogArticlePage slug={decodeURIComponent(slug.replace(/\/$/, ""))} locale={locale} /> : <BlogIndexPage locale={locale} />;
   }
 
@@ -114,6 +116,10 @@ function AppContent({ pathname }) {
 
   if (pathname === "/blog" || pathname === "/blog/") {
     return <BlogIndexPage locale="pt" />;
+  }
+
+  if (pathname === "/blog/arquivo" || pathname === "/blog/arquivo/") {
+    return <BlogArchivePage locale="pt" />;
   }
 
   if (pathname.startsWith("/blog/")) {

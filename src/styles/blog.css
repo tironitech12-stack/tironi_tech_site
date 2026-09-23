@@ -59,6 +59,9 @@
 .tt-blog-search input { width: 100%; border: 0; outline: 0; color: white; background: transparent; font: inherit; }
 .tt-blog-search input::placeholder { color: #6f899e; }
 .tt-blog-result-count { flex: 0 0 auto; color: #7892a6; font-size: .8rem; }
+.tt-blog-archive-access { display: flex; justify-content: flex-end; margin: -1rem 0 1.5rem; }
+.tt-blog-archive-access a { padding: .7rem 1rem; border: 1px solid rgba(88,184,255,.28); border-radius: 999px; color: var(--blog-cyan); font-size: .82rem; font-weight: 750; text-decoration: none; background: rgba(8,31,50,.62); }
+.tt-blog-archive-access a:hover { color: white; border-color: rgba(88,184,255,.58); }
 .tt-blog-tracks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 1.2rem 0 2rem; }
 .tt-blog-tracks button { min-height: 10rem; display: grid; align-content: space-between; gap: .7rem; padding: 1.2rem; border: 1px solid var(--blog-line); border-radius: 1rem; color: white; text-align: left; background: radial-gradient(circle at 100% 0, rgba(77, 59, 205, .16), transparent 45%), rgba(7, 22, 36, .78); cursor: pointer; transition: border-color .2s ease, transform .2s ease; }
 .tt-blog-tracks button:hover { transform: translateY(-2px); border-color: rgba(72, 183, 255, .42); }

@@ -23,20 +23,20 @@ function setMeta(name, content, property = false) {
 }
 
 const labels = {
-  pt: { all: 'Todos', title: 'Decisões melhores começam com tecnologia bem explicada.', deck: 'Guias práticos sobre inteligência artificial, automação, atendimento e software para transformar desafios reais em operações mais inteligentes.', library: 'Conhecimento para aplicar', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
-  en: { all: 'All', title: 'Better decisions start with technology clearly explained.', deck: 'Practical guides on artificial intelligence, automation, customer service and software for smarter business operations.', library: 'Knowledge to apply', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all', previous: 'Previous', next: 'Next', topic: 'Filter by topic' },
-  es: { all: 'Todos', title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías prácticas sobre inteligencia artificial, automatización, atención y software para crear operaciones más inteligentes.', library: 'Conocimiento para aplicar', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
+  pt: { all: 'Todos', title: 'Decisões melhores começam com tecnologia bem explicada.', deck: 'Guias práticos sobre inteligência artificial, automação, atendimento e software para transformar desafios reais em operações mais inteligentes.', library: 'Conhecimento para aplicar', archiveTitle: 'Acervo completo', archiveDeck: 'Todos os artigos publicados pela Tironi Tech, inclusive conteúdos em revisão editorial.', archiveLink: 'Ver acervo completo com 1.683 artigos', coreLink: 'Voltar aos 120 artigos prioritários', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
+  en: { all: 'All', title: 'Better decisions start with technology clearly explained.', deck: 'Practical guides on artificial intelligence, automation, customer service and software for smarter business operations.', library: 'Knowledge to apply', archiveTitle: 'Complete archive', archiveDeck: 'Every article published by Tironi Tech, including content under editorial review.', archiveLink: 'View the complete archive with 1,683 articles', coreLink: 'Return to the 120 priority articles', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all', previous: 'Previous', next: 'Next', topic: 'Filter by topic' },
+  es: { all: 'Todos', title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías prácticas sobre inteligencia artificial, automatización, atención y software para crear operaciones más inteligentes.', library: 'Conocimiento para aplicar', archiveTitle: 'Archivo completo', archiveDeck: 'Todos los artículos publicados por Tironi Tech, incluido el contenido en revisión editorial.', archiveLink: 'Ver el archivo completo con 1.683 artículos', coreLink: 'Volver a los 120 artículos prioritarios', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
 };
 
 const PAGE_SIZE = 18;
 const localizedPath = (slug, locale) => `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
 const formatLocalizedDate = (date, locale) => new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
 
-export default function BlogIndexPage({ locale = 'pt' }) {
+export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, archiveMode = false }) {
   const { languageOptions } = useLanguage();
   const t = getSiteText(locale);
   const copy = labels[locale] || labels.pt;
-  const blogArticles = useMemo(() => blogIndexArticles[locale] || blogIndexArticles.pt, [locale]);
+  const blogArticles = useMemo(() => articlesOverride || blogIndexArticles[locale] || blogIndexArticles.pt, [articlesOverride, locale]);
   const blogCategories = useMemo(() => [copy.all, ...new Set(blogArticles.map((article) => article.category))], [blogArticles, copy.all]);
   const [category, setCategory] = useState(copy.all);
   const [query, setQuery] = useState('');
@@ -110,9 +110,10 @@ export default function BlogIndexPage({ locale = 'pt' }) {
           <section className="tt-blog-library" aria-labelledby="blog-library-title">
             <div className="tt2-container">
               <div className="tt-blog-library-head">
-                <div><span className="tt-blog-kicker">BIBLIOTECA</span><h2 id="blog-library-title">{copy.library}</h2></div>
-                <p>{blogArticles.length} análises organizadas por intenção, para encontrar uma resposta e avançar para a próxima decisão.</p>
+                <div><span className="tt-blog-kicker">{archiveMode ? 'ARQUIVO' : 'BIBLIOTECA'}</span><h2 id="blog-library-title">{archiveMode ? copy.archiveTitle : copy.library}</h2></div>
+                <p>{archiveMode ? copy.archiveDeck : `${blogArticles.length} análises organizadas por intenção, para encontrar uma resposta e avançar para a próxima decisão.`}</p>
               </div>
+              <div className="tt-blog-archive-access"><a href={archiveMode ? `${locale === 'pt' ? '' : `/${locale}`}/blog` : `${locale === 'pt' ? '/blog/arquivo' : `/${locale}/blog/archive`}`}>{archiveMode ? copy.coreLink : copy.archiveLink} <span aria-hidden="true">→</span></a></div>
               <div className="tt-blog-search-row">
                 <label className="tt-blog-search">
                   <span className="sr-only">Buscar no blog</span>
