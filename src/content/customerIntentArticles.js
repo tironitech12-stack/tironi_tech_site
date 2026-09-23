@@ -146,7 +146,7 @@ const clusters = [
   }
 ];
 
-export const customerIntentArticles = clusters.flatMap((cluster) => cluster.ideas.map((idea, index) => {
+const clusterGuides = clusters.flatMap((cluster) => cluster.ideas.map((idea, index) => {
   const [slug, title, topic, problem, definition, uniqueInsight, marketContext, diagnosis, outcome] = idea;
   return createEditorialArticle({
     ...shared,
@@ -166,4 +166,225 @@ export const customerIntentArticles = clusters.flatMap((cluster) => cluster.idea
     example: `Uma empresa que precisa ${outcome} escolhe uma jornada prioritária, registra a situação atual, conecta apenas os dados necessários e testa a mudança com critérios de qualidade e negócio antes de ampliar.`,
     conclusion: `${topic.charAt(0).toLocaleUpperCase('pt-BR')}${topic.slice(1)} gera resultado quando processo, pessoas, dados e tecnologia trabalham sobre a mesma meta e aprendem com evidências.`
   });
+}));
+
+const angleBlueprints = [
+  {
+    slug: 'guia-pratico',
+    label: 'Guia prático',
+    visualType: 'flow',
+    selectedSections: [0, 1, 2, 3, 4, 6, 8, 10, 12, 15],
+    title: (term) => `${term}: guia prático para empresas`,
+    problem: (term) => `transformar o interesse em ${term.toLowerCase()} em um processo aplicável, com responsáveis e resultado`,
+    insight: (term) => `Um guia sobre ${term.toLowerCase()} só é útil quando conecta conceito, decisão e primeira ação; uma lista de dicas sem contexto não muda a operação.`,
+    outcome: (term) => `construir uma capacidade empresarial mensurável relacionada a ${term.toLowerCase()}`,
+    sections: (term, seed) => [
+      { heading: `Mapa rápido: ${term.toLowerCase()}`, paragraphs: [`O ponto de partida é definir o que a empresa espera mudar ao pesquisar por ${term.toLowerCase()}. Escreva o problema em termos de comportamento, etapa e resultado: quem inicia, qual informação falta, o que precisa acontecer e como o desfecho será registrado.`, `${seed[5]} Essa leitura impede que a empresa confunda aquisição de ferramenta com resolução do problema e ajuda a Tironi Tech a desenhar software, automação ou integração no tamanho certo.`] },
+      { heading: 'Decisões que precisam existir antes da tecnologia', paragraphs: [`Defina público, proposta, responsável, fonte oficial, exceções e limite de autonomia. Se o tema envolve vendas ou atendimento, determine o que ChatBô pode responder, registrar e encaminhar; se envolve processos internos, determine quais sistemas e aprovações participam.`, `A Tironi Tech trabalha a partir dessas decisões para que o projeto termine em uma jornada utilizável, e não em uma demonstração desconectada do dia a dia.`] },
+      { heading: 'Plano de 30, 60 e 90 dias', paragraphs: [`Nos primeiros trinta dias, registre a linha de base e valide o fluxo prioritário. Até sessenta dias, pilote com usuários e trate exceções. Até noventa dias, compare resultado, custo e qualidade e decida se vale ampliar.`, `O cronograma muda conforme risco e integração, mas a lógica permanece: cada fase precisa entregar evidência suficiente para justificar a próxima.`] }
+    ]
+  },
+  {
+    slug: 'estrategia-diagnostico',
+    label: 'Estratégia e diagnóstico',
+    visualType: 'matrix',
+    selectedSections: [0, 1, 2, 3, 7, 8, 9, 11, 13, 15],
+    title: (term) => `${term}: estratégia, diagnóstico e prioridades`,
+    problem: (term) => `a falta de critérios para diagnosticar onde ${term.toLowerCase()} cria valor e escolher prioridades`,
+    insight: (term) => `A estratégia de ${term.toLowerCase()} fica mais clara quando oportunidades são comparadas pela mesma matriz de impacto, viabilidade, risco e aprendizagem.`,
+    outcome: (term) => `priorizar investimentos relacionados a ${term.toLowerCase()} com evidências e sequência`,
+    sections: (term, seed) => [
+      { heading: `Diagnóstico estratégico para ${term.toLowerCase()}`, paragraphs: [`Reúna direção, usuários e dados para reconstruir casos recentes. O objetivo é localizar em que ponto ${term.toLowerCase()} altera receita, custo, velocidade, qualidade ou experiência e quais dependências podem impedir o resultado.`, `${seed[7]} O diagnóstico deve terminar com hipóteses comparáveis, não com uma lista extensa de ideias sem dono.`] },
+      { heading: 'Matriz de prioridade: impacto, viabilidade, risco e aprendizagem', paragraphs: [`Pontue cada oportunidade em quatro dimensões e registre a justificativa. Impacto mede a consequência no negócio; viabilidade observa dados e integração; risco considera pessoas, privacidade e falha; aprendizagem avalia quanto o piloto reduz uma incerteza importante.`, `A Tironi Tech usa essa matriz para separar ações rápidas de capacidades estruturais e para indicar quando ChatBô, automação, agente de IA ou software sob medida é a resposta mais coerente.`] },
+      { heading: 'Portfólio, sequência e critérios de interrupção', paragraphs: [`Mantenha poucas iniciativas simultâneas e declare o que precisa ser verdadeiro para continuar. Um projeto pode ser encerrado quando a fonte não tem qualidade, a integração inviabiliza o retorno ou a mudança não altera o comportamento esperado.`, `Interromper cedo uma hipótese fraca preserva recursos para a próxima prioridade e aumenta a credibilidade da estratégia.`] }
+    ]
+  },
+  {
+    slug: 'implementacao-passo-a-passo',
+    label: 'Implementação',
+    visualType: 'architecture',
+    selectedSections: [0, 2, 3, 4, 5, 6, 7, 9, 12, 14, 15],
+    title: (term) => `${term}: implementação passo a passo`,
+    problem: (term) => `a necessidade de implementar ${term.toLowerCase()} conectando pessoas, dados e sistemas sem perder controle`,
+    insight: (term) => `Implementar ${term.toLowerCase()} exige testar a jornada completa, inclusive falha, transferência e registro; validar apenas a resposta principal esconde o trabalho que fica para a equipe.`,
+    outcome: (term) => `colocar uma solução para ${term.toLowerCase()} em produção com segurança e adoção`,
+    sections: (term, seed) => [
+      { heading: `Arquitetura de referência para ${term.toLowerCase()}`, paragraphs: [`Separe canal e interface, identidade, regras de negócio, inteligência, integrações e observabilidade. Essa divisão permite trocar ferramentas, limitar permissões e investigar uma decisão sem reconstruir todo o produto.`, `${seed[6]} A Tironi Tech traduz esse desenho em software e integrações que mantêm dados críticos em fontes confiáveis.`] },
+      { heading: 'Do protótipo à produção', paragraphs: [`O protótipo testa compreensão e experiência. A prova técnica verifica fonte, API, volume e tempo. O piloto avalia o processo com pessoas reais e alcance limitado. A produção acrescenta monitoramento, suporte, segurança e rotina de mudança.`, `Cada passagem precisa de critérios próprios. Aprovar uma tela não prova integração; aprovar alguns exemplos não prova estabilidade.`] },
+      { heading: 'Testes de exceção e operação assistida', paragraphs: [`Inclua dados ausentes, duplicidade, sistema indisponível, mensagem ambígua, permissão insuficiente e solicitação fora do escopo. Defina resposta, registro, alerta e responsável para cada falha.`, `Nas primeiras semanas, acompanhe amostras diariamente. ChatBô e os agentes desenvolvidos pela Tironi Tech registram contexto e intervenção para que as correções virem melhoria do sistema.`] }
+    ]
+  },
+  {
+    slug: 'custos-metricas-roi',
+    label: 'Custos e retorno',
+    visualType: 'scorecard',
+    selectedSections: [0, 2, 6, 8, 9, 10, 11, 12, 13, 15],
+    title: (term) => `${term}: custos, métricas e retorno sobre investimento`,
+    problem: (term) => `a dificuldade de calcular o investimento e o retorno de ${term.toLowerCase()} sem usar ganhos hipotéticos`,
+    insight: (term) => `O retorno de ${term.toLowerCase()} deve seguir o efeito até receita, margem, capacidade ou risco evitado; contar apenas horas ou mensagens produzidas superestima o ganho.`,
+    outcome: (term) => `avaliar iniciativas de ${term.toLowerCase()} por custo total e resultado econômico`,
+    sections: (term, seed) => [
+      { heading: `Modelo econômico: ${term.toLowerCase()}`, paragraphs: [`Registre volume, tempo, custo completo, conversão, ticket, margem, erro e capacidade antes de mudar o processo. Depois estime apenas a parcela que a solução consegue alterar e aplique uma faixa conservadora.`, `${seed[8]} O cenário deve mostrar investimento inicial, custo mensal, benefício provável, prazo de aprendizagem e sensibilidade às premissas.`] },
+      { heading: 'Custos que costumam ficar fora da proposta', paragraphs: [`Inclua descoberta, limpeza de dados, integração, segurança, licenças, consumo, infraestrutura, revisão humana, suporte, treinamento e evolução. Considere também o custo de depender de uma etapa manual que cresce com o volume.`, `A Tironi Tech explicita implantação e operação para que a comparação não coloque uma assinatura simples ao lado de um sistema completo como se fossem equivalentes.`] },
+      { heading: 'Painel de retorno e contramétricas', paragraphs: [`Escolha uma métrica de resultado, duas de processo e pelo menos duas contramétricas. Conversão pode ser acompanhada de tempo e avanço, mantendo reclamação e margem como limites. Produtividade pode ser acompanhada de ciclo e capacidade, mantendo erro e retrabalho.`, `O painel deve permitir segmentar por período, origem, jornada e responsável. Média geral pode esconder ganho em um grupo e perda importante em outro.`] }
+    ]
+  },
+  {
+    slug: 'comparativo-erros-checklist',
+    label: 'Comparação e checklist',
+    visualType: 'funnel',
+    selectedSections: [0, 1, 3, 5, 7, 8, 10, 13, 14, 15],
+    title: (term) => `${term}: comparativo, erros comuns e checklist de decisão`,
+    problem: (term) => `a decisão entre alternativas para ${term.toLowerCase()} sem depender de demonstrações genéricas`,
+    insight: (term) => `A comparação de ${term.toLowerCase()} precisa usar a mesma jornada, os mesmos dados e os mesmos critérios; listas de recursos favorecem quem promete mais, não quem resolve melhor.`,
+    outcome: (term) => `escolher a melhor abordagem para ${term.toLowerCase()} com critérios verificáveis`,
+    sections: (term, seed) => [
+      { heading: `Alternativas para ${term.toLowerCase()}`, paragraphs: [`Compare melhoria de processo, ferramenta pronta, integração, automação com IA e software sob medida. Cada opção tem velocidade, aderência, custo, dependência e capacidade de evolução diferentes.`, `${seed[4]} Em alguns casos, combinar uma plataforma com uma camada desenvolvida pela Tironi Tech oferece mais retorno do que substituir tudo ou aceitar todas as limitações.`] },
+      { heading: 'Erros que distorcem a decisão', paragraphs: [`Evite escolher por uma demonstração preparada, comparar planos sem testar a jornada, ignorar exceções, aceitar métricas de atividade como resultado e deixar propriedade de dados ou integrações indefinida.`, `Outro erro é contratar autonomia antes de construir avaliação. ChatBô e agentes de IA devem ganhar capacidade conforme a empresa comprova qualidade e controle.`] },
+      { heading: 'Roteiro para uma comparação justa', paragraphs: [`Entregue aos fornecedores exemplos equivalentes, volume, sistemas, restrições e resultado esperado. Peça arquitetura, premissas, itens fora do escopo, piloto, critérios de aceite, custo total, suporte e plano de saída.`, `Faça a decisão com usuários e responsáveis pelo processo. A melhor proposta é a que reduz a incerteza mais importante e mostra como o resultado será mantido depois do lançamento.`] }
+    ]
+  }
+];
+
+const visualLabels = {
+  'Vendas e crescimento': ['Demanda', 'Conversa', 'Oportunidade', 'Receita'],
+  'Prospecção e CRM': ['Conta ideal', 'Sinal', 'Qualificação', 'Próxima ação'],
+  'IA para WhatsApp': ['Mensagem', 'Contexto', 'Ação', 'CRM'],
+  'Serviços de IA': ['Processo', 'Dados', 'IA', 'Resultado'],
+  'ChatBô e atendimento': ['Intenção', 'Conhecimento', 'Resolução', 'Humano'],
+  'Automação com IA': ['Evento', 'Regra', 'Integração', 'Controle'],
+  'Software personalizado': ['Descoberta', 'Produto', 'Engenharia', 'Evolução']
+};
+
+const slugify = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const sentenceCase = (value) => `${value.charAt(0).toLocaleUpperCase('pt-BR')}${value.slice(1)}`;
+const naturalTopic = (value) => {
+  const term = value.trim();
+  if (/^como /i.test(term)) return term.replace(/^como /i, '');
+  if (/^quanto custa um /i.test(term)) return term.replace(/^quanto custa um /i, 'custo de um ');
+  if (/^quanto custa desenvolver /i.test(term)) return term.replace(/^quanto custa desenvolver /i, 'custo para desenvolver ');
+  if (/^melhor /i.test(term)) return `escolha do ${term.toLowerCase()}`;
+  return term;
+};
+const retroactiveDate = (index) => {
+  const date = new Date(Date.UTC(2026, 8, 21));
+  date.setUTCDate(date.getUTCDate() - index);
+  return date.toISOString().slice(0, 10);
+};
+
+const contextualNotes = {
+  'Vendas e crescimento': [
+    'a evidência precisa chegar até conversão, margem ou receita atribuída, sem confundir atividade com resultado',
+    'ChatBô pode reduzir a espera, organizar contexto e manter o próximo passo visível para a equipe comercial',
+    'o desenho precisa respeitar proposta, estágio do comprador e capacidade real de atendimento',
+    'a Tironi Tech conecta dados, conversas e sistemas para que o ganho permaneça mensurável depois do piloto'
+  ],
+  'Prospecção e CRM': [
+    'origem, aderência, consentimento, estágio e próxima ação precisam ficar registrados no CRM',
+    'automação deve ampliar pesquisa e disciplina sem transformar relevância em disparo indiscriminado',
+    'ChatBô ajuda a coletar contexto e encaminhar oportunidades, enquanto a equipe mantém a decisão comercial',
+    'a Tironi Tech integra canais e sistemas para eliminar cadastros duplicados e oportunidades sem responsável'
+  ],
+  'IA para WhatsApp': [
+    'a API oficial, o consentimento e as regras de início de conversa fazem parte da arquitetura',
+    'ChatBô preserva histórico, qualificação e transferência para que o cliente não recomece a conversa',
+    'preço, estoque, agenda e condições devem vir de fontes controladas, e não da memória do modelo',
+    'a Tironi Tech trata conversa, integração e operação como uma única jornada mensurável'
+  ],
+  'Serviços de IA': [
+    'a autonomia só deve crescer depois que avaliações, permissões e mecanismos de interrupção funcionarem',
+    'a Tironi Tech separa modelos, regras, dados e integrações para permitir troca e evolução dos componentes',
+    'NIST, OWASP e LGPD oferecem referências úteis para risco, segurança e responsabilidade',
+    'o valor precisa aparecer no processo completo, e não apenas na qualidade aparente de uma resposta'
+  ],
+  'ChatBô e atendimento': [
+    'resolução, transferência, reabertura e satisfação oferecem uma leitura mais completa do que contenção isolada',
+    'ChatBô combina atendimento automático e equipe humana com histórico e responsabilidade preservados',
+    'a automação precisa reconhecer situações sensíveis e entregar o contexto completo para uma pessoa',
+    'a Tironi Tech conecta conhecimento, canal, CRM e operação para melhorar a jornada inteira'
+  ],
+  'Automação com IA': [
+    'volume, toque, espera, erro e retrabalho formam a linha de base necessária para provar retorno',
+    'regras, APIs, workflows, RPA e IA devem ser escolhidos conforme a estrutura e a variabilidade do trabalho',
+    'a Tironi Tech projeta observabilidade e recuperação de falhas desde o início da automação',
+    'o objetivo é eliminar desperdício sem automatizar decisões que ainda exigem julgamento e responsabilidade'
+  ],
+  'Software personalizado': [
+    'usuários, permissões, integrações, disponibilidade e evolução determinam mais o esforço do que o número de telas',
+    'a Tironi Tech combina descoberta, produto, engenharia e IA para entregar jornadas completas e operáveis',
+    'software pronto, integração e desenvolvimento próprio precisam ser comparados pelo custo total do processo',
+    'a arquitetura deve preservar propriedade, documentação e capacidade de trocar componentes ao longo do tempo'
+  ]
+};
+
+function contextualizeSections(sections, topic, category, angleLabel) {
+  const notes = contextualNotes[category] || contextualNotes['Serviços de IA'];
+  return sections.map((section, sectionIndex) => {
+    const paragraphs = [...section.paragraphs];
+    const lastIndex = paragraphs.length - 1;
+    paragraphs[lastIndex] = `${paragraphs[lastIndex]} No contexto de ${topic.toLowerCase()}, ${notes[(sectionIndex + angleLabel.length) % notes.length]}.`;
+    return { ...section, paragraphs };
+  });
+}
+
+function buildArticleFaqs(topic, category) {
+  return [
+    { question: `Como interpretar o tema “${topic.toLowerCase()}” na prática?`, answer: `A mudança deve aparecer em uma etapa observável de ${category.toLowerCase()}: menos espera ou retrabalho, melhor qualidade, avanço de oportunidades ou maior capacidade. A tecnologia é o meio; processo, responsáveis e métrica definem se houve valor.` },
+    { question: `Por onde começar ao tratar de “${topic.toLowerCase()}”?`, answer: `Escolha uma jornada frequente e relevante, reúna exemplos reais e registre a linha de base. Depois delimite um piloto completo, incluindo entrada, fontes, ação, exceções, registro e acompanhamento humano.` },
+    { question: `Quais dados são necessários em um projeto sobre “${topic.toLowerCase()}”?`, answer: `Use apenas dados ligados ao caso: identidade, contexto, histórico, regras, catálogo ou eventos do processo. Defina origem, validade, permissão, proprietário e forma de corrigir cada fonte antes de automatizar decisões.` },
+    { question: `Como medir resultados relacionados a “${topic.toLowerCase()}”?`, answer: `Compare resultado e custo total com a situação anterior. Inclua implantação, licenças, consumo, suporte e revisão e acompanhe conversão, ciclo, capacidade, qualidade, margem ou erros conforme a jornada.` },
+    { question: 'Como a Tironi Tech pode apoiar este projeto?', answer: 'A Tironi Tech realiza o diagnóstico, desenha a arquitetura e desenvolve ChatBô, agentes, automações, integrações e software sob medida. O projeto começa pelo processo real e evolui com testes, métricas, segurança e operação acompanhada.' }
+  ];
+}
+
+const keywordArticles = clusters.flatMap((cluster) => cluster.keywords.flatMap((term, termIndex) => angleBlueprints.map((angle, angleIndex) => {
+  const seed = cluster.ideas[(termIndex + angleIndex) % cluster.ideas.length];
+  const topic = naturalTopic(term);
+  const article = createEditorialArticle({
+    ...shared,
+    category: cluster.category,
+    slug: `${slugify(term)}-${angle.slug}`,
+    title: sentenceCase(angle.title(term)),
+    topic,
+    problem: angle.problem(topic),
+    definition: `${sentenceCase(topic)} descreve uma intenção de negócio que precisa ser traduzida em público, processo, dados, tecnologia e resultado esperado.`,
+    uniqueInsight: angle.insight(topic),
+    marketContext: `${seed[6]} A adoção de IA, canais conversacionais e software integrado ampliou as opções, tornando diagnóstico e governança ainda mais relevantes.`,
+    diagnosis: `${seed[7]} Em seguida, relacione a evidência ao objetivo específico de ${term.toLowerCase()}.`,
+    outcome: angle.outcome(topic),
+    description: `${sentenceCase(angle.title(term))}. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.`,
+    keywords: [term, `${term} para empresas`, angle.label, 'Tironi Tech', 'ChatBô', 'automação com IA'],
+    featured: angleIndex === 0 && termIndex < 2,
+    example: `Uma empresa interessada em ${term.toLowerCase()} mapeia uma jornada real, registra a linha de base, conecta as fontes essenciais e usa um piloto para comparar resultado, qualidade e custo antes de ampliar.`,
+    conclusion: `${sentenceCase(topic)} deixa de ser uma busca genérica quando a empresa define o problema, mede o ponto de partida e conecta a solução à operação. A Tironi Tech pode estruturar essa passagem com ChatBô, agentes, automação e software sob medida.`,
+    visual: {
+      type: angle.visualType,
+      eyebrow: `MAPA VISUAL · ${angle.label.toUpperCase()}`,
+      title: `${sentenceCase(topic)} em uma visão operacional`,
+      caption: `Estrutura editorial da Tironi Tech para conectar “${topic.toLowerCase()}” a decisões, execução e resultado.`,
+      labels: visualLabels[cluster.category] || ['Diagnóstico', 'Decisão', 'Execução', 'Métrica']
+    }
+  });
+  const selected = angle.selectedSections.map((index) => article.sections[index]).filter(Boolean);
+  const sections = [angle.sections(topic, seed)[0], ...selected.slice(0, 4), angle.sections(topic, seed)[1], ...selected.slice(4), angle.sections(topic, seed)[2]];
+  return {
+    ...article,
+    sections: contextualizeSections(sections, topic, cluster.category, angle.label),
+    faqs: buildArticleFaqs(topic, cluster.category)
+  };
+})));
+
+const allCustomerIntentArticles = [...keywordArticles, ...clusterGuides];
+
+export const customerIntentArticles = allCustomerIntentArticles.map((article, index) => ({
+  ...article,
+  date: retroactiveDate(index),
+  updated: '2026-09-22',
+  visual: article.visual || {
+    type: angleBlueprints[index % angleBlueprints.length].visualType,
+    eyebrow: 'MAPA VISUAL · TIRONI TECH',
+    title: `${article.topic ? sentenceCase(article.topic) : article.title} em uma visão operacional`,
+    caption: 'Um mapa para conectar diagnóstico, decisão, implantação e resultado mensurável.',
+    labels: visualLabels[article.category] || ['Diagnóstico', 'Decisão', 'Execução', 'Métrica']
+  }
 }));

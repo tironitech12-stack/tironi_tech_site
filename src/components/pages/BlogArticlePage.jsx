@@ -5,6 +5,7 @@ import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
+import ArticleVisual from '../blog/ArticleVisual';
 import '../../styles/theme.css';
 import '../../styles/blog.css';
 
@@ -79,6 +80,7 @@ export default function BlogArticlePage({ slug }) {
               <div className="tt-article-body">
                 <p className="tt-article-lead">{article.intro}</p>
                 <section className="tt-article-summary" aria-labelledby="article-summary-title"><span className="tt-blog-kicker">LEITURA RÁPIDA</span><h2 id="article-summary-title">O que você vai levar deste guia</h2><ul>{article.takeaways.map((item) => <li key={item}>{item}</li>)}</ul></section>
+                <ArticleVisual visual={article.visual} />
                 {article.sections.map((section, index) => (
                   <section className="tt-article-section" id={`secao-${index + 1}`} key={section.heading}>
                     <span className="tt-article-section-number">{String(index + 1).padStart(2, '0')}</span>

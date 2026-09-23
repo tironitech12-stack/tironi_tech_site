@@ -41,14 +41,14 @@ export function createEditorialArticle(spec) {
     title: spec.title,
     description: spec.description,
     category: spec.category,
-    date: TODAY,
-    updated: TODAY,
+    date: spec.date || TODAY,
+    updated: spec.updated || TODAY,
     featured: Boolean(spec.featured),
     keywords: spec.keywords,
-    intro: `${topicLabel} deixou de ser uma discussão abstrata para ${audience}. O ponto central não é adotar uma ferramenta porque ela está em evidência, mas entender como ${spec.problem.toLowerCase()} pode ser convertido em uma jornada mensurável, segura e sustentável. Este guia organiza conceitos, decisões, arquitetura, implantação e critérios de retorno para sair da intenção e chegar a uma operação que funciona.`,
+    intro: `${topicLabel} deixou de ser uma discussão abstrata para ${audience}. O ponto central não é adotar uma ferramenta porque ela está em evidência, mas compreender o problema — ${spec.problem.toLowerCase()} — e convertê-lo em uma jornada mensurável, segura e sustentável. Este guia organiza conceitos, decisões, arquitetura, implantação e critérios de retorno para sair da intenção e chegar a uma operação que funciona.`,
     takeaways: [
       `Entender onde ${spec.topic.toLowerCase()} gera valor e onde apenas adiciona complexidade.`,
-      `Transformar ${spec.problem.toLowerCase()} em um processo com início, responsável e resultado verificável.`,
+      `Converter o problema — ${spec.problem.toLowerCase()} — em um processo com início, responsável e resultado verificável.`,
       `Escolher tecnologia a partir de ${decisions.toLowerCase()}, e não de uma lista de tendências.`,
       `Medir ${metrics.toLowerCase()} para decidir o que manter, corrigir ou ampliar.`,
       `Controlar ${risks.toLowerCase()} desde o desenho, sem deixar governança para o final.`
@@ -207,6 +207,7 @@ export function createEditorialArticle(spec) {
       }
     ],
     cta: spec.cta,
-    sources: spec.sources
+    sources: spec.sources,
+    visual: spec.visual
   };
 }
