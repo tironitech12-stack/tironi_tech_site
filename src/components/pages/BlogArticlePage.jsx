@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { formatBlogDate, getBlogArticle, getRelatedBlogArticles } from '../../content/blogArticles';
+import { formatLocalizedDate, getBlogArticleForLocale, getRelatedArticlesForLocale, localizedPath } from '../../content/localizedBlogArticles';
+import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
@@ -22,13 +23,22 @@ function updateMeta(selector, attribute, value) {
   node.setAttribute(attribute, value);
 }
 
-export default function BlogArticlePage({ slug }) {
-  const { t, language, setLanguage, languageOptions } = useLanguage();
-  const article = getBlogArticle(slug);
+const pageCopy = {
+  pt: { home: 'Início', guide: 'NESTE GUIA', quick: 'LEITURA RÁPIDA', takeaway: 'O que você vai levar deste guia', answers: 'RESPOSTAS DIRETAS', faq: 'Perguntas frequentes', next: 'PRÓXIMO PASSO', sources: 'Fontes consultadas', related: 'Artigos relacionados', all: 'Ver biblioteca completa', read: 'Ler', published: 'Publicado em', updated: 'Atualizado em', notFound: 'Este artigo não foi encontrado.' },
+  en: { home: 'Home', guide: 'IN THIS GUIDE', quick: 'QUICK READ', takeaway: 'What you will learn', answers: 'DIRECT ANSWERS', faq: 'Frequently asked questions', next: 'NEXT STEP', sources: 'Sources consulted', related: 'Related articles', all: 'View the full library', read: 'Read', published: 'Published', updated: 'Updated', notFound: 'This article was not found.' },
+  es: { home: 'Inicio', guide: 'EN ESTA GUÍA', quick: 'LECTURA RÁPIDA', takeaway: 'Qué aprenderás en esta guía', answers: 'RESPUESTAS DIRECTAS', faq: 'Preguntas frecuentes', next: 'PRÓXIMO PASO', sources: 'Fuentes consultadas', related: 'Artículos relacionados', all: 'Ver la biblioteca completa', read: 'Leer', published: 'Publicado', updated: 'Actualizado', notFound: 'No se encontró este artículo.' }
+};
+
+export default function BlogArticlePage({ slug, locale = 'pt' }) {
+  const { languageOptions } = useLanguage();
+  const t = getSiteText(locale);
+  const copy = pageCopy[locale] || pageCopy.pt;
+  const article = getBlogArticleForLocale(slug, locale);
 
   useEffect(() => {
     if (!article) { document.title = 'Artigo não encontrado | Tironi Tech'; return; }
-    const url = `${SITE_URL}/blog/${article.slug}`;
+    const url = `${SITE_URL}${localizedPath(article.slug, locale)}`;
+    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
     document.title = `${article.title} | Tironi Tech`;
     updateMeta('meta[name="description"]', 'content', article.description);
     updateMeta('meta[property="og:title"]', 'content', article.title);
@@ -42,44 +52,49 @@ export default function BlogArticlePage({ slug }) {
     const createdSchema = !schema;
     if (!schema) { schema = document.createElement('script'); schema.id = 'tt-page-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
     const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
-    const graph = [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: 'pt-BR', articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }];
+    const languageUrls = { pt: `${SITE_URL}/blog/${article.slug}`, en: `${SITE_URL}/en/blog/${article.slug}`, es: `${SITE_URL}/es/blog/${article.slug}` };
+    document.head.querySelectorAll('link[data-tt-hreflang]').forEach((node) => node.remove());
+    Object.entries({ ...languageUrls, 'x-default': languageUrls.pt }).forEach(([lang, href]) => { const link = document.createElement('link'); link.rel = 'alternate'; link.hreflang = lang; link.href = href; link.dataset.ttHreflang = 'true'; document.head.appendChild(link); });
+    const graph = [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: locale === 'pt' ? 'pt-BR' : locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: copy.home, item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}${locale === 'pt' ? '' : `/${locale}`}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }];
     if (article.faqs?.length) graph.push({ '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) });
     schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
     window.scrollTo(0, 0);
     return () => { if (createdSchema) schema.remove(); };
-  }, [article]);
+  }, [article, copy.home, locale]);
 
   if (!article) {
-    return <div className="tt2-page tt-blog-page"><Navbar t={t} language={language} setLanguage={setLanguage} languageOptions={languageOptions} /><main className="tt-blog-not-found"><span className="tt-blog-kicker">ERRO 404</span><h1>Este artigo não foi encontrado.</h1><a className="tt-blog-primary-link" href="/blog">Voltar para o blog →</a></main></div>;
+    return <div className="tt2-page tt-blog-page"><Navbar t={t} language={locale} setLanguage={() => {}} languageOptions={languageOptions} /><main className="tt-blog-not-found"><span className="tt-blog-kicker">404</span><h1>{copy.notFound}</h1><a className="tt-blog-primary-link" href={`${locale === 'pt' ? '' : `/${locale}`}/blog`}>Blog →</a></main></div>;
   }
 
-  const related = getRelatedBlogArticles(article);
+  const related = getRelatedArticlesForLocale(article, locale);
+  const changeLanguage = (nextLocale) => { window.location.assign(localizedPath(article.slug, nextLocale)); };
 
   return (
     <div className="tt2-page tt-blog-page">
       <div className="tt2-page-inner">
-        <Navbar t={t} language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
+        <Navbar t={t} language={locale} setLanguage={changeLanguage} languageOptions={languageOptions} />
         <main className="tt2-site-main">
           <article className="tt-article">
             <header className="tt-article-hero">
               <div className="tt-article-grid" aria-hidden="true" />
               <div className="tt2-container tt-article-hero-inner">
-                <nav className="tt-article-breadcrumb" aria-label="Navegação estrutural"><a href="/">Início</a><span>/</span><a href="/blog">Blog</a><span>/</span><span>{article.category}</span></nav>
+                <nav className="tt-article-breadcrumb" aria-label="Breadcrumb"><a href="/">{copy.home}</a><span>/</span><a href={`${locale === 'pt' ? '' : `/${locale}`}/blog`}>Blog</a><span>/</span><span>{article.category}</span></nav>
                 <div className="tt-blog-preview-meta"><span>{article.category}</span><span>{article.readTime}</span></div>
                 <h1>{article.title}</h1>
                 <p className="tt-article-deck">{article.description}</p>
-                <div className="tt-article-byline"><span className="tt-article-author-mark">TT</span><span><strong>Tironi Tech</strong><small>Publicado em {formatBlogDate(article.date)} · Atualizado em {formatBlogDate(article.updated)}</small></span></div>
+                <div className="tt-article-byline"><span className="tt-article-author-mark">TT</span><span><strong>Tironi Tech</strong><small>{copy.published} {formatLocalizedDate(article.date, locale)} · {copy.updated} {formatLocalizedDate(article.updated, locale)}</small></span></div>
+                <nav className="tt-article-languages" aria-label="Language versions"><a href={`/blog/${article.slug}`}>PT</a><a href={`/en/blog/${article.slug}`}>EN</a><a href={`/es/blog/${article.slug}`}>ES</a></nav>
               </div>
             </header>
 
             <div className="tt2-container tt-article-layout">
               <aside className="tt-article-aside">
-                <span>NESTE GUIA</span>
+                <span>{copy.guide}</span>
                 <ol>{article.sections.map((section, index) => <li key={section.heading}><a href={`#secao-${index + 1}`}>{section.heading}</a></li>)}</ol>
               </aside>
               <div className="tt-article-body">
                 <p className="tt-article-lead">{article.intro}</p>
-                <section className="tt-article-summary" aria-labelledby="article-summary-title"><span className="tt-blog-kicker">LEITURA RÁPIDA</span><h2 id="article-summary-title">O que você vai levar deste guia</h2><ul>{article.takeaways.map((item) => <li key={item}>{item}</li>)}</ul></section>
+                <section className="tt-article-summary" aria-labelledby="article-summary-title"><span className="tt-blog-kicker">{copy.quick}</span><h2 id="article-summary-title">{copy.takeaway}</h2><ul>{article.takeaways.map((item) => <li key={item}>{item}</li>)}</ul></section>
                 <ArticleVisual visual={article.visual} />
                 {article.sections.map((section, index) => (
                   <section className="tt-article-section" id={`secao-${index + 1}`} key={section.heading}>
@@ -89,19 +104,19 @@ export default function BlogArticlePage({ slug }) {
                     {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                   </section>
                 ))}
-                {article.faqs?.length ? <section className="tt-article-faq" aria-labelledby="article-faq-title"><span className="tt-blog-kicker">RESPOSTAS DIRETAS</span><h2 id="article-faq-title">Perguntas frequentes</h2>{article.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section> : null}
+                {article.faqs?.length ? <section className="tt-article-faq" aria-labelledby="article-faq-title"><span className="tt-blog-kicker">{copy.answers}</span><h2 id="article-faq-title">{copy.faq}</h2>{article.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section> : null}
                 <section className="tt-article-cta">
-                  <span className="tt-blog-kicker">PRÓXIMO PASSO</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? 'noreferrer' : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
+                  <span className="tt-blog-kicker">{copy.next}</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? 'noreferrer' : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
                 </section>
-                <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">Fontes consultadas</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>
+                <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">{copy.sources}</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>
               </div>
             </div>
           </article>
 
-          {related.length ? <section className="tt-blog-related"><div className="tt2-container"><div className="tt-blog-library-head"><div><span className="tt-blog-kicker">CONTINUE EXPLORANDO</span><h2>Artigos relacionados</h2></div><a className="tt-blog-text-link" href="/blog">Ver biblioteca completa →</a></div><div className="tt-blog-grid">{related.map((item, index) => <article className="tt-blog-card" key={item.slug}><div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div><div className="tt-blog-preview-meta"><span>{item.category}</span><span>{item.readTime}</span></div><h3><a href={`/blog/${item.slug}`}>{item.title}</a></h3><p>{item.description}</p><footer><time dateTime={item.date}>{formatBlogDate(item.date)}</time><a className="tt-blog-read" href={`/blog/${item.slug}`}>Ler <span aria-hidden="true">↗</span></a></footer></article>)}</div></div></section> : null}
+          {related.length ? <section className="tt-blog-related"><div className="tt2-container"><div className="tt-blog-library-head"><div><span className="tt-blog-kicker">TIRONI TECH</span><h2>{copy.related}</h2></div><a className="tt-blog-text-link" href={`${locale === 'pt' ? '' : `/${locale}`}/blog`}>{copy.all} →</a></div><div className="tt-blog-grid">{related.map((item, index) => <article className="tt-blog-card" key={item.slug}><div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div><div className="tt-blog-preview-meta"><span>{item.category}</span><span>{item.readTime}</span></div><h3><a href={localizedPath(item.slug, locale)}>{item.title}</a></h3><p>{item.description}</p><footer><time dateTime={item.date}>{formatLocalizedDate(item.date, locale)}</time><a className="tt-blog-read" href={localizedPath(item.slug, locale)}>{copy.read} <span aria-hidden="true">↗</span></a></footer></article>)}</div></div></section> : null}
         </main>
         <FloatingWhatsAppButton />
-        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
+        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={locale} setLanguage={changeLanguage} languageOptions={languageOptions} />
         <CookieConsent t={t} />
       </div>
     </div>

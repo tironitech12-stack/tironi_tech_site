@@ -28,17 +28,23 @@ function ConsentAwareAnalytics() {
 
 function AppContent() {
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+  const localizedBlog = pathname.match(/^\/(en|es)\/blog(?:\/(.*))?\/?$/);
+
+  if (localizedBlog) {
+    const [, locale, slug] = localizedBlog;
+    return slug ? <BlogArticlePage slug={decodeURIComponent(slug.replace(/\/$/, ""))} locale={locale} /> : <BlogIndexPage locale={locale} />;
+  }
 
   if (pathname === "/club" || pathname === "/club/") {
     return <ClubPage />;
   }
 
   if (pathname === "/blog" || pathname === "/blog/") {
-    return <BlogIndexPage />;
+    return <BlogIndexPage locale="pt" />;
   }
 
   if (pathname.startsWith("/blog/")) {
-    return <BlogArticlePage slug={decodeURIComponent(pathname.replace(/^\/blog\//, "").replace(/\/$/, ""))} />;
+    return <BlogArticlePage slug={decodeURIComponent(pathname.replace(/^\/blog\//, "").replace(/\/$/, ""))} locale="pt" />;
   }
 
   if (pathname === "/mapa-do-site" || pathname === "/mapa-do-site/") {

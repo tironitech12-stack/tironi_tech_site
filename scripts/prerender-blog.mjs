@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { blogArticles, getRelatedBlogArticles } from '../src/content/blogArticles.js';
+import { getBlogArticlesForLocale, getRelatedArticlesForLocale, localizedPath } from '../src/content/localizedBlogArticles.js';
 import { clubContent } from '../src/content/clubContent.js';
 import { LEGAL_COPY } from '../src/content/legalPolicies.js';
 
@@ -12,7 +13,7 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
-function pageTemplate({ title, description, path, body, schema }) {
+function pageTemplate({ title, description, path, body, schema, locale = 'pt', alternates = [] }) {
   const url = `${origin}${path}`;
   const cleanTemplate = template
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
@@ -31,10 +32,12 @@ function pageTemplate({ title, description, path, body, schema }) {
     `<meta name="twitter:title" content="${escapeHtml(title)}">`,
     `<meta name="twitter:description" content="${escapeHtml(description)}">`,
     `<meta name="twitter:image" content="${origin}/brand/tironi-symbol.png">`,
+    ...alternates.map(({ hreflang, href }) => `<link rel="alternate" hreflang="${hreflang}" href="${href}">`),
     `<script id="tt-page-schema" type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`
   ].join('\n    ');
 
   return cleanTemplate
+    .replace(/<html\s+lang="[^"]*"/, `<html lang="${locale === 'pt' ? 'pt-BR' : locale}"`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
     .replace('</head>', `    ${tags}\n  </head>`)
@@ -45,7 +48,8 @@ const blogGroups = [...new Set(blogArticles.map((article) => article.category))]
 const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa completo de conteúdo</a></nav>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2>${group.articles.map((article) => `<article><p>${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section>`).join('')}</main>`;
 const indexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Blog Tironi Tech', description: 'Guias sobre IA, automação, ChatBô e software personalizado.', url: `${origin}/blog`, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'blog'), { recursive: true });
-await writeFile(resolve(root, 'blog', 'index.html'), pageTemplate({ title: 'Blog Tironi Tech | IA, Automação, ChatBô e Software', description: 'Guias práticos e pesquisas sobre inteligência artificial, automação de processos, ChatBô, atendimento no WhatsApp e software personalizado.', path: '/blog', body: indexBody, schema: indexSchema }));
+const blogIndexAlternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${locale === 'pt' ? '' : `/${locale}`}/blog` })).concat({ hreflang: 'x-default', href: `${origin}/blog` });
+await writeFile(resolve(root, 'blog', 'index.html'), pageTemplate({ title: 'Blog Tironi Tech | IA, Automação, ChatBô e Software', description: 'Guias práticos e pesquisas sobre inteligência artificial, automação de processos, ChatBô, atendimento no WhatsApp e software personalizado.', path: '/blog', body: indexBody, schema: indexSchema, alternates: blogIndexAlternates }));
 
 for (const article of blogArticles) {
   const path = `/blog/${article.slug}`;
@@ -66,7 +70,39 @@ for (const article of blogArticles) {
   const schema = { '@context': 'https://schema.org', '@graph': graph };
   const directory = resolve(root, 'blog', article.slug);
   await mkdir(directory, { recursive: true });
-  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema }));
+  const alternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates }));
+}
+
+const localizedStaticCopy = {
+  en: { title: 'Better decisions start with technology clearly explained.', deck: 'In-depth guides on artificial intelligence, automation, ChatBô and custom software.', home: 'Home', takeaway: 'What you will learn', faq: 'Frequently asked questions', related: 'Related articles', sources: 'Sources consulted', byline: 'By Tironi Tech · Published', updated: 'Updated' },
+  es: { title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías profundas sobre inteligencia artificial, automatización, ChatBô y software a medida.', home: 'Inicio', takeaway: 'Qué aprenderás', faq: 'Preguntas frecuentes', related: 'Artículos relacionados', sources: 'Fuentes consultadas', byline: 'Por Tironi Tech · Publicado', updated: 'Actualizado' }
+};
+
+for (const locale of ['en', 'es']) {
+  const localeArticles = getBlogArticlesForLocale(locale);
+  const localeCopy = localizedStaticCopy[locale];
+  const localeGroups = [...new Set(localeArticles.map((article) => article.category))].map((category) => ({ category, articles: localeArticles.filter((article) => article.category === category) }));
+  const indexPath = `/${locale}/blog`;
+  const localeIndexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>${escapeHtml(localeCopy.title)}</h1><p>${escapeHtml(localeCopy.deck)}</p></header>${localeGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2>${group.articles.map((article) => `<article><p>${escapeHtml(article.readTime)}</p><h3><a href="${localizedPath(article.slug, locale)}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section>`).join('')}</main>`;
+  const localeIndexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: `Tironi Tech Blog (${locale.toUpperCase()})`, description: localeCopy.deck, url: `${origin}${indexPath}`, inLanguage: locale, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
+  const indexDirectory = resolve(root, locale, 'blog');
+  await mkdir(indexDirectory, { recursive: true });
+  await writeFile(resolve(indexDirectory, 'index.html'), pageTemplate({ title: `${localeCopy.title} | Tironi Tech`, description: localeCopy.deck, path: indexPath, body: localeIndexBody, schema: localeIndexSchema, locale, alternates: blogIndexAlternates }));
+
+  for (const article of localeArticles) {
+    const path = localizedPath(article.slug, locale);
+    const faqBody = article.faqs?.length ? `<section><h2>${localeCopy.faq}</h2>${article.faqs.map((faq) => `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`).join('')}</section>` : '';
+    const relatedBody = `<section><h2>${localeCopy.related}</h2><ul>${getRelatedArticlesForLocale(article, locale).map((related) => `<li><a href="${localizedPath(related.slug, locale)}">${escapeHtml(related.title)}</a></li>`).join('')}</ul></section>`;
+    const visualBody = article.visual ? `<figure><figcaption><strong>${escapeHtml(article.visual.title)}</strong></figcaption><ol>${article.visual.labels.map((label) => `<li>${escapeHtml(label)}</li>`).join('')}</ol><p>${escapeHtml(article.visual.caption)}</p></figure>` : '';
+    const articleBody = `<main class="tt-article-static"><article><nav><a href="/">${localeCopy.home}</a> / <a href="/${locale}/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>${localeCopy.byline} <time datetime="${article.date}">${article.date}</time> · ${localeCopy.updated} <time datetime="${article.updated}">${article.updated}</time></p><nav><a href="/blog/${article.slug}">PT</a> · <a href="/en/blog/${article.slug}">EN</a> · <a href="/es/blog/${article.slug}">ES</a></nav></header><p>${escapeHtml(article.intro)}</p><section><h2>${localeCopy.takeaway}</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}<section><h2>${localeCopy.sources}</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section></article></main>`;
+    const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...article.faqs.flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
+    const schema = { '@context': 'https://schema.org', '@graph': [{ '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.date, dateModified: article.updated, inLanguage: locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: origin }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin }, mainEntityOfPage: `${origin}${path}`, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }] };
+    const directory = resolve(root, locale, 'blog', article.slug);
+    await mkdir(directory, { recursive: true });
+    const alternates = ['pt', 'en', 'es'].map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
+    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates }));
+  }
 }
 
 const club = clubContent.pt;
@@ -106,13 +142,17 @@ const urls = [
   { path: '/', lastmod: '2026-09-22', priority: '1.0', frequency: 'weekly' },
   { path: '/club', lastmod: '2026-09-22', priority: '0.8', frequency: 'monthly' },
   { path: '/blog', lastmod: '2026-09-22', priority: '0.9', frequency: 'weekly' },
+  { path: '/en/blog', lastmod: '2026-09-22', priority: '0.9', frequency: 'weekly' },
+  { path: '/es/blog', lastmod: '2026-09-22', priority: '0.9', frequency: 'weekly' },
   { path: '/mapa-do-site', lastmod: '2026-09-22', priority: '0.7', frequency: 'weekly' },
   { path: '/politica-privacidade', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
   { path: '/politica-cookies', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
-  ...blogArticles.map((article) => ({ path: `/blog/${article.slug}`, lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' }))
+  ...blogArticles.flatMap((article) => ['pt', 'en', 'es'].map((locale) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' })))
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
 await writeFile(resolve(root, 'sitemap.xml'), sitemap);
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
-console.log(`Prerendered homepage, Club, legal pages, content map, blog index and ${blogArticles.length} articles.`);
+console.log(
+  `Prerendered homepage, Club, legal pages, content map, 3 blog indexes and ${blogArticles.length * 3} localized article pages (${blogArticles.length} per language).`,
+);
