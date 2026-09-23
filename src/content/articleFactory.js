@@ -13,6 +13,8 @@ export const editorialSources = {
   geoAura: { label: 'GeoAura — hub de recursos sobre Generative Engine Optimization', url: 'https://geoaura.world/' },
   cetic: { label: 'Cetic.br/NIC.br — TIC Empresas 2025', url: 'https://nic.br/publicacao/resumo-executivo-pesquisa-sobre-o-uso-das-tecnologias-de-informacao-e-comunicacao-nas-empresas-brasileiras-tic-empresas-2025/' },
   sebrae: { label: 'Sebrae — Inteligência Artificial para Pequenos Negócios', url: 'https://pa.loja.sebrae.com.br/inteligencia-artificial-para-pequenos-negocios' },
+  sebraePracticalAI: { label: 'Sebrae — IA para Pequenos Negócios: exemplos práticos', url: 'https://sebrae.com.br/file_source/Sebrae/Portal%20Sebrae/UFs/MS/Anexos/2026/IA%20para%20Pequenos%20Nego%CC%81cios.pdf' },
+  salesforceSales: { label: 'Salesforce Research — State of Sales 2026', url: 'https://www.salesforce.com/sales/state-of-sales/' },
   openAIBots: { label: 'OpenAI — documentação oficial dos crawlers', url: 'https://developers.openai.com/api/docs/bots' },
   anthropicBots: { label: 'Anthropic — documentação oficial dos crawlers', url: 'https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler' },
   perplexityBots: { label: 'Perplexity — documentação oficial dos crawlers', url: 'https://docs.perplexity.ai/docs/resources/perplexity-crawlers' },
