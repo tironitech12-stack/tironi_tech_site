@@ -7,7 +7,7 @@ export const heroImpactOverrides = {
       opening: "Sua empresa cresceu.",
       emphasis: "O caos operacional também?",
       description: "Planilhas demais. Sistemas que não conversam. Clientes esperando resposta. Sua equipe perde tempo no que a tecnologia já pode resolver.",
-      promise: "Software, automação e IA para eliminar retrabalho, conectar sua operação e devolver tempo ao seu time.",
+      promise: "A Tironi Tech é uma empresa brasileira de software sob medida, automação de processos e inteligência artificial para empresas que precisam eliminar retrabalho, conectar sistemas e crescer.",
       primaryCta: "Agendar diagnóstico de 20 min",
       secondaryCta: "Ver o que podemos resolver",
       reassurance: "Diagnóstico inicial • conversa direta com a equipe",

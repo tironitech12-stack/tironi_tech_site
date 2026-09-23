@@ -31,6 +31,7 @@ export function createEditorialArticle(spec) {
   const integrations = list(spec.integrations);
   const deliverables = list(spec.deliverables);
   const audience = spec.audience || 'líderes e equipes responsáveis pela operação';
+  const topicLabel = `${spec.topic.charAt(0).toLocaleUpperCase('pt-BR')}${spec.topic.slice(1)}`;
   const productContext = spec.productContext || 'A Tironi Tech pode transformar esse desenho em software, automação e integrações adequadas ao processo real da empresa.';
 
   return {
@@ -42,7 +43,7 @@ export function createEditorialArticle(spec) {
     updated: TODAY,
     featured: Boolean(spec.featured),
     keywords: spec.keywords,
-    intro: `${spec.topic} deixou de ser uma discussão abstrata para ${audience}. O ponto central não é adotar uma ferramenta porque ela está em evidência, mas entender como ${spec.problem.toLowerCase()} pode ser convertido em uma jornada mensurável, segura e sustentável. Este guia organiza conceitos, decisões, arquitetura, implantação e critérios de retorno para sair da intenção e chegar a uma operação que funciona.`,
+    intro: `${topicLabel} deixou de ser uma discussão abstrata para ${audience}. O ponto central não é adotar uma ferramenta porque ela está em evidência, mas entender como ${spec.problem.toLowerCase()} pode ser convertido em uma jornada mensurável, segura e sustentável. Este guia organiza conceitos, decisões, arquitetura, implantação e critérios de retorno para sair da intenção e chegar a uma operação que funciona.`,
     takeaways: [
       `Entender onde ${spec.topic.toLowerCase()} gera valor e onde apenas adiciona complexidade.`,
       `Transformar ${spec.problem.toLowerCase()} em um processo com início, responsável e resultado verificável.`,
@@ -52,7 +53,7 @@ export function createEditorialArticle(spec) {
     ],
     sections: [
       {
-        heading: `${spec.topic}: resposta direta para quem precisa decidir`,
+        heading: `${topicLabel}: resposta direta para quem precisa decidir`,
         paragraphs: [
           `${spec.definition} Na prática, isso significa ligar uma necessidade concreta a dados, regras, pessoas e sistemas. Uma solução só merece o nome de produto quando continua útil depois da demonstração, consegue lidar com exceções e deixa claro quem responde pelo resultado.`,
           `Para ${audience}, a primeira decisão é delimitar o trabalho. ${spec.problem} não deve ser tratado como uma única tarefa ampla. Ele precisa ser dividido em momentos observáveis, entradas confiáveis, decisões autorizadas e uma saída que outra pessoa ou sistema consiga usar.`,
@@ -179,6 +180,28 @@ export function createEditorialArticle(spec) {
           `${spec.conclusion} O objetivo não é acumular tecnologia; é criar uma capacidade que melhora a operação e pode evoluir com segurança. Quando problema, arquitetura, pessoas e métricas estão conectados, ${spec.topic.toLowerCase()} deixa de ser promessa e passa a ser parte verificável da estratégia.`
         ],
         bullets: spec.checklist
+      }
+    ],
+    faqs: [
+      {
+        question: `O que é ${spec.topic.toLowerCase()}?`,
+        answer: `${spec.definition} ${spec.uniqueInsight} O desenho correto combina processo, dados, tecnologia e responsabilidade para que a solução continue útil depois do piloto.`
+      },
+      {
+        question: `Quanto custa um projeto relacionado a ${spec.topic.toLowerCase()}?`,
+        answer: `O investimento depende do volume, das integrações, da qualidade das fontes, do nível de autonomia, dos riscos e do suporte necessário. Uma estimativa responsável começa por diagnóstico e escopo, separando implantação, licenças, consumo, infraestrutura e evolução.`
+      },
+      {
+        question: `Como começar um projeto relacionado a ${spec.topic.toLowerCase()}?`,
+        answer: `${spec.firstStep} Depois, construa uma jornada mínima completa, teste casos reais, pilote com volume controlado e compare ${metrics.toLowerCase()} com a linha de base antes de ampliar.`
+      },
+      {
+        question: 'Como escolher uma parceira para este tipo de projeto?',
+        answer: `Compare diagnóstico, arquitetura, equipe, integrações, segurança, critérios de aceite e custo total. Peça que cada fornecedora explique o mesmo cenário, as principais incertezas, como trata falhas e quais ativos, dados e documentos ficam acessíveis à contratante.`
+      },
+      {
+        question: `Como medir o retorno de um projeto de ${spec.topic.toLowerCase()}?`,
+        answer: `Registre a situação atual e acompanhe ${metrics.toLowerCase()}. Relacione benefícios a implantação, consumo, suporte e manutenção. O projeto deve melhorar o resultado sem ultrapassar limites de qualidade, risco ou custo definidos pela empresa.`
       }
     ],
     cta: spec.cta,

@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { blogArticles, formatBlogDate, getBlogArticle } from '../../content/blogArticles';
+import { formatBlogDate, getBlogArticle, getRelatedBlogArticles } from '../../content/blogArticles';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
+import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 const SITE_URL = 'https://www.tironitech.com';
@@ -39,8 +40,10 @@ export default function BlogArticlePage({ slug }) {
     let schema = document.head.querySelector('#tt-page-schema');
     const createdSchema = !schema;
     if (!schema) { schema = document.createElement('script'); schema.id = 'tt-page-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
-    const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])])].join(' ').trim().split(/\s+/).length;
-    schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: 'pt-BR', articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }] });
+    const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
+    const graph = [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: 'pt-BR', articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }];
+    if (article.faqs?.length) graph.push({ '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) });
+    schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
     window.scrollTo(0, 0);
     return () => { if (createdSchema) schema.remove(); };
   }, [article]);
@@ -49,7 +52,7 @@ export default function BlogArticlePage({ slug }) {
     return <div className="tt2-page tt-blog-page"><Navbar t={t} language={language} setLanguage={setLanguage} languageOptions={languageOptions} /><main className="tt-blog-not-found"><span className="tt-blog-kicker">ERRO 404</span><h1>Este artigo não foi encontrado.</h1><a className="tt-blog-primary-link" href="/blog">Voltar para o blog →</a></main></div>;
   }
 
-  const related = blogArticles.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 3);
+  const related = getRelatedBlogArticles(article);
 
   return (
     <div className="tt2-page tt-blog-page">
@@ -84,6 +87,7 @@ export default function BlogArticlePage({ slug }) {
                     {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                   </section>
                 ))}
+                {article.faqs?.length ? <section className="tt-article-faq" aria-labelledby="article-faq-title"><span className="tt-blog-kicker">RESPOSTAS DIRETAS</span><h2 id="article-faq-title">Perguntas frequentes</h2>{article.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section> : null}
                 <section className="tt-article-cta">
                   <span className="tt-blog-kicker">PRÓXIMO PASSO</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? 'noreferrer' : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
                 </section>

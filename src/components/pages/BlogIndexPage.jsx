@@ -5,6 +5,7 @@ import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
+import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 const SITE_URL = 'https://www.tironitech.com';

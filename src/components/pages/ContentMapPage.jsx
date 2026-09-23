@@ -4,6 +4,7 @@ import { blogArticles, blogCategories } from '../../content/blogArticles';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
+import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 export default function ContentMapPage() {
