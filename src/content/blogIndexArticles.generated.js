@@ -8,7 +8,7 @@ export const blogIndexArticles = {
       "category": "Estratégia, adoção e transformação com IA",
       "date": "2026-09-20",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "The State of AI: Global Survey 2026 — McKinsey",
@@ -25,7 +25,7 @@ export const blogIndexArticles = {
       "category": "Estratégia, adoção e transformação com IA",
       "date": "2026-09-17",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "The State of AI in the Enterprise 2026 — Deloitte",
@@ -42,7 +42,7 @@ export const blogIndexArticles = {
       "category": "Agentes de IA e Agentic AI",
       "date": "2026-08-24",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "From DevOps to XOps: Agent-Driven Enterprise Operations — Nature",
@@ -59,7 +59,7 @@ export const blogIndexArticles = {
       "category": "Agentes de IA e Agentic AI",
       "date": "2026-08-18",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Unlocking Exponential Value With AI Agent Orchestration — Deloitte",
@@ -76,7 +76,7 @@ export const blogIndexArticles = {
       "category": "Chat IA, atendimento e Customer Experience",
       "date": "2026-07-10",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Chatbot for Customer Service Buyer's Guide",
@@ -93,7 +93,7 @@ export const blogIndexArticles = {
       "category": "Chat IA, atendimento e Customer Experience",
       "date": "2026-07-10",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Chatbot for Customer Service Buyer's Guide",
@@ -110,7 +110,7 @@ export const blogIndexArticles = {
       "category": "IA para vendas, CRM e geração de leads",
       "date": "2026-06-21",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Tools for B2B Sales Prospecting",
@@ -127,7 +127,7 @@ export const blogIndexArticles = {
       "category": "IA para vendas, CRM e geração de leads",
       "date": "2026-06-20",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Sales Automation Tools — ZoomInfo",
@@ -144,7 +144,7 @@ export const blogIndexArticles = {
       "category": "WhatsApp, IA e conversational commerce",
       "date": "2026-05-06",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "How to Build a WhatsApp Chatbot",
@@ -161,7 +161,7 @@ export const blogIndexArticles = {
       "category": "WhatsApp, IA e conversational commerce",
       "date": "2026-05-06",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "5 min de leitura",
       "featured": false,
       "keywords": [
         "How to Build a WhatsApp Chatbot",
@@ -178,7 +178,7 @@ export const blogIndexArticles = {
       "category": "RAG, conhecimento corporativo e context engineering",
       "date": "2026-05-04",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Hybrid RAG With Knowledge Graph Expansion",
@@ -195,7 +195,7 @@ export const blogIndexArticles = {
       "category": "RAG, conhecimento corporativo e context engineering",
       "date": "2026-04-30",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "MegaMem: Retrieval for Ultra-Large Context Windows",
@@ -212,7 +212,7 @@ export const blogIndexArticles = {
       "category": "IA no desenvolvimento de software",
       "date": "2026-04-02",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "The AI Revolution in Software Development — McKinsey",
@@ -229,7 +229,7 @@ export const blogIndexArticles = {
       "category": "IA no desenvolvimento de software",
       "date": "2026-03-30",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Developer Tools for Coding and Security",
@@ -246,7 +246,7 @@ export const blogIndexArticles = {
       "category": "Automação de processos e operações",
       "date": "2026-03-12",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Operational Backbone of the Autonomous Enterprise — SAP",
@@ -263,7 +263,7 @@ export const blogIndexArticles = {
       "category": "Automação de processos e operações",
       "date": "2026-03-09",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Business Process Management in the Generative AI Era",
@@ -280,7 +280,7 @@ export const blogIndexArticles = {
       "category": "IA em marketing, aquisição e personalização",
       "date": "2026-02-14",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Reimagining Advertising With AI — OpenAI",
@@ -297,7 +297,7 @@ export const blogIndexArticles = {
       "category": "IA em marketing, aquisição e personalização",
       "date": "2026-01-24",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI in B2B Sales and Marketing Statistics",
@@ -314,7 +314,7 @@ export const blogIndexArticles = {
       "category": "Governança, segurança e confiabilidade",
       "date": "2026-01-21",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Unified Policy Architecture for Enterprise AI — leitura complementar da referência 243",
@@ -331,7 +331,7 @@ export const blogIndexArticles = {
       "category": "Governança, segurança e confiabilidade",
       "date": "2026-01-21",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Unified Policy Architecture for Enterprise AI — leitura complementar da referência 243",
@@ -348,7 +348,7 @@ export const blogIndexArticles = {
       "category": "SaaS, produto e AI-native software",
       "date": "2025-12-13",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "How to Build an AI SaaS Product — Automely",
@@ -365,7 +365,7 @@ export const blogIndexArticles = {
       "category": "SaaS, produto e AI-native software",
       "date": "2025-12-11",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "How to Build an AI SaaS Product — Inventiple",
@@ -382,7 +382,7 @@ export const blogIndexArticles = {
       "category": "Integrações com CRM, ERP e APIs",
       "date": "2025-11-20",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "How AI Agents Connect to APIs, CRMs and ERPs",
@@ -399,7 +399,7 @@ export const blogIndexArticles = {
       "category": "Integrações com CRM, ERP e APIs",
       "date": "2025-10-22",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Enterprise AI Integrations — leitura complementar da referência 334",
@@ -416,7 +416,7 @@ export const blogIndexArticles = {
       "category": "IA no e-commerce e varejo",
       "date": "2025-10-17",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "5 min de leitura",
       "featured": false,
       "keywords": [
         "Cleo: Conversational Commerce Chatbot",
@@ -433,7 +433,7 @@ export const blogIndexArticles = {
       "category": "IA no e-commerce e varejo",
       "date": "2025-10-17",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "5 min de leitura",
       "featured": false,
       "keywords": [
         "Cleo: Conversational Commerce Chatbot",
@@ -450,7 +450,7 @@ export const blogIndexArticles = {
       "category": "IA nas empresas brasileiras e PMEs",
       "date": "2025-09-19",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Agente de IA no WhatsApp: ROI em PMEs",
@@ -461,16 +461,16 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "pesquisa-369-agentes-de-ia-para-whatsapp-e-vendas-analise-executiva",
-      "title": "O que “Agentes de IA para WhatsApp e Vendas” ensina sobre IA nas empresas brasileiras e PMEs",
-      "description": "O que “Agentes de IA para WhatsApp e Vendas” ensina sobre IA nas empresas brasileiras e PMEs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-guia-aplicacao",
+      "title": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa",
+      "description": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
       "category": "IA nas empresas brasileiras e PMEs",
-      "date": "2025-09-17",
+      "date": "2025-09-19",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
-        "Agentes de IA para WhatsApp e Vendas",
+        "Agente de IA no WhatsApp: ROI em PMEs",
         "IA nas empresas brasileiras e PMEs",
         "pesquisa inteligência artificial",
         "Tironi Tech",
@@ -484,7 +484,7 @@ export const blogIndexArticles = {
       "category": "GEO, AEO e aparecer nas respostas das IAs",
       "date": "2025-09-02",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Google Guide to Optimizing for Generative AI",
@@ -501,7 +501,7 @@ export const blogIndexArticles = {
       "category": "GEO, AEO e aparecer nas respostas das IAs",
       "date": "2025-08-28",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Getting Cited in Google AI, ChatGPT and Perplexity",
@@ -518,7 +518,7 @@ export const blogIndexArticles = {
       "category": "MCP, tool use e interoperabilidade",
       "date": "2025-07-30",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Scaling AI Agent Infrastructure With MCP — Google",
@@ -535,7 +535,7 @@ export const blogIndexArticles = {
       "category": "MCP, tool use e interoperabilidade",
       "date": "2025-07-30",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Scaling AI Agent Infrastructure With MCP — Google",
@@ -552,7 +552,7 @@ export const blogIndexArticles = {
       "category": "Voice AI e agentes de voz",
       "date": "2025-06-29",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Voice Agent Services for Businesses — Aircall",
@@ -569,7 +569,7 @@ export const blogIndexArticles = {
       "category": "Voice AI e agentes de voz",
       "date": "2025-06-28",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "AI Voice Agents for Customer Service — Cresta",
@@ -586,7 +586,7 @@ export const blogIndexArticles = {
       "category": "ROI, custo e business case para IA",
       "date": "2025-05-29",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "Build vs Buy Enterprise AI: Costs and Success Rates",
@@ -603,7 +603,7 @@ export const blogIndexArticles = {
       "category": "ROI, custo e business case para IA",
       "date": "2025-05-22",
       "updated": "2026-09-22",
-      "readTime": "18 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "The Total Cost of AI Ownership — Cohere",
@@ -620,7 +620,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-09-21",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como conseguir mais clientes",
@@ -638,7 +638,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-09-16",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como aumentar o faturamento da empresa",
@@ -656,7 +656,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-08-02",
       "updated": "2026-09-22",
-      "readTime": "14 min de leitura",
+      "readTime": "9 min de leitura",
       "featured": true,
       "keywords": [
         "como prospectar clientes",
@@ -674,7 +674,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-07-28",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "lista de leads quentes",
@@ -692,7 +692,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-06-08",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como gerar leads qualificados",
@@ -710,7 +710,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-06-03",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "ferramenta para gerar leads",
@@ -728,7 +728,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-04-19",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como conseguir clientes pelo WhatsApp",
@@ -746,7 +746,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-04-14",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como vender pelo WhatsApp",
@@ -764,7 +764,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-25",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "IA para vendas",
@@ -782,7 +782,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-20",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "inteligência artificial para aumentar vendas",
@@ -800,7 +800,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-15",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para vendas",
@@ -818,7 +818,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-14",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para vendas",
@@ -836,7 +836,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-13",
       "updated": "2026-09-22",
-      "readTime": "16 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para vendas",
@@ -854,7 +854,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-12",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para vendas",
@@ -872,7 +872,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2026-03-11",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "9 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para vendas",
@@ -890,7 +890,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-02-03",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como estruturar processo comercial",
@@ -908,7 +908,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2026-01-29",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como montar um funil de vendas",
@@ -926,7 +926,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-12-15",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "CRM para pequenas empresas",
@@ -944,7 +944,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-12-10",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "melhor CRM para vendas",
@@ -962,7 +962,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-11-15",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -980,7 +980,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-11-10",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "IA para empresas",
@@ -998,7 +998,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-09-01",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como automatizar atendimento ao cliente",
@@ -1016,7 +1016,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-27",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "IA para atendimento ao cliente",
@@ -1034,7 +1034,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-12",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para WhatsApp",
@@ -1052,7 +1052,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-11",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "9 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para WhatsApp",
@@ -1070,7 +1070,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-10",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para WhatsApp",
@@ -1088,7 +1088,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-09",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para WhatsApp",
@@ -1106,11 +1106,101 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-08-08",
       "updated": "2026-09-22",
-      "readTime": "14 min de leitura",
+      "readTime": "9 min de leitura",
       "featured": false,
       "keywords": [
         "agente de IA para WhatsApp",
         "agente de IA para WhatsApp para empresas",
+        "Comparação e checklist",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-guia-pratico",
+      "title": "Chatbot para WhatsApp: guia prático para empresas",
+      "description": "Chatbot para WhatsApp: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-07-28",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": false,
+      "keywords": [
+        "chatbot para WhatsApp",
+        "chatbot para WhatsApp para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-estrategia-diagnostico",
+      "title": "Chatbot para WhatsApp: estratégia, diagnóstico e prioridades",
+      "description": "Chatbot para WhatsApp: estratégia, diagnóstico e prioridades. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-07-27",
+      "updated": "2026-09-22",
+      "readTime": "9 min de leitura",
+      "featured": false,
+      "keywords": [
+        "chatbot para WhatsApp",
+        "chatbot para WhatsApp para empresas",
+        "Estratégia e diagnóstico",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-implementacao-passo-a-passo",
+      "title": "Chatbot para WhatsApp: implementação passo a passo",
+      "description": "Chatbot para WhatsApp: implementação passo a passo. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-07-26",
+      "updated": "2026-09-22",
+      "readTime": "9 min de leitura",
+      "featured": false,
+      "keywords": [
+        "chatbot para WhatsApp",
+        "chatbot para WhatsApp para empresas",
+        "Implementação",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-custos-metricas-roi",
+      "title": "Chatbot para WhatsApp: custos, métricas e retorno sobre investimento",
+      "description": "Chatbot para WhatsApp: custos, métricas e retorno sobre investimento. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-07-25",
+      "updated": "2026-09-22",
+      "readTime": "9 min de leitura",
+      "featured": false,
+      "keywords": [
+        "chatbot para WhatsApp",
+        "chatbot para WhatsApp para empresas",
+        "Custos e retorno",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-comparativo-erros-checklist",
+      "title": "Chatbot para WhatsApp: comparativo, erros comuns e checklist de decisão",
+      "description": "Chatbot para WhatsApp: comparativo, erros comuns e checklist de decisão. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-07-24",
+      "updated": "2026-09-22",
+      "readTime": "9 min de leitura",
+      "featured": false,
+      "keywords": [
+        "chatbot para WhatsApp",
+        "chatbot para WhatsApp para empresas",
         "Comparação e checklist",
         "Tironi Tech",
         "ChatBô",
@@ -1124,7 +1214,7 @@ export const blogIndexArticles = {
       "category": "Automação com IA",
       "date": "2025-07-13",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como reduzir custos na empresa",
@@ -1142,7 +1232,7 @@ export const blogIndexArticles = {
       "category": "Automação com IA",
       "date": "2025-07-08",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "como melhorar produtividade da empresa",
@@ -1160,7 +1250,7 @@ export const blogIndexArticles = {
       "category": "Software personalizado",
       "date": "2025-06-03",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "software sob medida",
@@ -1178,7 +1268,7 @@ export const blogIndexArticles = {
       "category": "Software personalizado",
       "date": "2025-05-29",
       "updated": "2026-09-22",
-      "readTime": "15 min de leitura",
+      "readTime": "10 min de leitura",
       "featured": true,
       "keywords": [
         "empresa de software sob medida",
@@ -1196,7 +1286,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2025-05-09",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como conseguir mais clientes",
@@ -1221,7 +1311,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-05-04",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como prospectar clientes",
@@ -1247,7 +1337,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-04-29",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como gerar leads qualificados",
@@ -1272,7 +1362,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2025-04-24",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como conseguir clientes pelo WhatsApp",
@@ -1292,7 +1382,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2025-04-19",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para vendas",
@@ -1317,7 +1407,7 @@ export const blogIndexArticles = {
       "category": "Vendas e crescimento",
       "date": "2025-04-18",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "IA para vendas",
@@ -1342,7 +1432,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-04-14",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como estruturar processo comercial",
@@ -1367,7 +1457,7 @@ export const blogIndexArticles = {
       "category": "Prospecção e CRM",
       "date": "2025-04-09",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "CRM para pequenas empresas",
@@ -1388,7 +1478,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-04-04",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -1418,7 +1508,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-04-03",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -1448,7 +1538,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-04-02",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -1478,7 +1568,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-04-01",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -1508,7 +1598,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2025-03-31",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como usar inteligência artificial na minha empresa",
@@ -1538,7 +1628,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-03-30",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como automatizar atendimento ao cliente",
@@ -1557,38 +1647,13 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "ia-atendimento-cliente-aplicacoes-metricas",
-      "title": "IA para atendimento ao cliente: aplicações, arquitetura e métricas",
-      "description": "IA para atendimento ao cliente: aplicações, arquitetura e métricas. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
-      "category": "ChatBô e atendimento",
-      "date": "2025-03-29",
-      "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
-      "featured": false,
-      "keywords": [
-        "como automatizar atendimento ao cliente",
-        "IA para atendimento ao cliente",
-        "atendimento automático com IA",
-        "agente de IA para atendimento",
-        "agente de IA para WhatsApp",
-        "IA para WhatsApp",
-        "chatbot com inteligência artificial",
-        "chatbot para WhatsApp",
-        "atendente virtual WhatsApp",
-        "automatizar atendimento WhatsApp",
-        "IA para atendimento ao cliente",
-        "Tironi Tech",
-        "ChatBô"
-      ]
-    },
-    {
       "slug": "chatbot-ia-whatsapp-como-escolher",
       "title": "Chatbot com IA para WhatsApp: como escolher e implantar",
       "description": "Chatbot com IA para WhatsApp: como escolher e implantar. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
       "category": "ChatBô e atendimento",
       "date": "2025-03-28",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como automatizar atendimento ao cliente",
@@ -1613,7 +1678,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-03-27",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como automatizar atendimento ao cliente",
@@ -1638,7 +1703,7 @@ export const blogIndexArticles = {
       "category": "ChatBô e atendimento",
       "date": "2025-03-26",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "como automatizar atendimento ao cliente",
@@ -1663,7 +1728,7 @@ export const blogIndexArticles = {
       "category": "Automação com IA",
       "date": "2025-03-25",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "como reduzir custos na empresa",
@@ -1686,7 +1751,7 @@ export const blogIndexArticles = {
       "category": "Software personalizado",
       "date": "2025-03-20",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "software sob medida",
@@ -1706,7 +1771,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "empresa de inteligência artificial",
@@ -1723,7 +1788,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "empresa de automação com IA",
@@ -1740,7 +1805,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "consultoria de IA para empresas",
@@ -1757,7 +1822,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "empresa de agentes de IA",
@@ -1774,7 +1839,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "agente de IA para WhatsApp",
@@ -1791,7 +1856,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "automação de WhatsApp com IA",
@@ -1808,7 +1873,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para atendimento ao cliente",
@@ -1825,7 +1890,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para vendas",
@@ -1842,7 +1907,7 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "automação de processos com IA",
@@ -1859,45 +1924,11 @@ export const blogIndexArticles = {
       "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "software house de inteligência artificial",
         "software house de inteligência artificial para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "agente-de-ia-para-vendas",
-      "title": "Agente de IA para vendas: qualificação, CRM e próxima melhor ação",
-      "description": "Agente de IA para vendas: qualificação, CRM e próxima melhor ação. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
-      "category": "Serviços de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
-      "featured": false,
-      "keywords": [
-        "agente de IA para vendas",
-        "agente de IA para vendas para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "desenvolvimento-de-software-sob-medida",
-      "title": "Desenvolvimento de software sob medida: etapas, custos e critérios",
-      "description": "Desenvolvimento de software sob medida: etapas, custos e critérios. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
-      "category": "Serviços de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
-      "featured": false,
-      "keywords": [
-        "desenvolvimento de software sob medida",
-        "desenvolvimento de software sob medida para empresas",
         "Tironi Tech",
         "inteligência artificial empresarial",
         "automação com IA"
@@ -1910,7 +1941,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para WhatsApp",
@@ -1927,7 +1958,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para consultar produtos no WhatsApp",
@@ -1944,7 +1975,7 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "IA para WhatsApp e Instagram",
@@ -1961,44 +1992,10 @@ export const blogIndexArticles = {
       "category": "IA para WhatsApp",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "IA para vendas no WhatsApp",
-        "IA para WhatsApp",
-        "IA para Whats",
-        "chatbot com IA",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "chatbot-ia-catalogo-whatsapp",
-      "title": "Chatbot com IA e catálogo no WhatsApp: como montar uma experiência de compra",
-      "description": "Chatbot com IA e catálogo no WhatsApp: como montar uma experiência de compra. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
-      "category": "IA para WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
-      "featured": false,
-      "keywords": [
-        "chatbot com IA para catálogo no WhatsApp",
-        "IA para WhatsApp",
-        "IA para Whats",
-        "chatbot com IA",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "chatbo-ia-whatsapp-para-empresas",
-      "title": "ChatBô: IA para WhatsApp criada para processos reais de empresas",
-      "description": "ChatBô: IA para WhatsApp criada para processos reais de empresas. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
-      "category": "IA para WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
-      "featured": false,
-      "keywords": [
-        "ChatBô para WhatsApp",
         "IA para WhatsApp",
         "IA para Whats",
         "chatbot com IA",
@@ -2012,7 +2009,7 @@ export const blogIndexArticles = {
       "category": "Desenvolvimento com IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "desenvolvimento de software com IA",
@@ -2027,7 +2024,7 @@ export const blogIndexArticles = {
       "category": "Desenvolvimento com IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "IA no desenvolvimento de software",
@@ -2042,7 +2039,7 @@ export const blogIndexArticles = {
       "category": "GeoAura e GEO",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "GeoAura",
@@ -2057,7 +2054,7 @@ export const blogIndexArticles = {
       "category": "GeoAura e GEO",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": false,
       "keywords": [
         "operação de conteúdo GEO",
@@ -2072,7 +2069,7 @@ export const blogIndexArticles = {
       "category": "Tecnologia para empresas",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "7 min de leitura",
       "featured": true,
       "keywords": [
         "empresa de desenvolvimento de software com IA",
@@ -2089,7 +2086,7 @@ export const blogIndexArticles = {
       "category": "Tecnologia para empresas",
       "date": "2026-09-22",
       "updated": "2026-09-22",
-      "readTime": "17 min de leitura",
+      "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
         "Tironi Tech Club",
@@ -2686,16 +2683,16 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "pesquisa-369-agentes-de-ia-para-whatsapp-e-vendas-analise-executiva",
-      "title": "What “Agentes de IA para WhatsApp e Vendas” teaches companies about AI in Brazilian companies and SMBs",
-      "description": "A clear, in-depth Tironi Tech guide to Agentes de IA para WhatsApp e Vendas, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-guia-aplicacao",
+      "title": "How to apply the ideas from “Agente de IA no WhatsApp: ROI em PMEs” in a company",
+      "description": "A clear, in-depth Tironi Tech guide to Agente de IA no WhatsApp: ROI em PMEs, with strategy, architecture, implementation, risks, metrics and practical decisions.",
       "category": "AI in Brazilian companies and SMBs",
-      "date": "2025-09-17",
+      "date": "2025-09-19",
       "updated": "2026-09-22",
       "readTime": "16 min read",
       "featured": false,
       "keywords": [
-        "Agentes de IA para WhatsApp e Vendas",
+        "Agente de IA no WhatsApp: ROI em PMEs",
         "AI in Brazilian companies and SMBs",
         "Tironi Tech",
         "ChatBô",
@@ -3315,6 +3312,91 @@ export const blogIndexArticles = {
       ]
     },
     {
+      "slug": "chatbot-para-whatsapp-guia-pratico",
+      "title": "Business guide: Chatbot para whatsapp: practical guide for companies",
+      "description": "A clear, in-depth Tironi Tech guide to Chatbot para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "category": "ChatBô and customer service",
+      "date": "2025-07-28",
+      "updated": "2026-09-22",
+      "readTime": "16 min read",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô and customer service",
+        "Tironi Tech",
+        "ChatBô",
+        "business AI"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-estrategia-diagnostico",
+      "title": "Business guide: Chatbot para whatsapp: strategy, diagnóstico e prioridades",
+      "description": "A clear, in-depth Tironi Tech guide to Chatbot para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "category": "ChatBô and customer service",
+      "date": "2025-07-27",
+      "updated": "2026-09-22",
+      "readTime": "16 min read",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô and customer service",
+        "Tironi Tech",
+        "ChatBô",
+        "business AI"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-implementacao-passo-a-passo",
+      "title": "Business guide: Chatbot para whatsapp: implementation passo a passo",
+      "description": "A clear, in-depth Tironi Tech guide to Chatbot para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "category": "ChatBô and customer service",
+      "date": "2025-07-26",
+      "updated": "2026-09-22",
+      "readTime": "16 min read",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô and customer service",
+        "Tironi Tech",
+        "ChatBô",
+        "business AI"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-custos-metricas-roi",
+      "title": "Business guide: Chatbot para whatsapp: costs, metrics e return on investment",
+      "description": "A clear, in-depth Tironi Tech guide to Chatbot para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "category": "ChatBô and customer service",
+      "date": "2025-07-25",
+      "updated": "2026-09-22",
+      "readTime": "16 min read",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô and customer service",
+        "Tironi Tech",
+        "ChatBô",
+        "business AI"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-comparativo-erros-checklist",
+      "title": "Business guide: Chatbot para whatsapp: comparison, common mistakes e checklist de decisão",
+      "description": "A clear, in-depth Tironi Tech guide to Chatbot para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
+      "category": "ChatBô and customer service",
+      "date": "2025-07-24",
+      "updated": "2026-09-22",
+      "readTime": "16 min read",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô and customer service",
+        "Tironi Tech",
+        "ChatBô",
+        "business AI"
+      ]
+    },
+    {
       "slug": "como-reduzir-custos-na-empresa-guia-pratico",
       "title": "Business guide: How to reduce costs na company: practical guide for companies",
       "description": "A clear, in-depth Tironi Tech guide to How to reduce costs na company, with strategy, architecture, implementation, risks, metrics and practical decisions.",
@@ -3621,23 +3703,6 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "ia-atendimento-cliente-aplicacoes-metricas",
-      "title": "Business guide: Ia para customer service: aplicações, arquitetura e metrics",
-      "description": "A clear, in-depth Tironi Tech guide to How to automate customer service, with strategy, architecture, implementation, risks, metrics and practical decisions.",
-      "category": "ChatBô and customer service",
-      "date": "2025-03-29",
-      "updated": "2026-09-22",
-      "readTime": "16 min read",
-      "featured": false,
-      "keywords": [
-        "How to automate customer service",
-        "ChatBô and customer service",
-        "Tironi Tech",
-        "ChatBô",
-        "business AI"
-      ]
-    },
-    {
       "slug": "chatbot-ia-whatsapp-como-escolher",
       "title": "Business guide: Chatbot com ia para whatsapp: how to choose e implantar",
       "description": "A clear, in-depth Tironi Tech guide to How to automate customer service, with strategy, architecture, implementation, risks, metrics and practical decisions.",
@@ -3893,40 +3958,6 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "agente-de-ia-para-vendas",
-      "title": "Business guide: AI agent para sales: qualificação, crm e próxima melhor ação",
-      "description": "A clear, in-depth Tironi Tech guide to AI agent para sales, with strategy, architecture, implementation, risks, metrics and practical decisions.",
-      "category": "AI services",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "16 min read",
-      "featured": false,
-      "keywords": [
-        "AI agent para sales",
-        "AI services",
-        "Tironi Tech",
-        "ChatBô",
-        "business AI"
-      ]
-    },
-    {
-      "slug": "desenvolvimento-de-software-sob-medida",
-      "title": "Business guide: Desenvolvimento de custom software: etapas, costs e critérios",
-      "description": "A clear, in-depth Tironi Tech guide to Desenvolvimento de custom software, with strategy, architecture, implementation, risks, metrics and practical decisions.",
-      "category": "AI services",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "16 min read",
-      "featured": false,
-      "keywords": [
-        "Desenvolvimento de custom software",
-        "AI services",
-        "Tironi Tech",
-        "ChatBô",
-        "business AI"
-      ]
-    },
-    {
       "slug": "ia-para-whatsapp-guia-completo",
       "title": "Business guide: Ia para whatsapp: guia completo para atender, vender e automatizar",
       "description": "A clear, in-depth Tironi Tech guide to Ia para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
@@ -3988,40 +4019,6 @@ export const blogIndexArticles = {
       "featured": false,
       "keywords": [
         "Ia para sales no whatsapp",
-        "AI for WhatsApp",
-        "Tironi Tech",
-        "ChatBô",
-        "business AI"
-      ]
-    },
-    {
-      "slug": "chatbot-ia-catalogo-whatsapp",
-      "title": "Business guide: Chatbot com ia e catálogo no whatsapp: how to build uma experiência de compra",
-      "description": "A clear, in-depth Tironi Tech guide to Chatbot com ia para catálogo no whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
-      "category": "AI for WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "16 min read",
-      "featured": false,
-      "keywords": [
-        "Chatbot com ia para catálogo no whatsapp",
-        "AI for WhatsApp",
-        "Tironi Tech",
-        "ChatBô",
-        "business AI"
-      ]
-    },
-    {
-      "slug": "chatbo-ia-whatsapp-para-empresas",
-      "title": "Business guide: Chatbô: ia para whatsapp criada para processes reais de companys",
-      "description": "A clear, in-depth Tironi Tech guide to Chatbô para whatsapp, with strategy, architecture, implementation, risks, metrics and practical decisions.",
-      "category": "AI for WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "16 min read",
-      "featured": false,
-      "keywords": [
-        "Chatbô para whatsapp",
         "AI for WhatsApp",
         "Tironi Tech",
         "ChatBô",
@@ -4726,16 +4723,16 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "pesquisa-369-agentes-de-ia-para-whatsapp-e-vendas-analise-executiva",
-      "title": "Qué enseña “Agentes de IA para WhatsApp e Vendas” a las empresas sobre IA en empresas brasileñas y pymes",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Agentes de IA para WhatsApp e Vendas, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-guia-aplicacao",
+      "title": "Cómo aplicar las ideas de “Agente de IA no WhatsApp: ROI em PMEs” en una empresa",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Agente de IA no WhatsApp: ROI em PMEs, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
       "category": "IA en empresas brasileñas y pymes",
-      "date": "2025-09-17",
+      "date": "2025-09-19",
       "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
+      "readTime": "18 min de lectura",
       "featured": false,
       "keywords": [
-        "Agentes de IA para WhatsApp e Vendas",
+        "Agente de IA no WhatsApp: ROI em PMEs",
         "IA en empresas brasileñas y pymes",
         "Tironi Tech",
         "ChatBô",
@@ -5355,6 +5352,91 @@ export const blogIndexArticles = {
       ]
     },
     {
+      "slug": "chatbot-para-whatsapp-guia-pratico",
+      "title": "Guía empresarial: Chatbot para whatsapp: guía práctica para empresas",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "category": "ChatBô y atención al cliente",
+      "date": "2025-07-28",
+      "updated": "2026-09-22",
+      "readTime": "17 min de lectura",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô y atención al cliente",
+        "Tironi Tech",
+        "ChatBô",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-estrategia-diagnostico",
+      "title": "Guía empresarial: Chatbot para whatsapp: estrategia, diagnóstico e prioridades",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "category": "ChatBô y atención al cliente",
+      "date": "2025-07-27",
+      "updated": "2026-09-22",
+      "readTime": "17 min de lectura",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô y atención al cliente",
+        "Tironi Tech",
+        "ChatBô",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-implementacao-passo-a-passo",
+      "title": "Guía empresarial: Chatbot para whatsapp: implementación passo a passo",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "category": "ChatBô y atención al cliente",
+      "date": "2025-07-26",
+      "updated": "2026-09-22",
+      "readTime": "17 min de lectura",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô y atención al cliente",
+        "Tironi Tech",
+        "ChatBô",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-custos-metricas-roi",
+      "title": "Guía empresarial: Chatbot para whatsapp: costos, métricas e retorno de la inversión",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "category": "ChatBô y atención al cliente",
+      "date": "2025-07-25",
+      "updated": "2026-09-22",
+      "readTime": "17 min de lectura",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô y atención al cliente",
+        "Tironi Tech",
+        "ChatBô",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "chatbot-para-whatsapp-comparativo-erros-checklist",
+      "title": "Guía empresarial: Chatbot para whatsapp: comparación, errores comunes e checklist de decisão",
+      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
+      "category": "ChatBô y atención al cliente",
+      "date": "2025-07-24",
+      "updated": "2026-09-22",
+      "readTime": "17 min de lectura",
+      "featured": false,
+      "keywords": [
+        "Chatbot para whatsapp",
+        "ChatBô y atención al cliente",
+        "Tironi Tech",
+        "ChatBô",
+        "IA para empresas"
+      ]
+    },
+    {
       "slug": "como-reduzir-custos-na-empresa-guia-pratico",
       "title": "Guía empresarial: Cómo reducir costos na empresa: guía práctica para empresas",
       "description": "Una guía clara y profunda de Tironi Tech sobre Cómo reducir costos na empresa, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
@@ -5661,23 +5743,6 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "ia-atendimento-cliente-aplicacoes-metricas",
-      "title": "Guía empresarial: Ia para atención al cliente: aplicações, arquitetura e métricas",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Cómo automatizar atención al cliente, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
-      "category": "ChatBô y atención al cliente",
-      "date": "2025-03-29",
-      "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
-      "featured": false,
-      "keywords": [
-        "Cómo automatizar atención al cliente",
-        "ChatBô y atención al cliente",
-        "Tironi Tech",
-        "ChatBô",
-        "IA para empresas"
-      ]
-    },
-    {
       "slug": "chatbot-ia-whatsapp-como-escolher",
       "title": "Guía empresarial: Chatbot com ia para whatsapp: cómo elegir e implantar",
       "description": "Una guía clara y profunda de Tironi Tech sobre Cómo automatizar atención al cliente, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
@@ -5933,40 +5998,6 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "agente-de-ia-para-vendas",
-      "title": "Guía empresarial: Agente de IA para ventas: qualificação, crm e próxima melhor ação",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Agente de IA para ventas, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
-      "category": "Servicios de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
-      "featured": false,
-      "keywords": [
-        "Agente de IA para ventas",
-        "Servicios de IA",
-        "Tironi Tech",
-        "ChatBô",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "desenvolvimento-de-software-sob-medida",
-      "title": "Guía empresarial: Desarrollo de software a medida: etapas, costos e critérios",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Desarrollo de software a medida, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
-      "category": "Servicios de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
-      "featured": false,
-      "keywords": [
-        "Desarrollo de software a medida",
-        "Servicios de IA",
-        "Tironi Tech",
-        "ChatBô",
-        "IA para empresas"
-      ]
-    },
-    {
       "slug": "ia-para-whatsapp-guia-completo",
       "title": "Guía empresarial: Ia para whatsapp: guia completo para atender, vender e automatizar",
       "description": "Una guía clara y profunda de Tironi Tech sobre Ia para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
@@ -6028,40 +6059,6 @@ export const blogIndexArticles = {
       "featured": false,
       "keywords": [
         "Ia para ventas no whatsapp",
-        "IA para WhatsApp",
-        "Tironi Tech",
-        "ChatBô",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "chatbot-ia-catalogo-whatsapp",
-      "title": "Guía empresarial: Chatbot com ia e catálogo no whatsapp: cómo construir uma experiência de compra",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbot com ia para catálogo no whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
-      "category": "IA para WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
-      "featured": false,
-      "keywords": [
-        "Chatbot com ia para catálogo no whatsapp",
-        "IA para WhatsApp",
-        "Tironi Tech",
-        "ChatBô",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "chatbo-ia-whatsapp-para-empresas",
-      "title": "Guía empresarial: Chatbô: ia para whatsapp criada para procesos reais de empresas",
-      "description": "Una guía clara y profunda de Tironi Tech sobre Chatbô para whatsapp, con estrategia, arquitectura, implementación, riesgos, métricas y decisiones prácticas.",
-      "category": "IA para WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "17 min de lectura",
-      "featured": false,
-      "keywords": [
-        "Chatbô para whatsapp",
         "IA para WhatsApp",
         "Tironi Tech",
         "ChatBô",

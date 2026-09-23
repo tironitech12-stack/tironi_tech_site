@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "node scripts/generate-blog-index.mjs && vite build && node scripts/prerender-blog.mjs",
     "lint": "eslint .",
+    "audit:content": "node scripts/audit-content-quality.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

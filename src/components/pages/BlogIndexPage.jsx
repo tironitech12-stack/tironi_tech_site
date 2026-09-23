@@ -57,18 +57,21 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
 
   useEffect(() => {
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
-    document.title = `${copy.title} | Tironi Tech`;
-    setMeta('description', copy.deck);
+    document.title = `${archiveMode ? copy.archiveTitle : copy.title} | Tironi Tech`;
+    setMeta('description', archiveMode ? copy.archiveDeck : copy.deck);
+    setMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
     setMeta('og:title', document.title, true);
     setMeta('og:description', 'Tecnologia explicada para empresas que querem vender mais e operar melhor.', true);
     setMeta('og:type', 'website', true);
-    const path = `${locale === 'pt' ? '' : `/${locale}`}/blog`;
+    const path = archiveMode
+      ? `${locale === 'pt' ? '' : `/${locale}`}/blog/${locale === 'pt' ? 'arquivo' : 'archive'}`
+      : `${locale === 'pt' ? '' : `/${locale}`}/blog`;
     setMeta('og:url', `${SITE_URL}${path}`, true);
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
     canonical.href = `${SITE_URL}${path}`;
     window.scrollTo(0, 0);
-  }, [copy.deck, copy.title, locale]);
+  }, [archiveMode, copy.archiveDeck, copy.archiveTitle, copy.deck, copy.title, locale]);
 
   const changeLanguage = (nextLocale) => { window.location.assign(`${nextLocale === 'pt' ? '' : `/${nextLocale}`}/blog`); };
 
@@ -150,6 +153,11 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
               </div>
               {articles.length > PAGE_SIZE && <nav className="tt-blog-more" aria-label="Paginação do blog"><button type="button" disabled={currentPage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>← {copy.previous}</button><span>{currentPage} / {totalPages}</span><button type="button" disabled={currentPage === totalPages} onClick={() => setPage((value) => Math.min(totalPages, value + 1))}>{copy.next} →</button></nav>}
               {articles.length === 0 && <div className="tt-blog-empty"><strong>0</strong><p>{copy.search}</p><button type="button" onClick={() => { setQuery(''); setCategory(copy.all); }}>{copy.allButton}</button></div>}
+              {archiveMode && !normalizedQuery && category === copy.all && <section className="tt-blog-full-directory" aria-labelledby="full-directory-title">
+                <span className="tt-blog-kicker">ÍNDICE COMPLETO</span><h2 id="full-directory-title">Todos os artigos por assunto</h2>
+                <p>Abra uma trilha para consultar cada conteúdo publicado. Artigos em revisão continuam acessíveis enquanto recebem exemplos, evidências e atualização editorial.</p>
+                {blogCategories.filter((item) => item !== copy.all).map((item) => <details key={item}><summary>{item} <small>{categoryCounts[item]} artigos</small></summary><ul>{blogArticles.filter((article) => article.category === item).map((article) => <li key={article.slug}><a href={localizedPath(article.slug, locale)}>{article.title}</a></li>)}</ul></details>)}
+              </section>}
             </div>
           </section>
         </main>

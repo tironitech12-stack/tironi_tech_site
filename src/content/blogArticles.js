@@ -516,14 +516,37 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-export const blogArticles = [...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
+const expandedBlogArticles = [...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],
   };
+  return expandedArticle;
+});
+
+// Large publishing batches reused explanatory paragraphs across many URLs. Keeping
+// those blocks would add length without adding information and weaken the whole
+// library. Preserve paragraphs that belong to at most four articles and retain
+// bullets/unique headings so every public URL remains useful and accessible.
+const paragraphFrequency = new Map();
+for (const article of expandedBlogArticles) {
+  for (const paragraph of article.sections.flatMap((section) => section.paragraphs || [])) {
+    const normalized = paragraph.trim().replace(/\s+/g, ' ');
+    paragraphFrequency.set(normalized, (paragraphFrequency.get(normalized) || 0) + 1);
+  }
+}
+
+export const blogArticles = expandedBlogArticles.map((article) => {
+  const sections = article.sections
+    .map((section) => ({
+      ...section,
+      paragraphs: (section.paragraphs || []).filter((paragraph) => paragraphFrequency.get(paragraph.trim().replace(/\s+/g, ' ')) <= 4),
+    }))
+    .filter((section) => section.paragraphs.length || section.bullets?.length);
+  const editorialArticle = { ...article, sections };
   return {
-    ...expandedArticle,
-    readTime: `${Math.max(3, Math.ceil(articleWordCount(expandedArticle) / 180))} min de leitura`,
+    ...editorialArticle,
+    readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,
   };
 });
 
