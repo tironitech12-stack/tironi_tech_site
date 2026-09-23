@@ -1,6 +1,14 @@
 import { motion as Motion, useReducedMotion } from "framer-motion";
 
 const icons = ["01", "02", "03", "04", "05", "06"];
+const solutionLinks = [
+  '/software-sob-medida',
+  '/desenvolvimento-software-sob-medida',
+  '/automacao-processos-com-ia',
+  '/desenvolvimento-solucoes-com-ia',
+  '/empresa-automacao-com-ia',
+  '/consultoria-ia-para-empresas',
+];
 
 export default function SolutionsSection({ t }) {
   const reduceMotion = useReducedMotion();
@@ -32,8 +40,9 @@ export default function SolutionsSection({ t }) {
               transition={{ duration: 0.55, delay: 0.03 * index, ease }}
             >
               <span className="tt2-service-icon" aria-hidden="true">{icons[index]}</span>
-              <h3>{item.title}</h3>
+              <h3><a href={solutionLinks[index]}>{item.title}</a></h3>
               <p>{item.text}</p>
+              <a className="tt2-service-card-link" href={solutionLinks[index]}>Conhecer solução <span aria-hidden="true">→</span></a>
             </Motion.article>
           ))}
         </div>

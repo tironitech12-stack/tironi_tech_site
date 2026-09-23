@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { formatLocalizedDate, getBlogArticleForLocale, getRelatedArticlesForLocale, localizedPath } from '../../content/localizedBlogArticles';
+import { isCoreBlogArticle } from '../../content/blogArticles';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -45,6 +46,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
     updateMeta('meta[property="og:description"]', 'content', article.description);
     updateMeta('meta[property="og:type"]', 'content', 'article');
     updateMeta('meta[property="og:url"]', 'content', url);
+    updateMeta('meta[name="robots"]', 'content', isCoreBlogArticle(article) ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, follow');
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
     canonical.href = url;

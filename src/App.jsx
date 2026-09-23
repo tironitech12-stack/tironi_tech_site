@@ -2,13 +2,74 @@ import { Analytics } from '@vercel/analytics/react';
 import { lazy, Suspense, useEffect, useState } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
+import { getServiceLandingPage } from './content/serviceLandingPages';
 
-const ResponsiveHome = lazy(() => import('./responsive/ResponsiveHome'));
+const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
+const loadBlogIndexPage = () => import('./components/pages/BlogIndexPage');
+const ResponsiveHome = lazy(loadResponsiveHome);
 const LegalPolicyPage = lazy(() => import('./components/pages/LegalPolicyPage'));
 const ClubPage = lazy(() => import('./components/pages/ClubPage'));
-const BlogIndexPage = lazy(() => import('./components/pages/BlogIndexPage'));
+const BlogIndexPage = lazy(loadBlogIndexPage);
 const BlogArticlePage = lazy(() => import('./components/pages/BlogArticlePage'));
 const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
+const ServiceLandingPage = lazy(() => import('./components/pages/ServiceLandingPage'));
+const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
+
+function getClientLocation() {
+  if (typeof window === 'undefined') return '/';
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
+
+function useClientLocation() {
+  const [location, setLocation] = useState(getClientLocation);
+
+  useEffect(() => {
+    const syncLocation = () => setLocation(getClientLocation());
+    const preloadInternalRoute = (event) => {
+      const anchor = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (!anchor) return;
+      const nextUrl = new URL(anchor.href, window.location.href);
+      if (nextUrl.origin === window.location.origin && /^\/(?:en\/|es\/)?blog(?:\/|$)/.test(nextUrl.pathname)) {
+        loadBlogIndexPage().catch(() => {});
+      }
+    };
+    const handleClick = (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const anchor = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+      const nextUrl = new URL(anchor.href, window.location.href);
+      if (nextUrl.origin !== window.location.origin) return;
+      const currentUrl = new URL(window.location.href);
+      if (nextUrl.pathname === currentUrl.pathname && nextUrl.search === currentUrl.search && nextUrl.hash) return;
+      event.preventDefault();
+      if (currentUrl.pathname !== '/' && nextUrl.pathname === '/') {
+        try { window.sessionStorage.setItem('tironi_intro_seen_v4', 'true'); } catch { /* Navigation remains available without storage. */ }
+      }
+      window.history.pushState({}, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+      syncLocation();
+    };
+
+    window.addEventListener('popstate', syncLocation);
+    document.addEventListener('click', handleClick);
+    document.addEventListener('pointerover', preloadInternalRoute, { passive: true });
+    return () => {
+      window.removeEventListener('popstate', syncLocation);
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('pointerover', preloadInternalRoute);
+    };
+  }, []);
+
+  return location;
+}
+
+function RouteFallback() {
+  return (
+    <div className="tt-route-loading" role="status" aria-label="Carregando página">
+      <span className="tt-route-loading-mark">T</span>
+      <span>Carregando</span>
+    </div>
+  );
+}
 
 function ConsentAwareAnalytics() {
   const [analyticsAllowed, setAnalyticsAllowed] = useState(() => Boolean(getStoredCookieConsent()?.analytics));
@@ -26,9 +87,21 @@ function ConsentAwareAnalytics() {
   return analyticsAllowed ? <Analytics /> : null;
 }
 
-function AppContent() {
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+function AppContent({ pathname }) {
   const localizedBlog = pathname.match(/^\/(en|es)\/blog(?:\/(.*))?\/?$/);
+  const servicePage = getServiceLandingPage(pathname.replace(/^\//, '').replace(/\/$/, ''));
+
+  useEffect(() => {
+    if (!(pathname.startsWith('/blog') || /^\/(en|es)\/blog/.test(pathname))) return undefined;
+    const preload = loadResponsiveHome;
+    const run = () => preload().catch(() => {});
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(run, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(run, 1200);
+    return () => window.clearTimeout(id);
+  }, [pathname]);
 
   if (localizedBlog) {
     const [, locale, slug] = localizedBlog;
@@ -59,13 +132,46 @@ function AppContent() {
     return <LegalPolicyPage policy="cookies" />;
   }
 
-  return <ResponsiveHome />;
+  if (servicePage) return <ServiceLandingPage page={servicePage} />;
+
+  if (pathname === '/') return <ResponsiveHome />;
+
+  return <NotFoundPage />;
 }
 
 export default function App() {
+  const location = useClientLocation();
+  const pathname = location.split(/[?#]/, 1)[0] || '/';
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    let attempts = 0;
+    let frameId;
+    const revealTarget = () => {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target) {
+        target.scrollIntoView({ block: 'start' });
+        return;
+      }
+      attempts += 1;
+      if (attempts < 30) frameId = window.requestAnimationFrame(revealTarget);
+    };
+    frameId = window.requestAnimationFrame(revealTarget);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [location]);
+
+  useEffect(() => {
+    if (pathname !== '/') return;
+    document.documentElement.lang = 'pt-BR';
+    document.title = 'Tironi Tech | Software Sob Medida e Automação com IA';
+    const canonical = document.head.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = 'https://www.tironitech.com/';
+  }, [pathname]);
+
   return (
     <LanguageProvider>
-      <Suspense fallback={null}><AppContent /></Suspense>
+      <Suspense fallback={<RouteFallback />}><AppContent pathname={pathname} /></Suspense>
       <ConsentAwareAnalytics />
     </LanguageProvider>
   );

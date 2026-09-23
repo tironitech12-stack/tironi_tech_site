@@ -132,3 +132,29 @@
   .tt-article-hero { padding: 7.5rem 0 4rem; }.tt-article-hero h1 { font-size: clamp(2.35rem, 12vw, 4.1rem); }.tt-article-breadcrumb { margin-bottom: 2rem; overflow: hidden; white-space: nowrap; }.tt-article-breadcrumb span:last-child { text-overflow: ellipsis; overflow: hidden; }.tt-article-layout { padding-top: 3.5rem; padding-bottom: 5rem; }.tt-article-summary { padding: 1.35rem; }.tt-article-visual { padding: 1.1rem; }.tt-article-visual-canvas { grid-template-columns: 1fr 1fr; }.tt-article-visual-node { min-height: 6.5rem; }.tt-article-visual--flow .tt-article-visual-node::after, .tt-article-visual--architecture .tt-article-visual-node::after { display: none; }.tt-article-body p, .tt-article-body li { font-size: 1rem; line-height: 1.75; }.tt-article-section { margin-bottom: 3.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .tt-blog-orb, .tt-blog-feature-visual::before { animation: none; } }
+.tt-blog-filters label {
+  display: grid;
+  gap: 0.55rem;
+  width: min(100%, 34rem);
+  color: var(--tt-muted, #8ba4b8);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tt-blog-filters select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(88, 184, 255, 0.28);
+  border-radius: 0.8rem;
+  color: #e9f6ff;
+  background: #071523;
+  font: 600 0.92rem/1.2 Inter, system-ui, sans-serif;
+}
+
+.tt-blog-more button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}

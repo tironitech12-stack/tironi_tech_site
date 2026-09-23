@@ -1,13 +1,7 @@
-import { blogArticles } from '../../content/blogArticles';
+import { homeBlogHighlights } from '../../content/homeBlogHighlights';
 import '../../styles/blog.css';
 
 export default function BlogHighlight() {
-  const featured = [
-    blogArticles[0],
-    blogArticles.find((article, index) => index > 0 && article.category === 'ChatBô e atendimento'),
-    blogArticles.find((article) => article.category === 'Automação com IA'),
-  ].filter(Boolean);
-
   return (
     <section className="tt-blog-home" aria-labelledby="blog-home-title">
       <div className="tt2-container">
@@ -19,7 +13,7 @@ export default function BlogHighlight() {
           <a className="tt-blog-text-link" href="/blog">Ver todos os artigos <span aria-hidden="true">↗</span></a>
         </header>
         <div className="tt-blog-home-grid">
-          {featured.map((article, index) => (
+          {homeBlogHighlights.map((article, index) => (
             <article className={`tt-blog-preview${index === 0 ? ' tt-blog-preview-featured' : ''}`} key={article.slug}>
               <div className="tt-blog-preview-meta"><span>{article.category}</span><span>{article.readTime}</span></div>
               <h3><a href={`/blog/${article.slug}`}>{article.title}</a></h3>

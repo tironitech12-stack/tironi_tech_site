@@ -1,9 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { blogArticles, getRelatedBlogArticles } from '../src/content/blogArticles.js';
+import { blogArticles, coreBlogArticles, isCoreBlogArticle, getRelatedBlogArticles } from '../src/content/blogArticles.js';
 import { getBlogArticlesForLocale, getRelatedArticlesForLocale, localizedPath } from '../src/content/localizedBlogArticles.js';
 import { clubContent } from '../src/content/clubContent.js';
 import { LEGAL_COPY } from '../src/content/legalPolicies.js';
+import { serviceLandingPages, serviceLandingWhatsApp } from '../src/content/serviceLandingPages.js';
 
 const root = resolve('dist');
 const template = await readFile(resolve(root, 'index.html'), 'utf8');
@@ -13,7 +14,7 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
-function pageTemplate({ title, description, path, body, schema, locale = 'pt', alternates = [] }) {
+function pageTemplate({ title, description, path, body, schema, locale = 'pt', alternates = [], robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }) {
   const url = `${origin}${path}`;
   const cleanTemplate = template
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
@@ -22,7 +23,7 @@ function pageTemplate({ title, description, path, body, schema, locale = 'pt', a
     .replace(/\s*<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
   const tags = [
     `<link rel="canonical" href="${url}">`,
-    `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">`,
+    `<meta name="robots" content="${robots}">`,
     `<meta property="og:title" content="${escapeHtml(title)}">`,
     `<meta property="og:description" content="${escapeHtml(description)}">`,
     `<meta property="og:type" content="${path === '/blog' ? 'website' : 'article'}">`,
@@ -44,8 +45,8 @@ function pageTemplate({ title, description, path, body, schema, locale = 'pt', a
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 }
 
-const blogGroups = [...new Set(blogArticles.map((article) => article.category))].map((category) => ({ category, articles: blogArticles.filter((article) => article.category === category) }));
-const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa completo de conteúdo</a></nav>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2>${group.articles.map((article) => `<article><p>${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section>`).join('')}</main>`;
+const blogGroups = [...new Set(coreBlogArticles.map((article) => article.category))].map((category) => ({ category, articles: coreBlogArticles.filter((article) => article.category === category) }));
+const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa completo de conteúdo</a></nav><section><h2>Guias mais recentes</h2>${blogArticles.slice(0, 18).map((article) => `<article><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section></main>`;
 const indexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Blog Tironi Tech', description: 'Guias sobre IA, automação, ChatBô e software personalizado.', url: `${origin}/blog`, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'blog'), { recursive: true });
 const blogIndexAlternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${locale === 'pt' ? '' : `/${locale}`}/blog` })).concat({ hreflang: 'x-default', href: `${origin}/blog` });
@@ -71,7 +72,7 @@ for (const article of blogArticles) {
   const directory = resolve(root, 'blog', article.slug);
   await mkdir(directory, { recursive: true });
   const alternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates }));
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates, robots: isCoreBlogArticle(article) ? undefined : 'noindex, follow' }));
 }
 
 const localizedStaticCopy = {
@@ -84,7 +85,7 @@ for (const locale of ['en', 'es']) {
   const localeCopy = localizedStaticCopy[locale];
   const localeGroups = [...new Set(localeArticles.map((article) => article.category))].map((category) => ({ category, articles: localeArticles.filter((article) => article.category === category) }));
   const indexPath = `/${locale}/blog`;
-  const localeIndexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>${escapeHtml(localeCopy.title)}</h1><p>${escapeHtml(localeCopy.deck)}</p></header>${localeGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2>${group.articles.map((article) => `<article><p>${escapeHtml(article.readTime)}</p><h3><a href="${localizedPath(article.slug, locale)}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section>`).join('')}</main>`;
+  const localeIndexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>${escapeHtml(localeCopy.title)}</h1><p>${escapeHtml(localeCopy.deck)}</p></header><section><h2>${escapeHtml(localeCopy.related)}</h2>${localeArticles.slice(0, 18).map((article) => `<article><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h3><a href="${localizedPath(article.slug, locale)}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section></main>`;
   const localeIndexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: `Tironi Tech Blog (${locale.toUpperCase()})`, description: localeCopy.deck, url: `${origin}${indexPath}`, inLanguage: locale, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
   const indexDirectory = resolve(root, locale, 'blog');
   await mkdir(indexDirectory, { recursive: true });
@@ -101,7 +102,7 @@ for (const locale of ['en', 'es']) {
     const directory = resolve(root, locale, 'blog', article.slug);
     await mkdir(directory, { recursive: true });
     const alternates = ['pt', 'en', 'es'].map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates }));
+    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates, robots: isCoreBlogArticle(article) ? undefined : 'noindex, follow' }));
   }
 }
 
@@ -123,6 +124,19 @@ for (const legalPage of legalPages) {
   await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: legalPage.document.pageTitle, description: legalPage.document.paragraphs[0], path: legalPage.path, body: legalBody, schema: legalSchema }));
 }
 
+for (const page of serviceLandingPages) {
+  const path = `/${page.slug}`;
+  const body = `<main><article><header><p>${escapeHtml(page.keyword)}</p><h1>${escapeHtml(page.title)}</h1><p>${escapeHtml(page.description)}</p><a href="${serviceLandingWhatsApp}">Agendar diagnóstico</a></header><section><h2>O gargalo</h2><p>${escapeHtml(page.problem)}</p><ul>${page.outcomes.map((outcome) => `<li>${escapeHtml(outcome)}</li>`).join('')}</ul></section><section><h2>Tecnologia ligada à operação</h2><p>${escapeHtml(page.solution)}</p><p>${escapeHtml(page.proof)}</p></section><section><h2>Como funciona</h2>${page.process.map(([title, text]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section><section><h2>Perguntas frequentes</h2>${page.faqs.map(([question, answer]) => `<h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p>`).join('')}</section><section><h2>Converse com a Tironi Tech</h2><p>Comece pelo problema que mais custa tempo, vendas ou capacidade.</p><a href="${serviceLandingWhatsApp}">Agendar diagnóstico</a></section></article></main>`;
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Service', name: page.keyword, description: page.description, url: `${origin}${path}`, provider: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech', url: origin }, areaServed: { '@type': 'Country', name: 'Brasil' } },
+    { '@type': 'FAQPage', mainEntity: page.faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${origin}/` }, { '@type': 'ListItem', position: 2, name: page.keyword, item: `${origin}${path}` }] }
+  ] };
+  const directory = resolve(root, page.slug);
+  await mkdir(directory, { recursive: true });
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${page.keyword} | Tironi Tech`, description: page.description, path, body, schema }));
+}
+
 const homeDescription = 'A Tironi Tech é uma empresa brasileira especializada em software sob medida, automação de processos e soluções de inteligência artificial para empresas.';
 const homeBody = `<main><header><p>SOFTWARE · AUTOMAÇÃO · IA</p><h1>Sua empresa está perdendo vendas e tempo em processos que a tecnologia já poderia resolver.</h1><p>${escapeHtml(homeDescription)} Eliminamos retrabalho, conectamos sistemas e estruturamos operações para vender mais e operar melhor.</p><a href="#contato">Solicitar diagnóstico</a><a href="#solucoes">Conhecer nossas soluções</a></header><section><h2>Soluções digitais para operação, vendas e crescimento</h2><article><h3>Software sob medida</h3><p>Sistemas personalizados para organizar dados, integrar processos e eliminar controles dispersos.</p></article><article><h3>Automação com IA</h3><p>Agentes e fluxos conectados às regras e ferramentas da empresa, com controle e acompanhamento.</p></article><article><h3>ChatBô</h3><p>Atendimento e qualificação de oportunidades no WhatsApp e em outros canais, trabalhando junto da equipe comercial.</p><a href="https://www.chatbo.com.br/">Conhecer o ChatBô</a></article><article><h3>Integrações e APIs</h3><p>Conexão entre CRM, ERP, plataformas, bancos de dados e serviços usados pela operação.</p></article></section><section><h2>Conteúdo para decisões melhores</h2><p>Guias aprofundados sobre IA aplicada, automação, atendimento e software empresarial.</p><a href="/blog">Acessar o blog da Tironi Tech</a></section></main>`;
 const homeSchema = { '@context': 'https://schema.org', '@graph': [
@@ -133,12 +147,12 @@ const homeSchema = { '@context': 'https://schema.org', '@graph': [
 await writeFile(resolve(root, 'index.html'), pageTemplate({ title: 'Tironi Tech | Software Sob Medida e Automação com IA', description: homeDescription, path: '/', body: homeBody, schema: homeSchema }));
 
 const mapPath = '/mapa-do-site';
-const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a></nav>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
+const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a></nav><section><h2>Soluções para empresas</h2><ul>${serviceLandingPages.map((page) => `<li><a href="/${page.slug}">${escapeHtml(page.keyword)}</a></li>`).join('')}</ul></section>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
 const mapSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Mapa de conteúdo Tironi Tech', description: 'Todos os guias da Tironi Tech organizados por assunto.', url: `${origin}${mapPath}`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'mapa-do-site'), { recursive: true });
 await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ title: 'Mapa de conteúdo | Tironi Tech', description: 'Todos os guias da Tironi Tech sobre IA, WhatsApp, software, automação, SEO e GEO organizados por assunto.', path: mapPath, body: mapBody, schema: mapSchema }));
 
-const urls = [
+const staticUrls = [
   { path: '/', lastmod: '2026-09-22', priority: '1.0', frequency: 'weekly' },
   { path: '/club', lastmod: '2026-09-22', priority: '0.8', frequency: 'monthly' },
   { path: '/blog', lastmod: '2026-09-22', priority: '0.9', frequency: 'weekly' },
@@ -147,12 +161,33 @@ const urls = [
   { path: '/mapa-do-site', lastmod: '2026-09-22', priority: '0.7', frequency: 'weekly' },
   { path: '/politica-privacidade', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
   { path: '/politica-cookies', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
-  ...blogArticles.flatMap((article) => ['pt', 'en', 'es'].map((locale) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' })))
+  ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: '2026-09-22', priority: '0.9', frequency: 'monthly' })),
 ];
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
+const categorySlug = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const sitemapDirectory = resolve(root, 'sitemaps');
+await mkdir(sitemapDirectory, { recursive: true });
+const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
+const sitemapFiles = [{ path: '/sitemaps/pages.xml', items: staticUrls }];
+for (const locale of ['pt', 'en', 'es']) {
+  for (const category of [...new Set(coreBlogArticles.map((article) => article.category))]) {
+    const categoryArticles = coreBlogArticles.filter((article) => article.category === category);
+    if (!categoryArticles.length) continue;
+    sitemapFiles.push({
+      path: `/sitemaps/blog-${locale}-${categorySlug(category)}.xml`,
+      items: categoryArticles.map((article) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' })),
+    });
+  }
+}
+for (const sitemapFile of sitemapFiles) {
+  await writeFile(resolve(root, sitemapFile.path.slice(1)), renderUrlset(sitemapFile.items));
+}
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc><lastmod>2026-09-22</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`;
 await writeFile(resolve(root, 'sitemap.xml'), sitemap);
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
+const notFoundBody = '<main><article><p>ERRO 404</p><h1>Esta página não existe.</h1><p>O endereço pode ter mudado ou sido digitado incorretamente.</p><a href="/">Página inicial</a> · <a href="/blog">Blog</a></article></main>';
+await writeFile(resolve(root, '404.html'), pageTemplate({ title: 'Página não encontrada | Tironi Tech', description: 'A página solicitada não foi encontrada.', path: '/404', body: notFoundBody, schema: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Página não encontrada' }, robots: 'noindex, follow' }));
+
 console.log(
-  `Prerendered homepage, Club, legal pages, content map, 3 blog indexes and ${blogArticles.length * 3} localized article pages (${blogArticles.length} per language).`,
+  `Prerendered homepage, Club, ${serviceLandingPages.length} service pages, legal pages, content map, 3 blog indexes and ${blogArticles.length * 3} localized article pages (${blogArticles.length} per language).`,
 );

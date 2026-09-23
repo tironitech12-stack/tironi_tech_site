@@ -527,6 +527,47 @@ export const blogArticles = [...referenceArticles, ...customerIntentArticles, ..
   };
 });
 
+const commercialPriorityTerms = [
+  'empresa de automacao com ia', 'software sob medida', 'empresa de inteligencia artificial',
+  'consultoria de ia', 'agente de ia', 'agentes de ia', 'whatsapp', 'atendimento ao cliente',
+  'ia para vendas', 'automacao de processos', 'desenvolvimento de software', 'chatbo', 'geoaura',
+];
+
+function normalizeForEditorialScore(value = '') {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
+}
+
+function editorialPriorityScore(article) {
+  const title = normalizeForEditorialScore(article.title);
+  const searchable = normalizeForEditorialScore([article.title, article.description, ...(article.keywords || [])].join(' '));
+  const isResearchTemplate = article.slug.startsWith('pesquisa-');
+  const priorityMatches = commercialPriorityTerms.reduce((score, term) => score + (title.includes(term) ? 28 : searchable.includes(term) ? 10 : 0), 0);
+  return (isResearchTemplate ? 0 : 140)
+    + (article.featured ? 80 : 0)
+    + priorityMatches
+    + Math.min(articleWordCount(article), 3600) / 120
+    + (article.sources?.length || 0) * 2;
+}
+
+const rankedBlogArticles = [...blogArticles]
+  .sort((left, right) => editorialPriorityScore(right) - editorialPriorityScore(left) || right.updated.localeCompare(left.updated));
+const coreSelection = new Set();
+for (const category of new Set(rankedBlogArticles.map((article) => article.category))) {
+  rankedBlogArticles.filter((article) => article.category === category).slice(0, 2).forEach((article) => coreSelection.add(article.slug));
+}
+for (const article of rankedBlogArticles) {
+  if (coreSelection.size >= 120) break;
+  coreSelection.add(article.slug);
+}
+
+export const coreBlogArticles = rankedBlogArticles.filter((article) => coreSelection.has(article.slug));
+
+export const coreBlogArticleSlugs = new Set(coreBlogArticles.map((article) => article.slug));
+
+export function isCoreBlogArticle(articleOrSlug) {
+  return coreBlogArticleSlugs.has(typeof articleOrSlug === 'string' ? articleOrSlug : articleOrSlug?.slug);
+}
+
 export function getBlogArticle(slug) {
   return blogArticles.find((article) => article.slug === slug);
 }

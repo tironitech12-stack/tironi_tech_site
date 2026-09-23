@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { getBlogArticlesForLocale, formatLocalizedDate, localizedPath } from '../../content/localizedBlogArticles';
+import { blogIndexArticles } from '../../content/blogIndexArticles.generated';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -23,20 +23,24 @@ function setMeta(name, content, property = false) {
 }
 
 const labels = {
-  pt: { all: 'Todos', title: 'Decisões melhores começam com tecnologia bem explicada.', deck: 'Guias práticos sobre inteligência artificial, automação, atendimento e software para transformar desafios reais em operações mais inteligentes.', library: 'Conhecimento para aplicar', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', more: 'Mostrar mais 18 guias', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas' },
-  en: { all: 'All', title: 'Better decisions start with technology clearly explained.', deck: 'Practical guides on artificial intelligence, automation, customer service and software for smarter business operations.', library: 'Knowledge to apply', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', more: 'Show 18 more guides', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all' },
-  es: { all: 'Todos', title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías prácticas sobre inteligencia artificial, automatización, atención y software para crear operaciones más inteligentes.', library: 'Conocimiento para aplicar', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', more: 'Mostrar 18 guías más', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos' }
+  pt: { all: 'Todos', title: 'Decisões melhores começam com tecnologia bem explicada.', deck: 'Guias práticos sobre inteligência artificial, automação, atendimento e software para transformar desafios reais em operações mais inteligentes.', library: 'Conhecimento para aplicar', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
+  en: { all: 'All', title: 'Better decisions start with technology clearly explained.', deck: 'Practical guides on artificial intelligence, automation, customer service and software for smarter business operations.', library: 'Knowledge to apply', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all', previous: 'Previous', next: 'Next', topic: 'Filter by topic' },
+  es: { all: 'Todos', title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías prácticas sobre inteligencia artificial, automatización, atención y software para crear operaciones más inteligentes.', library: 'Conocimiento para aplicar', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
 };
+
+const PAGE_SIZE = 18;
+const localizedPath = (slug, locale) => `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
+const formatLocalizedDate = (date, locale) => new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
 
 export default function BlogIndexPage({ locale = 'pt' }) {
   const { languageOptions } = useLanguage();
   const t = getSiteText(locale);
   const copy = labels[locale] || labels.pt;
-  const blogArticles = useMemo(() => getBlogArticlesForLocale(locale), [locale]);
+  const blogArticles = useMemo(() => blogIndexArticles[locale] || blogIndexArticles.pt, [locale]);
   const blogCategories = useMemo(() => [copy.all, ...new Set(blogArticles.map((article) => article.category))], [blogArticles, copy.all]);
   const [category, setCategory] = useState(copy.all);
   const [query, setQuery] = useState('');
-  const [visibleCount, setVisibleCount] = useState(18);
+  const [page, setPage] = useState(1);
   const normalizedQuery = query.trim().toLocaleLowerCase('pt-BR');
   const articles = useMemo(() => blogArticles.filter((article) => {
     const categoryMatches = category === copy.all || article.category === category;
@@ -45,6 +49,10 @@ export default function BlogIndexPage({ locale = 'pt' }) {
     return categoryMatches && searchMatches;
   }), [blogArticles, category, copy.all, normalizedQuery]);
   const categoryCounts = useMemo(() => Object.fromEntries(blogCategories.filter((item) => item !== copy.all).map((item) => [item, blogArticles.filter((article) => article.category === item).length])), [blogArticles, blogCategories, copy.all]);
+  const highlightedCategories = useMemo(() => blogCategories.filter((item) => item !== copy.all).sort((left, right) => categoryCounts[right] - categoryCounts[left]).slice(0, 8), [blogCategories, categoryCounts, copy.all]);
+  const totalPages = Math.max(1, Math.ceil(articles.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const visibleArticles = articles.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const featured = blogArticles[0];
 
   useEffect(() => {
@@ -109,14 +117,14 @@ export default function BlogIndexPage({ locale = 'pt' }) {
                 <label className="tt-blog-search">
                   <span className="sr-only">Buscar no blog</span>
                   <span aria-hidden="true">⌕</span>
-                  <input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleCount(18); }} placeholder={copy.search} />
+                  <input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder={copy.search} />
                 </label>
                 <span className="tt-blog-result-count" aria-live="polite">{articles.length} {copy.found}</span>
               </div>
               {!normalizedQuery && category === copy.all && (
                 <div className="tt-blog-tracks" aria-label="Trilhas de conteúdo">
-                  {blogCategories.filter((item) => item !== copy.all).map((item) => (
-                    <button type="button" key={item} onClick={() => { setCategory(item); setVisibleCount(18); }}>
+                  {highlightedCategories.map((item) => (
+                    <button type="button" key={item} onClick={() => { setCategory(item); setPage(1); }}>
                       <span>{String(categoryCounts[item] || 0).padStart(2, '0')} GUIAS</span>
                       <strong>{item}</strong>
                       <small>{copy.track} <b aria-hidden="true">→</b></small>
@@ -125,13 +133,13 @@ export default function BlogIndexPage({ locale = 'pt' }) {
                 </div>
               )}
               <div className="tt-blog-filters" aria-label="Filtrar artigos por assunto">
-                {blogCategories.map((item) => <button type="button" key={item} className={category === item ? 'is-active' : ''} aria-pressed={category === item} onClick={() => { setCategory(item); setVisibleCount(18); }}>{item}</button>)}
+                <label><span>{copy.topic}</span><select value={category} onChange={(event) => { setCategory(event.target.value); setPage(1); }}>{blogCategories.map((item) => <option key={item} value={item}>{item} ({item === copy.all ? blogArticles.length : categoryCounts[item]})</option>)}</select></label>
               </div>
-              {category !== copy.all && <div className="tt-blog-active-trail"><span>{copy.active}</span><strong>{category}</strong><button type="button" onClick={() => { setCategory(copy.all); setVisibleCount(18); }}>{copy.allButton}</button></div>}
+              {category !== copy.all && <div className="tt-blog-active-trail"><span>{copy.active}</span><strong>{category}</strong><button type="button" onClick={() => { setCategory(copy.all); setPage(1); }}>{copy.allButton}</button></div>}
               <div className="tt-blog-grid">
-                {articles.slice(0, visibleCount).map((article, index) => (
+                {visibleArticles.map((article, index) => (
                   <article className="tt-blog-card" key={article.slug}>
-                    <div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+                    <div className="tt-blog-card-number" aria-hidden="true">{String((currentPage - 1) * PAGE_SIZE + index + 1).padStart(2, '0')}</div>
                     <div className="tt-blog-preview-meta"><span>{article.category}</span><span>{article.readTime}</span></div>
                     <h3><a href={localizedPath(article.slug, locale)}>{article.title}</a></h3>
                     <p>{article.description}</p>
@@ -139,7 +147,7 @@ export default function BlogIndexPage({ locale = 'pt' }) {
                   </article>
                 ))}
               </div>
-              {visibleCount < articles.length && <div className="tt-blog-more"><button type="button" onClick={() => setVisibleCount((count) => count + 18)}>{copy.more}</button><span>{Math.min(visibleCount, articles.length)} / {articles.length}</span></div>}
+              {articles.length > PAGE_SIZE && <nav className="tt-blog-more" aria-label="Paginação do blog"><button type="button" disabled={currentPage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>← {copy.previous}</button><span>{currentPage} / {totalPages}</span><button type="button" disabled={currentPage === totalPages} onClick={() => setPage((value) => Math.min(totalPages, value + 1))}>{copy.next} →</button></nav>}
               {articles.length === 0 && <div className="tt-blog-empty"><strong>0</strong><p>{copy.search}</p><button type="button" onClick={() => { setQuery(''); setCategory(copy.all); }}>{copy.allButton}</button></div>}
             </div>
           </section>

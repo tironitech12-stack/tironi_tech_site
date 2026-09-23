@@ -13,13 +13,10 @@ export default function SiteIntro({ onFinish, mobile = false, subtitle = "Tecnol
   }, []);
 
   const [phase, setPhase] = useState("enter");
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(() => !shouldStartVisible);
 
   useEffect(() => {
-    if (!shouldStartVisible) {
-      setHidden(true);
-      return;
-    }
+    if (!shouldStartVisible) return undefined;
 
     // Mobile um pouco mais longo, desktop intacto.
     const fadeAtMs = mobile ? 1500 : 1300;

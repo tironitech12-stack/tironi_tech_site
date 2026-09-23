@@ -1,0 +1,26 @@
+.tt-service-page { color: #edf7ff; background: #040a13; }
+.tt-service-kicker { color: #72d8ff; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.tt-service-hero { min-height: 45rem; display: grid; align-items: center; padding: 10rem 0 7rem; background: radial-gradient(circle at 75% 35%, rgba(76, 73, 255, .22), transparent 26%), radial-gradient(circle at 20% 0, rgba(38, 160, 238, .18), transparent 32%), linear-gradient(145deg, #071b2c, #040911 68%); border-bottom: 1px solid rgba(104, 188, 255, .18); }
+.tt-service-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
+.tt-service-hero h1 { max-width: 52rem; margin: 1.2rem 0 1.4rem; font-size: clamp(3rem, 6.5vw, 6rem); line-height: .96; letter-spacing: -.067em; text-wrap: balance; }
+.tt-service-hero p { max-width: 43rem; color: #afc5d4; font-size: clamp(1.05rem, 1.7vw, 1.3rem); line-height: 1.7; }
+.tt-service-hero figure { display: grid; place-items: center; min-height: 27rem; margin: 0; padding: 2rem; border: 1px solid rgba(107, 195, 255, .22); border-radius: 1.5rem; background: radial-gradient(circle, rgba(38, 157, 239, .2), transparent 58%), rgba(6, 21, 35, .72); box-shadow: 0 35px 90px rgba(0,0,0,.32); }
+.tt-service-hero img { max-width: 100%; max-height: 20rem; object-fit: contain; filter: drop-shadow(0 0 28px rgba(65, 181, 255, .24)); }
+.tt-service-hero figcaption { margin-top: 1rem; color: #7d9bb0; font-size: .78rem; text-align: center; }
+.tt-service-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.tt-service-actions a, .tt-service-final a { padding: .95rem 1.25rem; border: 1px solid rgba(84, 190, 255, .38); border-radius: .75rem; color: white; font-weight: 800; text-decoration: none; }
+.tt-service-actions a:first-child, .tt-service-final a { background: linear-gradient(135deg, #139be7, #376cff); box-shadow: 0 12px 32px rgba(28, 132, 230, .24); }
+.tt-service-problem, .tt-service-solution, .tt-service-process, .tt-service-faq, .tt-service-final { padding: 7rem 0; }
+.tt-service-problem { background: linear-gradient(180deg, #06101b, #081827); }
+.tt-service-problem > div > span { color: #fb847d; font-size: .7rem; font-weight: 800; letter-spacing: .16em; }
+.tt-service-problem h2, .tt-service-solution h2, .tt-service-process h2, .tt-service-faq h2, .tt-service-final h2 { max-width: 62rem; margin: 1rem 0 2.5rem; font-size: clamp(2.2rem, 5vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
+.tt-service-outcomes, .tt-service-process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.tt-service-outcomes article, .tt-service-process-grid article { min-height: 12rem; padding: 1.4rem; border: 1px solid rgba(104, 188, 255, .17); border-radius: 1rem; background: rgba(6, 20, 33, .75); }
+.tt-service-outcomes small, .tt-service-process-grid small { color: #55c4ff; font: 700 .78rem/1 monospace; }.tt-service-outcomes p { font-size: 1.2rem; line-height: 1.45; }
+.tt-service-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); }.tt-service-two-col p { margin: 0 0 1.4rem; color: #a8bdcc; font-size: 1.12rem; line-height: 1.8; }
+.tt-service-process { background: radial-gradient(circle at 85% 0, rgba(93, 62, 220, .12), transparent 30%), #050d16; }.tt-service-process-grid { grid-template-columns: repeat(4, 1fr); }.tt-service-process-grid h3 { font-size: 1.3rem; }.tt-service-process-grid p { color: #8ea7b9; line-height: 1.6; }
+.tt-service-evidence { border-block: 1px solid rgba(104,188,255,.16); background: #071522; }.tt-service-evidence > div { display: grid; grid-template-columns: repeat(3, 1fr); }.tt-service-evidence div div { display: grid; justify-items: center; gap: .5rem; padding: 3rem 1rem; text-align: center; }.tt-service-evidence div div + div { border-left: 1px solid rgba(104,188,255,.16); }.tt-service-evidence strong { color: #75d7ff; font-size: 2.8rem; }.tt-service-evidence span { color: #8da8ba; }
+.tt-service-faq { background: #040a13; }.tt-service-faq details { max-width: 58rem; border-top: 1px solid rgba(104,188,255,.16); }.tt-service-faq details:last-child { border-bottom: 1px solid rgba(104,188,255,.16); }.tt-service-faq summary { padding: 1.3rem 0; font-size: 1.1rem; font-weight: 750; cursor: pointer; }.tt-service-faq details p { margin: 0; padding-bottom: 1.4rem; color: #98afbf; line-height: 1.7; }
+.tt-service-final { text-align: center; background: radial-gradient(circle at 50% 20%, rgba(36,154,235,.18), transparent 36%), linear-gradient(180deg,#071522,#03070d); }.tt-service-final h2, .tt-service-final p { margin-inline: auto; }.tt-service-final p { max-width: 44rem; color: #a5bac8; font-size: 1.08rem; line-height: 1.7; }.tt-service-final a { display: inline-flex; margin-top: 1.4rem; }
+@media (max-width: 900px) { .tt-service-hero-grid, .tt-service-two-col { grid-template-columns: 1fr; }.tt-service-process-grid { grid-template-columns: 1fr 1fr; }.tt-service-hero figure { min-height: 20rem; } }
+@media (max-width: 620px) { .tt-service-hero { padding: 8rem 0 5rem; }.tt-service-outcomes, .tt-service-process-grid, .tt-service-evidence > div { grid-template-columns: 1fr; }.tt-service-evidence div div + div { border-left: 0; border-top: 1px solid rgba(104,188,255,.16); } }

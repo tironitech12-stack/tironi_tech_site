@@ -1,0 +1,34 @@
+# Tironi Tech
+
+> Empresa brasileira de tecnologia especializada em software sob medida, automação de processos e soluções de inteligência artificial para empresas.
+
+Site oficial: https://www.tironitech.com/
+Contato: tironi@tironitech.com
+WhatsApp: +55 43 99667-6633
+
+## Principais soluções
+
+- Empresa de automação com IA: https://www.tironitech.com/empresa-automacao-com-ia
+- Software sob medida: https://www.tironitech.com/software-sob-medida
+- Empresa de inteligência artificial: https://www.tironitech.com/empresa-inteligencia-artificial
+- Consultoria de IA para empresas: https://www.tironitech.com/consultoria-ia-para-empresas
+- Agentes de IA para empresas: https://www.tironitech.com/agentes-de-ia-para-empresas
+- Agente de IA para WhatsApp: https://www.tironitech.com/agente-ia-whatsapp
+- Automação de WhatsApp com IA: https://www.tironitech.com/automacao-whatsapp-com-ia
+- Desenvolvimento de software sob medida: https://www.tironitech.com/desenvolvimento-software-sob-medida
+- Automação de processos com IA: https://www.tironitech.com/automacao-processos-com-ia
+- Desenvolvimento de soluções com IA: https://www.tironitech.com/desenvolvimento-solucoes-com-ia
+
+## Produtos
+
+- ChatBô: atendimento, qualificação e operação comercial com IA no WhatsApp e em outros canais. https://www.chatbo.com.br/
+- GeoAura: estrutura de conteúdo e presença para descoberta em buscadores e mecanismos de resposta com IA.
+- Tironi Tech Club: comunidade, ferramentas e evolução tecnológica contínua para empresas. https://www.tironitech.com/club
+
+## Conteúdo e descoberta
+
+- Blog: https://www.tironitech.com/blog
+- Mapa do núcleo editorial: https://www.tironitech.com/mapa-do-site
+- Sitemap: https://www.tironitech.com/sitemap.xml
+
+As páginas do site incluem autoria institucional, datas, fontes consultadas, perguntas frequentes e dados estruturados. Afirmações sobre resultados devem ser interpretadas conforme o contexto e as métricas apresentadas em cada página.
