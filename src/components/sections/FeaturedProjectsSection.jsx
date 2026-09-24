@@ -1,4 +1,4 @@
-import { motion as Motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import newstoreSorteiosLogo from "../../assets/newstore-sorteios-logo.png";
 import { trackFunnelEvent } from "../../utils/conversionTracking";
@@ -61,7 +61,13 @@ function ProjectLogo({ title }) {
 
 export default function FeaturedProjectsSection({ t, language = "pt" }) {
   const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(0);
   const ease = [0.22, 1, 0.36, 1];
+  const projects = t.featuredProjects.items;
+  const activeProject = projects[activeIndex] || projects[0];
+  const activeStory = getProjectStory(language, activeProject.title);
+  const activeHref = PROJECT_URLS[activeProject.title] || "#contato";
+  const activeIsExternal = activeHref.startsWith("http");
 
   return (
     <Motion.section
@@ -79,53 +85,83 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
           <p>{t.featuredProjects.description}</p>
         </div>
 
-        <div className="tt2-featured-grid">
-          {t.featuredProjects.items.map((item, index) => {
-            const href = PROJECT_URLS[item.title] || "#contato";
-            const isExternal = href.startsWith("http");
-            const story = getProjectStory(language, item.title);
-
-            return (
+        <div className="tt2-project-showcase">
+          <div className="tt2-project-stage" aria-live="polite">
+            <div className="tt2-project-stage-orb" aria-hidden="true" />
+            <AnimatePresence mode="wait" initial={false}>
               <Motion.article
-                key={item.title}
-                className="tt2-featured-card"
-                initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.7, delay: 0.05 * index, ease }}
+                key={activeProject.title}
+                className="tt2-project-feature"
+                initial={reduceMotion ? false : { opacity: 0, y: 18, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={reduceMotion ? undefined : { opacity: 0, y: -12, filter: "blur(6px)" }}
+                transition={{ duration: reduceMotion ? 0 : 0.38, ease }}
               >
-                <div className="tt2-featured-top">
-                  <span className="tt2-featured-tag">{item.tag}</span>
-                  <ProjectLogo title={item.title} />
+                <div className="tt2-project-feature-head">
+                  <div>
+                    <span className="tt2-project-count">{String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
+                    <span className="tt2-featured-tag">{activeProject.tag}</span>
+                  </div>
+                  <div className="tt2-project-logo-stage"><ProjectLogo title={activeProject.title} /></div>
                 </div>
-                <h3>{item.title}</h3>
-                <div className="tt2-featured-case-block">
-                  <span>{story.labels.challenge}</span>
-                  <p>{story.challenge}</p>
+                <h3>{activeProject.title}</h3>
+                <div className="tt2-project-feature-grid">
+                  <div className="tt2-featured-case-block tt2-project-challenge">
+                    <span>{activeStory.labels.challenge}</span>
+                    <p>{activeStory.challenge}</p>
+                  </div>
+                  <div className="tt2-featured-case-block">
+                    <span>{activeStory.labels.solution}</span>
+                    <p>{activeProject.description}</p>
+                  </div>
+                  <div className="tt2-featured-case-block">
+                    <span>{activeStory.labels.result}</span>
+                    <p>{activeStory.result}</p>
+                  </div>
                 </div>
-                <div className="tt2-featured-case-block">
-                  <span>{story.labels.solution}</span>
-                  <p>{item.description}</p>
+                <div className="tt2-project-feature-footer">
+                  {activeProject.bullets?.length ? (
+                    <div className="tt2-featured-bullets" aria-label={t.featuredProjects.caseLabels?.impact}>
+                      {activeProject.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}
+                    </div>
+                  ) : null}
+                  <a
+                    className="tt2-featured-cta"
+                    href={activeHref}
+                    target={activeIsExternal ? "_blank" : undefined}
+                    rel={activeIsExternal ? "noreferrer" : undefined}
+                    onClick={() => trackFunnelEvent("project_case_click", { project: activeProject.title })}
+                  >
+                    {activeProject.cta}<span aria-hidden="true">↗</span>
+                  </a>
                 </div>
-
-                <div className="tt2-featured-case-block">
-                  <span>{story.labels.result}</span>
-                  <p>{story.result}</p>
-                </div>
-                {item.bullets?.length ? <div className="tt2-featured-bullets" aria-label={t.featuredProjects.caseLabels?.impact}>{item.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}</div> : null}
-
-                <a
-                  className="tt2-featured-cta"
-                  href={href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noreferrer" : undefined}
-                  onClick={() => trackFunnelEvent("project_case_click", { project: item.title })}
-                >
-                  {item.cta}
-                </a>
               </Motion.article>
-            );
-          })}
+            </AnimatePresence>
+          </div>
+
+          <div className="tt2-project-picker" role="tablist" aria-label={t.featuredProjects.eyebrow}>
+            {projects.map((item, index) => (
+              <Motion.button
+                key={item.title}
+                type="button"
+                role="tab"
+                aria-selected={activeIndex === index}
+                className={`tt2-project-tile${activeIndex === index ? " is-active" : ""}`}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setActiveIndex(index)}
+                whileHover={reduceMotion ? undefined : { y: -3 }}
+                transition={{ duration: 0.2 }}
+              >
+                <span className="tt2-project-tile-index">{String(index + 1).padStart(2, "0")}</span>
+                <ProjectLogo title={item.title} />
+                <span className="tt2-project-tile-copy">
+                  <strong>{item.title}</strong>
+                  <small>{item.tag}</small>
+                </span>
+                <span className="tt2-project-tile-arrow" aria-hidden="true">→</span>
+              </Motion.button>
+            ))}
+          </div>
         </div>
       </div>
     </Motion.section>

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
 import BlogHighlight from "../components/sections/BlogHighlight";
@@ -91,6 +92,12 @@ function useMobileStylesheet() {
 export default function MobileHome() {
   useMobileStylesheet();
   const { t, language, setLanguage, languageOptions } = useLanguage();
+  const reduceMotion = useReducedMotion();
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const mobileProjects = t.featuredProjects.items;
+  const activeMobileProject = mobileProjects[activeProjectIndex] || mobileProjects[0];
+  const activeMobileStory = getProjectStory(language, activeMobileProject.title);
+  const activeMobileHref = projectLinks[activeMobileProject.title] || "#contato";
 
   return (
     <div className="mobile-site-shell">
@@ -192,36 +199,59 @@ export default function MobileHome() {
             <h2>{t.featuredProjects.title}</h2>
             <p>{t.featuredProjects.description}</p>
           </div>
-          <div className="mobile-projects">
-            {t.featuredProjects.items.map((project) => {
-              const href = projectLinks[project.title] || "#contato";
-              const story = getProjectStory(language, project.title);
-              return (
-                <a
+          <div className="mobile-project-showcase">
+            <div className="mobile-project-tabs" role="tablist" aria-label={t.featuredProjects.eyebrow}>
+              {mobileProjects.map((project, index) => (
+                <button
                   key={project.title}
-                  className="mobile-project-card"
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noreferrer" : undefined}
-                  onClick={() => trackFunnelEvent("project_case_click", { project: project.title, device: "mobile" })}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeProjectIndex === index}
+                  className={activeProjectIndex === index ? "is-active" : ""}
+                  onClick={() => setActiveProjectIndex(index)}
                 >
+                  <img src={projectLogos[project.title]} alt="" />
+                  <span>{project.title}</span>
+                </button>
+              ))}
+            </div>
+            <AnimatePresence mode="wait" initial={false}>
+              <Motion.article
+                key={activeMobileProject.title}
+                className="mobile-project-feature"
+                initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3 }}
+              >
+                <div className="mobile-project-feature-head">
+                  <div>
+                    <span className="mobile-project-number">{String(activeProjectIndex + 1).padStart(2, "0")} / {String(mobileProjects.length).padStart(2, "0")}</span>
+                    <span className="mobile-project-label">{activeMobileProject.tag}</span>
+                  </div>
                   <div className="mobile-project-logo-wrap">
-                    <img src={projectLogos[project.title]} alt={project.title} className="mobile-project-logo" />
+                    <img src={projectLogos[activeMobileProject.title]} alt={activeMobileProject.title} className="mobile-project-logo" />
                   </div>
-                  <div className="mobile-project-copy">
-                    <span className="mobile-project-label">{project.tag}</span>
-                    <h3>{project.title}</h3>
-                    <small className="mobile-project-case-label">{story.labels.challenge}</small>
-                    <p>{story.challenge}</p>
-                    <small className="mobile-project-case-label">{story.labels.solution}</small>
-                    <p>{project.description}</p>
-                    <small className="mobile-project-case-label">{story.labels.result}</small>
-                    <p>{story.result}</p>
-                    <strong>{project.cta}</strong>
-                  </div>
-                </a>
-              );
-            })}
+                </div>
+                <div className="mobile-project-copy">
+                  <h3>{activeMobileProject.title}</h3>
+                  <small className="mobile-project-case-label">{activeMobileStory.labels.challenge}</small>
+                  <p>{activeMobileStory.challenge}</p>
+                  <small className="mobile-project-case-label">{activeMobileStory.labels.solution}</small>
+                  <p>{activeMobileProject.description}</p>
+                  <small className="mobile-project-case-label">{activeMobileStory.labels.result}</small>
+                  <p>{activeMobileStory.result}</p>
+                  <a
+                    href={activeMobileHref}
+                    target={activeMobileHref.startsWith("http") ? "_blank" : undefined}
+                    rel={activeMobileHref.startsWith("http") ? "noreferrer" : undefined}
+                    onClick={() => trackFunnelEvent("project_case_click", { project: activeMobileProject.title, device: "mobile" })}
+                  >
+                    {activeMobileProject.cta}<span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </Motion.article>
+            </AnimatePresence>
           </div>
         </section>
 
