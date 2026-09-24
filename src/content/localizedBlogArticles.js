@@ -128,7 +128,7 @@ const localeCache = { pt: blogArticles };
 
 export function getBlogArticlesForLocale(locale = 'pt') {
   if (locale === 'pt') return blogArticles;
-  if (!localeCache[locale]) localeCache[locale] = blogArticles.map((article) => localizeArticle(article, locale));
+  if (!localeCache[locale]) localeCache[locale] = blogArticles.filter((article) => getArticleLocales(article).includes(locale)).map((article) => localizeArticle(article, locale));
   return localeCache[locale];
 }
 
@@ -150,4 +150,8 @@ export function formatLocalizedDate(date, locale = 'pt') {
 
 export function localizedPath(slug, locale = 'pt') {
   return `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
+}
+
+export function getArticleLocales(article) {
+  return article?.availableLocales || ['pt', 'en', 'es'];
 }

@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { blogArticles, coreBlogArticles, isCoreBlogArticle, getRelatedBlogArticles } from '../src/content/blogArticles.js';
-import { getBlogArticlesForLocale, getRelatedArticlesForLocale, localizedPath } from '../src/content/localizedBlogArticles.js';
+import { getArticleLocales, getBlogArticlesForLocale, getRelatedArticlesForLocale, localizedPath } from '../src/content/localizedBlogArticles.js';
 import { clubContent } from '../src/content/clubContent.js';
 import { LEGAL_COPY } from '../src/content/legalPolicies.js';
 import { serviceLandingPages, serviceLandingWhatsApp } from '../src/content/serviceLandingPages.js';
@@ -46,8 +46,8 @@ function pageTemplate({ title, description, path, body, schema, locale = 'pt', a
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 }
 
-const blogGroups = [...new Set(coreBlogArticles.map((article) => article.category))].map((category) => ({ category, articles: coreBlogArticles.filter((article) => article.category === category) }));
-const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa do núcleo editorial</a> · <a href="/blog/arquivo">Acervo completo com ${blogArticles.length} artigos</a></nav><section><h2>Guias mais recentes</h2>${coreBlogArticles.slice(0, 18).map((article) => `<article><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section></main>`;
+const blogGroups = [...new Set(blogArticles.map((article) => article.category))].map((category) => ({ category, articles: blogArticles.filter((article) => article.category === category) }));
+const indexBody = `<main class="tt-blog-static"><header><p>INSIGHTS TIRONI TECH</p><h1>Decisões melhores começam com tecnologia bem explicada.</h1><p>Guias práticos sobre inteligência artificial, automação, atendimento e software personalizado.</p></header><nav><a href="/mapa-do-site">Mapa de todos os artigos</a> · <a href="/blog/arquivo">Acervo completo com ${blogArticles.length} artigos</a></nav><section><h2>Guias mais recentes</h2>${coreBlogArticles.slice(0, 18).map((article) => `<article><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h3><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></h3><p>${escapeHtml(article.description)}</p></article>`).join('')}</section></main>`;
 const indexSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Blog Tironi Tech', description: 'Guias sobre IA, automação, ChatBô e software personalizado.', url: `${origin}/blog`, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'blog'), { recursive: true });
 const blogIndexAlternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${locale === 'pt' ? '' : `/${locale}`}/blog` })).concat({ hreflang: 'x-default', href: `${origin}/blog` });
@@ -75,8 +75,8 @@ for (const article of blogArticles) {
   const schema = { '@context': 'https://schema.org', '@graph': graph };
   const directory = resolve(root, 'blog', article.slug);
   await mkdir(directory, { recursive: true });
-  const alternates = ['pt', 'en', 'es'].map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates, robots: isCoreBlogArticle(article) ? undefined : 'noindex, follow' }));
+  const alternates = getArticleLocales(article).map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates }));
 }
 
 const localizedStaticCopy = {
@@ -96,7 +96,7 @@ for (const locale of ['en', 'es']) {
   await mkdir(indexDirectory, { recursive: true });
   await writeFile(resolve(indexDirectory, 'index.html'), pageTemplate({ title: `${localeCopy.title} | Tironi Tech`, description: localeCopy.deck, path: indexPath, body: localeIndexBody, schema: localeIndexSchema, locale, alternates: blogIndexAlternates }));
   const localeArchivePath = `/${locale}/blog/archive`;
-  const localeArchiveBody = `<main class="tt-blog-static"><header><p>COMPLETE ARCHIVE</p><h1>${escapeHtml(locale === 'en' ? 'Every Tironi Tech article' : 'Todos los artículos de Tironi Tech')}</h1><p>${localeArticles.length} articles available. The 120 priority guides remain highlighted in the main library.</p></header><nav><a href="/${locale}/blog">Blog</a> · <a href="/sobre/editorial">Editorial policy</a></nav>${localeGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="${localizedPath(article.slug, locale)}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</main>`;
+  const localeArchiveBody = `<main class="tt-blog-static"><header><p>COMPLETE ARCHIVE</p><h1>${escapeHtml(locale === 'en' ? 'Every Tironi Tech article' : 'Todos los artículos de Tironi Tech')}</h1><p>${localeArticles.length} articles available. Priority guides remain highlighted in the main library.</p></header><nav><a href="/${locale}/blog">Blog</a> · <a href="/sobre/editorial">Editorial policy</a></nav>${localeGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="${localizedPath(article.slug, locale)}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</main>`;
   const archiveDirectory = resolve(root, locale, 'blog', 'archive');
   await mkdir(archiveDirectory, { recursive: true });
   await writeFile(resolve(archiveDirectory, 'index.html'), pageTemplate({ title: `${locale === 'en' ? 'Complete blog archive' : 'Archivo completo del blog'} | Tironi Tech`, description: `${localeArticles.length} Tironi Tech articles.`, path: localeArchivePath, body: localeArchiveBody, schema: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Tironi Tech complete blog archive', url: `${origin}${localeArchivePath}`, mainEntity: { '@type': 'ItemList', numberOfItems: localeArticles.length } }, locale }));
@@ -111,8 +111,8 @@ for (const locale of ['en', 'es']) {
     const schema = { '@context': 'https://schema.org', '@graph': [{ '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.date, dateModified: article.updated, inLanguage: locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: `${origin}/sobre/editorial` }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin }, mainEntityOfPage: `${origin}${path}`, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }] };
     const directory = resolve(root, locale, 'blog', article.slug);
     await mkdir(directory, { recursive: true });
-    const alternates = ['pt', 'en', 'es'].map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates, robots: isCoreBlogArticle(article) ? undefined : 'noindex, follow' }));
+    const alternates = getArticleLocales(article).map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
+    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates }));
   }
 }
 
@@ -192,8 +192,8 @@ await mkdir(sitemapDirectory, { recursive: true });
 const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
 const sitemapFiles = [{ path: '/sitemaps/pages.xml', items: staticUrls }];
 for (const locale of ['pt', 'en', 'es']) {
-  for (const category of [...new Set(coreBlogArticles.map((article) => article.category))]) {
-    const categoryArticles = coreBlogArticles.filter((article) => article.category === category);
+  for (const category of [...new Set(blogArticles.map((article) => article.category))]) {
+    const categoryArticles = blogArticles.filter((article) => article.category === category && getArticleLocales(article).includes(locale));
     if (!categoryArticles.length) continue;
     sitemapFiles.push({
       path: `/sitemaps/blog-${locale}-${categorySlug(category)}.xml`,
@@ -212,5 +212,5 @@ const notFoundBody = '<main><article><p>ERRO 404</p><h1>Esta página não existe
 await writeFile(resolve(root, '404.html'), pageTemplate({ title: 'Página não encontrada | Tironi Tech', description: 'A página solicitada não foi encontrada.', path: '/404', body: notFoundBody, schema: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Página não encontrada' }, robots: 'noindex, follow' }));
 
 console.log(
-  `Prerendered homepage, Club, ${serviceLandingPages.length} service pages, legal pages, content map, 3 blog indexes and ${blogArticles.length * 3} localized article pages (${blogArticles.length} per language).`,
+  `Prerendered homepage, Club, ${serviceLandingPages.length} service pages, legal pages, content map, 3 blog indexes and ${['pt', 'en', 'es'].reduce((total, locale) => total + getBlogArticlesForLocale(locale).length, 0)} article pages (${blogArticles.length} in Portuguese).`,
 );

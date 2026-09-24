@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { coreBlogArticles, blogCategories } from '../../content/blogArticles';
+import { blogArticles, blogCategories } from '../../content/blogArticles';
 import { serviceLandingPages } from '../../content/serviceLandingPages';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -12,7 +12,7 @@ export default function ContentMapPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
   const groups = useMemo(() => blogCategories.filter((category) => category !== 'Todos').map((category) => ({
     category,
-    articles: coreBlogArticles.filter((article) => article.category === category),
+    articles: blogArticles.filter((article) => article.category === category),
   })).filter((group) => group.articles.length), []);
 
   useEffect(() => {

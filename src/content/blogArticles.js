@@ -1,3 +1,4 @@
+import { tutorialArticles } from './tutorialArticles.js';
 import { pillarArticles } from './pillarArticles.js';
 import { growthArticles } from './growthArticles.js';
 import { leadGenerationArticles } from './leadGenerationArticles.js';
@@ -516,7 +517,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-const expandedBlogArticles = [...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
+const expandedBlogArticles = [...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],

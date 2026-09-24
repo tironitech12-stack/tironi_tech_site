@@ -1,0 +1,53 @@
+{
+  "target": 1000,
+  "authored": 5,
+  "remaining": 995,
+  "validation": "Structure, body length after content processing and exact paragraph uniqueness. Does not certify semantic uniqueness, source accuracy or ranking.",
+  "articles": [
+    {
+      "slug": "como-vender-mais-whatsapp-fila-prioridade-atendimento",
+      "title": "Como vender mais no WhatsApp organizando a fila de atendimento: tutorial com prioridades e passagem para vendas",
+      "bodyCharacters": 13294,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ]
+    },
+    {
+      "slug": "como-cotar-varios-produtos-whatsapp-sku-estoque-versao",
+      "title": "Como montar uma cotação com vários produtos no WhatsApp: SKU, estoque, frete e controle de versões",
+      "bodyCharacters": 13302,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ]
+    },
+    {
+      "slug": "como-rastrear-vendas-whatsapp-utm-crm-pedido",
+      "title": "Como rastrear vendas pelo WhatsApp: conecte campanha, conversa, CRM e pedido sem contar cliques como compras",
+      "bodyCharacters": 12915,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ]
+    },
+    {
+      "slug": "como-retomar-propostas-whatsapp-motivo-proxima-acao",
+      "title": "Como retomar propostas paradas no WhatsApp: descubra o motivo, combine a próxima ação e proteja a margem",
+      "bodyCharacters": 12841,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ]
+    },
+    {
+      "slug": "como-criar-clube-vantagens-receita-recorrente-operacao",
+      "title": "Como criar um clube de vantagens com receita recorrente: tutorial da oferta à operação de assinaturas",
+      "bodyCharacters": 13094,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ]
+    }
+  ]
+}

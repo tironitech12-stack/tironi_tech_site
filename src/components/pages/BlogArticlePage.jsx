@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { formatLocalizedDate, getBlogArticleForLocale, getRelatedArticlesForLocale, localizedPath } from '../../content/localizedBlogArticles';
-import { isCoreBlogArticle } from '../../content/blogArticles';
+import { getArticleLocales, formatLocalizedDate, getBlogArticleForLocale, getRelatedArticlesForLocale, localizedPath } from '../../content/localizedBlogArticles';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -46,7 +45,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
     updateMeta('meta[property="og:description"]', 'content', article.description);
     updateMeta('meta[property="og:type"]', 'content', 'article');
     updateMeta('meta[property="og:url"]', 'content', url);
-    updateMeta('meta[name="robots"]', 'content', isCoreBlogArticle(article) ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, follow');
+    updateMeta('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
     canonical.href = url;
@@ -54,8 +53,8 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
     const createdSchema = !schema;
     if (!schema) { schema = document.createElement('script'); schema.id = 'tt-page-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
     const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
-    const languageUrls = { pt: `${SITE_URL}/blog/${article.slug}`, en: `${SITE_URL}/en/blog/${article.slug}`, es: `${SITE_URL}/es/blog/${article.slug}` };
-    document.head.querySelectorAll('link[data-tt-hreflang]').forEach((node) => node.remove());
+    const languageUrls = Object.fromEntries(getArticleLocales(article).map((lang) => [lang, `${SITE_URL}${localizedPath(article.slug, lang)}`]));
+    document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((node) => node.remove());
     Object.entries({ ...languageUrls, 'x-default': languageUrls.pt }).forEach(([lang, href]) => { const link = document.createElement('link'); link.rel = 'alternate'; link.hreflang = lang; link.href = href; link.dataset.ttHreflang = 'true'; document.head.appendChild(link); });
     const graph = [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: locale === 'pt' ? 'pt-BR' : locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: `${SITE_URL}/sobre/editorial` }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: copy.home, item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}${locale === 'pt' ? '' : `/${locale}`}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }];
     if (article.faqs?.length) graph.push({ '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) });
@@ -69,12 +68,14 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
   }
 
   const related = getRelatedArticlesForLocale(article, locale);
-  const changeLanguage = (nextLocale) => { window.location.assign(localizedPath(article.slug, nextLocale)); };
+  const availableLanguages = getArticleLocales(article);
+  const articleLanguageOptions = languageOptions.filter((option) => availableLanguages.includes(option.value));
+  const changeLanguage = (nextLocale) => { if (availableLanguages.includes(nextLocale)) window.location.assign(localizedPath(article.slug, nextLocale)); };
 
   return (
     <div className="tt2-page tt-blog-page">
       <div className="tt2-page-inner">
-        <Navbar t={t} language={locale} setLanguage={changeLanguage} languageOptions={languageOptions} />
+        <Navbar t={t} language={locale} setLanguage={changeLanguage} languageOptions={articleLanguageOptions} />
         <main className="tt2-site-main">
           <article className="tt-article">
             <header className="tt-article-hero">
@@ -85,7 +86,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
                 <h1>{article.title}</h1>
                 <p className="tt-article-deck">{article.description}</p>
                 <div className="tt-article-byline"><span className="tt-article-author-mark">TT</span><span><strong><a href="/sobre/editorial">Tironi Tech</a></strong><small>{copy.published} {formatLocalizedDate(article.date, locale)} · {copy.updated} {formatLocalizedDate(article.updated, locale)}</small></span></div>
-                <nav className="tt-article-languages" aria-label="Language versions"><a href={`/blog/${article.slug}`}>PT</a><a href={`/en/blog/${article.slug}`}>EN</a><a href={`/es/blog/${article.slug}`}>ES</a></nav>
+                <nav className="tt-article-languages" aria-label="Language versions">{availableLanguages.map((lang) => <a key={lang} href={localizedPath(article.slug, lang)}>{lang.toUpperCase()}</a>)}</nav>
               </div>
             </header>
 
@@ -119,7 +120,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
           {related.length ? <section className="tt-blog-related"><div className="tt2-container"><div className="tt-blog-library-head"><div><span className="tt-blog-kicker">TIRONI TECH</span><h2>{copy.related}</h2></div><a className="tt-blog-text-link" href={`${locale === 'pt' ? '' : `/${locale}`}/blog`}>{copy.all} →</a></div><div className="tt-blog-grid">{related.map((item, index) => <article className="tt-blog-card" key={item.slug}><div className="tt-blog-card-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div><div className="tt-blog-preview-meta"><span>{item.category}</span><span>{item.readTime}</span></div><h3><a href={localizedPath(item.slug, locale)}>{item.title}</a></h3><p>{item.description}</p><footer><time dateTime={item.date}>{formatLocalizedDate(item.date, locale)}</time><a className="tt-blog-read" href={localizedPath(item.slug, locale)}>{copy.read} <span aria-hidden="true">↗</span></a></footer></article>)}</div></div></section> : null}
         </main>
         <FloatingWhatsAppButton />
-        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={locale} setLanguage={changeLanguage} languageOptions={languageOptions} />
+        <Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language={locale} setLanguage={changeLanguage} languageOptions={articleLanguageOptions} />
         <CookieConsent t={t} />
       </div>
     </div>

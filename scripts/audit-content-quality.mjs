@@ -27,7 +27,8 @@ const allCounts = blogArticles.map(words).sort((a, b) => a - b);
 const report = {
   generatedAt: new Date().toISOString(),
   publicArticles: blogArticles.length,
-  indexableCore: coreBlogArticles.length,
+  indexableArticles: blogArticles.length,
+  featuredSelection: coreBlogArticles.length,
   categoriesInCore: new Set(coreBlogArticles.map((article) => article.category)).size,
   sourcesInCore: coreBlogArticles.reduce((sum, article) => sum + (article.sources?.length || 0), 0),
   coreWords: { min: coreCounts[0], median: coreCounts[Math.floor(coreCounts.length / 2)], max: coreCounts.at(-1) },
