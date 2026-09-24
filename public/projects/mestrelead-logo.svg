@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 112" role="img" aria-labelledby="title">
+  <title id="title">MestreLead</title>
+  <rect width="300" height="112" rx="14" fill="#081a31"/>
+  <text x="20" y="60" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="800">Mestre</text>
+  <text x="153" y="60" fill="#7d6bff" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="800">Lead</text>
+  <text x="21" y="88" fill="#8db8e7" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="4">OUTREACH CONTROL</text>
+</svg>

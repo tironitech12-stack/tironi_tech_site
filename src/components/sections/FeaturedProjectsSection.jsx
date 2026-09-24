@@ -6,12 +6,24 @@ import { getProjectStory } from "../../content/projectStories";
 
 const SIGNGUARD_URL = "https://www.walletsignguard.com/";
 const DELETEACTPRO_URL = "https://www.deleteactpro.com/";
+const PROJECT_URLS = {
+  SignGuard: SIGNGUARD_URL,
+  DeleteActPro: DELETEACTPRO_URL,
+  "Sales Game": "https://www.salesgame.com.br/",
+  "Sorteios xNaMai": "https://www.sorteiosxnamai.com.br/",
+  "ProfitPilot Ads": "https://www.profitpilotads.com/",
+};
 
 function ProjectLogo({ title }) {
   const [error, setError] = useState(false);
 
   const src = useMemo(() => {
     const t = String(title || "").toLowerCase();
+    if (t.includes("sales game")) return "/projects/salesgame-logo.svg";
+    if (t.includes("xnamai")) return "/assets/clients/xnamai.png";
+    if (t.includes("mestrelead")) return "/projects/mestrelead-logo.svg";
+    if (t.includes("bi personalizado")) return "/projects/bi-personalizado-logo.svg";
+    if (t.includes("profitpilot")) return "/projects/profitpilotads-logo.svg";
     if (t.includes("newstore") || t.includes("sorteios")) return newstoreSorteiosLogo;
     if (t.includes("deleteactpro")) return "/projects/deleteactpro-logo.png";
     if (t.includes("sign") || t.includes("wallet")) return "/projects/sign-wallet-logo.png";
@@ -20,6 +32,11 @@ function ProjectLogo({ title }) {
 
   const fallback = useMemo(() => {
     const t = String(title || "").toLowerCase();
+    if (t.includes("sales game")) return "SG";
+    if (t.includes("xnamai")) return "XN";
+    if (t.includes("mestrelead")) return "ML";
+    if (t.includes("bi personalizado")) return "BI";
+    if (t.includes("profitpilot")) return "PP";
     if (t.includes("newstore") || t.includes("sorteios")) return "NS";
     if (t.includes("deleteactpro")) return "DA";
     if (t.includes("sign") || t.includes("wallet")) return "SW";
@@ -64,8 +81,8 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
 
         <div className="tt2-featured-grid">
           {t.featuredProjects.items.map((item, index) => {
-            const isSignGuard = item.title === "SignGuard";
-            const isDeleteActPro = item.title === "DeleteActPro";
+            const href = PROJECT_URLS[item.title] || "#contato";
+            const isExternal = href.startsWith("http");
             const story = getProjectStory(language, item.title);
 
             return (
@@ -95,12 +112,13 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
                   <span>{story.labels.result}</span>
                   <p>{story.result}</p>
                 </div>
+                {item.bullets?.length ? <div className="tt2-featured-bullets" aria-label={t.featuredProjects.caseLabels?.impact}>{item.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}</div> : null}
 
                 <a
                   className="tt2-featured-cta"
-                  href={isSignGuard ? SIGNGUARD_URL : isDeleteActPro ? DELETEACTPRO_URL : "#contato"}
-                  target={isSignGuard || isDeleteActPro ? "_blank" : undefined}
-                  rel={isSignGuard || isDeleteActPro ? "noreferrer" : undefined}
+                  href={href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer" : undefined}
                   onClick={() => trackFunnelEvent("project_case_click", { project: item.title })}
                 >
                   {item.cta}

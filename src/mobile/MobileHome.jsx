@@ -50,11 +50,21 @@ const projectLinks = {
   SignGuard: "https://www.walletsignguard.com/",
   DeleteActPro: "https://www.deleteactpro.com/",
   "Sorteios NewStore": "#contato",
+  "Sales Game": "https://www.salesgame.com.br/",
+  "Sorteios xNaMai": "https://www.sorteiosxnamai.com.br/",
+  MestreLead: "#contato",
+  "BI Personalizado": "#contato",
+  "ProfitPilot Ads": "https://www.profitpilotads.com/",
 };
 const projectLogos = {
   SignGuard: "/projects/sign-wallet-logo.png",
   DeleteActPro: "/projects/deleteactpro-logo.png",
   "Sorteios NewStore": newstoreSorteiosLogo,
+  "Sales Game": "/projects/salesgame-logo.svg",
+  "Sorteios xNaMai": "/assets/clients/xnamai.png",
+  MestreLead: "/projects/mestrelead-logo.svg",
+  "BI Personalizado": "/projects/bi-personalizado-logo.svg",
+  "ProfitPilot Ads": "/projects/profitpilotads-logo.svg",
 };
 
 function useMobileStylesheet() {

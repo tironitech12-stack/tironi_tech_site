@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 112" role="img" aria-labelledby="title">
+  <title id="title">BI Personalizado</title>
+  <rect width="300" height="112" rx="14" fill="#0b0e18"/>
+  <g transform="translate(22 24)" fill="none" stroke="#7d6bff" stroke-width="7" stroke-linecap="round">
+    <path d="M4 58V37M24 58V22M44 58V8"/>
+  </g>
+  <text x="88" y="51" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="800">BI</text>
+  <text x="88" y="79" fill="#9eb3d7" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">PERSONALIZADO</text>
+</svg>
