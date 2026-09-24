@@ -18,7 +18,7 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
-function pageTemplate({ title, description, path, body, schema, locale = 'pt', alternates = [], robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }) {
+function pageTemplate({ title, description, path, body, schema, articleData = null, locale = 'pt', alternates = [], robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }) {
   const url = `${origin}${path}`;
   const cleanTemplate = template
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
@@ -46,7 +46,16 @@ function pageTemplate({ title, description, path, body, schema, locale = 'pt', a
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
     .replace('</head>', `    ${tags}\n  </head>`)
-    .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+    .replace('<div id="root"></div>', `<div id="root">${body}</div>`)
+    .replace('</body>', `${articleData ? `<script id="tt-article-data" type="application/json">${JSON.stringify(articleData).replaceAll('<', '\\u003c')}</script>` : ''}</body>`);
+}
+
+async function writeArticleData(locale, article, related) {
+  const payload = { locale, article, related };
+  const directory = resolve(root, 'article-data', locale);
+  await mkdir(directory, { recursive: true });
+  await writeFile(resolve(directory, `${article.slug}.json`), JSON.stringify(payload));
+  return payload;
 }
 
 const blogGroups = [...new Set(blogArticles.map((article) => article.category))].map((category) => ({ category, articles: blogArticles.filter((article) => article.category === category) }));
@@ -62,7 +71,8 @@ await writeFile(resolve(root, 'blog', 'arquivo', 'index.html'), pageTemplate({ t
 for (const article of blogArticles) {
   const path = `/blog/${article.slug}`;
   const faqBody = article.faqs?.length ? `<section><h2>Perguntas frequentes</h2>${article.faqs.map((faq) => `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`).join('')}</section>` : '';
-  const relatedBody = `<section><h2>Artigos relacionados</h2><ul>${getRelatedBlogArticles(article).map((related) => `<li><a href="/blog/${related.slug}">${escapeHtml(related.title)}</a></li>`).join('')}</ul></section>`;
+  const related = getRelatedBlogArticles(article);
+  const relatedBody = `<section><h2>Artigos relacionados</h2><ul>${related.map((relatedArticle) => `<li><a href="/blog/${relatedArticle.slug}">${escapeHtml(relatedArticle.title)}</a></li>`).join('')}</ul></section>`;
   const visualBody = article.visual ? `<figure><figcaption><strong>${escapeHtml(article.visual.title)}</strong></figcaption><ol>${article.visual.labels.map((label) => `<li>${escapeHtml(label)}</li>`).join('')}</ol><p>${escapeHtml(article.visual.caption)}</p></figure>` : '';
   const articleBody = `<main class="tt-article-static"><article><nav><a href="/">Início</a> / <a href="/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>Por Tironi Tech · Publicado em <time datetime="${article.date}">${article.date}</time> · Atualizado em <time datetime="${article.updated}">${article.updated}</time></p></header><p>${escapeHtml(article.intro)}</p><section><h2>O que você vai levar deste guia</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}<section><h2>Fontes consultadas</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section></article></main>`;
   const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
@@ -79,7 +89,8 @@ for (const article of blogArticles) {
   const directory = resolve(root, 'blog', article.slug);
   await mkdir(directory, { recursive: true });
   const alternates = getArticleLocales(article).map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, alternates }));
+  const articleData = await writeArticleData('pt', article, related);
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, alternates }));
 }
 
 const localizedStaticCopy = {
@@ -107,7 +118,8 @@ for (const locale of ['en', 'es']) {
   for (const article of localeArticles) {
     const path = localizedPath(article.slug, locale);
     const faqBody = article.faqs?.length ? `<section><h2>${localeCopy.faq}</h2>${article.faqs.map((faq) => `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`).join('')}</section>` : '';
-    const relatedBody = `<section><h2>${localeCopy.related}</h2><ul>${getRelatedArticlesForLocale(article, locale).map((related) => `<li><a href="${localizedPath(related.slug, locale)}">${escapeHtml(related.title)}</a></li>`).join('')}</ul></section>`;
+    const related = getRelatedArticlesForLocale(article, locale);
+    const relatedBody = `<section><h2>${localeCopy.related}</h2><ul>${related.map((relatedArticle) => `<li><a href="${localizedPath(relatedArticle.slug, locale)}">${escapeHtml(relatedArticle.title)}</a></li>`).join('')}</ul></section>`;
     const visualBody = article.visual ? `<figure><figcaption><strong>${escapeHtml(article.visual.title)}</strong></figcaption><ol>${article.visual.labels.map((label) => `<li>${escapeHtml(label)}</li>`).join('')}</ol><p>${escapeHtml(article.visual.caption)}</p></figure>` : '';
     const articleBody = `<main class="tt-article-static"><article><nav><a href="/">${localeCopy.home}</a> / <a href="/${locale}/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>${localeCopy.byline} <time datetime="${article.date}">${article.date}</time> · ${localeCopy.updated} <time datetime="${article.updated}">${article.updated}</time></p><nav><a href="/blog/${article.slug}">PT</a> · <a href="/en/blog/${article.slug}">EN</a> · <a href="/es/blog/${article.slug}">ES</a></nav></header><p>${escapeHtml(article.intro)}</p><section><h2>${localeCopy.takeaway}</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}<section><h2>${localeCopy.sources}</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section></article></main>`;
     const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...article.faqs.flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
@@ -115,7 +127,8 @@ for (const locale of ['en', 'es']) {
     const directory = resolve(root, locale, 'blog', article.slug);
     await mkdir(directory, { recursive: true });
     const alternates = getArticleLocales(article).map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
-    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, locale, alternates }));
+    const articleData = await writeArticleData(locale, article, related);
+    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, locale, alternates }));
   }
 }
 

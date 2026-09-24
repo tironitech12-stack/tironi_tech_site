@@ -31,6 +31,13 @@ for (const locale of ['pt', 'en', 'es']) {
     assert(sitemapUrls.has(url), `Missing from sitemap: ${url}`);
     assert(archive.includes(`href="/${path}"`), `Missing archive link: ${url}`);
     const html = await read(`${path}/index.html`);
+    const payload = JSON.parse(await read(`article-data/${locale}/${article.slug}.json`));
+    assert.equal(payload.locale, locale, `Wrong article payload locale: ${url}`);
+    assert.equal(payload.article.slug, article.slug, `Wrong article payload: ${url}`);
+    assert(Array.isArray(payload.related) && payload.related.length <= 3, `Invalid related articles payload: ${url}`);
+    const embeddedPayload = html.match(/<script id="tt-article-data" type="application\/json">([\s\S]*?)<\/script>/);
+    assert(embeddedPayload, `Missing embedded article payload: ${url}`);
+    assert.equal(JSON.parse(embeddedPayload[1]).article.slug, article.slug, `Wrong embedded article payload: ${url}`);
     assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Unexpected noindex: ${url}`);
     assert(html.includes('<meta name="robots" content="index, follow'), `Missing index rule: ${url}`);
     assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical: ${url}`);

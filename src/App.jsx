@@ -6,11 +6,12 @@ import { getServiceLandingPage } from './content/serviceLandingPages';
 
 const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
 const loadBlogIndexPage = () => import('./components/pages/BlogIndexPage');
+const loadBlogArticlePage = () => import('./components/pages/BlogArticlePage');
 const ResponsiveHome = lazy(loadResponsiveHome);
 const LegalPolicyPage = lazy(() => import('./components/pages/LegalPolicyPage'));
 const ClubPage = lazy(() => import('./components/pages/ClubPage'));
 const BlogIndexPage = lazy(loadBlogIndexPage);
-const BlogArticlePage = lazy(() => import('./components/pages/BlogArticlePage'));
+const BlogArticlePage = lazy(loadBlogArticlePage);
 const BlogArchivePage = lazy(() => import('./components/pages/BlogArchivePage'));
 const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
 const ServiceLandingPage = lazy(() => import('./components/pages/ServiceLandingPage'));
@@ -32,7 +33,16 @@ function useClientLocation() {
       if (!anchor) return;
       const nextUrl = new URL(anchor.href, window.location.href);
       if (nextUrl.origin === window.location.origin && /^\/(?:en\/|es\/)?blog(?:\/|$)/.test(nextUrl.pathname)) {
-        loadBlogIndexPage().catch(() => {});
+        const match = nextUrl.pathname.match(/^\/(?:(en|es)\/)?blog\/([^/]+)\/?$/);
+        const isArchive = match?.[2] === 'arquivo' || match?.[2] === 'archive';
+        if (match && !isArchive) {
+          const locale = match[1] || 'pt';
+          const slug = decodeURIComponent(match[2]);
+          loadBlogArticlePage().catch(() => {});
+          fetch(`/article-data/${locale}/${encodeURIComponent(slug)}.json`).catch(() => {});
+        } else {
+          loadBlogIndexPage().catch(() => {});
+        }
       }
     };
     const handleClick = (event) => {

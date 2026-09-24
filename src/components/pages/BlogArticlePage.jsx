@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { getArticleLocales, formatLocalizedDate, getBlogArticleForLocale, getRelatedArticlesForLocale, localizedPath } from '../../content/localizedBlogArticles';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -11,6 +10,20 @@ import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 const SITE_URL = 'https://www.tironitech.com';
+const localizedPath = (slug, locale = 'pt') => `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
+const formatLocalizedDate = (date, locale = 'pt') => new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
+const getArticleLocales = (article) => article?.availableLocales || ['pt', 'en', 'es'];
+
+function readEmbeddedArticle(slug, locale) {
+  const node = document.getElementById('tt-article-data');
+  if (!node) return null;
+  try {
+    const payload = JSON.parse(node.textContent);
+    return payload?.article?.slug === slug && payload.locale === locale ? payload : null;
+  } catch {
+    return null;
+  }
+}
 
 function updateMeta(selector, attribute, value) {
   let node = document.head.querySelector(selector);
@@ -24,19 +37,41 @@ function updateMeta(selector, attribute, value) {
 }
 
 const pageCopy = {
-  pt: { home: 'Início', guide: 'NESTE GUIA', quick: 'LEITURA RÁPIDA', takeaway: 'O que você vai levar deste guia', answers: 'RESPOSTAS DIRETAS', faq: 'Perguntas frequentes', next: 'PRÓXIMO PASSO', sources: 'Fontes consultadas', related: 'Artigos relacionados', all: 'Ver biblioteca completa', read: 'Ler', published: 'Publicado em', updated: 'Atualizado em', editorial: 'Como produzimos este conteúdo', editorialText: 'Conteúdo estruturado com apoio de tecnologia e publicado sob responsabilidade editorial da Tironi Tech. As fontes, a data de revisão e os limites da análise ficam visíveis para facilitar a verificação.', notFound: 'Este artigo não foi encontrado.' },
-  en: { home: 'Home', guide: 'IN THIS GUIDE', quick: 'QUICK READ', takeaway: 'What you will learn', answers: 'DIRECT ANSWERS', faq: 'Frequently asked questions', next: 'NEXT STEP', sources: 'Sources consulted', related: 'Related articles', all: 'View the full library', read: 'Read', published: 'Published', updated: 'Updated', editorial: 'How this content is produced', editorialText: 'Content is structured with technology support and published under Tironi Tech editorial responsibility. Sources, review date and analysis limits remain visible for verification.', notFound: 'This article was not found.' },
-  es: { home: 'Inicio', guide: 'EN ESTA GUÍA', quick: 'LECTURA RÁPIDA', takeaway: 'Qué aprenderás en esta guía', answers: 'RESPUESTAS DIRECTAS', faq: 'Preguntas frecuentes', next: 'PRÓXIMO PASO', sources: 'Fuentes consultadas', related: 'Artículos relacionados', all: 'Ver la biblioteca completa', read: 'Leer', published: 'Publicado', updated: 'Actualizado', editorial: 'Cómo producimos este contenido', editorialText: 'El contenido se estructura con apoyo tecnológico y se publica bajo la responsabilidad editorial de Tironi Tech. Las fuentes, la fecha de revisión y los límites quedan visibles para verificación.', notFound: 'No se encontró este artículo.' }
+  pt: { home: 'Início', guide: 'NESTE GUIA', quick: 'LEITURA RÁPIDA', takeaway: 'O que você vai levar deste guia', answers: 'RESPOSTAS DIRETAS', faq: 'Perguntas frequentes', next: 'PRÓXIMO PASSO', sources: 'Fontes consultadas', related: 'Artigos relacionados', all: 'Ver biblioteca completa', read: 'Ler', published: 'Publicado em', updated: 'Atualizado em', editorial: 'Como produzimos este conteúdo', editorialText: 'Conteúdo estruturado com apoio de tecnologia e publicado sob responsabilidade editorial da Tironi Tech. As fontes, a data de revisão e os limites da análise ficam visíveis para facilitar a verificação.', loading: 'Carregando artigo…', notFound: 'Este artigo não foi encontrado.' },
+  en: { home: 'Home', guide: 'IN THIS GUIDE', quick: 'QUICK READ', takeaway: 'What you will learn', answers: 'DIRECT ANSWERS', faq: 'Frequently asked questions', next: 'NEXT STEP', sources: 'Sources consulted', related: 'Related articles', all: 'View the full library', read: 'Read', published: 'Published', updated: 'Updated', editorial: 'How this content is produced', editorialText: 'Content is structured with technology support and published under Tironi Tech editorial responsibility. Sources, review date and analysis limits remain visible for verification.', loading: 'Loading article…', notFound: 'This article was not found.' },
+  es: { home: 'Inicio', guide: 'EN ESTA GUÍA', quick: 'LECTURA RÁPIDA', takeaway: 'Qué aprenderás en esta guía', answers: 'RESPUESTAS DIRECTAS', faq: 'Preguntas frecuentes', next: 'PRÓXIMO PASO', sources: 'Fuentes consultadas', related: 'Artículos relacionados', all: 'Ver la biblioteca completa', read: 'Leer', published: 'Publicado', updated: 'Actualizado', editorial: 'Cómo producimos este contenido', editorialText: 'El contenido se estructura con apoyo tecnológico y se publica bajo la responsabilidad editorial de Tironi Tech. Las fuentes, la fecha de revisión y los límites quedan visibles para verificación.', loading: 'Cargando artículo…', notFound: 'No se encontró este artículo.' }
 };
 
 export default function BlogArticlePage({ slug, locale = 'pt' }) {
   const { languageOptions } = useLanguage();
   const t = getSiteText(locale);
   const copy = pageCopy[locale] || pageCopy.pt;
-  const article = getBlogArticleForLocale(slug, locale);
+  const [payload, setPayload] = useState(() => readEmbeddedArticle(slug, locale));
+  const [missingKey, setMissingKey] = useState(null);
+  const requestKey = `${locale}/${slug}`;
+  const activePayload = payload?.article?.slug === slug && payload.locale === locale ? payload : null;
+  const loadState = activePayload ? 'ready' : missingKey === requestKey ? 'missing' : 'loading';
+  const article = activePayload?.article;
 
   useEffect(() => {
-    if (!article) { document.title = 'Artigo não encontrado | Tironi Tech'; return; }
+    const embedded = readEmbeddedArticle(slug, locale);
+    if (embedded) return undefined;
+    const controller = new AbortController();
+    fetch(`/article-data/${locale}/${encodeURIComponent(slug)}.json`, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Article request failed: ${response.status}`);
+        return response.json();
+      })
+      .then((nextPayload) => setPayload(nextPayload))
+      .catch((error) => { if (error.name !== 'AbortError') setMissingKey(requestKey); });
+    return () => controller.abort();
+  }, [locale, requestKey, slug]);
+
+  useEffect(() => {
+    if (!article) {
+      if (loadState === 'missing') document.title = `${copy.notFound} | Tironi Tech`;
+      return;
+    }
     const url = `${SITE_URL}${localizedPath(article.slug, locale)}`;
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
     document.title = `${article.title} | Tironi Tech`;
@@ -61,13 +96,17 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
     schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
     window.scrollTo(0, 0);
     return () => { if (createdSchema) schema.remove(); };
-  }, [article, copy.home, locale]);
+  }, [article, copy.home, copy.notFound, loadState, locale]);
+
+  if (loadState === 'loading') {
+    return <div className="tt2-page tt-blog-page"><Navbar t={t} language={locale} setLanguage={() => {}} languageOptions={languageOptions} /><main className="tt-blog-not-found"><span className="tt-blog-kicker">TIRONI TECH</span><h1>{copy.loading}</h1></main></div>;
+  }
 
   if (!article) {
     return <div className="tt2-page tt-blog-page"><Navbar t={t} language={locale} setLanguage={() => {}} languageOptions={languageOptions} /><main className="tt-blog-not-found"><span className="tt-blog-kicker">404</span><h1>{copy.notFound}</h1><a className="tt-blog-primary-link" href={`${locale === 'pt' ? '' : `/${locale}`}/blog`}>Blog →</a></main></div>;
   }
 
-  const related = getRelatedArticlesForLocale(article, locale);
+  const related = activePayload.related || [];
   const availableLanguages = getArticleLocales(article);
   const articleLanguageOptions = languageOptions.filter((option) => availableLanguages.includes(option.value));
   const changeLanguage = (nextLocale) => { if (availableLanguages.includes(nextLocale)) window.location.assign(localizedPath(article.slug, nextLocale)); };
