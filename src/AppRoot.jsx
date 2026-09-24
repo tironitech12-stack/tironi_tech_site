@@ -8,6 +8,7 @@ import FloatingWhatsAppButton from "./components/ui/FloatingWhatsAppButton";
 import CookieConsent from "./components/shared/CookieConsent";
 
 import HeroSection from "./components/sections/HeroSection";
+import BusinessResultsSection from "./components/sections/BusinessResultsSection";
 import TrustedBySection from "./components/sections/TrustedBySection";
 import ExperienceStatsSection from "./components/sections/ExperienceStatsSection";
 import ExperienceSection from "./components/sections/ExperienceSection";
@@ -63,6 +64,7 @@ export default function AppRoot() {
 
         <main className="tt2-site-main">
           <HeroSection t={t} />
+          <BusinessResultsSection />
           <TrustedBySection t={t} clients={CLIENTS} />
           <ExperienceStatsSection t={t} />
           <FeaturedProjectsSection t={t} language={language} />

@@ -18,6 +18,8 @@ import {
 } from "../utils/googleAdsConversion";
 import { trackFunnelEvent } from "../utils/conversionTracking";
 import { getProjectStory } from "../content/projectStories";
+import { getSolutionExperience, solutionLinks } from "../content/solutionExperience";
+import BusinessResultsSection from "../components/sections/BusinessResultsSection";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
@@ -93,6 +95,7 @@ export default function MobileHome() {
   useMobileStylesheet();
   const { t, language, setLanguage, languageOptions } = useLanguage();
   const reduceMotion = useReducedMotion();
+  const solutionExperience = getSolutionExperience(language);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const mobileProjects = t.featuredProjects.items;
   const activeMobileProject = mobileProjects[activeProjectIndex] || mobileProjects[0];
@@ -151,6 +154,8 @@ export default function MobileHome() {
           />
         </section>
 
+        <BusinessResultsSection compact />
+
         <section className="mobile-section mobile-trust-section tt2-clients-section tt-client-showcase" id="clientes">
           <div className="mobile-section-head">
             <span className="mobile-section-tag">{t.nav.clients}</span>
@@ -182,12 +187,20 @@ export default function MobileHome() {
           <div className="mobile-section-head">
             <span className="mobile-section-tag">{t.solutions.eyebrow}</span>
             <h2>{t.solutions.title}</h2>
+            <p>{solutionExperience.lead}</p>
           </div>
-          <div className="mobile-card-stack">
-            {t.solutions.items.map((item) => (
-              <article key={item.title} className="mobile-info-card">
+          <div className="mobile-services-proof">
+            {solutionExperience.proof.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
+          </div>
+          <div className="mobile-card-stack mobile-services-stack">
+            {t.solutions.items.map((item, index) => (
+              <article key={item.title} className="mobile-info-card mobile-service-story">
+                <div className="mobile-service-story-top"><span>{String(index + 1).padStart(2, "0")}</span><small>{solutionExperience.items[index].signal}</small></div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+                <div className="mobile-service-outcome"><small>{solutionExperience.outcomeLabel}</small><strong>{solutionExperience.items[index].outcome}</strong></div>
+                <div className="mobile-service-chips">{solutionExperience.items[index].chips.map((chip) => <span key={chip}>{chip}</span>)}</div>
+                <a href={solutionLinks[index]}>{solutionExperience.linkLabel}<span aria-hidden="true">↗</span></a>
               </article>
             ))}
           </div>
