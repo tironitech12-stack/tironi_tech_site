@@ -1,53 +1,1372 @@
 {
   "target": 1000,
-  "authored": 5,
-  "remaining": 995,
-  "validation": "Structure, body length after content processing and exact paragraph uniqueness. Does not certify semantic uniqueness, source accuracy or ranking.",
+  "authored": 121,
+  "remaining": 879,
+  "requestedBatch": {
+    "id": "additional-100-20260924",
+    "target": 100,
+    "authored": 100,
+    "remaining": 0,
+    "bodyCharacters": {
+      "min": 10153,
+      "max": 15770
+    },
+    "categories": {
+      "Agentes de IA e Agentic AI": 1,
+      "Automação de processos e operações": 2,
+      "ChatBô e atendimento": 10,
+      "Desenvolvimento com IA": 11,
+      "Governança, segurança e confiabilidade": 8,
+      "IA em marketing, aquisição e personalização": 2,
+      "Integrações com CRM, ERP e APIs": 6,
+      "Prospecção e CRM": 13,
+      "RAG, conhecimento corporativo e context engineering": 2,
+      "ROI, custo e business case para IA": 5,
+      "SEO e GEO": 4,
+      "SaaS, produto e AI-native software": 9,
+      "Tecnologia para empresas": 6,
+      "Vendas e crescimento": 21
+    }
+  },
+  "validation": "Structure, body length after content processing, exact paragraph uniqueness and pairwise five-word Jaccard overlap within the tutorial batch. Does not certify semantic uniqueness, source accuracy or ranking.",
+  "maximumLexicalOverlap": {
+    "ratio": 0.0032386646736422523,
+    "slugs": [
+      "como-mapear-participantes-compra-b2b-sem-confundir-cargo-e-decisao",
+      "como-planejar-conta-b2b-com-necessidades-confirmadas-e-acoes-reais"
+    ]
+  },
   "articles": [
+    {
+      "slug": "como-investigar-vendas-perdidas-sem-culpar-preco-ou-vendedor",
+      "title": "Como investigar vendas perdidas e transformar relatos de clientes em decisões comerciais",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 15770,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-demonstracao-comercial-b2b-com-tarefa-do-comprador",
+      "title": "Como preparar uma demonstração comercial B2B que ajude o comprador a avaliar uma tarefa real",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 15383,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-transferir-carteira-clientes-entre-vendedores-sem-perder-compromissos",
+      "title": "Como transferir uma carteira de clientes entre vendedores preservando compromissos e confiança",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 15689,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-conduzir-reuniao-pipeline-comercial-por-decisoes-e-impedimentos",
+      "title": "Como conduzir uma reunião de pipeline comercial que termine com decisões e responsáveis",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 15675,
+      "sections": 10,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-mapear-participantes-compra-b2b-sem-confundir-cargo-e-decisao",
+      "title": "Como mapear os participantes de uma compra B2B sem confundir cargo com poder de decisão",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 14060,
+      "sections": 9,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-decidir-participar-concorrencia-privada-b2b-antes-proposta",
+      "title": "Como decidir se vale participar de uma concorrência privada B2B antes de preparar a proposta",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 14157,
+      "sections": 9,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher",
+      "title": "Como comparar dois produtos no WhatsApp e ajudar o cliente a escolher pelo uso real",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12716,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-transformar-audio-cliente-whatsapp-em-pedido-conferivel",
+      "title": "Como transformar um áudio de cliente no WhatsApp em uma solicitação comercial conferível",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12424,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-organizar-conversa-whatsapp-varios-assuntos-sem-esquecer-pedidos",
+      "title": "Como organizar uma conversa de WhatsApp com vários assuntos sem esquecer parte do pedido",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 13833,
+      "sections": 9,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-negociar-data-entrega-whatsapp-sem-prometer-prazo-nao-confirmado",
+      "title": "Como negociar uma data de entrega pelo WhatsApp sem prometer um prazo ainda não confirmado",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12388,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-usar-fotos-cliente-whatsapp-orientar-compra-sem-adivinhar-medidas",
+      "title": "Como usar fotos do cliente no WhatsApp para orientar uma compra sem adivinhar medidas ou compatibilidade",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12174,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente",
+      "title": "Como responder dúvidas de uma proposta pelo WhatsApp sem mudar o escopo por acidente",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 14192,
+      "sections": 9,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-receber-indicacoes-clientes-whatsapp-sem-abordagem-surpresa",
+      "title": "Como receber indicações de clientes pelo WhatsApp com uma apresentação clara para o novo contato",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12265,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-oferecer-substituto-produto-indisponivel-whatsapp-com-confirmacao",
+      "title": "Como oferecer um substituto para um produto indisponível no WhatsApp sem presumir equivalência",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12328,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-atender-compra-presentes-empresariais-whatsapp-com-aprovacao",
+      "title": "Como atender uma compra de presentes empresariais pelo WhatsApp com quantidades e aprovação claras",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12078,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-montar-conjunto-produtos-whatsapp-dentro-orcamento-cliente",
+      "title": "Como montar um conjunto de produtos pelo WhatsApp dentro do orçamento informado pelo cliente",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12458,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-responder-comentarios-comerciais-instagram-com-informacao-util",
+      "title": "Como responder comentários comerciais no Instagram com informação útil e continuidade clara",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12537,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-visita-comercial-b2b-para-voltar-com-dados-utilizaveis",
+      "title": "Como preparar uma visita comercial B2B para voltar com informações que realmente orientam a proposta",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12354,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-organizar-envio-amostras-comerciais-b2b-com-criterios-avaliacao",
+      "title": "Como organizar o envio de amostras comerciais B2B com critérios de avaliação e retorno combinado",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12376,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-tratar-receio-implantacao-na-venda-b2b-sem-promessas-vagas",
+      "title": "Como tratar o receio de implantação em uma venda B2B sem prometer que tudo será simples",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12393,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-decidir-contratacao-apos-piloto-comercial-b2b-com-evidencias",
+      "title": "Como decidir a contratação após um piloto comercial B2B com evidências e limites claros",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12485,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-fazer-passagem-pre-vendas-vendedor-com-aceite-contexto",
+      "title": "Como fazer a passagem de pré-vendas para o vendedor com contexto e aceite de responsabilidade",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12156,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-planejar-conta-b2b-com-necessidades-confirmadas-e-acoes-reais",
+      "title": "Como planejar uma conta B2B com necessidades confirmadas e ações que o vendedor consegue executar",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12452,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-conduzir-revisao-comercial-com-cliente-b2b-sem-apresentacao-vazia",
+      "title": "Como conduzir uma revisão comercial com um cliente B2B para decidir melhorias na relação",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12444,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-proposta-b2b-para-area-compras-sem-pendencias-evitaveis",
+      "title": "Como preparar uma proposta B2B para a área de compras sem pendências evitáveis de informação",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12457,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-planejar-reposicao-comercial-b2b-sem-transformar-previsao-em-pedido",
+      "title": "Como planejar a reposição de um cliente B2B sem transformar previsão de consumo em pedido",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12149,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-explicar-pedido-minimo-b2b-e-oferecer-alternativas-coerentes",
+      "title": "Como explicar um pedido mínimo B2B e oferecer alternativas sem esconder o custo da compra",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12029,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-coletar-briefing-personalizacao-comercial-sem-versoes-conflitantes",
+      "title": "Como coletar um briefing de personalização comercial sem produzir versões conflitantes",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 11960,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-reativar-conta-b2b-inativa-verificando-necessidade-atual",
+      "title": "Como reativar uma conta B2B inativa verificando a necessidade atual antes de oferecer uma nova compra",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12279,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-negociacao-b2b-com-limites-e-alternativas-reais",
+      "title": "Como preparar uma negociação B2B com limites, prioridades e alternativas reais",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12395,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-comparar-proposta-concorrente-antes-responder-pedido-desconto",
+      "title": "Como comparar uma proposta concorrente antes de responder a um pedido de desconto",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12346,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-registrar-reuniao-comprador-b2b-sem-confundir-hipotese-compromisso",
+      "title": "Como registrar uma reunião com um comprador B2B sem confundir hipótese com compromisso",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12036,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-prever-fechamentos-b2b-com-evidencias-e-dependencias-explicitas",
+      "title": "Como prever fechamentos B2B com evidências e dependências explícitas em vez de datas desejadas",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 12218,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-modernizar-sistema-legado-substituicao-modulo-roteamento",
+      "title": "Como modernizar um sistema legado substituindo um módulo de cada vez",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 12262,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-publicar-eventos-outbox-transacional-ordem-servico",
+      "title": "Como publicar eventos com outbox transacional sem perder mudanças confirmadas",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 12375,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-diagnosticar-lentidao-exportacao-sistema-tempo-espera",
+      "title": "Como diagnosticar a lentidão de uma exportação antes de aumentar o servidor",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 11671,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-conceder-acesso-temporario-suporte-saas-expiracao",
+      "title": "Como conceder acesso temporário de suporte em um SaaS com escopo e expiração",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 11759,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-evitar-sobrescrita-edicao-simultanea-versao-etag",
+      "title": "Como evitar que duas pessoas sobrescrevam a mesma edição em um sistema",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 11497,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-ensaiar-restauracao-backup-sistema-ambiente-isolado",
+      "title": "Como ensaiar a restauração de um sistema sem interferir na produção",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 11829,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-provisionar-nova-empresa-saas-estados-retomada",
+      "title": "Como preparar uma nova empresa no SaaS com estados claros e retomada de falhas",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 11563,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-controlar-limite-chamadas-api-fila-prioridades",
+      "title": "Como controlar o limite de chamadas de uma API sem paralisar a integração",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11250,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-avaliar-busca-rag-conjunto-perguntas-evidencias",
+      "title": "Como avaliar a busca de um RAG com perguntas e evidências conferidas",
+      "category": "RAG, conhecimento corporativo e context engineering",
+      "bodyCharacters": 11525,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-testar-agente-ia-ferramentas-estado-final-trajetoria",
+      "title": "Como testar um agente de IA pelas ferramentas usadas e pelo estado final",
+      "category": "Agentes de IA e Agentic AI",
+      "bodyCharacters": 11579,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-mudar-campo-api-expandir-migrar-retirar-contrato",
+      "title": "Como mudar um campo de API sem exigir que todos os consumidores atualizem juntos",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11237,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-agendar-rotinas-software-fuso-atraso-calendario",
+      "title": "Como agendar rotinas de software respeitando fuso, calendário e atrasos",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10781,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-cancelar-tarefa-assincrona-efeitos-parciais",
+      "title": "Como cancelar uma tarefa assíncrona sem esconder efeitos que já aconteceram",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 11041,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-usar-cache-painel-operacional-validade-invalidacao",
+      "title": "Como usar cache em um painel operacional sem esconder dados desatualizados",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 11042,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-validar-autenticidade-webhook-corpo-assinatura",
+      "title": "Como validar a autenticidade de um webhook antes de processar o evento",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11256,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-liberar-funcionalidade-feature-flag-grupos-retorno",
+      "title": "Como liberar uma funcionalidade por grupos com feature flag e retorno planejado",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 10640,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-processar-alteracao-lote-retomada-checkpoints",
+      "title": "Como processar uma alteração em lote com retomada e conferência por item",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10903,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-isolar-falha-servico-externo-circuit-breaker",
+      "title": "Como impedir que uma dependência externa indisponível paralise o sistema inteiro",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10593,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-receber-anexos-saas-validacao-quarentena-acesso",
+      "title": "Como receber anexos em um SaaS com validação, quarentena e acesso controlado",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10685,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-formulario-offline-rascunho-sincronizacao",
+      "title": "Como preparar um formulário para trabalhar offline e sincronizar depois",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10560,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-controlar-capacidades-plano-saas-entitlements",
+      "title": "Como controlar capacidades de um plano SaaS sem espalhar regras de cobrança pelo código",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 10725,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-consumir-api-paginada-cursor-completude",
+      "title": "Como consumir uma API paginada sem confundir a primeira página com a lista completa",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 10477,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-criar-trilha-auditoria-alteracoes-negocio",
+      "title": "Como criar uma trilha de auditoria que explique alterações do negócio",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10443,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-encerrar-empresa-saas-exportacao-recursos",
+      "title": "Como encerrar uma empresa no SaaS com exportação e tratamento dos recursos",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 10381,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-registrar-decisao-arquitetura-alternativas-criterios",
+      "title": "Como registrar uma decisão de arquitetura para que outra equipe entenda o motivo",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10728,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-isolar-carga-empresas-saas-filas-justica",
+      "title": "Como impedir que uma empresa consuma toda a capacidade de um SaaS compartilhado",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 10253,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-planejar-teste-carga-jornadas-capacidade",
+      "title": "Como planejar um teste de carga que represente as jornadas do sistema",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10228,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-revisar-formulario-interno-teclado-erros-acessibilidade",
+      "title": "Como revisar um formulário interno para uso por teclado e correção de erros",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10343,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-testar-contrato-consumidor-provedor-api",
+      "title": "Como testar o contrato entre consumidor e provedor de uma API",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 10234,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-atualizar-dependencia-software-impacto-validacao",
+      "title": "Como atualizar uma dependência de software sem perder o controle do impacto",
+      "category": "Desenvolvimento com IA",
+      "bodyCharacters": 10604,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-reconstruir-indice-rag-validacao-troca-versao",
+      "title": "Como reconstruir um índice de RAG e trocar a versão depois da validação",
+      "category": "RAG, conhecimento corporativo e context engineering",
+      "bodyCharacters": 10390,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-escrever-runbook-incidente-diagnostico-contencao",
+      "title": "Como escrever um runbook que outra pessoa consiga usar durante um incidente",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10153,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-validar-configuracao-ambientes-software-diferencas",
+      "title": "Como validar a configuração entre ambientes antes de publicar um sistema",
+      "category": "Governança, segurança e confiabilidade",
+      "bodyCharacters": 10202,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-priorizar-automacoes-capacidade-gargalo-negocio",
+      "title": "Como priorizar automações pelo gargalo do negócio e pela capacidade realmente liberada",
+      "category": "Automação de processos e operações",
+      "bodyCharacters": 14023,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-mapear-servico-promessa-comercial-capacidade-entrega",
+      "title": "Como mapear um serviço para alinhar a promessa comercial à capacidade de entrega",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 14053,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-medir-custo-retrabalho-priorizar-melhoria-empresa",
+      "title": "Como medir o custo do retrabalho e escolher uma melhoria que reduza sua origem",
+      "category": "ROI, custo e business case para IA",
+      "bodyCharacters": 13822,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-analisar-margem-servico-capacidade-decidir-crescimento",
+      "title": "Como analisar a margem de cada serviço antes de decidir onde crescer",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13389,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-pesquisar-duvidas-compradores-pautas-conteudo-b2b",
+      "title": "Como pesquisar dúvidas de compradores e transformá-las em pautas B2B úteis",
+      "category": "IA em marketing, aquisição e personalização",
+      "bodyCharacters": 13447,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-escrever-estudo-caso-b2b-evidencias-limites-resultados",
+      "title": "Como escrever um estudo de caso B2B com evidências, contexto e limites claros",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13545,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-medir-seo-geo-aeo-separar-busca-citacao-trafego",
+      "title": "Como medir SEO, GEO e AEO sem misturar impressões, citações e visitas",
+      "category": "SEO e GEO",
+      "bodyCharacters": 13671,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-transformar-reuniao-bi-decisoes-responsaveis-verificacao",
+      "title": "Como transformar a reunião de BI em decisões com responsáveis e verificação",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 13350,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-decidir-manter-melhorar-aposentar-funcionalidade-saas",
+      "title": "Como decidir entre manter, melhorar ou aposentar uma funcionalidade de SaaS",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 13524,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-planejar-beneficios-recorrentes-capacidade-custo-calendario",
+      "title": "Como planejar benefícios recorrentes que caibam na capacidade e no custo da operação",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13491,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-transformar-conhecimento-especialista-guia-pratico-b2b",
+      "title": "Como transformar o conhecimento de um especialista em um guia B2B que o leitor consegue aplicar",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13201,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-revisar-conteudo-obsoleto-fontes-responsaveis-prioridades",
+      "title": "Como revisar conteúdo obsoleto sem trocar apenas a data da página",
+      "category": "SEO e GEO",
+      "bodyCharacters": 12901,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-consolidar-artigos-intencoes-repetidas-preservar-utilidade",
+      "title": "Como consolidar artigos com intenções repetidas preservando o que o leitor precisa",
+      "category": "SEO e GEO",
+      "bodyCharacters": 12933,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-escrever-comparacao-solucoes-b2b-criterios-transparentes",
+      "title": "Como escrever uma comparação de soluções B2B com critérios transparentes",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13360,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-organizar-portfolio-projetos-perguntas-comprador-b2b",
+      "title": "Como organizar um portfólio de projetos pelas perguntas do comprador B2B",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13245,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-priorizar-iniciativas-trimestre-capacidade-dependencias",
+      "title": "Como priorizar iniciativas do trimestre sem prometer mais do que a equipe consegue concluir",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 13262,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-estimar-custo-adiar-projeto-digital-cenarios",
+      "title": "Como estimar o custo de adiar um projeto digital sem inflar o benefício esperado",
+      "category": "ROI, custo e business case para IA",
+      "bodyCharacters": 13041,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-acompanhar-beneficios-projeto-digital-apos-implantacao",
+      "title": "Como acompanhar os benefícios de um projeto digital depois da implantação",
+      "category": "ROI, custo e business case para IA",
+      "bodyCharacters": 13310,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-priorizar-pedidos-funcionalidades-saas-necessidade-evidencia",
+      "title": "Como priorizar pedidos de funcionalidades no SaaS sem transformar cada solicitação em promessa",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 13090,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-avaliar-customizacao-cliente-limites-produto-saas",
+      "title": "Como avaliar uma customização para um cliente sem perder os limites do produto SaaS",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 13343,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-segmentar-mercado-b2b-necessidades-contexto-operacional",
+      "title": "Como segmentar um mercado B2B pelas necessidades e pelo contexto operacional",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12937,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-medir-custo-servir-clientes-atividades-decisoes",
+      "title": "Como medir o custo de servir clientes e transformar a análise em melhorias de atendimento",
+      "category": "ROI, custo e business case para IA",
+      "bodyCharacters": 13275,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-testar-expansao-area-atendimento-demanda-operacao",
+      "title": "Como testar a expansão da área de atendimento antes de assumir uma estrutura permanente",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12941,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-planejar-capacidade-demanda-sazonal-cenarios-semanais",
+      "title": "Como planejar capacidade para uma demanda sazonal com cenários semanais",
+      "category": "Automação de processos e operações",
+      "bodyCharacters": 13097,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-governar-parceria-indicacao-entre-empresas-responsabilidades",
+      "title": "Como governar uma parceria de indicação entre empresas com responsabilidades claras",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 13076,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-reduzir-dependencia-fundador-decisoes-operacionais",
+      "title": "Como reduzir a dependência do fundador nas decisões operacionais",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 13153,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-criar-dicionario-indicadores-negocio-definicoes-versoes",
+      "title": "Como criar um dicionário de indicadores para que as áreas discutam o mesmo número",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 12845,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-criar-faq-servico-b2b-duvidas-reais-proxima-acao",
+      "title": "Como criar uma FAQ de serviço B2B que responda dúvidas reais e indique a próxima ação",
+      "category": "SEO e GEO",
+      "bodyCharacters": 13122,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-distribuir-conteudo-b2b-tarefa-canal-preservar-contexto",
+      "title": "Como distribuir conteúdo B2B por tarefa e canal sem perder o contexto",
+      "category": "IA em marketing, aquisição e personalização",
+      "bodyCharacters": 12868,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-escrever-pagina-solucao-problema-mecanismo-aplicabilidade",
+      "title": "Como escrever uma página de solução que explique problema, funcionamento e aplicabilidade",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 14438,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-validar-frequencia-valor-negocio-recorrente-necessidade",
+      "title": "Como validar a frequência de valor antes de assumir que uma oferta deve ser recorrente",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 14470,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-definir-metas-resultados-linha-base-horizonte-variacao",
+      "title": "Como definir metas com medidas de resultado, linha de base e leitura de variação",
+      "category": "Tecnologia para empresas",
+      "bodyCharacters": 14359,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-preparar-documento-executivo-decisao-projeto-digital-b2b",
+      "title": "Como preparar um documento executivo para decidir sobre um projeto digital B2B",
+      "category": "ROI, custo e business case para IA",
+      "bodyCharacters": 14384,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-testar-jornada-orcamento-celular-tarefas-reais",
+      "title": "Como testar a jornada de orçamento pelo celular e encontrar obstáculos antes de comprar mais tráfego",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 11405,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": "additional-100-20260924"
+    },
+    {
+      "slug": "como-qualificar-leads-whatsapp-perguntas-proxima-decisao",
+      "title": "Como qualificar leads no WhatsApp com perguntas que ajudam o cliente a avançar",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 11624,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-migrar-planilhas-sistema-validacao-importacao",
+      "title": "Como migrar planilhas para um sistema sem perder códigos, regras e histórico",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11879,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-sincronizar-estoque-loja-erp-disponibilidade",
+      "title": "Como sincronizar o estoque da loja com o ERP sem confundir saldo físico e disponibilidade",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11819,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-acompanhar-renovacao-assinaturas-uso-pagamento",
+      "title": "Como acompanhar a renovação de assinaturas separando uso, pagamento e cancelamento",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 11434,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-criar-ia-documentos-internos-permissoes-versoes",
+      "title": "Como criar uma IA para consultar documentos internos com permissões e versões corretas",
+      "category": "Agentes de IA e Agentic AI",
+      "bodyCharacters": 11723,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-organizar-onboarding-cliente-b2b-primeira-entrega",
+      "title": "Como organizar o onboarding de um cliente B2B até a primeira entrega utilizável",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 11410,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-ia-consultar-produtos-whatsapp-respostas-verificaveis",
+      "title": "Como fazer a IA consultar seus produtos no WhatsApp: catálogo, perguntas de confirmação e respostas verificáveis",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 12017,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-levar-instagram-whatsapp-preservar-contexto-venda",
+      "title": "Como levar o cliente do Instagram para o WhatsApp sem perder o contexto da venda",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 12267,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-atender-whatsapp-fora-horario-retomada-equipe",
+      "title": "Como atender no WhatsApp fora do horário: colete a demanda e prepare a retomada da equipe",
+      "category": "ChatBô e atendimento",
+      "bodyCharacters": 11953,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-corrigir-contatos-duplicados-crm-vendas-historico",
+      "title": "Como corrigir contatos duplicados no CRM sem perder negociações e histórico de vendas",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 11812,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-integrar-crm-erp-pedido-timeout-reconciliacao",
+      "title": "Como integrar CRM e ERP sem duplicar pedidos quando a conexão falha",
+      "category": "Integrações com CRM, ERP e APIs",
+      "bodyCharacters": 11862,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-montar-bi-comercial-conversao-coortes-decisoes",
+      "title": "Como montar um BI comercial que explique a conversão e indique onde agir",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 11936,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-especificar-software-sob-medida-exemplos-aceite",
+      "title": "Como especificar um software sob medida com exemplos que evitam retrabalho",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 11702,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-automatizar-aprovacao-descontos-regras-alcadas",
+      "title": "Como automatizar a aprovação de descontos com regras claras e histórico de decisão",
+      "category": "Prospecção e CRM",
+      "bodyCharacters": 11508,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-validar-mvp-b2b-primeiro-fluxo-operacional",
+      "title": "Como validar um MVP B2B com um fluxo real antes de construir uma plataforma completa",
+      "category": "SaaS, produto e AI-native software",
+      "bodyCharacters": 11900,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
+    {
+      "slug": "como-criar-pagina-orcamento-b2b-contexto-comercial",
+      "title": "Como criar uma página de orçamento B2B que entregue contexto para vendas",
+      "category": "Vendas e crescimento",
+      "bodyCharacters": 11818,
+      "sections": 8,
+      "languages": [
+        "pt"
+      ],
+      "editorialRequest": null
+    },
     {
       "slug": "como-vender-mais-whatsapp-fila-prioridade-atendimento",
       "title": "Como vender mais no WhatsApp organizando a fila de atendimento: tutorial com prioridades e passagem para vendas",
+      "category": "ChatBô e atendimento",
       "bodyCharacters": 13294,
       "sections": 10,
       "languages": [
         "pt"
-      ]
+      ],
+      "editorialRequest": null
     },
     {
       "slug": "como-cotar-varios-produtos-whatsapp-sku-estoque-versao",
       "title": "Como montar uma cotação com vários produtos no WhatsApp: SKU, estoque, frete e controle de versões",
+      "category": "Integrações com CRM, ERP e APIs",
       "bodyCharacters": 13302,
       "sections": 10,
       "languages": [
         "pt"
-      ]
+      ],
+      "editorialRequest": null
     },
     {
       "slug": "como-rastrear-vendas-whatsapp-utm-crm-pedido",
       "title": "Como rastrear vendas pelo WhatsApp: conecte campanha, conversa, CRM e pedido sem contar cliques como compras",
+      "category": "Vendas e crescimento",
       "bodyCharacters": 12915,
       "sections": 10,
       "languages": [
         "pt"
-      ]
+      ],
+      "editorialRequest": null
     },
     {
       "slug": "como-retomar-propostas-whatsapp-motivo-proxima-acao",
       "title": "Como retomar propostas paradas no WhatsApp: descubra o motivo, combine a próxima ação e proteja a margem",
+      "category": "Prospecção e CRM",
       "bodyCharacters": 12841,
       "sections": 10,
       "languages": [
         "pt"
-      ]
+      ],
+      "editorialRequest": null
     },
     {
       "slug": "como-criar-clube-vantagens-receita-recorrente-operacao",
       "title": "Como criar um clube de vantagens com receita recorrente: tutorial da oferta à operação de assinaturas",
+      "category": "SaaS, produto e AI-native software",
       "bodyCharacters": 13094,
       "sections": 10,
       "languages": [
         "pt"
-      ]
+      ],
+      "editorialRequest": null
     }
   ]
 }

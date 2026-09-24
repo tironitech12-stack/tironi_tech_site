@@ -8,6 +8,9 @@
     "build": "node scripts/generate-blog-index.mjs && vite build && node scripts/prerender-blog.mjs",
     "lint": "eslint .",
     "audit:content": "node scripts/audit-content-quality.mjs",
+    "audit:tutorials": "node scripts/audit-tutorials.mjs",
+    "audit:batch100": "node scripts/audit-tutorials.mjs --require-request-complete",
+    "audit:indexability": "node scripts/audit-blog-indexability.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

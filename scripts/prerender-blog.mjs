@@ -9,6 +9,9 @@ import { corporateOverrides } from '../src/content/corporateOverrides.js';
 
 const root = resolve('dist');
 const template = await readFile(resolve(root, 'index.html'), 'utf8');
+if (!template.includes('<div id="root"></div>')) {
+  throw new Error('Prerender requires the fresh Vite HTML template. Run npm run build before generating pages again.');
+}
 const origin = 'https://www.tironitech.com';
 
 const escapeHtml = (value = '') => String(value)
@@ -174,13 +177,13 @@ await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ titl
 const staticUrls = [
   { path: '/', lastmod: '2026-09-23', priority: '1.0', frequency: 'weekly' },
   { path: '/club', lastmod: '2026-09-23', priority: '0.8', frequency: 'monthly' },
-  { path: '/blog', lastmod: '2026-09-23', priority: '0.9', frequency: 'weekly' },
-  { path: '/blog/arquivo', lastmod: '2026-09-23', priority: '0.7', frequency: 'weekly' },
-  { path: '/en/blog', lastmod: '2026-09-23', priority: '0.9', frequency: 'weekly' },
-  { path: '/en/blog/archive', lastmod: '2026-09-23', priority: '0.7', frequency: 'weekly' },
-  { path: '/es/blog', lastmod: '2026-09-23', priority: '0.9', frequency: 'weekly' },
-  { path: '/es/blog/archive', lastmod: '2026-09-23', priority: '0.7', frequency: 'weekly' },
-  { path: '/mapa-do-site', lastmod: '2026-09-23', priority: '0.7', frequency: 'weekly' },
+  { path: '/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
+  { path: '/blog/arquivo', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
+  { path: '/en/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
+  { path: '/en/blog/archive', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
+  { path: '/es/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
+  { path: '/es/blog/archive', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
+  { path: '/mapa-do-site', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
   { path: '/sobre/editorial', lastmod: '2026-09-23', priority: '0.6', frequency: 'monthly' },
   { path: '/politica-privacidade', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
   { path: '/politica-cookies', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
@@ -204,7 +207,7 @@ for (const locale of ['pt', 'en', 'es']) {
 for (const sitemapFile of sitemapFiles) {
   await writeFile(resolve(root, sitemapFile.path.slice(1)), renderUrlset(sitemapFile.items));
 }
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc><lastmod>2026-09-23</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`;
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc></sitemap>`).join('\n')}\n</sitemapindex>\n`;
 await writeFile(resolve(root, 'sitemap.xml'), sitemap);
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
