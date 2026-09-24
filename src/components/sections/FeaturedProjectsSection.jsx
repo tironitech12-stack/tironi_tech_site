@@ -11,6 +11,7 @@ const PROJECT_URLS = {
   DeleteActPro: DELETEACTPRO_URL,
   "Sales Game": "https://www.salesgame.com.br/",
   "Sorteios xNaMai": "https://www.sorteiosxnamai.com.br/",
+  "XNaMai Club": "#contato",
   "ProfitPilot Ads": "https://www.profitpilotads.com/",
 };
 

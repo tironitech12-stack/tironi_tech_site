@@ -21,6 +21,10 @@ const stories = {
       challenge: "Criar uma jornada de sorteio integrada ao e-commerce, com escolha de números, regras transparentes e acompanhamento pela conta do cliente.",
       result: "Uma plataforma responsiva que organiza participações, números e créditos, conectando campanha promocional e experiência de compra.",
     },
+    "XNaMai Club": {
+      challenge: "Criar uma nova fonte de receita recorrente com uma jornada de assinatura clara, segura e simples para empresas.",
+      result: "Uma plataforma de clube de vantagens que passou a gerar R$ 200 mil em receita recorrente para a operação atendida.",
+    },
     MestreLead: {
       challenge: "Centralizar prospecção por e-mail, dados de leads, campanhas e acompanhamento comercial sem depender de ferramentas e controles dispersos.",
       result: "Um produto de outreach com campanhas, CRM, fila de envio, relatórios e ingestão de dados em uma operação centralizada.",
@@ -50,6 +54,7 @@ const stories = {
     },
     "Sales Game": { challenge: "Turn commercial management decisions into a practical, competitive experience available across devices.", result: "A web and Android simulator with local and online matches for developing analysis, leadership and commercial decision-making." },
     "Sorteios xNaMai": { challenge: "Create a raffle journey integrated with e-commerce, including number selection, transparent rules and account tracking.", result: "A responsive platform that organizes entries, numbers and credits while connecting the promotion to the shopping experience." },
+    "XNaMai Club": { challenge: "Create a new recurring revenue stream through a clear, secure and simple business subscription journey.", result: "A benefits club platform that generated R$ 200K in recurring revenue for the supported operation." },
     MestreLead: { challenge: "Centralize email outreach, lead data, campaigns and commercial follow-up without scattered tools and controls.", result: "An outreach product with campaigns, CRM, send queue, reports and data ingestion in one operation." },
     "BI Personalizado": { challenge: "Turn order, product, customer, sales, inventory and logistics data from different operations into reliable decisions.", result: "Custom dashboards covering commercial indicators, retention, LTV, data quality and synchronization, adapted to each client's sources and priorities." },
     "ProfitPilot Ads": { challenge: "Help Shopify operations connect paid media, protect budgets and read performance through profit rather than isolated metrics.", result: "An ads copilot integrating Meta, Google and TikTok with a preflight checklist, budget guardrails and a conversion-focused dashboard." },
@@ -70,6 +75,7 @@ const stories = {
     },
     "Sales Game": { challenge: "Convertir decisiones de gestión comercial en una experiencia práctica, competitiva y disponible en diferentes dispositivos.", result: "Un simulador web y Android con partidas locales y online para desarrollar análisis, liderazgo y toma de decisiones comerciales." },
     "Sorteios xNaMai": { challenge: "Crear una experiencia de sorteo integrada al e-commerce, con selección de números, reglas claras y seguimiento desde la cuenta.", result: "Una plataforma responsiva que organiza participaciones, números y créditos, conectando la campaña con la experiencia de compra." },
+    "XNaMai Club": { challenge: "Crear una nueva fuente de ingresos recurrentes con una experiencia de suscripción clara, segura y simple para empresas.", result: "Una plataforma de club de beneficios que generó R$ 200 mil en ingresos recurrentes para la operación atendida." },
     MestreLead: { challenge: "Centralizar prospección por correo, datos de leads, campañas y seguimiento comercial sin herramientas dispersas.", result: "Un producto de outreach con campañas, CRM, cola de envío, informes e ingestión de datos en una sola operación." },
     "BI Personalizado": { challenge: "Convertir datos de pedidos, productos, clientes, vendedores, inventario y logística en decisiones confiables.", result: "Paneles a medida con indicadores comerciales, retención, LTV, calidad de datos y sincronización, adaptados a cada cliente." },
     "ProfitPilot Ads": { challenge: "Ayudar a operaciones Shopify a conectar medios pagos, proteger presupuesto e interpretar el desempeño por rentabilidad.", result: "Un copiloto de anuncios integrado con Meta, Google y TikTok, checklist previo, guardrails de presupuesto y panel orientado a conversión." },

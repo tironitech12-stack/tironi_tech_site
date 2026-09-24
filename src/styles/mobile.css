@@ -2222,6 +2222,7 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
 .tt-results-compact .tt-results-pulse i { width: 6px; height: 6px; border-radius: 50%; background: #4ce1b4; box-shadow: 0 0 14px rgba(76, 225, 180, 0.55); }
 .tt-results-compact .tt-results-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
 .tt-results-compact .tt-results-metrics article { position: relative; min-height: 174px; padding: 19px 17px; border-radius: 19px; }
+.tt-results-compact .tt-results-metrics article:last-child:nth-child(odd) { grid-column: 1 / -1; min-height: 150px; background: linear-gradient(135deg, rgba(20, 88, 118, 0.92), rgba(5, 23, 38, 0.97)); }
 .tt-results-compact .tt-results-metrics article > span { position: absolute; top: 16px; right: 16px; color: #437897; font: 800 0.58rem/1 ui-monospace, monospace; }
 .tt-results-compact .tt-results-metrics strong { display: block; max-width: 90%; color: #72d3ff; font-size: clamp(1.65rem, 8vw, 2.3rem); line-height: 0.95; letter-spacing: -0.05em; }
 .tt-results-compact .tt-results-metrics h3 { margin: 8px 0 0; color: #edf9ff; font-size: 0.78rem; }
@@ -2275,6 +2276,7 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
 
 @media (max-width: 390px) {
   .tt-results-compact .tt-results-metrics { grid-template-columns: 1fr; }
+  .tt-results-compact .tt-results-metrics article:last-child:nth-child(odd) { grid-column: auto; }
 }
 
 .mobile-project-capabilities {

@@ -5026,6 +5026,12 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.23);
 }
 
+.tt-results-metrics article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  min-height: 166px;
+  background: linear-gradient(135deg, rgba(20, 88, 118, 0.88), rgba(7, 31, 48, 0.96));
+}
+
 .tt-results-primary {
   display: flex;
   min-height: 392px;
@@ -5210,6 +5216,7 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
 
 @media (max-width: 620px) {
   .tt-results-metrics { grid-template-columns: 1fr; }
+  .tt-results-metrics article:last-child:nth-child(odd) { grid-column: auto; }
   .tt-results-footer { align-items: stretch; flex-direction: column; }
   .tt-results-footer a { justify-content: center; }
 }
