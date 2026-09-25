@@ -138,6 +138,13 @@ const clubSchema = { '@context': 'https://schema.org', '@type': 'WebPage', name:
 await mkdir(resolve(root, 'club'), { recursive: true });
 await writeFile(resolve(root, 'club', 'index.html'), pageTemplate({ title: 'Tironi Tech Club | Tecnologia, IA e conexões para empresas', description: club.description, path: '/club', body: clubBody, schema: clubSchema }));
 
+const formPath = '/formulario';
+const formDescription = 'Envie seu contato para conversar com a Tironi Tech sobre software sob medida, automação com IA, integrações, atendimento e plataformas digitais.';
+const formBody = '<main><article><header><p>CONTATO TIRONI TECH</p><h1>Conte onde sua operação precisa avançar.</h1><p>Preencha seus dados para iniciarmos uma conversa sobre software sob medida, automação com IA, integrações, atendimento ou crescimento digital.</p></header><section><h2>Vamos conversar</h2><p>Informe nome, e-mail, telefone, empresa e o principal interesse. Usaremos esses dados para responder ao contato e organizar as comunicações autorizadas.</p><p><a href="/politica-privacidade">Leia a Política de Privacidade</a></p></section></article></main>';
+const formSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Conte seu projeto à Tironi Tech', description: formDescription, url: `${origin}${formPath}`, inLanguage: 'pt-BR', about: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech' } };
+await mkdir(resolve(root, 'formulario'), { recursive: true });
+await writeFile(resolve(root, 'formulario', 'index.html'), pageTemplate({ title: 'Conte seu projeto | Tironi Tech', description: formDescription, path: formPath, body: formBody, schema: formSchema }));
+
 const legalPages = [
   { path: '/politica-privacidade', document: LEGAL_COPY.pt.privacy, type: 'WebPage' },
   { path: '/politica-cookies', document: LEGAL_COPY.pt.cookies, type: 'WebPage' }
@@ -182,7 +189,7 @@ await mkdir(resolve(root, 'sobre', 'editorial'), { recursive: true });
 await writeFile(resolve(root, 'sobre', 'editorial', 'index.html'), pageTemplate({ title: 'Política editorial e autores | Tironi Tech', description: editorialDescription, path: editorialPath, body: editorialBody, schema: editorialSchema }));
 
 const mapPath = '/mapa-do-site';
-const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a></nav><section><h2>Soluções para empresas</h2><ul>${serviceLandingPages.map((page) => `<li><a href="/${page.slug}">${escapeHtml(page.keyword)}</a></li>`).join('')}</ul></section>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
+const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a> · <a href="/formulario">Formulário de contato</a></nav><section><h2>Soluções para empresas</h2><ul>${serviceLandingPages.map((page) => `<li><a href="/${page.slug}">${escapeHtml(page.keyword)}</a></li>`).join('')}</ul></section>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
 const mapSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Mapa de conteúdo Tironi Tech', description: 'Todos os guias da Tironi Tech organizados por assunto.', url: `${origin}${mapPath}`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'mapa-do-site'), { recursive: true });
 await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ title: 'Mapa de conteúdo | Tironi Tech', description: 'Todos os guias da Tironi Tech sobre IA, WhatsApp, software, automação, SEO e GEO organizados por assunto.', path: mapPath, body: mapBody, schema: mapSchema }));
@@ -193,6 +200,7 @@ const sitemapFormatUpdated = '2026-09-25';
 const staticUrls = [
   { path: '/', lastmod: siteContentUpdated },
   { path: '/club', lastmod: siteContentUpdated },
+  { path: '/formulario', lastmod: '2026-09-25' },
   { path: '/blog', lastmod: latestArticleUpdate },
   { path: '/blog/arquivo', lastmod: latestArticleUpdate },
   { path: '/en/blog', lastmod: latestArticleUpdate },
@@ -201,7 +209,7 @@ const staticUrls = [
   { path: '/es/blog/archive', lastmod: latestArticleUpdate },
   { path: '/mapa-do-site', lastmod: latestArticleUpdate },
   { path: '/sobre/editorial', lastmod: '2026-09-23' },
-  { path: '/politica-privacidade', lastmod: '2026-07-01' },
+  { path: '/politica-privacidade', lastmod: '2026-09-25' },
   { path: '/politica-cookies', lastmod: '2026-07-01' },
   ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: '2026-09-23' })),
 ];

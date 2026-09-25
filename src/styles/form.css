@@ -1,0 +1,140 @@
+.tt-lead-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(40, 166, 232, 0.16), transparent 29%),
+    radial-gradient(circle at 86% 74%, rgba(78, 82, 224, 0.12), transparent 34%),
+    #04111d;
+}
+
+.tt-lead-main { padding: clamp(48px, 7vw, 96px) 20px clamp(74px, 9vw, 124px); }
+
+.tt-lead-intro {
+  display: grid;
+  width: min(1180px, 100%);
+  grid-template-columns: minmax(0, 0.9fr) minmax(460px, 0.75fr);
+  gap: clamp(48px, 7vw, 105px);
+  align-items: center;
+  margin: 0 auto;
+}
+
+.tt-lead-kicker,
+.tt-lead-form-head > span {
+  color: #68cbff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.tt-lead-intro-copy h1 {
+  max-width: 11ch;
+  margin: 22px 0 24px;
+  color: #f5fbff;
+  font-size: clamp(3.2rem, 6.2vw, 6.5rem);
+  line-height: 0.91;
+  letter-spacing: -0.07em;
+  text-wrap: balance;
+}
+
+.tt-lead-intro-copy > p {
+  max-width: 55ch;
+  margin: 0;
+  color: #9fb7c9;
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.7;
+}
+
+.tt-lead-expectations {
+  display: grid;
+  gap: 1px;
+  margin-top: 42px;
+  overflow: hidden;
+  border: 1px solid rgba(112, 193, 239, 0.18);
+  border-radius: 18px;
+  background: rgba(112, 193, 239, 0.12);
+}
+
+.tt-lead-expectations article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  background: rgba(5, 24, 39, 0.9);
+}
+
+.tt-lead-expectations strong { color: #62c9ff; font: 800 0.68rem/1 ui-monospace, Consolas, monospace; }
+.tt-lead-expectations span { color: #b3c7d5; font-size: 0.83rem; }
+
+.tt-lead-form {
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid rgba(116, 197, 241, 0.26);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(15, 48, 72, 0.96), rgba(6, 24, 39, 0.98));
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.32), 0 0 70px rgba(48, 165, 229, 0.06);
+}
+
+.tt-lead-form-head h2 { margin: 10px 0 8px; color: #f4fbff; font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.045em; }
+.tt-lead-form-head p { margin: 0; color: #7895a9; font-size: 0.78rem; line-height: 1.55; }
+
+.tt-lead-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; margin-top: 30px; }
+.tt-lead-fields label { display: grid; gap: 8px; }
+.tt-lead-fields label > span { color: #bcd0dd; font-size: 0.72rem; font-weight: 750; }
+.tt-lead-field-wide { grid-column: 1 / -1; }
+
+.tt-lead-fields input,
+.tt-lead-fields select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid rgba(120, 190, 231, 0.22);
+  border-radius: 12px;
+  outline: none;
+  color: #effaff;
+  background: rgba(3, 17, 29, 0.78);
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tt-lead-fields select { color-scheme: dark; }
+.tt-lead-fields input:focus,
+.tt-lead-fields select:focus { border-color: #68cbff; box-shadow: 0 0 0 3px rgba(104, 203, 255, 0.12); }
+.tt-lead-fields input::placeholder { color: #567387; }
+.tt-lead-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+.tt-lead-consent { display: grid; grid-template-columns: 18px 1fr; gap: 11px; align-items: start; margin-top: 22px; color: #87a2b5; font-size: 0.72rem; line-height: 1.5; }
+.tt-lead-consent input { width: 17px; height: 17px; margin-top: 2px; accent-color: #55bff7; }
+.tt-lead-consent a { color: #72cdfb; }
+
+.tt-lead-submit {
+  display: flex;
+  width: 100%;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 13px;
+  color: #051522;
+  background: linear-gradient(135deg, #74d9ff, #63a7ff);
+  box-shadow: 0 16px 38px rgba(45, 158, 225, 0.22);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.tt-lead-submit:disabled { cursor: wait; opacity: 0.68; }
+.tt-lead-status { min-height: 22px; margin-top: 13px; color: #91aabc; font-size: 0.75rem; line-height: 1.5; }
+.tt-lead-status.is-success { color: #65ddb5; }
+.tt-lead-status.is-error { color: #ff9b9b; }
+
+@media (max-width: 900px) {
+  .tt-lead-intro { grid-template-columns: 1fr; }
+  .tt-lead-intro-copy h1 { max-width: 12ch; }
+}
+
+@media (max-width: 560px) {
+  .tt-lead-main { padding-inline: 14px; }
+  .tt-lead-fields { grid-template-columns: 1fr; }
+  .tt-lead-field-wide { grid-column: auto; }
+  .tt-lead-form { padding: 24px 18px; border-radius: 21px; }
+}

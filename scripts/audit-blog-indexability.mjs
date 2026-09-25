@@ -87,6 +87,12 @@ for (const locale of ['pt', 'en', 'es']) {
 }
 assert((await read('404.html')).includes('noindex, follow'), '404 must remain noindex');
 assert(!sitemapUrls.has(`${origin}/404`), '404 must not be in the sitemap');
+const leadFormUrl = `${origin}/formulario`;
+const leadFormHtml = await read('formulario/index.html');
+assert(sitemapUrls.has(leadFormUrl), 'Lead form must be in the sitemap');
+assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(leadFormHtml), 'Lead form must remain indexable');
+assert(leadFormHtml.includes(`<link rel="canonical" href="${leadFormUrl}">`), 'Lead form canonical is incorrect');
+assert(leadFormHtml.includes('"@type":"ContactPage"'), 'Lead form ContactPage schema is missing');
 const localizedCounts = { pt: 0, en: 0, es: 0 };
 for (const url of sitemapUrls) {
   const path = new URL(url).pathname;

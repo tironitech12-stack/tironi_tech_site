@@ -16,6 +16,7 @@ const BlogArchivePage = lazy(() => import('./components/pages/BlogArchivePage'))
 const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
 const ServiceLandingPage = lazy(() => import('./components/pages/ServiceLandingPage'));
 const EditorialPolicyPage = lazy(() => import('./components/pages/EditorialPolicyPage'));
+const LeadFormPage = lazy(() => import('./components/pages/LeadFormPage'));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
 
 function getClientLocation() {
@@ -143,6 +144,10 @@ function AppContent({ pathname }) {
 
   if (pathname === "/sobre/editorial" || pathname === "/sobre/editorial/") {
     return <EditorialPolicyPage />;
+  }
+
+  if (pathname === "/formulario" || pathname === "/formulario/") {
+    return <LeadFormPage />;
   }
 
   if (pathname === "/politica-privacidade") {
