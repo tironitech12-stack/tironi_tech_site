@@ -11,8 +11,19 @@ const locations = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 const sitemapIndex = await read('sitemap.xml');
 const sitemapUrls = new Set();
-for (const url of locations(sitemapIndex)) {
-  for (const location of locations(await read(new URL(url).pathname.slice(1)))) {
+const sitemapLocations = locations(sitemapIndex);
+const sitemapCounts = new Map();
+const indexEntries = [...sitemapIndex.matchAll(/<sitemap><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/sitemap>/g)];
+assert.equal(indexEntries.length, sitemapLocations.length, 'Every child sitemap must expose its last modification date');
+for (const url of sitemapLocations) {
+  const childSitemap = await read(new URL(url).pathname.slice(1));
+  assert(!childSitemap.includes('<priority>') && !childSitemap.includes('<changefreq>'), `Ignored sitemap hints found in ${url}`);
+  const childLocations = locations(childSitemap);
+  assert(childLocations.length > 0, `Empty child sitemap: ${url}`);
+  assert(childLocations.length <= 50_000, `Child sitemap exceeds 50,000 URLs: ${url}`);
+  sitemapCounts.set(url, childLocations.length);
+  for (const location of childLocations) {
+    assert.equal(new URL(location).origin, origin, `Foreign sitemap URL: ${location}`);
     assert(!sitemapUrls.has(location), `Duplicate sitemap URL: ${location}`);
     sitemapUrls.add(location);
   }
@@ -76,4 +87,12 @@ for (const locale of ['pt', 'en', 'es']) {
 }
 assert((await read('404.html')).includes('noindex, follow'), '404 must remain noindex');
 assert(!sitemapUrls.has(`${origin}/404`), '404 must not be in the sitemap');
-console.log(JSON.stringify({ checkedArticlePages: checked, sitemapUrls: sitemapUrls.size, status: 'passed' }, null, 2));
+const localizedCounts = { pt: 0, en: 0, es: 0 };
+for (const url of sitemapUrls) {
+  const path = new URL(url).pathname;
+  if (path.startsWith('/en/')) localizedCounts.en++;
+  else if (path.startsWith('/es/')) localizedCounts.es++;
+  else localizedCounts.pt++;
+}
+const largestSitemap = [...sitemapCounts].sort((a, b) => b[1] - a[1])[0];
+console.log(JSON.stringify({ checkedArticlePages: checked, childSitemaps: sitemapLocations.length, sitemapUrls: sitemapUrls.size, localizedUrls: localizedCounts, largestChildSitemap: { url: largestSitemap[0], urls: largestSitemap[1] }, status: 'passed' }, null, 2));

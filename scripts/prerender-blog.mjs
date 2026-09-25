@@ -187,40 +187,46 @@ const mapSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage',
 await mkdir(resolve(root, 'mapa-do-site'), { recursive: true });
 await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ title: 'Mapa de conteúdo | Tironi Tech', description: 'Todos os guias da Tironi Tech sobre IA, WhatsApp, software, automação, SEO e GEO organizados por assunto.', path: mapPath, body: mapBody, schema: mapSchema }));
 
+const latestArticleUpdate = blogArticles.reduce((latest, article) => article.updated > latest ? article.updated : latest, '1970-01-01');
+const siteContentUpdated = '2026-09-24';
+const sitemapFormatUpdated = '2026-09-25';
 const staticUrls = [
-  { path: '/', lastmod: '2026-09-23', priority: '1.0', frequency: 'weekly' },
-  { path: '/club', lastmod: '2026-09-23', priority: '0.8', frequency: 'monthly' },
-  { path: '/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
-  { path: '/blog/arquivo', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
-  { path: '/en/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
-  { path: '/en/blog/archive', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
-  { path: '/es/blog', lastmod: '2026-09-24', priority: '0.9', frequency: 'weekly' },
-  { path: '/es/blog/archive', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
-  { path: '/mapa-do-site', lastmod: '2026-09-24', priority: '0.7', frequency: 'weekly' },
-  { path: '/sobre/editorial', lastmod: '2026-09-23', priority: '0.6', frequency: 'monthly' },
-  { path: '/politica-privacidade', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
-  { path: '/politica-cookies', lastmod: '2026-07-01', priority: '0.3', frequency: 'yearly' },
-  ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: '2026-09-23', priority: '0.9', frequency: 'monthly' })),
+  { path: '/', lastmod: siteContentUpdated },
+  { path: '/club', lastmod: siteContentUpdated },
+  { path: '/blog', lastmod: latestArticleUpdate },
+  { path: '/blog/arquivo', lastmod: latestArticleUpdate },
+  { path: '/en/blog', lastmod: latestArticleUpdate },
+  { path: '/en/blog/archive', lastmod: latestArticleUpdate },
+  { path: '/es/blog', lastmod: latestArticleUpdate },
+  { path: '/es/blog/archive', lastmod: latestArticleUpdate },
+  { path: '/mapa-do-site', lastmod: latestArticleUpdate },
+  { path: '/sobre/editorial', lastmod: '2026-09-23' },
+  { path: '/politica-privacidade', lastmod: '2026-07-01' },
+  { path: '/politica-cookies', lastmod: '2026-07-01' },
+  ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: '2026-09-23' })),
 ];
 const categorySlug = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const sitemapDirectory = resolve(root, 'sitemaps');
 await mkdir(sitemapDirectory, { recursive: true });
-const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}<changefreq>${item.frequency}</changefreq><priority>${item.priority}</priority></url>`).join('\n')}\n</urlset>\n`;
-const sitemapFiles = [{ path: '/sitemaps/pages.xml', items: staticUrls }];
+const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
+const latestItemUpdate = (items) => items.reduce((latest, item) => item.lastmod > latest ? item.lastmod : latest, '1970-01-01');
+const sitemapFiles = [{ path: '/sitemaps/pages.xml', items: staticUrls, lastmod: sitemapFormatUpdated }];
 for (const locale of ['pt', 'en', 'es']) {
   for (const category of [...new Set(blogArticles.map((article) => article.category))]) {
     const categoryArticles = blogArticles.filter((article) => article.category === category && getArticleLocales(article).includes(locale));
     if (!categoryArticles.length) continue;
+    const items = categoryArticles.map((article) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated }));
     sitemapFiles.push({
       path: `/sitemaps/blog-${locale}-${categorySlug(category)}.xml`,
-      items: categoryArticles.map((article) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated, priority: article.featured ? '0.9' : '0.8', frequency: 'monthly' })),
+      items,
+      lastmod: [sitemapFormatUpdated, latestItemUpdate(items)].sort().at(-1),
     });
   }
 }
 for (const sitemapFile of sitemapFiles) {
   await writeFile(resolve(root, sitemapFile.path.slice(1)), renderUrlset(sitemapFile.items));
 }
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc></sitemap>`).join('\n')}\n</sitemapindex>\n`;
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc><lastmod>${item.lastmod}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`;
 await writeFile(resolve(root, 'sitemap.xml'), sitemap);
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
