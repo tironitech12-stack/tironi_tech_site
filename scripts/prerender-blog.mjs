@@ -146,10 +146,10 @@ await mkdir(resolve(root, 'formulario'), { recursive: true });
 await writeFile(resolve(root, 'formulario', 'index.html'), pageTemplate({ title: 'Conte seu projeto | Tironi Tech', description: formDescription, path: formPath, body: formBody, schema: formSchema }));
 
 const panelPath = '/painel';
-const panelBody = '<main><article><header><p>PAINEL PRIVADO</p><h1>Dados para melhorar cada página.</h1><p>Acesso restrito ao painel de inteligência da Tironi Tech.</p></header><form><label>Senha de acesso <input type="password" autocomplete="current-password"></label><button type="submit">Entrar no painel</button></form></article></main>';
-const panelSchema = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Painel privado Tironi Tech', url: `${origin}${panelPath}`, inLanguage: 'pt-BR' };
+  const panelBody = '<main><article><header><p>PAINEL DE INTELIGÊNCIA</p><h1>Dados para melhorar cada página.</h1><p>Acompanhe tráfego, conteúdo e comportamento para orientar as próximas melhorias do site.</p></header></article></main>';
+  const panelSchema = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Painel de inteligência Tironi Tech', url: `${origin}${panelPath}`, inLanguage: 'pt-BR' };
 await mkdir(resolve(root, 'painel'), { recursive: true });
-await writeFile(resolve(root, 'painel', 'index.html'), pageTemplate({ title: 'Painel de inteligência | Tironi Tech', description: 'Painel privado de inteligência e qualidade do site Tironi Tech.', path: panelPath, body: panelBody, schema: panelSchema, robots: 'noindex, nofollow, noarchive' }));
+  await writeFile(resolve(root, 'painel', 'index.html'), pageTemplate({ title: 'Painel de inteligência | Tironi Tech', description: 'Painel de inteligência e qualidade do site Tironi Tech.', path: panelPath, body: panelBody, schema: panelSchema, robots: 'noindex, nofollow, noarchive' }));
 
 const legalPages = [
   { path: '/politica-privacidade', document: LEGAL_COPY.pt.privacy, type: 'WebPage' },

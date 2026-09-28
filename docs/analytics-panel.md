@@ -1,13 +1,11 @@
 # Painel de inteligência do site
 
-A rota privada `/painel` consulta o Vercel Web Analytics pelo backend e apresenta acessos, visitantes, taxa de rejeição, evolução diária, artigos mais vistos, origens e dispositivos. O token da Vercel nunca é enviado ao navegador.
+A rota `/painel` abre diretamente e consulta o Vercel Web Analytics pelo backend. Ela apresenta acessos, visitantes, taxa de rejeição, evolução diária, artigos mais vistos, origens e dispositivos. O token da Vercel nunca é enviado ao navegador.
 
 ## Variáveis na Vercel
 
 Configure nos ambientes Production e Preview:
 
-- `PANEL_PASSWORD`: senha usada para entrar no painel.
-- `PANEL_SESSION_SECRET`: segredo longo e aleatório usado para assinar a sessão de oito horas.
 - `VERCEL_TOKEN`: token de acesso com permissão de leitura do projeto.
 - `VERCEL_ANALYTICS_PROJECT_ID`: ID ou slug do projeto que recebe o tráfego de `tironitech.com`.
 - `VERCEL_ANALYTICS_TEAM_ID`: ID ou slug do time proprietário, quando o projeto pertence a um time.

@@ -1,7 +1,6 @@
 :root { color-scheme: dark; }
 
 .tt-panel-page,
-.tt-panel-login-shell,
 .tt-panel-loading {
   min-height: 100vh;
   color: #eef7fc;
@@ -11,34 +10,19 @@
 
 .tt-panel-page { overflow-x: hidden; }
 .tt-panel-page *,
-.tt-panel-login-shell *,
 .tt-panel-loading * { box-sizing: border-box; }
 
 .tt-panel-loading { display: grid; place-content: center; justify-items: center; gap: 18px; color: #8ca6b8; }
-.tt-panel-login-shell { display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 18% 12%, rgba(49, 169, 230, 0.17), transparent 32%), radial-gradient(circle at 88% 78%, rgba(66, 83, 221, 0.14), transparent 30%), #04101a; }
-.tt-panel-login-card { width: min(470px, 100%); padding: clamp(28px, 5vw, 52px); border: 1px solid rgba(101, 191, 238, 0.22); border-radius: 28px; background: linear-gradient(145deg, rgba(12, 38, 58, 0.98), rgba(5, 21, 34, 0.99)); box-shadow: 0 35px 100px rgba(0, 0, 0, 0.42); }
 .tt-panel-brand { display: inline-flex; align-items: center; gap: 11px; color: #f4fbff; text-decoration: none; }
 .tt-panel-brand span { display: grid; }
 .tt-panel-brand strong { font-size: 0.93rem; letter-spacing: -0.03em; }
 .tt-panel-brand small { color: #58bdf4; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
 .tt-panel-eyebrow { margin: 45px 0 12px; color: #5dc5fa; font-size: 0.7rem; font-weight: 900; letter-spacing: 0.16em; }
-.tt-panel-login-card h1 { max-width: 10ch; margin: 0; font-size: clamp(2.5rem, 8vw, 4.25rem); line-height: 0.94; letter-spacing: -0.065em; }
-.tt-panel-login-copy { margin: 24px 0 32px; color: #91aabd; font-size: 0.94rem; line-height: 1.65; }
-.tt-panel-login-form { display: grid; gap: 10px; }
-.tt-panel-login-form label { color: #bad0de; font-size: 0.78rem; font-weight: 700; }
-.tt-panel-login-form input { min-height: 52px; padding: 0 15px; border: 1px solid rgba(100, 187, 235, 0.25); border-radius: 12px; outline: 0; color: #fff; background: rgba(1, 13, 23, 0.74); font: inherit; }
-.tt-panel-login-form input:focus { border-color: #5cc8ff; box-shadow: 0 0 0 3px rgba(92, 200, 255, 0.12); }
-.tt-panel-login-form button { display: flex; min-height: 52px; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 17px; border: 0; border-radius: 12px; color: #04131e; background: linear-gradient(135deg, #71d4ff, #6aa6ff); font-weight: 900; cursor: pointer; }
-.tt-panel-login-form button:disabled { opacity: 0.65; }
-.tt-panel-form-message { min-height: 22px; margin: 3px 0 0; color: #ffaaaa; font-size: 0.78rem; }
-
 .tt-panel-topbar { position: sticky; z-index: 20; top: 0; display: flex; min-height: 72px; align-items: center; justify-content: space-between; padding: 0 clamp(18px, 4vw, 56px); border-bottom: 1px solid rgba(111, 186, 226, 0.15); background: rgba(4, 16, 26, 0.88); backdrop-filter: blur(18px); }
 .tt-panel-topbar nav { display: flex; align-items: center; gap: 14px; }
 .tt-panel-range { display: flex; padding: 4px; border: 1px solid rgba(110, 180, 220, 0.16); border-radius: 10px; background: rgba(5, 24, 38, 0.8); }
-.tt-panel-range button,
-.tt-panel-quiet-button { min-height: 35px; padding: 0 13px; border: 0; border-radius: 7px; color: #809caf; background: transparent; font: 700 0.74rem/1 Inter, sans-serif; cursor: pointer; }
+.tt-panel-range button { min-height: 35px; padding: 0 13px; border: 0; border-radius: 7px; color: #809caf; background: transparent; font: 700 0.74rem/1 Inter, sans-serif; cursor: pointer; }
 .tt-panel-range button.is-active { color: #eaf8ff; background: rgba(62, 170, 229, 0.18); }
-.tt-panel-quiet-button { border: 1px solid rgba(110, 180, 220, 0.18); }
 .tt-panel-content { width: min(1440px, 100%); margin: 0 auto; padding: clamp(32px, 5vw, 68px) clamp(16px, 4vw, 56px) 40px; }
 .tt-panel-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; }
 .tt-panel-heading .tt-panel-eyebrow { margin: 0 0 10px; }

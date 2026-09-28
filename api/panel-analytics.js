@@ -1,8 +1,13 @@
 import process from 'node:process';
-import { isPanelAuthenticated, sendJson } from './_lib/panel-auth.js';
 
 const VERCEL_API = 'https://api.vercel.com/v1/query/web-analytics';
 const ALLOWED_DAYS = new Set([7, 30, 90]);
+
+function sendJson(response, status, body) {
+  response.setHeader('Cache-Control', 'private, no-store, max-age=0');
+  response.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  return response.status(status).json(body);
+}
 
 async function queryAnalytics(dataset, mode, parameters) {
   const search = new URLSearchParams({
@@ -31,8 +36,6 @@ export default async function handler(request, response) {
     response.setHeader('Allow', 'GET');
     return sendJson(response, 405, { message: 'Método não permitido.' });
   }
-  if (!isPanelAuthenticated(request)) return sendJson(response, 401, { code: 'AUTH_REQUIRED', message: 'Faça login para acessar o painel.' });
-
   const missing = ['VERCEL_TOKEN', 'VERCEL_ANALYTICS_PROJECT_ID'].filter((name) => !process.env[name]);
   if (missing.length) return sendJson(response, 503, { code: 'ANALYTICS_NOT_CONFIGURED', missing, message: 'A fonte de dados do painel ainda precisa ser conectada.' });
 

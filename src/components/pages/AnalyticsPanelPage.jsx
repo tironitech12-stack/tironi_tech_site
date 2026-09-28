@@ -83,47 +83,6 @@ function MiniLineChart({ rows }) {
   );
 }
 
-function Login({ onSuccess }) {
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  async function submit(event) {
-    event.preventDefault();
-    setLoading(true);
-    setMessage('');
-    try {
-      const response = await fetch('/api/panel-login', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password }),
-      });
-      const body = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(body.message || 'Não foi possível entrar.');
-      onSuccess();
-    } catch (error) {
-      setMessage(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  return (
-    <main className="tt-panel-login-shell">
-      <section className="tt-panel-login-card" aria-labelledby="panel-login-title">
-        <a className="tt-panel-brand" href="/" aria-label="Voltar para Tironi Tech"><LogoMark size={46} /><span><strong>TironiTech</strong><small>Intelligence</small></span></a>
-        <p className="tt-panel-eyebrow">PAINEL PRIVADO</p>
-        <h1 id="panel-login-title">Dados para melhorar cada página.</h1>
-        <p className="tt-panel-login-copy">Acompanhe tráfego, artigos, retenção e gravações de experiência em um só lugar.</p>
-        <form onSubmit={submit} className="tt-panel-login-form">
-          <label htmlFor="panel-password">Senha de acesso</label>
-          <input id="panel-password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password" required autoFocus />
-          <button type="submit" disabled={loading}>{loading ? 'Entrando…' : 'Entrar no painel'}<span aria-hidden="true">→</span></button>
-          <p className="tt-panel-form-message" role="status" aria-live="polite">{message}</p>
-        </form>
-      </section>
-    </main>
-  );
-}
-
 function DataTable({ title, subtitle, rows, labelKeys, empty }) {
   const normalized = rows.map((row) => ({ label: labelFrom(row, labelKeys), count: countFrom(row) })).sort((a, b) => b.count - a.count);
   const max = Math.max(...normalized.map((row) => row.count), 1);
@@ -142,11 +101,11 @@ function DataTable({ title, subtitle, rows, labelKeys, empty }) {
 }
 
 export default function AnalyticsPanelPage() {
-  const [auth, setAuth] = useState('checking');
   const [days, setDays] = useState(30);
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
 
   useEffect(() => {
     document.documentElement.lang = 'pt-BR';
@@ -166,31 +125,19 @@ export default function AnalyticsPanelPage() {
     try {
       const response = await fetch(`/api/panel-analytics?days=${selectedDays}`, { headers: { Accept: 'application/json' } });
       const body = await response.json().catch(() => ({}));
-      if (response.status === 401) {
-        setAuth('anonymous');
-        setData(null);
-        return;
-      }
-      setAuth('authenticated');
       if (!response.ok) throw new Error(body.message || 'Não foi possível carregar o painel.');
       setData(body);
     } catch (requestError) {
       setError(requestError.message);
     } finally {
       setLoading(false);
+      setInitialLoading(false);
     }
   }, []);
 
   useEffect(() => { load(days); }, [days, load]);
 
-  async function logout() {
-    await fetch('/api/panel-logout', { method: 'POST' }).catch(() => {});
-    setAuth('anonymous');
-    setData(null);
-  }
-
-  if (auth === 'checking') return <main className="tt-panel-loading" role="status"><LogoMark size={54} /><span>Preparando painel…</span></main>;
-  if (auth === 'anonymous') return <Login onSuccess={() => { setAuth('checking'); load(days); }} />;
+  if (initialLoading) return <main className="tt-panel-loading" role="status"><LogoMark size={54} /><span>Preparando painel…</span></main>;
 
   const summary = data?.summary || {};
   const dailyRows = rowsFrom(data?.daily);
@@ -208,7 +155,6 @@ export default function AnalyticsPanelPage() {
         <a className="tt-panel-brand" href="/"><LogoMark size={40} /><span><strong>TironiTech</strong><small>Intelligence</small></span></a>
         <nav aria-label="Controles do painel">
           <div className="tt-panel-range" aria-label="Período analisado">{[7, 30, 90].map((range) => <button key={range} className={days === range ? 'is-active' : ''} onClick={() => setDays(range)}>{range} dias</button>)}</div>
-          <button className="tt-panel-quiet-button" onClick={logout}>Sair</button>
         </nav>
       </header>
 
@@ -246,7 +192,7 @@ export default function AnalyticsPanelPage() {
           <DataTable title="Dispositivos" subtitle="Como o público acessa o site" rows={deviceRows} labelKeys={['deviceType', 'device']} empty="Nenhum dispositivo disponível no período." />
         </section>
 
-        <footer className="tt-panel-footer"><span>Dados agregados e privados.</span><span>{data?.generatedAt ? `Atualizado em ${new Date(data.generatedAt).toLocaleString('pt-BR')}` : 'Aguardando conexão com a fonte de dados.'}</span></footer>
+        <footer className="tt-panel-footer"><span>Dados agregados do site.</span><span>{data?.generatedAt ? `Atualizado em ${new Date(data.generatedAt).toLocaleString('pt-BR')}` : 'Aguardando conexão com a fonte de dados.'}</span></footer>
       </div>
     </main>
   );
