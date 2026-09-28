@@ -93,6 +93,9 @@ assert(sitemapUrls.has(leadFormUrl), 'Lead form must be in the sitemap');
 assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(leadFormHtml), 'Lead form must remain indexable');
 assert(leadFormHtml.includes(`<link rel="canonical" href="${leadFormUrl}">`), 'Lead form canonical is incorrect');
 assert(leadFormHtml.includes('"@type":"ContactPage"'), 'Lead form ContactPage schema is missing');
+const panelHtml = await read('painel/index.html');
+assert(panelHtml.includes('noindex, nofollow, noarchive'), 'Private panel must remain noindex');
+assert(!sitemapUrls.has(`${origin}/painel`), 'Private panel must not be in the sitemap');
 const localizedCounts = { pt: 0, en: 0, es: 0 };
 for (const url of sitemapUrls) {
   const path = new URL(url).pathname;

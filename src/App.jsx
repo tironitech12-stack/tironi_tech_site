@@ -17,6 +17,7 @@ const ContentMapPage = lazy(() => import('./components/pages/ContentMapPage'));
 const ServiceLandingPage = lazy(() => import('./components/pages/ServiceLandingPage'));
 const EditorialPolicyPage = lazy(() => import('./components/pages/EditorialPolicyPage'));
 const LeadFormPage = lazy(() => import('./components/pages/LeadFormPage'));
+const AnalyticsPanelPage = lazy(() => import('./components/pages/AnalyticsPanelPage'));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
 
 function getClientLocation() {
@@ -84,7 +85,7 @@ function RouteFallback() {
   );
 }
 
-function ConsentAwareAnalytics() {
+function ConsentAwareAnalytics({ pathname }) {
   const [analyticsAllowed, setAnalyticsAllowed] = useState(() => Boolean(getStoredCookieConsent()?.analytics));
 
   useEffect(() => {
@@ -97,7 +98,31 @@ function ConsentAwareAnalytics() {
     return () => window.removeEventListener(COOKIE_CONSENT_UPDATED_EVENT, syncAnalyticsConsent);
   }, []);
 
-  return analyticsAllowed ? <Analytics /> : null;
+  useEffect(() => {
+    const projectId = import.meta.env.VITE_CLARITY_PROJECT_ID;
+    if (!projectId || !/^[a-z0-9]+$/i.test(projectId) || pathname.startsWith('/painel')) return;
+    if (!analyticsAllowed) {
+      if (typeof window.clarity === 'function') {
+        window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+        window.clarity('consent', false);
+      }
+      return;
+    }
+    window.clarity = window.clarity || function clarityQueue(...args) {
+      window.clarity.q = window.clarity.q || [];
+      window.clarity.q.push(args);
+    };
+    if (!document.getElementById('tt-clarity')) {
+      const script = document.createElement('script');
+      script.id = 'tt-clarity';
+      script.async = true;
+      script.src = `https://www.clarity.ms/tag/${projectId}`;
+      document.head.appendChild(script);
+    }
+    window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+  }, [analyticsAllowed, pathname]);
+
+  return analyticsAllowed && !pathname.startsWith('/painel') ? <Analytics /> : null;
 }
 
 function AppContent({ pathname }) {
@@ -150,6 +175,10 @@ function AppContent({ pathname }) {
     return <LeadFormPage />;
   }
 
+  if (pathname === "/painel" || pathname === "/painel/") {
+    return <AnalyticsPanelPage />;
+  }
+
   if (pathname === "/politica-privacidade") {
     return <LegalPolicyPage policy="privacy" />;
   }
@@ -198,7 +227,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <Suspense fallback={<RouteFallback />}><AppContent pathname={pathname} /></Suspense>
-      <ConsentAwareAnalytics />
+      <ConsentAwareAnalytics pathname={pathname} />
     </LanguageProvider>
   );
 }

@@ -37,7 +37,7 @@ const fallbackCopy = {
     },
     analytics: {
       title: "Analytics",
-      description: "Ajudam a entender como visitantes usam o site para melhorar desempenho, conteúdo e experiência.",
+      description: "Medem uso e desempenho e, quando habilitado, permitem mapas de interação e gravações de sessão com campos sensíveis mascarados.",
     },
     marketing: {
       title: "Marketing",

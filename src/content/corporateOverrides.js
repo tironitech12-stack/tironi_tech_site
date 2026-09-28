@@ -145,7 +145,7 @@ export const corporateOverrides = {
       categories: {
         necessary: { title: "Necessários", description: "Essenciais para o funcionamento básico do site e não podem ser desativados." },
         preferences: { title: "Preferências", description: "Ajudam a lembrar escolhas como idioma e configurações de navegação." },
-        analytics: { title: "Analytics", description: "Ajudam a entender como visitantes usam o site para melhorar desempenho, conteúdo e experiência." },
+        analytics: { title: "Analytics", description: "Medem uso e desempenho e, quando habilitado, permitem mapas de interação e gravações de sessão com campos sensíveis mascarados." },
         marketing: { title: "Marketing", description: "Podem ser usados para medir campanhas, melhorar divulgação e personalizar comunicações." },
       },
     },
@@ -183,7 +183,7 @@ export const corporateOverrides = {
       categories: {
         necessary: { title: "Necessary", description: "Essential for the basic operation of the website and cannot be disabled." },
         preferences: { title: "Preferences", description: "Help remember choices such as language and navigation settings." },
-        analytics: { title: "Analytics", description: "Help understand how visitors use the website to improve performance, content and experience." },
+        analytics: { title: "Analytics", description: "Measure usage and performance and, when enabled, provide interaction maps and session recordings with sensitive fields masked." },
         marketing: { title: "Marketing", description: "May be used to measure campaigns, improve promotion and personalize communications." },
       },
     },
@@ -221,7 +221,7 @@ export const corporateOverrides = {
       categories: {
         necessary: { title: "Necesarias", description: "Esenciales para el funcionamiento básico del sitio y no se pueden desactivar." },
         preferences: { title: "Preferencias", description: "Ayudan a recordar opciones como idioma y configuraciones de navegación." },
-        analytics: { title: "Analytics", description: "Ayudan a entender cómo los visitantes usan el sitio para mejorar rendimiento, contenido y experiencia." },
+        analytics: { title: "Analytics", description: "Miden el uso y el rendimiento y, cuando están habilitadas, permiten mapas de interacción y grabaciones de sesión con campos sensibles enmascarados." },
         marketing: { title: "Marketing", description: "Pueden usarse para medir campañas, mejorar la divulgación y personalizar comunicaciones." },
       },
     },
