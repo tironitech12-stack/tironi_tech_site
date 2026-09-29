@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-blog-index.mjs && vite build && node scripts/prerender-blog.mjs",
+    "build": "npm run audit:ai150 && npm run audit:content && node scripts/generate-blog-index.mjs && vite build && node scripts/prerender-blog.mjs",
     "lint": "eslint .",
     "audit:content": "node scripts/audit-content-quality.mjs",
     "audit:tutorials": "node scripts/audit-tutorials.mjs",
     "audit:batch100": "node scripts/audit-tutorials.mjs --require-request-complete",
+    "audit:ai150": "node scripts/audit-ai-reviewed-content.mjs",
     "audit:indexability": "node scripts/audit-blog-indexability.mjs",
     "preview": "vite preview"
   },

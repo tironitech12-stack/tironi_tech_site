@@ -6,6 +6,7 @@ import { whatsappSearchArticles } from './whatsappSearchArticles.js';
 import { commercialSearchArticles } from './commercialSearchArticles.js';
 import { customerIntentArticles } from './customerIntentArticles.js';
 import { referenceArticles, referenceCategories } from './referenceArticles.js';
+import { guardedExpansionArticles } from './guardedExpansionArticles.js';
 
 const googleHelpful = { label: 'Google — conteúdo útil e confiável', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' };
 const googleAI = { label: 'Google — otimização para recursos de busca com IA', url: 'https://developers.google.com/search/docs/fundamentals/ai-optimization-guide' };
@@ -517,7 +518,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-const expandedBlogArticles = [...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
+const expandedBlogArticles = [...guardedExpansionArticles, ...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],
