@@ -70,10 +70,10 @@ export function openCookiePreferences() {
 
 export function loadAnalyticsScripts(consent) {
   if (!consent?.analytics) return;
-  // Reserved for future analytics tags. No third-party scripts are injected today.
+  // Analytics providers are injected by the consent-aware application shell.
 }
 
 export function loadMarketingScripts(consent) {
   if (!consent?.marketing) return;
-  // Reserved for future marketing pixels. No third-party scripts are injected today.
+  // Marketing providers are injected by the consent-aware application shell.
 }

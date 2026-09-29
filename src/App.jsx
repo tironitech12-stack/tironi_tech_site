@@ -1,7 +1,8 @@
 import { Analytics } from '@vercel/analytics/react';
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
+import { ensureGoogleTag, trackGooglePageView, updateGoogleConsent } from "./utils/googleTag";
 import { getServiceLandingPage } from './content/serviceLandingPages';
 
 const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
@@ -85,13 +86,15 @@ function RouteFallback() {
   );
 }
 
-function ConsentAwareAnalytics({ pathname }) {
-  const [analyticsAllowed, setAnalyticsAllowed] = useState(() => Boolean(getStoredCookieConsent()?.analytics));
+function ConsentAwareAnalytics({ location, pathname }) {
+  const [consent, setConsent] = useState(() => getStoredCookieConsent());
+  const lastTrackedLocation = useRef(null);
+  const analyticsAllowed = Boolean(consent?.analytics);
+  const marketingAllowed = Boolean(consent?.marketing);
 
   useEffect(() => {
     function syncAnalyticsConsent(event) {
-      const consent = event.detail || getStoredCookieConsent();
-      setAnalyticsAllowed(Boolean(consent?.analytics));
+      setConsent(event.detail || getStoredCookieConsent());
     }
 
     window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, syncAnalyticsConsent);
@@ -99,9 +102,31 @@ function ConsentAwareAnalytics({ pathname }) {
   }, []);
 
   useEffect(() => {
+    const trackingAllowed = !pathname.startsWith('/painel');
+    const runtimeConsent = {
+      analytics: trackingAllowed && analyticsAllowed,
+      marketing: trackingAllowed && marketingAllowed,
+    };
+
+    if (runtimeConsent.analytics || runtimeConsent.marketing) ensureGoogleTag(runtimeConsent);
+    else updateGoogleConsent(runtimeConsent);
+  }, [analyticsAllowed, marketingAllowed, pathname]);
+
+  useEffect(() => {
+    if (!analyticsAllowed || pathname.startsWith('/painel')) {
+      lastTrackedLocation.current = null;
+      return;
+    }
+    if (lastTrackedLocation.current === location) return;
+    ensureGoogleTag({ analytics: true, marketing: marketingAllowed });
+    trackGooglePageView();
+    lastTrackedLocation.current = location;
+  }, [analyticsAllowed, location, marketingAllowed, pathname]);
+
+  useEffect(() => {
     const projectId = import.meta.env.VITE_CLARITY_PROJECT_ID;
-    if (!projectId || !/^[a-z0-9]+$/i.test(projectId) || pathname.startsWith('/painel')) return;
-    if (!analyticsAllowed) {
+    if (!projectId || !/^[a-z0-9]+$/i.test(projectId)) return;
+    if (!analyticsAllowed || pathname.startsWith('/painel')) {
       if (typeof window.clarity === 'function') {
         window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
         window.clarity('consent', false);
@@ -227,7 +252,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <Suspense fallback={<RouteFallback />}><AppContent pathname={pathname} /></Suspense>
-      <ConsentAwareAnalytics pathname={pathname} />
+      <ConsentAwareAnalytics location={location} pathname={pathname} />
     </LanguageProvider>
   );
 }

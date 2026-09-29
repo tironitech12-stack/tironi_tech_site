@@ -18,4 +18,6 @@ Depois de salvar as variáveis, faça um novo deploy. O painel é prerenderizado
 
 O Clarity só é carregado depois que o visitante autoriza a categoria Analytics no painel de cookies. A integração envia `ad_Storage: denied` e `analytics_Storage: granted` pelo Consent API V2. Ao revogar a autorização, a integração informa a recusa e solicita a remoção dos cookies do Clarity.
 
+O Google Analytics 4 usa a propriedade `G-58SQM6BLN1` e também só é carregado após a autorização da categoria Analytics. A aplicação envia `page_view` manualmente em cada navegação da SPA. O Google Ads permanece associado à categoria Marketing; ambos reutilizam uma única carga do `gtag.js` e recebem os sinais do Google Consent Mode v2.
+
 Configure o projeto do Clarity para mascarar por padrão textos sensíveis e todos os campos de entrada. A Política de Privacidade do site informa o uso de gravações de interação para melhoria de experiência.

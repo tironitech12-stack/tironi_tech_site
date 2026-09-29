@@ -1,3 +1,5 @@
+import { getStoredCookieConsent } from "./cookieConsent";
+
 export const GOOGLE_ADS_CONVERSION_ID = "AW-18295268277";
 export const GOOGLE_ADS_WHATSAPP_CONVERSION_LABEL = "sg2oCLyq-MscELXH7pNE";
 export const GOOGLE_ADS_WHATSAPP_SEND_TO = `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_WHATSAPP_CONVERSION_LABEL}`;
@@ -18,7 +20,7 @@ export function reportWhatsAppConversionAndRedirect(url = DEFAULT_WHATSAPP_URL) 
     window.location.href = destinationUrl;
   };
 
-  if (typeof window.gtag !== "function") {
+  if (!getStoredCookieConsent()?.marketing || typeof window.gtag !== "function") {
     redirect();
     return false;
   }
