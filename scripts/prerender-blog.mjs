@@ -202,7 +202,6 @@ await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ titl
 
 const latestArticleUpdate = blogArticles.reduce((latest, article) => article.updated > latest ? article.updated : latest, '1970-01-01');
 const siteContentUpdated = '2026-09-24';
-const sitemapFormatUpdated = '2026-09-25';
 const staticUrls = [
   { path: '/', lastmod: siteContentUpdated },
   { path: '/club', lastmod: siteContentUpdated },
@@ -219,29 +218,15 @@ const staticUrls = [
   { path: '/politica-cookies', lastmod: '2026-07-01' },
   ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: '2026-09-23' })),
 ];
-const categorySlug = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const sitemapDirectory = resolve(root, 'sitemaps');
-await mkdir(sitemapDirectory, { recursive: true });
 const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
-const latestItemUpdate = (items) => items.reduce((latest, item) => item.lastmod > latest ? item.lastmod : latest, '1970-01-01');
-const sitemapFiles = [{ path: '/sitemaps/pages.xml', items: staticUrls, lastmod: sitemapFormatUpdated }];
+const sitemapItems = [...staticUrls];
 for (const locale of ['pt', 'en', 'es']) {
-  for (const category of [...new Set(blogArticles.map((article) => article.category))]) {
-    const categoryArticles = blogArticles.filter((article) => article.category === category && getArticleLocales(article).includes(locale));
-    if (!categoryArticles.length) continue;
-    const items = categoryArticles.map((article) => ({ path: localizedPath(article.slug, locale), lastmod: article.updated }));
-    sitemapFiles.push({
-      path: `/sitemaps/blog-${locale}-${categorySlug(category)}.xml`,
-      items,
-      lastmod: [sitemapFormatUpdated, latestItemUpdate(items)].sort().at(-1),
-    });
+  for (const article of blogArticles) {
+    if (!getArticleLocales(article).includes(locale)) continue;
+    sitemapItems.push({ path: localizedPath(article.slug, locale), lastmod: article.updated });
   }
 }
-for (const sitemapFile of sitemapFiles) {
-  await writeFile(resolve(root, sitemapFile.path.slice(1)), renderUrlset(sitemapFile.items));
-}
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapFiles.map((item) => `  <sitemap><loc>${origin}${item.path}</loc><lastmod>${item.lastmod}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`;
-await writeFile(resolve(root, 'sitemap.xml'), sitemap);
+await writeFile(resolve(root, 'sitemap.xml'), renderUrlset(sitemapItems));
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 
 const notFoundBody = '<main><article><p>ERRO 404</p><h1>Esta página não existe.</h1><p>O endereço pode ter mudado ou sido digitado incorretamente.</p><a href="/">Página inicial</a> · <a href="/blog">Blog</a></article></main>';

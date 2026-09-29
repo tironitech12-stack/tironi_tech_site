@@ -9,24 +9,21 @@ const origin = 'https://www.tironitech.com';
 const read = (path) => readFile(resolve(root, path), 'utf8');
 const locations = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-const sitemapIndex = await read('sitemap.xml');
+const sitemap = await read('sitemap.xml');
 const sitemapUrls = new Set();
-const sitemapLocations = locations(sitemapIndex);
-const sitemapCounts = new Map();
-const indexEntries = [...sitemapIndex.matchAll(/<sitemap><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/sitemap>/g)];
-assert.equal(indexEntries.length, sitemapLocations.length, 'Every child sitemap must expose its last modification date');
-for (const url of sitemapLocations) {
-  const childSitemap = await read(new URL(url).pathname.slice(1));
-  assert(!childSitemap.includes('<priority>') && !childSitemap.includes('<changefreq>'), `Ignored sitemap hints found in ${url}`);
-  const childLocations = locations(childSitemap);
-  assert(childLocations.length > 0, `Empty child sitemap: ${url}`);
-  assert(childLocations.length <= 50_000, `Child sitemap exceeds 50,000 URLs: ${url}`);
-  sitemapCounts.set(url, childLocations.length);
-  for (const location of childLocations) {
-    assert.equal(new URL(location).origin, origin, `Foreign sitemap URL: ${location}`);
-    assert(!sitemapUrls.has(location), `Duplicate sitemap URL: ${location}`);
-    sitemapUrls.add(location);
-  }
+assert(sitemap.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'), 'Root sitemap must list every URL directly');
+assert(!sitemap.includes('<sitemapindex'), 'Root sitemap must not delegate URLs to child sitemaps');
+assert(!sitemap.includes('<priority>') && !sitemap.includes('<changefreq>'), 'Ignored sitemap hints found in root sitemap');
+const sitemapLocations = locations(sitemap);
+const sitemapEntries = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/url>/g)];
+assert(sitemapLocations.length > 0, 'Root sitemap is empty');
+assert(sitemapLocations.length <= 50_000, 'Root sitemap exceeds 50,000 URLs');
+assert(Buffer.byteLength(sitemap) <= 52_428_800, 'Root sitemap exceeds 50 MB');
+assert.equal(sitemapEntries.length, sitemapLocations.length, 'Every sitemap URL must expose its last modification date');
+for (const location of sitemapLocations) {
+  assert.equal(new URL(location).origin, origin, `Foreign sitemap URL: ${location}`);
+  assert(!sitemapUrls.has(location), `Duplicate sitemap URL: ${location}`);
+  sitemapUrls.add(location);
 }
 let checked = 0;
 for (const locale of ['pt', 'en', 'es']) {
@@ -103,5 +100,4 @@ for (const url of sitemapUrls) {
   else if (path.startsWith('/es/')) localizedCounts.es++;
   else localizedCounts.pt++;
 }
-const largestSitemap = [...sitemapCounts].sort((a, b) => b[1] - a[1])[0];
-console.log(JSON.stringify({ checkedArticlePages: checked, childSitemaps: sitemapLocations.length, sitemapUrls: sitemapUrls.size, localizedUrls: localizedCounts, largestChildSitemap: { url: largestSitemap[0], urls: largestSitemap[1] }, status: 'passed' }, null, 2));
+console.log(JSON.stringify({ checkedArticlePages: checked, sitemapType: 'urlset', sitemapUrls: sitemapUrls.size, localizedUrls: localizedCounts, status: 'passed' }, null, 2));
