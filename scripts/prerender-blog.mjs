@@ -6,6 +6,7 @@ import { clubContent } from '../src/content/clubContent.js';
 import { LEGAL_COPY } from '../src/content/legalPolicies.js';
 import { serviceLandingPages, serviceLandingWhatsApp } from '../src/content/serviceLandingPages.js';
 import { corporateOverrides } from '../src/content/corporateOverrides.js';
+import { HOME_SEO, OFFER_PAGE_KEYS, getPositioning } from '../src/content/positioning.js';
 
 const root = resolve('dist');
 const template = await readFile(resolve(root, 'index.html'), 'utf8');
@@ -133,17 +134,21 @@ for (const locale of ['en', 'es']) {
 }
 
 const club = clubContent.pt;
-const clubBody = `<main><article><header><p>${escapeHtml(club.eyebrow)}</p><h1>${club.title.map(escapeHtml).join(' ')}</h1><p>${escapeHtml(club.description)}</p></header><section><h2>O que os membros encontram</h2>${club.benefits.map(([title, text]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section><section><h2>${escapeHtml(club.connection)}</h2><p>${escapeHtml(club.note)}</p><a href="https://wa.me/5543996676633">${escapeHtml(club.cta)}</a></section></article></main>`;
-const clubSchema = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Tironi Tech Club', description: club.description, url: `${origin}/club`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } };
+const clubPlans = club.plans.map(([name, price, buys, profile]) => `<tr><th>${escapeHtml(name)}</th><td>${escapeHtml(price)}</td><td>${escapeHtml(buys)}</td><td>${escapeHtml(profile)}</td></tr>`).join('');
+const clubBody = `<main><article><header><p>${escapeHtml(club.eyebrow)}</p><h1>${club.title.map(escapeHtml).join(' ')}</h1><p>${escapeHtml(club.description)}</p><a href="/formulario?interesse=club&origem=club">${escapeHtml(club.cta)}</a></header><section><h2>O que o Club entrega</h2>${club.benefits.map(([title, text]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section><section><h2>${escapeHtml(club.plansTitle)}</h2><p>${escapeHtml(club.plansIntro)}</p><table><thead><tr>${club.plansHeaders.map((header) => `<th>${escapeHtml(header)}</th>`).join('')}</tr></thead><tbody>${clubPlans}</tbody></table><p>${escapeHtml(club.plansNote)}</p></section><section><h2>${escapeHtml(club.connection)}</h2><p>${escapeHtml(club.note)}</p><a href="/formulario?interesse=club&origem=club">${escapeHtml(club.cta)}</a></section></article></main>`;
+const clubSchema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebPage', name: 'Tironi Tech Club', description: club.description, url: `${origin}/club`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${origin}/` }, { '@type': 'ListItem', position: 2, name: 'Tironi Tech Club', item: `${origin}/club` }] }
+] };
 await mkdir(resolve(root, 'club'), { recursive: true });
-await writeFile(resolve(root, 'club', 'index.html'), pageTemplate({ title: 'Tironi Tech Club | Tecnologia, IA e conexões para empresas', description: club.description, path: '/club', body: clubBody, schema: clubSchema }));
+await writeFile(resolve(root, 'club', 'index.html'), pageTemplate({ title: 'Tironi Tech Club | Transformação contínua com execução', description: club.description, path: '/club', body: clubBody, schema: clubSchema }));
 
 const formPath = '/formulario';
-const formDescription = 'Envie seu contato para conversar com a Tironi Tech sobre software sob medida, automação com IA, integrações, atendimento e plataformas digitais.';
-const formBody = '<main><article><header><p>CONTATO TIRONI TECH</p><h1>Conte onde sua operação precisa avançar.</h1><p>Preencha seus dados para iniciarmos uma conversa sobre software sob medida, automação com IA, integrações, atendimento ou crescimento digital.</p></header><section><h2>Vamos conversar</h2><p>Informe nome, e-mail, telefone, empresa e o principal interesse. Usaremos esses dados para responder ao contato e organizar as comunicações autorizadas.</p><p><a href="/politica-privacidade">Leia a Política de Privacidade</a></p></section></article></main>';
-const formSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Conte seu projeto à Tironi Tech', description: formDescription, url: `${origin}${formPath}`, inLanguage: 'pt-BR', about: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech' } };
+const formDescription = 'Agende um diagnóstico estratégico com a Tironi Tech para mapear o que trava o crescimento e definir a primeira frente de execução.';
+const formBody = '<main><article><header><p>DIAGNÓSTICO ESTRATÉGICO</p><h1>Vamos mapear o que trava o crescimento.</h1><p>Conte o contexto da operação. A conversa define a frente prioritária: o Tironi Tech Club, uma ferramenta ou um projeto específico de desenvolvimento.</p></header><section><h2>Vamos conversar</h2><p>Informe nome, e-mail, telefone, empresa e o principal interesse. Usaremos esses dados para responder ao contato e organizar as comunicações autorizadas.</p><p><a href="/politica-privacidade">Leia a Política de Privacidade</a></p></section></article></main>';
+const formSchema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Agendar diagnóstico estratégico | Tironi Tech', description: formDescription, url: `${origin}${formPath}`, inLanguage: 'pt-BR', about: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech' } };
 await mkdir(resolve(root, 'formulario'), { recursive: true });
-await writeFile(resolve(root, 'formulario', 'index.html'), pageTemplate({ title: 'Conte seu projeto | Tironi Tech', description: formDescription, path: formPath, body: formBody, schema: formSchema }));
+await writeFile(resolve(root, 'formulario', 'index.html'), pageTemplate({ title: 'Agendar diagnóstico estratégico | Tironi Tech', description: formDescription, path: formPath, body: formBody, schema: formSchema }));
 
 const panelPath = '/painel';
   const panelBody = '<main><article><header><p>PAINEL DE INTELIGÊNCIA</p><h1>Dados para melhorar cada página.</h1><p>Acompanhe tráfego, conteúdo e comportamento para orientar as próximas melhorias do site.</p></header></article></main>';
@@ -176,16 +181,16 @@ for (const page of serviceLandingPages) {
   await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${page.keyword} | Tironi Tech`, description: page.description, path, body, schema }));
 }
 
-const homeDescription = 'A Tironi Tech é uma empresa brasileira especializada em software sob medida, automação de processos e soluções de inteligência artificial para empresas.';
+const homeDescription = HOME_SEO.description;
 const homeProjects = corporateOverrides.pt.featuredProjects.items;
 const homeProjectUrls = { SignGuard: 'https://www.walletsignguard.com/', DeleteActPro: 'https://www.deleteactpro.com/', 'Sales Game': 'https://www.salesgame.com.br/', 'Sorteios xNaMai': 'https://www.sorteiosxnamai.com.br/', 'ProfitPilot Ads': 'https://www.profitpilotads.com/' };
-const homeBody = `<main><header><p>SOFTWARE · AUTOMAÇÃO · IA</p><h1>Sua empresa está perdendo vendas e tempo em processos que a tecnologia já poderia resolver.</h1><p>${escapeHtml(homeDescription)} Eliminamos retrabalho, conectamos sistemas e estruturamos operações para vender mais e operar melhor.</p><a href="#contato">Solicitar diagnóstico</a><a href="#solucoes">Conhecer nossas soluções</a></header><section><h2>Soluções digitais para operação, vendas e crescimento</h2><article><h3>Software sob medida</h3><p>Sistemas personalizados para organizar dados, integrar processos e eliminar controles dispersos.</p></article><article><h3>Automação com IA</h3><p>Agentes e fluxos conectados às regras e ferramentas da empresa, com controle e acompanhamento.</p></article><article><h3>ChatBô</h3><p>Atendimento e qualificação de oportunidades no WhatsApp e em outros canais, trabalhando junto da equipe comercial.</p><a href="https://www.chatbo.com.br/">Conhecer o ChatBô</a></article><article><h3>Integrações e APIs</h3><p>Conexão entre CRM, ERP, plataformas, bancos de dados e serviços usados pela operação.</p></article></section><section><h2>Cases e produtos Tironi Tech</h2>${homeProjects.map((project) => `<article><p>${escapeHtml(project.tag)}</p><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p><ul>${project.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>${homeProjectUrls[project.title] ? `<a href="${homeProjectUrls[project.title]}">${escapeHtml(project.cta)}</a>` : '<a href="#contato">Conversar sobre este projeto</a>'}</article>`).join('')}</section><section><h2>Conteúdo para decisões melhores</h2><p>Guias aprofundados sobre IA aplicada, automação, atendimento e software empresarial.</p><a href="/blog">Acessar o blog da Tironi Tech</a></section></main>`;
+const homeBody = `<main><header><p>TIRONI TECH CLUB · TRANSFORMAÇÃO CONTÍNUA</p><h1>Entramos no seu negócio para encontrar o que trava o crescimento — e fazer a mudança acontecer.</h1><p>Nosso time entra na operação, organiza o que importa, constrói o que falta e acompanha os indicadores mês a mês. ${escapeHtml(homeDescription)}</p><a href="/formulario?interesse=club&origem=hero">Agendar diagnóstico estratégico</a><a href="/como-funciona">Conhecer como o Club funciona</a></header><section><h2>O Tironi Tech Club é a oferta principal</h2><p>Diagnóstico, prioridades, implementação e acompanhamento contínuo. Desenvolvimento sob medida permanece como capacidade de execução e como projeto específico.</p><a href="/club">Quero mapear minha empresa</a></section><section><h2>Capacidades de execução</h2><article><h3>Software sob medida</h3><p>Sistemas personalizados para organizar dados, integrar processos e eliminar controles dispersos.</p></article><article><h3>Automação com IA</h3><p>Agentes e fluxos conectados às regras e ferramentas da empresa, com controle e acompanhamento.</p></article><article><h3>ChatBô</h3><p>Atendimento e qualificação de oportunidades no WhatsApp e em outros canais, trabalhando junto da equipe comercial.</p><a href="https://www.chatbo.com.br/">Conhecer o ChatBô</a></article><article><h3>Integrações e APIs</h3><p>Conexão entre CRM, ERP, plataformas, bancos de dados e serviços usados pela operação.</p></article></section><section><h2>Cases e produtos Tironi Tech</h2>${homeProjects.map((project) => `<article><p>${escapeHtml(project.tag)}</p><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p><ul>${project.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>${homeProjectUrls[project.title] ? `<a href="${homeProjectUrls[project.title]}">${escapeHtml(project.cta)}</a>` : '<a href="#contato">Conversar sobre este projeto</a>'}</article>`).join('')}</section><section><h2>Conteúdo para decisões melhores</h2><p>Guias aprofundados sobre IA aplicada, automação, atendimento e software empresarial.</p><a href="/blog">Acessar o blog da Tironi Tech</a></section></main>`;
 const homeSchema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech', alternateName: 'TironiTech', description: homeDescription, url: `${origin}/`, logo: `${origin}/brand/tironi-symbol.png`, email: 'tironi@tironitech.com', sameAs: ['https://www.linkedin.com/company/tironi-tech'] },
   { '@type': 'WebSite', '@id': `${origin}/#website`, name: 'Tironi Tech', url: `${origin}/`, inLanguage: 'pt-BR', publisher: { '@id': `${origin}/#organization` } },
-  { '@type': 'WebPage', '@id': `${origin}/#webpage`, name: 'Tironi Tech | Software Sob Medida e Automação com IA', description: homeDescription, url: `${origin}/`, inLanguage: 'pt-BR', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#organization` }, hasPart: homeProjects.map((project) => ({ '@type': 'CreativeWork', name: project.title, description: project.description, url: homeProjectUrls[project.title] || `${origin}/#projetos`, creator: { '@id': `${origin}/#organization` } })) }
+  { '@type': 'WebPage', '@id': `${origin}/#webpage`, name: HOME_SEO.title, description: homeDescription, url: `${origin}/`, inLanguage: 'pt-BR', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#organization` }, hasPart: homeProjects.map((project) => ({ '@type': 'CreativeWork', name: project.title, description: project.description, url: homeProjectUrls[project.title] || `${origin}/#projetos`, creator: { '@id': `${origin}/#organization` } })) }
 ] };
-await writeFile(resolve(root, 'index.html'), pageTemplate({ title: 'Tironi Tech | Software Sob Medida e Automação com IA', description: homeDescription, path: '/', body: homeBody, schema: homeSchema }));
+await writeFile(resolve(root, 'index.html'), pageTemplate({ title: HOME_SEO.title, description: homeDescription, path: '/', body: homeBody, schema: homeSchema }));
 
 const editorialPath = '/sobre/editorial';
 const editorialDescription = 'Conheça os critérios de pesquisa, autoria, uso de tecnologia, fontes, revisão e correção dos conteúdos da Tironi Tech.';
@@ -195,16 +200,39 @@ await mkdir(resolve(root, 'sobre', 'editorial'), { recursive: true });
 await writeFile(resolve(root, 'sobre', 'editorial', 'index.html'), pageTemplate({ title: 'Política editorial e autores | Tironi Tech', description: editorialDescription, path: editorialPath, body: editorialBody, schema: editorialSchema }));
 
 const mapPath = '/mapa-do-site';
-const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/blog">Blog</a> · <a href="/formulario">Formulário de contato</a></nav><section><h2>Soluções para empresas</h2><ul>${serviceLandingPages.map((page) => `<li><a href="/${page.slug}">${escapeHtml(page.keyword)}</a></li>`).join('')}</ul></section>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
+const mapBody = `<main><article><header><p>MAPA DE CONTEÚDO</p><h1>Conteúdo da Tironi Tech organizado por assunto</h1><p>Guias sobre IA para WhatsApp, automação, desenvolvimento de software, ChatBô, GeoAura, SEO e GEO.</p></header><nav><a href="/">Início</a> · <a href="/club">Tironi Tech Club</a> · <a href="/como-funciona">Como funciona</a> · <a href="/ferramentas">Ferramentas</a> · <a href="/desenvolvimento">Desenvolvimento</a> · <a href="/resultados">Resultados</a> · <a href="/blog">Insights</a> · <a href="/formulario">Diagnóstico</a></nav><section><h2>Soluções para empresas</h2><ul>${serviceLandingPages.map((page) => `<li><a href="/${page.slug}">${escapeHtml(page.keyword)}</a></li>`).join('')}</ul></section>${blogGroups.map((group) => `<section><h2>${escapeHtml(group.category)}</h2><ul>${group.articles.map((article) => `<li><a href="/blog/${article.slug}">${escapeHtml(article.title)}</a></li>`).join('')}</ul></section>`).join('')}</article></main>`;
 const mapSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Mapa de conteúdo Tironi Tech', description: 'Todos os guias da Tironi Tech organizados por assunto.', url: `${origin}${mapPath}`, inLanguage: 'pt-BR', isPartOf: { '@type': 'WebSite', name: 'Tironi Tech', url: origin } };
 await mkdir(resolve(root, 'mapa-do-site'), { recursive: true });
 await writeFile(resolve(root, 'mapa-do-site', 'index.html'), pageTemplate({ title: 'Mapa de conteúdo | Tironi Tech', description: 'Todos os guias da Tironi Tech sobre IA, WhatsApp, software, automação, SEO e GEO organizados por assunto.', path: mapPath, body: mapBody, schema: mapSchema }));
 
 const latestArticleUpdate = blogArticles.reduce((latest, article) => article.updated > latest ? article.updated : latest, '1970-01-01');
-const siteContentUpdated = '2026-09-24';
+const siteContentUpdated = '2026-10-03';
+const offerPaths = { method: '/como-funciona', tools: '/ferramentas', development: '/desenvolvimento', results: '/resultados' };
+const positioning = getPositioning('pt');
+for (const key of OFFER_PAGE_KEYS) {
+  const page = positioning.pages[key];
+  const path = offerPaths[key];
+  const sections = page.sections.map((section) => {
+    if (section.type === 'prose') return `<section><h2>${escapeHtml(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>`;
+    if (section.type === 'steps') return `<section><h2>${escapeHtml(section.title)}</h2><ol>${section.items.map(([title, text]) => `<li><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></li>`).join('')}</ol></section>`;
+    if (section.type === 'cards') return `<section><h2>${escapeHtml(section.title)}</h2>${section.items.map(([title, text]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section>`;
+    if (section.type === 'links') return `<section><h2>${escapeHtml(section.title)}</h2><ul>${section.items.map(([label, href, text]) => `<li><a href="${href}">${escapeHtml(label)}</a><p>${escapeHtml(text)}</p></li>`).join('')}</ul></section>`;
+    return '';
+  }).join('');
+  const projects = page.showProjects ? `<section><h2>Cases e produtos</h2>${corporateOverrides.pt.featuredProjects.items.map((project) => `<article><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p></article>`).join('')}</section>` : '';
+  const proof = page.proof ? `<section>${page.proof.map(([value, label]) => `<p><strong>${escapeHtml(value)}</strong> ${escapeHtml(label)}</p>`).join('')}</section>` : '';
+  const body = `<main><article><header><p>${escapeHtml(page.eyebrow)}</p><h1>${escapeHtml(page.title)}</h1><p>${escapeHtml(page.lead)}</p><a href="${page.primaryHref}">${escapeHtml(page.primaryLabel)}</a></header>${proof}${sections}${projects}</article></main>`;
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', name: page.seoTitle, description: page.seoDescription, url: `${origin}${path}`, inLanguage: 'pt-BR', isPartOf: { '@id': `${origin}/#website` } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${origin}/` }, { '@type': 'ListItem', position: 2, name: page.eyebrow, item: `${origin}${path}` }] }
+  ] };
+  await mkdir(resolve(root, path.slice(1)), { recursive: true });
+  await writeFile(resolve(root, path.slice(1), 'index.html'), pageTemplate({ title: page.seoTitle, description: page.seoDescription, path, body, schema }));
+}
 const staticUrls = [
   { path: '/', lastmod: siteContentUpdated },
   { path: '/club', lastmod: siteContentUpdated },
+  ...OFFER_PAGE_KEYS.map((key) => ({ path: offerPaths[key], lastmod: siteContentUpdated })),
   { path: '/formulario', lastmod: '2026-09-25' },
   { path: '/blog', lastmod: latestArticleUpdate },
   { path: '/blog/arquivo', lastmod: latestArticleUpdate },

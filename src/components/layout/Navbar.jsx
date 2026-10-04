@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  DEFAULT_WHATSAPP_URL,
-  reportWhatsAppConversionAndRedirect,
-} from "../../utils/googleAdsConversion";
-
-const CONTACT_WHATSAPP_HREF = DEFAULT_WHATSAPP_URL;
+import { diagnosticHref } from "../../content/positioning";
 
 export function LogoMark({ className = "", size = 44, title = "TironiTech" }) {
   const [error, setError] = useState(false);
@@ -35,14 +30,21 @@ export function LogoMark({ className = "", size = 44, title = "TironiTech" }) {
 export default function Navbar({ t, language, setLanguage, languageOptions }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
-  const brandTagline = t.brandTagline || "Tecnologia com clareza, estrutura e evolução";
-  const structureLabel = { pt: "Estrutura", en: "Structure", es: "Estructura" }[language] || "Estrutura";
-  const sectionHrefPrefix = typeof window !== "undefined" && window.location.pathname !== "/" ? "/" : "";
+  const brandTagline = t.brandTagline || "Transformação contínua";
+  const path = typeof window !== "undefined" ? window.location.pathname.replace(/\/$/, "") || "/" : "/";
+  const links = [
+    { href: "/club", label: t.nav.club || "Club" },
+    { href: "/como-funciona", label: t.nav.method || "Como funciona" },
+    { href: "/ferramentas", label: t.nav.tools || "Ferramentas" },
+    { href: "/desenvolvimento", label: t.nav.development || "Desenvolvimento" },
+    { href: "/resultados", label: t.nav.results || "Resultados" },
+    { href: "/blog", label: t.nav.insights || "Insights" },
+  ];
 
   return (
-    <header className="tt2-header">
+    <header className="tt2-header" data-lang={language}>
       <div className="tt2-container tt2-header-inner">
-        <a href={`${sectionHrefPrefix}#inicio`} className="tt2-brand" onClick={closeMenu}>
+        <a href="/" className="tt2-brand" onClick={closeMenu}>
           <div className="tt2-brand-mark" aria-hidden="true">
             <LogoMark className="brand-mark" size={46} />
           </div>
@@ -63,14 +65,17 @@ export default function Navbar({ t, language, setLanguage, languageOptions }) {
           <span aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
         </button>
 
-        <nav id="tt2-primary-nav" className={`tt2-nav${menuOpen ? " tt2-nav-open" : ""}`}>
-          <a href={`${sectionHrefPrefix}#clientes`} onClick={closeMenu}>{t.nav.clients}</a>
-          <a href={`${sectionHrefPrefix}#experiencia`} onClick={closeMenu}>{structureLabel}</a>
-          <a href={`${sectionHrefPrefix}#projetos`} onClick={closeMenu}>{t.nav.projects}</a>
-          <a href={`${sectionHrefPrefix}#solucoes`} onClick={closeMenu}>{t.nav.services}</a>
-          <a href="/blog" onClick={closeMenu} aria-current={typeof window !== "undefined" && /^\/blog(?:\/|$)/.test(window.location.pathname) ? "page" : undefined}>Blog</a>
-          <a href="/formulario" onClick={closeMenu} aria-current={typeof window !== "undefined" && /^\/formulario\/?$/.test(window.location.pathname) ? "page" : undefined}>{t.nav.contact}</a>
-          <a href="/club" onClick={closeMenu} aria-current={typeof window !== "undefined" && /^\/club\/?$/.test(window.location.pathname) ? "page" : undefined}>Club</a>
+        <nav id="tt2-primary-nav" className={`tt2-nav${menuOpen ? " tt2-nav-open" : ""}`} aria-label={t.footer.navTitle}>
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+              aria-current={path === link.href || (link.href === "/blog" && path.startsWith("/blog")) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         <div className="tt2-header-actions">
@@ -90,17 +95,7 @@ export default function Navbar({ t, language, setLanguage, languageOptions }) {
             </select>
           </div>
 
-          <a
-            className="tt2-btn tt2-btn-primary tt2-header-cta"
-            href={CONTACT_WHATSAPP_HREF}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(event) => {
-              event.preventDefault();
-              closeMenu();
-              reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
-            }}
-          >
+          <a className="tt2-btn tt2-btn-primary tt2-header-cta" href={diagnosticHref("club", "nav")} onClick={closeMenu}>
             {t.nav.cta}
           </a>
         </div>

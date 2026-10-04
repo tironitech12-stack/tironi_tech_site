@@ -1,20 +1,8 @@
-import { reportWhatsAppConversionAndRedirect } from "../../utils/googleAdsConversion";
+import { diagnosticHref } from "../../content/positioning";
 
-export default function FloatingLeadButton({ whatsappNumber, label }) {
-  const message = "Olá, vim pelo site da TironiTech e quero falar sobre um projeto.";
-  const href = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}` : "#contato";
+export default function FloatingLeadButton({ label }) {
   return (
-    <a
-      className="tt2-floating-lead"
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      onClick={(event) => {
-        if (!href.startsWith("https://wa.me/5543996676633")) return;
-        event.preventDefault();
-        reportWhatsAppConversionAndRedirect(href);
-      }}
-    >
+    <a className="tt2-floating-lead" href={diagnosticHref("club", "floating")}>
       {label}
     </a>
   );

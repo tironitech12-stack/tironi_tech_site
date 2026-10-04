@@ -25,17 +25,16 @@ export default function Footer({ t, contactEmail, whatsappNumber, language, setL
 
         <div>
           <h4>{t.footer.navTitle}</h4>
-          <a href="/#clientes">{t.nav.clients}</a>
-          <a href="/#experiencia">{t.experience.eyebrow}</a>
-          <a href="/#projetos">{t.nav.projects}</a>
-          <a href="/#solucoes">{t.nav.services}</a>
-          <a href="/blog">Blog</a>
+          <a href="/club">Tironi Tech Club</a>
+          <a href="/como-funciona">{t.nav.method || "Como funciona"}</a>
+          <a href="/ferramentas">{t.nav.tools || "Ferramentas"}</a>
+          <a href="/desenvolvimento">{t.nav.development || "Desenvolvimento"}</a>
+          <a href="/resultados">{t.nav.results || "Resultados"}</a>
+          <a href="/blog">{t.nav.insights || "Insights"}</a>
           <a href="/blog/arquivo">Acervo completo</a>
+          <a href="/formulario">Agendar diagnóstico</a>
           <a href="/mapa-do-site">Mapa de conteúdo</a>
           <a href="/sobre/editorial">Política editorial</a>
-          <a href="/formulario">Formulário de contato</a>
-          <a href="/#contato">{t.nav.contact}</a>
-          <a href="/club">Tironi Tech Club</a>
         </div>
 
         <div>

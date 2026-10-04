@@ -4,6 +4,8 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from "./utils/cookieConsent";
 import { ensureGoogleTag, trackGooglePageView, updateGoogleConsent } from "./utils/googleTag";
 import { getServiceLandingPage } from './content/serviceLandingPages';
+import { getOfferPageKey, HOME_SEO } from './content/positioning';
+import { applyPageMeta } from './utils/pageMeta';
 
 const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
 const loadBlogIndexPage = () => import('./components/pages/BlogIndexPage');
@@ -20,6 +22,7 @@ const EditorialPolicyPage = lazy(() => import('./components/pages/EditorialPolic
 const LeadFormPage = lazy(() => import('./components/pages/LeadFormPage'));
 const AnalyticsPanelPage = lazy(() => import('./components/pages/AnalyticsPanelPage'));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'));
+const OfferPage = lazy(() => import('./components/pages/OfferPage'));
 
 function getClientLocation() {
   if (typeof window === 'undefined') return '/';
@@ -176,6 +179,9 @@ function AppContent({ pathname }) {
     return <ClubPage />;
   }
 
+  const offerPageKey = getOfferPageKey(pathname);
+  if (offerPageKey) return <OfferPage pageKey={offerPageKey} />;
+
   if (pathname === "/blog" || pathname === "/blog/") {
     return <BlogIndexPage locale="pt" />;
   }
@@ -244,9 +250,12 @@ export default function App() {
   useEffect(() => {
     if (pathname !== '/') return;
     document.documentElement.lang = 'pt-BR';
-    document.title = 'Tironi Tech | Software Sob Medida e Automação com IA';
-    const canonical = document.head.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = 'https://www.tironitech.com/';
+    applyPageMeta({
+      title: HOME_SEO.title,
+      description: HOME_SEO.description,
+      path: '/',
+      breadcrumbs: [],
+    });
   }, [pathname]);
 
   return (

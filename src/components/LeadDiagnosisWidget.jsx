@@ -74,6 +74,7 @@ ${diagnosis.emailBodyFooter}`;
       step: stepIndex + 1,
       answer: value,
     });
+    if (stepIndex === 0) trackFunnelEvent("diagnostic_start", { origin: "home_widget", answer: value });
 
     if (stepIndex < steps.length - 1) {
       setStepIndex((prev) => prev + 1);

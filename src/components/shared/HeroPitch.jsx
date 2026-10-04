@@ -1,7 +1,10 @@
 import '../../styles/hero-pitch.css';
+import '../../styles/positioning.css';
+import { diagnosticHref } from '../../content/positioning';
 import { trackFunnelEvent } from '../../utils/conversionTracking';
 
-export default function HeroPitch({ copy, mobile = false, primaryHref = "#contato", onPrimaryClick }) {
+export default function HeroPitch({ copy, mobile = false, primaryHref = diagnosticHref('club', 'hero'), onPrimaryClick }) {
+  const secondaryHref = copy.secondaryHref || '/como-funciona';
   return (
     <div className="tt-hero-pitch">
       <div className="tt-hero-fx" aria-hidden="true">
@@ -16,7 +19,7 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = "#contat
       </div>
       <div className="tt-hero-pitch-copy">
         <span className="tt-hero-pitch-badge"><i aria-hidden="true" />{copy.eyebrow}</span>
-        <h1 className="tt-hero-pitch-title">
+        <h1 className="tt-hero-pitch-title is-statement">
           <span>{copy.opening}</span>{' '}
           <strong>{copy.emphasis}</strong>
         </h1>
@@ -26,6 +29,7 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = "#contat
             className="tt-hero-pitch-primary"
             href={primaryHref}
             onClick={(event) => {
+              trackFunnelEvent('hero_cta_click', { device: mobile ? 'mobile' : 'desktop', cta: 'primary' });
               trackFunnelEvent('hero_primary_cta_click', { device: mobile ? 'mobile' : 'desktop' });
               onPrimaryClick?.(event);
             }}
@@ -34,7 +38,7 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = "#contat
           </a>
           <a
             className="tt-hero-pitch-secondary"
-            href={mobile ? '#servicos' : '#solucoes'}
+            href={secondaryHref}
             onClick={() => trackFunnelEvent('hero_solutions_click', { device: mobile ? 'mobile' : 'desktop' })}
           >
             {copy.secondaryCta}<span aria-hidden="true">→</span>
@@ -61,15 +65,11 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = "#contat
             <div><small>{copy.demoKicker}</small><h2>{copy.demoTitle}</h2></div>
             <span className="tt-hero-console-status"><i aria-hidden="true" />{copy.demoStatus}</span>
           </div>
-          <div className="tt-hero-console-flow">
-            {copy.transformations.map(({ pain, outcome }, index) => (
-              <div className="tt-hero-console-row" key={pain}>
-                <span>0{index + 1}</span>
-                <div><small>{pain}</small><strong>{outcome}</strong></div>
-                <i aria-hidden="true"><b style={{ '--progress': `${76 + index * 9}%` }} /></i>
-              </div>
+          <ol className="tt-hero-cycle">
+            {(copy.cycle || ['ANALISAR', 'PRIORIZAR', 'IMPLEMENTAR', 'MEDIR', 'EVOLUIR']).map((step, index) => (
+              <li key={step}><span>0{index + 1}</span><strong>{step}</strong></li>
             ))}
-          </div>
+          </ol>
           <div className="tt-hero-console-footer">
             <span>{copy.demoFooter}</span>
             <strong>{copy.demoGain}</strong>

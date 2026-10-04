@@ -27,7 +27,7 @@ export default function ContentMapPage() {
     <Navbar t={t} language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
     <main className="tt-content-map tt2-container">
       <header><span className="tt-blog-kicker">MAPA DE CONTEÚDO</span><h1>Tudo o que a Tironi Tech publicou, organizado por assunto.</h1><p>Encontre guias sobre IA para WhatsApp, software, automação, ChatBô, GeoAura, SEO e GEO.</p></header>
-      <nav aria-label="Páginas principais"><a href="/">Início</a><a href="/club">Tironi Tech Club</a><a href="/blog">Blog</a><a href="/#contato">Contato</a></nav>
+      <nav aria-label="Páginas principais"><a href="/">Início</a><a href="/club">Tironi Tech Club</a><a href="/como-funciona">Como funciona</a><a href="/ferramentas">Ferramentas</a><a href="/desenvolvimento">Desenvolvimento</a><a href="/resultados">Resultados</a><a href="/blog">Insights</a><a href="/formulario">Diagnóstico</a></nav>
       <section><h2>Soluções para empresas <small>{serviceLandingPages.length} páginas</small></h2><ul>{serviceLandingPages.map((page) => <li key={page.slug}><a href={`/${page.slug}`}>{page.keyword}</a></li>)}</ul></section>
       {groups.map((group) => <section key={group.category}><h2>{group.category} <small>{group.articles.length} guias</small></h2><ul>{group.articles.map((article) => <li key={article.slug}><a href={`/blog/${article.slug}`}>{article.title}</a></li>)}</ul></section>)}
     </main>

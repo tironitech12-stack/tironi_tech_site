@@ -6,16 +6,14 @@ import BlogHighlight from "../components/sections/BlogHighlight";
 import LogoLoop from "../components/ui/LogoLoop";
 import "../styles/client-showcase.css";
 import ClubHighlight from "../components/sections/ClubHighlight";
+import { PillarsSection, ToolsSection } from "../components/sections/PositioningHomeSections";
 import HeroPitch from "../components/shared/HeroPitch";
 import CookieConsent from "../components/shared/CookieConsent";
 import CountUpStat from "../components/shared/CountUpStat";
 import FloatingWhatsAppButton from "../components/ui/FloatingWhatsAppButton";
 import Footer from "../components/layout/Footer";
 import newstoreSorteiosLogo from "../assets/newstore-sorteios-logo.png";
-import {
-  DEFAULT_WHATSAPP_URL,
-  reportWhatsAppConversionAndRedirect,
-} from "../utils/googleAdsConversion";
+import { diagnosticHref } from "../content/positioning";
 import { trackFunnelEvent } from "../utils/conversionTracking";
 import { getProjectStory } from "../content/projectStories";
 import { getSolutionExperience, solutionLinks } from "../content/solutionExperience";
@@ -24,7 +22,6 @@ import BusinessResultsSection from "../components/sections/BusinessResultsSectio
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
 
-const CONTACT_WHATSAPP_HREF = DEFAULT_WHATSAPP_URL;
 const MOBILE_CTA_LABELS = { pt: "Diagnóstico", en: "Diagnosis", es: "Diagnóstico" };
 
 const mobileMarqueeLogos = [
@@ -123,39 +120,28 @@ export default function MobileHome() {
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
-          <a
-            className="mobile-header-cta"
-            href={CONTACT_WHATSAPP_HREF}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(event) => {
-              event.preventDefault();
-              reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
-            }}
-          >
+          <a className="mobile-header-cta" href={diagnosticHref("club", "mobile-nav")}>
             {MOBILE_CTA_LABELS[language] || t.nav.cta}
           </a>
         </div>
       </header>
 
       <nav className="tt-club-mobile-nav" aria-label={t.footer.navTitle}>
-        <a href="#contato">{t.nav.contact}</a>
-        <a href="/club">Club <span aria-hidden="true">↗</span></a>
+        <a href="/club">{t.nav.club || "Club"}</a>
+        <a href="/como-funciona">{t.nav.method || "Como funciona"}</a>
+        <a href="/ferramentas">{t.nav.tools || "Ferramentas"}</a>
+        <a href="/desenvolvimento">{t.nav.development || "Desenvolvimento"}</a>
+        <a href="/resultados">{t.nav.results || "Resultados"}</a>
+        <a href="/blog">{t.nav.insights || "Insights"}</a>
       </nav>
 
       <main className="mobile-main">
         <section className="mobile-hero tt-hero-impact" id="inicio">
-          <HeroPitch
-            copy={t.hero}
-            mobile
-            primaryHref={CONTACT_WHATSAPP_HREF}
-            onPrimaryClick={(event) => {
-              event.preventDefault();
-              reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
-            }}
-          />
+          <HeroPitch copy={t.hero} mobile />
         </section>
 
+        <PillarsSection />
+        <ClubHighlight />
         <BusinessResultsSection compact />
 
         <section className="mobile-section mobile-trust-section tt2-clients-section tt-client-showcase" id="clientes">
@@ -181,6 +167,22 @@ export default function MobileHome() {
           <div className="mobile-count-grid">
             {(t.experienceProof.metrics || t.hero.authority || []).map((item) => (
               <CountUpStat key={`${item.value}-${item.label}`} value={item.value} label={item.label} className="mobile-count-card" />
+            ))}
+          </div>
+        </section>
+
+        <section className="mobile-section" id="processo">
+          <div className="mobile-section-head">
+            <span className="mobile-section-tag">{t.process.eyebrow}</span>
+            <h2>{t.process.title}</h2>
+          </div>
+          <div className="mobile-card-stack">
+            {t.process.steps.map((step, index) => (
+              <article key={step.title} className="mobile-info-card mobile-process-card">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
             ))}
           </div>
         </section>
@@ -270,6 +272,7 @@ export default function MobileHome() {
           </div>
         </section>
 
+        <ToolsSection />
         <ChatboSpotlight t={t} />
 
         <section className="mobile-section" id="experiencia">
@@ -283,23 +286,6 @@ export default function MobileHome() {
           </div>
         </section>
 
-        <section className="mobile-section" id="processo">
-          <div className="mobile-section-head">
-            <span className="mobile-section-tag">{t.process.eyebrow}</span>
-            <h2>{t.process.title}</h2>
-          </div>
-          <div className="mobile-card-stack">
-            {t.process.steps.map((step, index) => (
-              <article key={step.title} className="mobile-info-card mobile-process-card">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <ClubHighlight />
         <BlogHighlight />
 
         <section className="mobile-section mobile-cta-section" id="contato">
@@ -307,16 +293,7 @@ export default function MobileHome() {
           <h2>{t.finalCta.title}</h2>
           <p>{t.finalCta.description}</p>
           <div className="mobile-hero-actions">
-            <a
-              className="mobile-btn mobile-btn-primary"
-              href={CONTACT_WHATSAPP_HREF}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(event) => {
-                event.preventDefault();
-                reportWhatsAppConversionAndRedirect(CONTACT_WHATSAPP_HREF);
-              }}
-            >
+            <a className="mobile-btn mobile-btn-primary" href={diagnosticHref("club", "mobile-final")}>
               {t.nav.cta}
             </a>
           </div>

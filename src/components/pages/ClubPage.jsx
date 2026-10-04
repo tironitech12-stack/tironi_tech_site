@@ -6,22 +6,29 @@ import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import ClubSection from '../sections/ClubSection';
-import { reportWhatsAppConversionAndRedirect } from '../../utils/googleAdsConversion';
+import { diagnosticHref } from '../../content/positioning';
+import { applyPageMeta } from '../../utils/pageMeta';
+import { trackFunnelEvent } from '../../utils/conversionTracking';
 
 export default function ClubPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
   const copy = clubContent[language] || clubContent.pt;
-  const href = `https://wa.me/5543996676633?text=${encodeURIComponent(copy.message)}`;
+  const href = diagnosticHref('club', 'club-final');
   const back = { pt: 'Voltar para a TironiTech', en: 'Back to TironiTech', es: 'Volver a TironiTech' }[language] || 'TironiTech';
 
   useEffect(() => {
-    const previousTitle = document.title;
-    const canonical = document.head.querySelector('link[rel="canonical"]');
-    const previousCanonical = canonical?.getAttribute('href');
-    document.title = `Tironi Tech Club | ${copy.title.join(' ')}`;
-    if (canonical) canonical.href = 'https://www.tironitech.com/club';
-    return () => { document.title = previousTitle; if (canonical && previousCanonical) canonical.href = previousCanonical; };
-  }, [copy]);
+    applyPageMeta({
+      title: 'Tironi Tech Club | Transformação contínua com execução',
+      description: copy.description,
+      path: '/club',
+      breadcrumbs: [
+        { name: 'Início', path: '/' },
+        { name: 'Tironi Tech Club', path: '/club' },
+      ],
+    });
+    trackFunnelEvent('club_view', { language });
+    window.scrollTo(0, 0);
+  }, [copy.description, language]);
 
   return (
     <div className="tt2-page tt-club-page">
@@ -33,11 +40,7 @@ export default function ClubPage() {
             <span className="tt-club-label">TIRONI TECH <b>CLUB</b></span>
             <h2 id="club-join-title">{copy.connection}</h2>
             <p>{copy.note}</p>
-            <a className="tt-club-cta" href={href} onClick={(event) => {
-              if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-              event.preventDefault();
-              reportWhatsAppConversionAndRedirect(href);
-            }}>{copy.cta}<span aria-hidden="true">↗</span></a>
+            <a className="tt-club-cta" href={href}>{copy.cta}<span aria-hidden="true">↗</span></a>
             <a className="tt-club-back" href="/">← {back}</a>
           </section>
         </main>

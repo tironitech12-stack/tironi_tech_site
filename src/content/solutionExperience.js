@@ -9,7 +9,7 @@ export const solutionLinks = [
 
 const experienceByLanguage = {
   pt: {
-    lead: "A Tironi Tech entra quando ferramentas prontas já não acompanham a operação. Entendemos o gargalo, construímos a solução e seguimos evoluindo com o negócio.",
+    lead: "Estas frentes são meios de execução. O Club organiza a prioridade; um projeto de desenvolvimento existe quando o escopo pede uma entrega dedicada.",
     outcomeLabel: "O que muda", linkLabel: "Explorar solução", proofLabel: "Experiência aplicada",
     proof: [["23+", "anos de experiência acumulada"], ["150+", "projetos para empresas"], ["50+", "soluções e produtos próprios"]],
     items: [
@@ -20,12 +20,12 @@ const experienceByLanguage = {
       { signal: "Informação presa em ferramentas diferentes", outcome: "CRM, ERP, canais, pagamentos e bancos passam a compartilhar contexto sem digitação duplicada.", chips: ["CRM e ERP", "WhatsApp e APIs", "Shopify e mídia"], evidence: "ChatBô • MestreLead • ProfitPilot Ads" },
       { signal: "Produto lançado que precisa continuar competitivo", outcome: "Performance, observabilidade, segurança e novas funcionalidades priorizadas a partir do uso real.", chips: ["Monitoramento", "Manutenção", "Evolução contínua"], evidence: "Projetos acompanhados após o lançamento" },
     ],
-    ecosystemTitle: "Uma estrutura, vários caminhos para gerar resultado",
-    ecosystemText: "Software, automação, dados, IA e presença digital trabalham juntos. A solução pode começar pequena e evoluir sem reconstruir tudo a cada nova necessidade.",
-    ecosystemLinks: [["ChatBô", "IA comercial e atendimento", "https://chatbo.com.br/"], ["GeoAura", "SEO, GEO e presença em IA", "https://geoaura.world/"], ["Produtos próprios", "MestreLead e ProfitPilot Ads", "#projetos"], ["Cases reais", "Plataformas, BI e automações", "#projetos"]],
+    ecosystemTitle: "Ferramentas próprias aceleram o método",
+    ecosystemText: "Software, automação, dados e IA trabalham dentro da transformação. A ferramenta entra quando o diagnóstico mostra que ela resolve a frente prioritária.",
+    ecosystemLinks: [["Tironi Tech Club", "A oferta contínua", "/club"], ["Ferramentas", "ChatBô, MestreLead, TironiControl e CRM", "/ferramentas"], ["Desenvolvimento", "Projetos com escopo próprio", "/desenvolvimento"], ["GeoAura", "SEO, GEO e presença em IA", "https://geoaura.world/"]],
   },
   en: {
-    lead: "Tironi Tech steps in when off-the-shelf tools no longer keep up with operations. We understand the bottleneck, build the solution and keep evolving it with the business.",
+    lead: "These fronts are means of execution. The Club sets the priority; a development project exists when the scope needs a dedicated delivery.",
     outcomeLabel: "What changes", linkLabel: "Explore solution", proofLabel: "Applied experience",
     proof: [["23+", "years of combined experience"], ["150+", "business projects"], ["50+", "solutions and proprietary products"]],
     items: [
@@ -36,12 +36,12 @@ const experienceByLanguage = {
       { signal: "Information trapped across tools", outcome: "CRM, ERP, channels, payments and databases share context without duplicated data entry.", chips: ["CRM and ERP", "WhatsApp and APIs", "Shopify and media"], evidence: "ChatBô • MestreLead • ProfitPilot Ads" },
       { signal: "A launched product that must stay competitive", outcome: "Performance, observability, security and new capabilities prioritized from real usage.", chips: ["Monitoring", "Maintenance", "Continuous evolution"], evidence: "Projects supported after launch" },
     ],
-    ecosystemTitle: "One structure, multiple paths to business results",
-    ecosystemText: "Software, automation, data, AI and digital presence work together. A solution can start small and evolve without rebuilding everything for each new need.",
-    ecosystemLinks: [["ChatBô", "Sales and service AI", "https://chatbo.com.br/"], ["GeoAura", "SEO, GEO and AI presence", "https://geoaura.world/"], ["Own products", "MestreLead and ProfitPilot Ads", "#projetos"], ["Real cases", "Platforms, BI and automations", "#projetos"]],
+    ecosystemTitle: "Proprietary tools speed up the method",
+    ecosystemText: "Software, automation, data and AI work inside the transformation. A tool joins when the diagnosis shows it solves the priority front.",
+    ecosystemLinks: [["Tironi Tech Club", "The ongoing offer", "/club"], ["Tools", "ChatBô, MestreLead, TironiControl and CRM", "/ferramentas"], ["Development", "Projects with their own scope", "/desenvolvimento"], ["GeoAura", "SEO, GEO and AI presence", "https://geoaura.world/"]],
   },
   es: {
-    lead: "Tironi Tech actúa cuando las herramientas listas ya no acompañan la operación. Entendemos el cuello de botella, construimos la solución y seguimos evolucionando con el negocio.",
+    lead: "Estos frentes son medios de ejecución. El Club organiza la prioridad; un proyecto de desarrollo existe cuando el alcance pide una entrega dedicada.",
     outcomeLabel: "Qué cambia", linkLabel: "Explorar solución", proofLabel: "Experiencia aplicada",
     proof: [["23+", "años de experiencia acumulada"], ["150+", "proyectos para empresas"], ["50+", "soluciones y productos propios"]],
     items: [
@@ -52,9 +52,9 @@ const experienceByLanguage = {
       { signal: "Información atrapada en herramientas diferentes", outcome: "CRM, ERP, canales, pagos y bases comparten contexto sin duplicar digitación.", chips: ["CRM y ERP", "WhatsApp y APIs", "Shopify y medios"], evidence: "ChatBô • MestreLead • ProfitPilot Ads" },
       { signal: "Producto lanzado que debe seguir competitivo", outcome: "Performance, observabilidad, seguridad y nuevas funciones priorizadas desde el uso real.", chips: ["Monitoreo", "Mantenimiento", "Evolución continua"], evidence: "Proyectos acompañados después del lanzamiento" },
     ],
-    ecosystemTitle: "Una estructura, varios caminos para generar resultados",
-    ecosystemText: "Software, automatización, datos, IA y presencia digital trabajan juntos. La solución puede comenzar pequeña y evolucionar sin reconstruir todo ante cada necesidad.",
-    ecosystemLinks: [["ChatBô", "IA comercial y atención", "https://chatbo.com.br/"], ["GeoAura", "SEO, GEO y presencia en IA", "https://geoaura.world/"], ["Productos propios", "MestreLead y ProfitPilot Ads", "#projetos"], ["Casos reales", "Plataformas, BI y automatizaciones", "#projetos"]],
+    ecosystemTitle: "Las herramientas propias aceleran el método",
+    ecosystemText: "Software, automatización, datos e IA trabajan dentro de la transformación. La herramienta entra cuando el diagnóstico muestra que resuelve el frente prioritario.",
+    ecosystemLinks: [["Tironi Tech Club", "La oferta continua", "/club"], ["Herramientas", "ChatBô, MestreLead, TironiControl y CRM", "/ferramentas"], ["Desarrollo", "Proyectos con alcance propio", "/desenvolvimento"], ["GeoAura", "SEO, GEO y presencia en IA", "https://geoaura.world/"]],
   },
 };
 

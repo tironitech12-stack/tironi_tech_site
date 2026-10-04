@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getSiteText } from '../../content/siteContent';
+import { INTEREST_OPTIONS, interestLabel } from '../../content/positioning';
+import { applyPageMeta } from '../../utils/pageMeta';
+import { trackFunnelEvent } from '../../utils/conversionTracking';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
@@ -30,14 +33,19 @@ export default function LeadFormPage() {
 
   useEffect(() => {
     document.documentElement.lang = 'pt-BR';
-    document.title = 'Conte seu projeto | Tironi Tech';
-    let canonical = document.head.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
-    }
-    canonical.href = 'https://www.tironitech.com/formulario';
+    const params = new URLSearchParams(window.location.search);
+    const interest = interestLabel(params.get('interesse'));
+    if (interest) setForm((current) => ({ ...current, interest }));
+    applyPageMeta({
+      title: 'Agendar diagnóstico estratégico | Tironi Tech',
+      description: 'Agende um diagnóstico estratégico com a Tironi Tech para mapear o que trava o crescimento e definir a primeira frente de execução.',
+      path: '/formulario',
+      breadcrumbs: [
+        { name: 'Início', path: '/' },
+        { name: 'Diagnóstico', path: '/formulario' },
+      ],
+    });
+    trackFunnelEvent('diagnostic_start', { origem: params.get('origem') || 'direto', interesse: params.get('interesse') || '' });
   }, []);
 
   function updateField(event) {
@@ -61,6 +69,13 @@ export default function LeadFormPage() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || 'Não foi possível enviar seus dados.');
+      trackFunnelEvent('diagnostic_submit', { interest: form.interest });
+      if (form.interest === 'Tironi Tech Club' || form.interest === 'Ferramentas da Tironi') {
+        trackFunnelEvent('club_lead', { interest: form.interest });
+      }
+      if (form.interest === 'Desenvolvimento de um projeto específico') {
+        trackFunnelEvent('development_lead', { interest: form.interest });
+      }
       setStatus('success');
       setMessage('Recebemos seus dados. A equipe da Tironi Tech entrará em contato.');
       setForm(initialForm);
@@ -77,9 +92,9 @@ export default function LeadFormPage() {
         <main className="tt-lead-main">
           <section className="tt-lead-intro" aria-labelledby="lead-page-title">
             <div className="tt-lead-intro-copy">
-              <span className="tt-lead-kicker">CONTATO TIRONI TECH</span>
-              <h1 id="lead-page-title">Conte onde sua operação precisa avançar.</h1>
-              <p>Preencha seus dados para iniciarmos uma conversa sobre software sob medida, automação com IA, integrações, atendimento ou crescimento digital.</p>
+              <span className="tt-lead-kicker">DIAGNÓSTICO ESTRATÉGICO</span>
+              <h1 id="lead-page-title">Vamos mapear o que trava o crescimento.</h1>
+              <p>Conte o contexto da operação. A conversa define a frente prioritária: o Tironi Tech Club, uma ferramenta ou um projeto específico de desenvolvimento.</p>
               <div className="tt-lead-expectations" aria-label="Próximas etapas">
                 <article><strong>01</strong><span>Entendemos o cenário e a prioridade.</span></article>
                 <article><strong>02</strong><span>Identificamos o primeiro recorte viável.</span></article>
@@ -115,12 +130,7 @@ export default function LeadFormPage() {
                   <span>Principal interesse</span>
                   <select name="interest" value={form.interest} onChange={updateField} required>
                     <option value="">Selecione uma opção</option>
-                    <option value="Software sob medida">Software sob medida</option>
-                    <option value="Automação com IA">Automação com IA</option>
-                    <option value="Agente de IA para atendimento ou vendas">Agente de IA para atendimento ou vendas</option>
-                    <option value="Integrações, CRM, ERP ou APIs">Integrações, CRM, ERP ou APIs</option>
-                    <option value="Sites, plataformas ou SaaS">Sites, plataformas ou SaaS</option>
-                    <option value="Outro projeto">Outro projeto</option>
+                    {INTEREST_OPTIONS.map(([key, label]) => <option key={key} value={label}>{label}</option>)}
                   </select>
                 </label>
                 <label className="tt-lead-honeypot" aria-hidden="true">

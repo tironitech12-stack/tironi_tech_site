@@ -1,7 +1,8 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { clubContent } from '../../content/clubContent';
-import { reportWhatsAppConversionAndRedirect } from '../../utils/googleAdsConversion';
+import { diagnosticHref } from '../../content/positioning';
 import '../../styles/club.css';
+import '../../styles/positioning.css';
 
 const icons = [
   <path d="M4 20V13h4v7m2 0V9h4v11m2 0V4h4v16M3 20h18" />,
@@ -15,7 +16,7 @@ const icons = [
 export default function ClubSection() {
   const { language } = useLanguage();
   const copy = clubContent[language] || clubContent.pt;
-  const href = `https://wa.me/5543996676633?text=${encodeURIComponent(copy.message)}`;
+  const href = diagnosticHref('club', 'club');
 
   return (
     <section id="club" className="tt-club" aria-labelledby="club-title">
@@ -25,11 +26,8 @@ export default function ClubSection() {
           <div className="tt-club-copy">
             <h1 id="club-title">{copy.title.map((line, index) => <span key={line} className={index === 1 ? 'tt-club-accent' : undefined}>{line}</span>)}</h1>
             <p>{copy.description}</p>
-            <a className="tt-club-cta" href={href} onClick={(event) => {
-              if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-              event.preventDefault();
-              reportWhatsAppConversionAndRedirect(href);
-            }}>{copy.cta}<span aria-hidden="true">↗</span></a>
+            <a className="tt-club-cta" href={href}>{copy.cta}<span aria-hidden="true">↗</span></a>
+            <a className="tt-club-back" href="/como-funciona">{copy.secondary} →</a>
             <small>{copy.note}</small>
           </div>
           <div className="tt-club-visual">
@@ -49,6 +47,22 @@ export default function ClubSection() {
           </article>
         ))}</div>
         <ul className="tt-club-outcomes">{copy.outcomes.map((item) => <li key={item}><span aria-hidden="true">+</span> {item}</li>)}</ul>
+        {copy.plans ? (
+          <div className="tt-club-plans">
+            <h2>{copy.plansTitle}</h2>
+            <p>{copy.plansIntro}</p>
+            <table className="tt-club-plan-table">
+              <caption className="tt-sr-only">{copy.plansTitle}</caption>
+              <thead><tr>{copy.plansHeaders.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead>
+              <tbody>
+                {copy.plans.map(([name, price, buys, profile]) => (
+                  <tr key={name}><th scope="row">{name}</th><td>{price}</td><td>{buys}</td><td>{profile}</td></tr>
+                ))}
+              </tbody>
+            </table>
+            <p>{copy.plansNote}</p>
+          </div>
+        ) : null}
       </div>
     </section>
   );

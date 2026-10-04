@@ -16,6 +16,7 @@ import FeaturedProjectsSection from "./components/sections/FeaturedProjectsSecti
 import SolutionsSection from "./components/sections/SolutionsSection";
 import ChatboSpotlight from "./components/sections/ChatboSpotlight";
 import ClubHighlight from "./components/sections/ClubHighlight";
+import { PillarsSection, ToolsSection } from "./components/sections/PositioningHomeSections";
 import BlogHighlight from "./components/sections/BlogHighlight";
 import ProcessSection from "./components/sections/ProcessSection";
 import FinalCtaSection from "./components/sections/FinalCtaSection";
@@ -64,15 +65,17 @@ export default function AppRoot() {
 
         <main className="tt2-site-main">
           <HeroSection t={t} />
+          <PillarsSection />
+          <ClubHighlight />
           <BusinessResultsSection />
           <TrustedBySection t={t} clients={CLIENTS} />
           <ExperienceStatsSection t={t} />
-          <FeaturedProjectsSection t={t} language={language} />
-          <SolutionsSection t={t} />
-          <ChatboSpotlight t={t} />
-          <ExperienceSection t={t} />
           <ProcessSection t={t} />
-          <ClubHighlight />
+          <FeaturedProjectsSection t={t} language={language} />
+          <ToolsSection />
+          <SolutionsSection t={t} />
+          <ExperienceSection t={t} />
+          <ChatboSpotlight t={t} />
           <BlogHighlight />
           <FinalCtaSection t={t} contactEmail={CONTACT_EMAIL} whatsappNumber={WHATSAPP_NUMBER} />
         </main>

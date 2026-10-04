@@ -3,9 +3,9 @@ import { clubContent } from '../../content/clubContent';
 import '../../styles/club.css';
 
 const labels = {
-  pt: ['Sua empresa mais inteligente, a cada mês.', 'Conhecer o Club', 'IA, automação, ferramentas e uma comunidade para crescer com você.'],
-  en: ['Your business gets smarter every month.', 'Explore the Club', 'AI, automation, tools and a community to grow with you.'],
-  es: ['Tu empresa más inteligente, cada mes.', 'Conocer el Club', 'IA, automatización, herramientas y una comunidad para crecer contigo.'],
+  pt: ['A oferta principal: entrar, implementar e acompanhar.', 'Conhecer o Club', 'Prioridades, execução e indicadores todos os meses. Ferramentas entram quando aceleram a solução.'],
+  en: ['The main offer: step in, implement and follow up.', 'Explore the Club', 'Priorities, execution and indicators every month. Tools join when they speed up the solution.'],
+  es: ['La oferta principal: entrar, implementar y acompañar.', 'Conocer el Club', 'Prioridades, ejecución e indicadores todos los meses. Las herramientas entran cuando aceleran la solución.'],
 };
 
 export default function ClubHighlight() {

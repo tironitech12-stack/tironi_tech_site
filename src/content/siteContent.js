@@ -973,6 +973,7 @@ Object.entries(corporateOverrides).forEach(([language, content]) => {
 });
 Object.entries(heroImpactOverrides).forEach(([language, content]) => {
   if (!siteContent[language]) return;
+  if (content.brandTagline) siteContent[language].brandTagline = content.brandTagline;
   if (content.hero) siteContent[language].hero = { ...siteContent[language].hero, ...content.hero };
   if (content.trustedBy) siteContent[language].trustedBy = { ...siteContent[language].trustedBy, ...content.trustedBy };
   if (content.experienceProof) siteContent[language].experienceProof = content.experienceProof;
