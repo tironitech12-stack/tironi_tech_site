@@ -3,6 +3,26 @@ export const HOME_SEO = {
   description: 'A Tironi Tech entra na sua operação, analisa processos e dados, implementa melhorias com IA, automação e software e acompanha os resultados continuamente.',
 };
 
+export const CLUB_SEO = {
+  title: 'Tironi Tech Club | Diagnóstico, execução e acompanhamento mensal',
+  description: 'O Tironi Tech Club entra na operação, encontra o que trava o crescimento, implementa a melhoria e acompanha o indicador todo mês.',
+};
+
+export const BLOG_SEO = {
+  pt: {
+    title: 'Insights Tironi Tech | IA, automação e processos empresariais',
+    description: 'Guias de inteligência artificial, automação de processos e atendimento. Quando o gargalo pede execução, o caminho é o Tironi Tech Club.',
+  },
+  en: {
+    title: 'Tironi Tech Insights | AI, automation and business processes',
+    description: 'Practical guides on artificial intelligence, process automation and customer service. Tironi Tech Club is the path when the bottleneck needs execution.',
+  },
+  es: {
+    title: 'Insights Tironi Tech | IA, automatización y procesos empresariales',
+    description: 'Guías de inteligencia artificial, automatización de procesos y atención. Cuando el cuello de botella pide ejecución, el camino es Tironi Tech Club.',
+  },
+};
+
 export const HERO_OPTIONS = {
   pt: {
     headlines: [

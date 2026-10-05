@@ -6,7 +6,7 @@ import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import ClubSection from '../sections/ClubSection';
-import { diagnosticHref } from '../../content/positioning';
+import { CLUB_SEO, diagnosticHref } from '../../content/positioning';
 import { applyPageMeta } from '../../utils/pageMeta';
 import { trackFunnelEvent } from '../../utils/conversionTracking';
 
@@ -18,8 +18,8 @@ export default function ClubPage() {
 
   useEffect(() => {
     applyPageMeta({
-      title: 'Tironi Tech Club | Transformação contínua com execução',
-      description: copy.description,
+      title: CLUB_SEO.title,
+      description: CLUB_SEO.description,
       path: '/club',
       breadcrumbs: [
         { name: 'Início', path: '/' },
@@ -28,7 +28,7 @@ export default function ClubPage() {
     });
     trackFunnelEvent('club_view', { language });
     window.scrollTo(0, 0);
-  }, [copy.description, language]);
+  }, [language]);
 
   return (
     <div className="tt2-page tt-club-page">

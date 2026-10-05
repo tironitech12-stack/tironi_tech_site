@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { BLOG_SEO } from '../../content/positioning';
 import { blogIndexArticles, blogArticleCounts } from '../../content/blogIndexArticles.generated';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
@@ -23,9 +24,9 @@ function setMeta(name, content, property = false) {
 }
 
 const labels = {
-  pt: { all: 'Todos', title: 'Decisões melhores começam com tecnologia bem explicada.', deck: 'Guias práticos sobre inteligência artificial, automação, atendimento e software para transformar desafios reais em operações mais inteligentes.', library: 'Conhecimento para aplicar', archiveTitle: 'Acervo completo', archiveDeck: 'Todos os artigos publicados pela Tironi Tech, inclusive conteúdos em revisão editorial.', archiveLink: 'Ver acervo completo com {count} artigos', coreLink: 'Voltar à seleção principal', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
-  en: { all: 'All', title: 'Better decisions start with technology clearly explained.', deck: 'Practical guides on artificial intelligence, automation, customer service and software for smarter business operations.', library: 'Knowledge to apply', archiveTitle: 'Complete archive', archiveDeck: 'Every article published by Tironi Tech, including content under editorial review.', archiveLink: 'View the complete archive with {count} articles', coreLink: 'Return to the main selection', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all', previous: 'Previous', next: 'Next', topic: 'Filter by topic' },
-  es: { all: 'Todos', title: 'Las mejores decisiones comienzan con tecnología bien explicada.', deck: 'Guías prácticas sobre inteligencia artificial, automatización, atención y software para crear operaciones más inteligentes.', library: 'Conocimiento para aplicar', archiveTitle: 'Archivo completo', archiveDeck: 'Todos los artículos publicados por Tironi Tech, incluido el contenido en revisión editorial.', archiveLink: 'Ver el archivo completo con {count} artículos', coreLink: 'Volver a la selección principal', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
+  pt: { all: 'Todos', title: 'IA, automação e processos para a operação da empresa', deck: 'Guias práticos sobre inteligência artificial, automação de processos, atendimento e software. Quando o gargalo pede execução, o caminho é o Tironi Tech Club.', library: 'Conhecimento para aplicar', archiveTitle: 'Acervo completo', archiveDeck: 'Lista interna de todos os artigos publicados pela Tironi Tech. A leitura recomendada continua na biblioteca principal.', archiveLink: 'Ver acervo completo com {count} artigos', coreLink: 'Voltar à seleção principal', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
+  en: { all: 'All', title: 'AI, automation and processes for company operations', deck: 'Practical guides on artificial intelligence, process automation, customer service and software. Tironi Tech Club is the path when the bottleneck needs execution.', library: 'Knowledge to apply', archiveTitle: 'Complete archive', archiveDeck: 'Internal list of every article published by Tironi Tech. The recommended reading stays in the main library.', archiveLink: 'View the complete archive with {count} articles', coreLink: 'Return to the main selection', search: 'Search AI, WhatsApp, automation, software, GEO...', found: 'guides found', read: 'Read', updated: 'Updated', track: 'Explore track', active: 'ACTIVE TRACK', allButton: 'View all', previous: 'Previous', next: 'Next', topic: 'Filter by topic' },
+  es: { all: 'Todos', title: 'IA, automatización y procesos para la operación de la empresa', deck: 'Guías prácticas sobre inteligencia artificial, automatización de procesos, atención y software. Cuando el cuello de botella pide ejecución, el camino es Tironi Tech Club.', library: 'Conocimiento para aplicar', archiveTitle: 'Archivo completo', archiveDeck: 'Lista interna de todos los artículos publicados por Tironi Tech. La lectura recomendada sigue en la biblioteca principal.', archiveLink: 'Ver el archivo completo con {count} artículos', coreLink: 'Volver a la selección principal', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
 };
 
 const PAGE_SIZE = 18;
@@ -57,11 +58,12 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
 
   useEffect(() => {
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
-    document.title = `${archiveMode ? copy.archiveTitle : copy.title} | Tironi Tech`;
-    setMeta('description', archiveMode ? copy.archiveDeck : copy.deck);
-    setMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    const seo = BLOG_SEO[locale] || BLOG_SEO.pt;
+    document.title = archiveMode ? `${copy.archiveTitle} | Tironi Tech` : seo.title;
+    setMeta('description', archiveMode ? copy.archiveDeck : seo.description);
+    setMeta('robots', archiveMode ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
     setMeta('og:title', document.title, true);
-    setMeta('og:description', 'Tecnologia explicada para empresas que querem vender mais e operar melhor.', true);
+    setMeta('og:description', archiveMode ? copy.archiveDeck : seo.description, true);
     setMeta('og:type', 'website', true);
     const path = archiveMode
       ? `${locale === 'pt' ? '' : `/${locale}`}/blog/${locale === 'pt' ? 'arquivo' : 'archive'}`
@@ -71,7 +73,7 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
     canonical.href = `${SITE_URL}${path}`;
     window.scrollTo(0, 0);
-  }, [archiveMode, copy.archiveDeck, copy.archiveTitle, copy.deck, copy.title, locale]);
+  }, [archiveMode, copy.archiveDeck, copy.archiveTitle, locale]);
 
   const changeLanguage = (nextLocale) => { window.location.assign(`${nextLocale === 'pt' ? '' : `/${nextLocale}`}/blog`); };
 
@@ -85,7 +87,8 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
             <div className="tt-blog-orb tt-blog-orb-two" aria-hidden="true" />
             <div className="tt2-container tt-blog-hero-inner">
               <span className="tt-blog-kicker">INSIGHTS TIRONI TECH</span>
-              <h1>{copy.title}</h1><p>{copy.deck}</p>
+              <h1>{archiveMode ? copy.archiveTitle : copy.title}</h1><p>{archiveMode ? copy.archiveDeck : copy.deck}</p>
+              {archiveMode ? null : <p className="tt-blog-offer"><a href="/club">Tironi Tech Club</a> · <a href="/formulario?interesse=club&origem=blog">{locale === 'en' ? 'Schedule a diagnosis' : 'Agendar diagnóstico'}</a></p>}
             </div>
           </section>
 

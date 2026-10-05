@@ -538,6 +538,45 @@ for (const article of expandedBlogArticles) {
   }
 }
 
+const searchSnippets = {
+  'como-organizar-onboarding-cliente-b2b-primeira-entrega': {
+    title: 'Onboarding de clientes B2B: da contratação à primeira entrega',
+    description: 'Como organizar o onboarding de clientes B2B com responsáveis, dependências e uma primeira entrega que o cliente consegue usar e conferir.',
+  },
+  'como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente': {
+    title: 'Dúvidas de proposta no WhatsApp sem mudar o escopo',
+    description: 'Como responder dúvidas de uma proposta pelo WhatsApp, separar esclarecimento de alteração e manter a versão comercial combinada.',
+  },
+  'como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher': {
+    title: 'Como comparar dois produtos no WhatsApp e ajudar a escolher',
+    description: 'Compare dois produtos no WhatsApp pelo uso real: critérios, diferenças confirmadas e limites para não indicar a opção errada.',
+  },
+  'tironi-tech-club-como-funciona': {
+    title: 'Como funciona o Tironi Tech Club na operação da empresa',
+    description: 'O Tironi Tech Club entra na operação, prioriza o que trava o crescimento, implementa a melhoria e acompanha o indicador todo mês.',
+    cta: { title: 'Veja o Club aplicado à sua empresa', text: 'O guia explica o ciclo. O próximo passo é mapear a operação e escolher a primeira frente de execução.', label: 'Quero mapear minha empresa', href: '/formulario?interesse=club&origem=artigo-club' },
+  },
+  'triagem-whatsapp-por-intencao-e-risco': {
+    title: 'Triagem no WhatsApp por intenção e risco',
+    description: 'Como classificar contatos no WhatsApp por intenção e risco, sem transformar toda conversa em lead nem misturar orçamento, suporte e cobrança.',
+  },
+  'recuperar-conversas-abandonadas-whatsapp': {
+    title: 'Como recuperar conversas abandonadas no WhatsApp',
+    description: 'Retome conversas abandonadas no WhatsApp com contexto, consentimento e uma próxima ajuda útil, sem follow-up genérico.',
+  },
+  'handoff-chatbot-atendente-contexto': {
+    title: 'Transferência do chatbot para o atendente, com contexto',
+    description: 'Como passar a conversa do chatbot para uma pessoa sem o cliente repetir tudo: resumo, prioridade e estado do atendimento.',
+  },
+  'automacao-com-ia-por-onde-comecar': {
+    title: 'Automação com IA: por onde começar na operação',
+    description: 'Como escolher o primeiro processo para automação com IA, priorizar pelo impacto e implantar um piloto que a equipe consegue medir.',
+    cta: { href: '/formulario?interesse=club&origem=artigo-automacao', label: 'Agendar diagnóstico estratégico' },
+  },
+};
+
+const clubArticleCta = { href: '/formulario?interesse=club&origem=artigo' };
+
 export const blogArticles = expandedBlogArticles.map((article) => {
   const sections = article.sections
     .map((section) => ({
@@ -546,8 +585,18 @@ export const blogArticles = expandedBlogArticles.map((article) => {
     }))
     .filter((section) => section.paragraphs.length || section.bullets?.length);
   const editorialArticle = { ...article, sections };
+  const snippet = searchSnippets[article.slug];
+  const cta = snippet?.cta
+    ? { ...editorialArticle.cta, ...snippet.cta }
+    : editorialArticle.cta?.href === '/#contato'
+      ? { ...editorialArticle.cta, ...clubArticleCta }
+      : editorialArticle.cta;
   return {
     ...editorialArticle,
+    ...(snippet?.title ? { title: snippet.title } : {}),
+    ...(snippet?.description ? { description: snippet.description } : {}),
+    ...(snippet ? { updated: '2026-10-05' } : {}),
+    cta,
     readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,
   };
 });
