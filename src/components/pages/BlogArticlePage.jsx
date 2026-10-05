@@ -138,6 +138,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
                 <p className="tt-article-lead">{article.intro}</p>
                 <aside className="tt-article-offer">
                   <p>{copy.offer}</p>
+                  {article.primaryGuide ? <p>A página principal deste tema é <a href={article.primaryGuide.href}>{article.primaryGuide.label}</a>.</p> : null}
                   <p><a href="/club">{copy.offerClub}</a><a href={`/formulario?interesse=club&origem=artigo-${article.slug}`}>{copy.offerDiagnostic}</a></p>
                 </aside>
                 <section className="tt-article-summary" aria-labelledby="article-summary-title"><span className="tt-blog-kicker">{copy.quick}</span><h2 id="article-summary-title">{copy.takeaway}</h2><ul>{article.takeaways.map((item) => <li key={item}>{item}</li>)}</ul></section>

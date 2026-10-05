@@ -153,5 +153,5 @@ export function localizedPath(slug, locale = 'pt') {
 }
 
 export function getArticleLocales(article) {
-  return article?.availableLocales || ['pt', 'en', 'es'];
+  return article?.availableLocales || ['pt'];
 }

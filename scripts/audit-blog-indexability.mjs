@@ -27,6 +27,8 @@ for (const location of sitemapLocations) {
 }
 let checked = 0;
 for (const locale of ['pt', 'en', 'es']) {
+  const published = blogArticles.filter((article) => getArticleLocales(article).includes(locale));
+  if (!published.length) continue;
   const prefix = locale === 'pt' ? '' : `${locale}/`;
   const archive = await read(`${prefix}blog/${locale === 'pt' ? 'arquivo' : 'archive'}/index.html`);
   for (const article of blogArticles) {

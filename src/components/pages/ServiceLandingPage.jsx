@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getSiteText } from '../../content/siteContent';
-import { serviceLandingWhatsApp } from '../../content/serviceLandingPages';
+import { serviceDiagnosticPath } from '../../content/serviceLandingPages';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
@@ -14,6 +14,7 @@ const SITE_URL = 'https://www.tironitech.com';
 export default function ServiceLandingPage({ page }) {
   const { languageOptions } = useLanguage();
   const t = getSiteText('pt');
+  const diagnosticHref = serviceDiagnosticPath(page.slug);
 
   useEffect(() => {
     const url = `${SITE_URL}/${page.slug}`;
@@ -32,7 +33,7 @@ export default function ServiceLandingPage({ page }) {
     <Navbar t={t} language="pt" setLanguage={() => {}} languageOptions={languageOptions} />
     <main className="tt2-site-main">
       <section className="tt-service-hero"><div className="tt2-container tt-service-hero-grid">
-        <div><span className="tt-service-kicker">{page.keyword}</span><h1>{page.title}</h1><p>{page.description}</p><div className="tt-service-actions"><a href={serviceLandingWhatsApp} target="_blank" rel="noreferrer">Agendar diagnóstico</a><a href="#como-funciona">Ver como funciona</a></div></div>
+        <div><span className="tt-service-kicker">{page.keyword}</span><h1>{page.title}</h1><p>{page.description}</p><div className="tt-service-actions"><a href={diagnosticHref}>Agendar diagnóstico</a><a href="#como-funciona">Ver como funciona</a></div><nav className="tt-service-hubs" aria-label="Páginas principais"><a href="/consultoria-ia-para-empresas">Consultoria de IA</a><a href="/automacao-processos-com-ia">Automação de processos</a><a href="/software-sob-medida">Software sob medida</a><a href="/club">Tironi Tech Club</a></nav></div>
         <figure><img src={page.image} alt={page.imageAlt} loading="eager" decoding="async" /><figcaption>Solução desenhada para o processo, os dados e a meta da sua empresa.</figcaption></figure>
       </div></section>
       <section className="tt-service-problem"><div className="tt2-container"><span>O GARGALO</span><h2>{page.problem}</h2><div className="tt-service-outcomes">{page.outcomes.map((item, index) => <article key={item}><small>0{index + 1}</small><p>{item}</p></article>)}</div></div></section>
@@ -42,7 +43,7 @@ export default function ServiceLandingPage({ page }) {
       <section className="tt-service-evidence"><div className="tt2-container"><div><strong>23+</strong><span>anos de experiência acumulada</span></div><div><strong>150+</strong><span>projetos para empresas</span></div><div><strong>1</strong><span>parceiro do diagnóstico à evolução</span></div></div></section>
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">DECISÃO</span><h2>Como comparar fornecedores e reduzir risco</h2></div><div><p>Peça uma demonstração ligada ao seu processo e valide como a solução trata informação incompleta, falhas de integração e transferência para uma pessoa. Compare custo total, tempo de implantação, propriedade dos dados, observabilidade e capacidade de evolução.</p><p>A Tironi Tech começa pelo menor fluxo completo capaz de gerar evidência. Esse recorte evita uma prova isolada que parece funcionar, mas não chega ao sistema, à equipe ou ao resultado que motivou o projeto.</p></div></div></section>
       <section className="tt-service-faq"><div className="tt2-container"><span className="tt-service-kicker">RESPOSTAS DIRETAS</span><h2>Perguntas antes de começar</h2>{page.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-      <section className="tt-service-final"><div className="tt2-container"><span className="tt-service-kicker">PRÓXIMO PASSO</span><h2>Comece pelo problema que mais custa tempo, vendas ou capacidade.</h2><p>Em uma conversa de diagnóstico, organizamos cenário, prioridade e o menor teste capaz de produzir evidência.</p><a href={serviceLandingWhatsApp} target="_blank" rel="noreferrer">Conversar com a Tironi Tech →</a></div></section>
+      <section className="tt-service-final"><div className="tt2-container"><span className="tt-service-kicker">PRÓXIMO PASSO</span><h2>Comece pelo problema que mais custa tempo, vendas ou capacidade.</h2><p>Em uma conversa de diagnóstico, organizamos cenário, prioridade e o menor teste capaz de produzir evidência.</p><a href={diagnosticHref}>Agendar diagnóstico estratégico →</a></div></section>
     </main>
     <FloatingWhatsAppButton /><Footer t={t} contactEmail="tironi@tironitech.com" whatsappNumber="5543996676633" language="pt" setLanguage={() => {}} languageOptions={languageOptions} /><CookieConsent t={t} />
   </div></div>;

@@ -577,6 +577,20 @@ const searchSnippets = {
 
 const clubArticleCta = { href: '/formulario?interesse=club&origem=artigo' };
 
+function primaryGuideFor(slug) {
+  if (/pesquisa-/.test(slug)) return null;
+  if (/software-sob-medida|empresa-de-software-sob-medida|empresa-software-sob-medida|desenvolvimento-de-software-sob-medida|checklist-projeto-software/.test(slug)) {
+    return { href: '/software-sob-medida', label: 'Software sob medida para empresas' };
+  }
+  if (/consultoria-de-ia|consultoria-de-inteligencia-artificial|contratar-consultoria-ia/.test(slug)) {
+    return { href: '/consultoria-ia-para-empresas', label: 'Consultoria de IA para empresas' };
+  }
+  if (/automacao-de-processos|automacao-processos|roi-automacao-processos/.test(slug)) {
+    return { href: '/automacao-processos-com-ia', label: 'Automação de processos com IA' };
+  }
+  return null;
+}
+
 export const blogArticles = expandedBlogArticles.map((article) => {
   const sections = article.sections
     .map((section) => ({
@@ -597,6 +611,7 @@ export const blogArticles = expandedBlogArticles.map((article) => {
     ...(snippet?.description ? { description: snippet.description } : {}),
     ...(snippet ? { updated: '2026-10-05' } : {}),
     cta,
+    primaryGuide: primaryGuideFor(article.slug),
     readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,
   };
 });

@@ -120,5 +120,19 @@ export const serviceLandingPages = [
   },
 ];
 
+const diagnosticInterest = {
+  'software-sob-medida': 'desenvolvimento',
+  'desenvolvimento-software-sob-medida': 'desenvolvimento',
+  'consultoria-ia-para-empresas': 'ia',
+  'empresa-inteligencia-artificial': 'ia',
+  'agentes-de-ia-para-empresas': 'ia',
+  'desenvolvimento-solucoes-com-ia': 'ia',
+  'automacao-processos-com-ia': 'automacao',
+  'empresa-automacao-com-ia': 'automacao',
+  'automacao-whatsapp-com-ia': 'automacao',
+  'agente-ia-whatsapp': 'automacao',
+};
+
 export const getServiceLandingPage = (slug) => serviceLandingPages.find((page) => page.slug === slug);
+export const serviceDiagnosticPath = (slug) => `/formulario?interesse=${diagnosticInterest[slug] || 'club'}&origem=${slug}`;
 export { whatsapp as serviceLandingWhatsApp };
