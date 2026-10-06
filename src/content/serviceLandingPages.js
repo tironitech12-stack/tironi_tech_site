@@ -22,7 +22,7 @@ export const serviceLandingPages = [
   {
     slug: 'software-sob-medida', keyword: 'Software sob medida',
     title: 'Software sob medida para eliminar os limites que travam sua operação',
-    description: 'Sistemas personalizados, portais e plataformas integradas ao processo da empresa, com arquitetura preparada para evoluir e incorporar IA.',
+    description: 'Software sob medida é um sistema desenhado para o processo da empresa, quando uma ferramenta pronta obriga a operação a se adaptar. A Tironi Tech projeta, implementa e acompanha essa entrega.',
     problem: 'Ferramentas genéricas obrigam sua equipe a adaptar o processo, manter controles paralelos e aceitar integrações incompletas.',
     outcomes: ['Fluxos desenhados para a rotina real', 'Dados centralizados e acessíveis com segurança', 'Evolução do sistema conforme o negócio cresce'],
     solution: 'A Tironi Tech transforma regras, jornadas e integrações em um produto digital próprio. O projeto começa no problema operacional e termina com software testado, documentado e utilizável.',
@@ -44,7 +44,7 @@ export const serviceLandingPages = [
   {
     slug: 'consultoria-ia-para-empresas', keyword: 'Consultoria de IA para empresas',
     title: 'Da dúvida sobre IA a um plano executável, priorizado e mensurável',
-    description: 'Consultoria de IA para empresas que precisam escolher casos de uso, organizar dados, avaliar riscos e conduzir uma implantação com resultado.',
+    description: 'Consultoria de IA para empresas é o trabalho de escolher o caso de uso, organizar dados e riscos e implantar a primeira melhoria com quem também executa. Não termina em um relatório.',
     problem: 'Há muitas ideias, fornecedores e ferramentas, mas pouca clareza sobre onde começar, quanto investir e como provar retorno.',
     outcomes: ['Mapa de oportunidades e dependências', 'Priorização por impacto, viabilidade e risco', 'Roadmap com responsáveis, métricas e próximos testes'],
     solution: 'Entrevistamos áreas, observamos processos e transformamos oportunidades em hipóteses testáveis. O plano inclui arquitetura, dados, segurança, adoção e critérios de continuidade.',
@@ -99,7 +99,7 @@ export const serviceLandingPages = [
   {
     slug: 'automacao-processos-com-ia', keyword: 'Automação de processos com IA',
     title: 'Automação de processos com IA para transformar filas, documentos e exceções em fluxo',
-    description: 'Mapeamento e automação de processos empresariais que combinam regras, IA, integrações e revisão humana para reduzir ciclo e erro.',
+    description: 'Automação de processos empresariais combina regras, inteligência artificial e integrações para tirar da fila o trabalho repetido, com revisão humana onde o erro custa caro.',
     problem: 'O processo fica preso entre e-mails, documentos, aprovações, planilhas e sistemas que não compartilham contexto.',
     outcomes: ['Entrada e classificação padronizadas', 'Aprovações e exceções encaminhadas com contexto', 'Indicadores de tempo, falha e resultado por etapa'],
     solution: 'Modelamos eventos, estados e responsabilidades. A IA trata informações variáveis; regras controlam decisões estáveis; integrações executam e registram ações.',

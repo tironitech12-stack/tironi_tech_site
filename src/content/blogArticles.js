@@ -579,6 +579,20 @@ const clubArticleCta = { href: '/formulario?interesse=club&origem=artigo' };
 
 function primaryGuideFor(slug) {
   if (/pesquisa-/.test(slug)) return null;
+  const whatsappSlugs = new Set([
+    'como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente',
+    'como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher',
+    'triagem-whatsapp-por-intencao-e-risco',
+    'recuperar-conversas-abandonadas-whatsapp',
+    'handoff-chatbot-atendente-contexto',
+  ]);
+  if (whatsappSlugs.has(slug)) return { href: '/agente-ia-whatsapp', label: 'Agente de IA para WhatsApp' };
+  if (slug === 'como-organizar-onboarding-cliente-b2b-primeira-entrega') {
+    return { href: '/software-sob-medida', label: 'Software sob medida para empresas' };
+  }
+  if (slug === 'automacao-com-ia-por-onde-comecar') {
+    return { href: '/automacao-processos-com-ia', label: 'Automação de processos com IA' };
+  }
   if (/software-sob-medida|empresa-de-software-sob-medida|empresa-software-sob-medida|desenvolvimento-de-software-sob-medida|checklist-projeto-software/.test(slug)) {
     return { href: '/software-sob-medida', label: 'Software sob medida para empresas' };
   }
