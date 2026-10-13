@@ -98,8 +98,24 @@ assert(!sitemapUrls.has(`${origin}/painel`), 'Private panel must not be in the s
 const localizedCounts = { pt: 0, en: 0, es: 0 };
 for (const url of sitemapUrls) {
   const path = new URL(url).pathname;
+  const html = await read(path === '/' ? 'index.html' : `${path.slice(1)}/index.html`);
+  const robotRules = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map(([tag]) => ({ name: tag.match(/\bname=["']([^"']+)["']/i)?.[1], content: tag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '' }))
+    .filter(({ name }) => /^(robots|googlebot)$/i.test(name || ''));
+  assert(robotRules.some(({ content }) => /\bindex\b/i.test(content)), `Missing index rule in sitemap page: ${url}`);
+  assert(!robotRules.some(({ content }) => /\b(noindex|none)\b/i.test(content)), `Blocked page in sitemap: ${url}`);
+  assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical in sitemap page: ${url}`);
+  assert(/<h1(?:\s[^>]*)?>[^<]/i.test(html), `Missing visible heading in sitemap page: ${url}`);
   if (path.startsWith('/en/')) localizedCounts.en++;
   else if (path.startsWith('/es/')) localizedCounts.es++;
   else localizedCounts.pt++;
+}
+const robots = await read('robots.txt');
+assert(robots.includes(`Sitemap: ${origin}/sitemap.xml`), 'robots.txt must advertise the canonical sitemap');
+const hosting = JSON.parse(await readFile(resolve('vercel.json'), 'utf8'));
+for (const redirect of hosting.redirects || []) {
+  if (redirect.has || redirect.missing) continue;
+  const pattern = '^' + redirect.source.split('/').map((segment) => segment.startsWith(':') ? '[^/]+' : segment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('/') + '$';
+  for (const url of sitemapUrls) assert(!new RegExp(pattern).test(new URL(url).pathname), `Redirected URL in sitemap: ${url}`);
 }
 console.log(JSON.stringify({ checkedArticlePages: checked, sitemapType: 'urlset', sitemapUrls: sitemapUrls.size, localizedUrls: localizedCounts, status: 'passed' }, null, 2));

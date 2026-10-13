@@ -53,9 +53,9 @@
   "articles": [
     {
       "slug": "triagem-whatsapp-por-intencao-e-risco",
-      "title": "Triagem no WhatsApp por intenção e risco: como classificar contatos sem transformar toda conversa em lead",
+      "title": "Triagem no WhatsApp por intenção e risco",
       "category": "ChatBô e atendimento",
-      "words": 2947,
+      "words": 2932,
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
@@ -66,9 +66,9 @@
     },
     {
       "slug": "handoff-chatbot-atendente-contexto",
-      "title": "Transferência do chatbot para atendente: como preservar contexto quando a automação precisa parar",
+      "title": "Transferência do chatbot para o atendente, com contexto",
       "category": "ChatBô e atendimento",
-      "words": 2957,
+      "words": 2944,
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
@@ -105,9 +105,9 @@
     },
     {
       "slug": "recuperar-conversas-abandonadas-whatsapp",
-      "title": "Recuperação de conversas abandonadas no WhatsApp: como retomar contatos com contexto, consentimento e utilidade",
+      "title": "Como recuperar conversas abandonadas no WhatsApp",
       "category": "ChatBô e atendimento",
-      "words": 2985,
+      "words": 2964,
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,

@@ -539,6 +539,11 @@ for (const article of expandedBlogArticles) {
 }
 
 const searchSnippets = {
+  'pesquisa-138-how-to-build-a-whatsapp-chatbot-guia-aplicacao': {
+    title: 'Chatbot no WhatsApp para empresas: análise e aplicação',
+    description: 'Análise em português de “How to Build a WhatsApp Chatbot”: decisões, riscos e critérios para avaliar a aplicação na operação da empresa.',
+    updated: '2026-10-13',
+  },
   'como-organizar-onboarding-cliente-b2b-primeira-entrega': {
     title: 'Onboarding de clientes B2B: da contratação à primeira entrega',
     description: 'Como organizar o onboarding de clientes B2B com responsáveis, dependências e uma primeira entrega que o cliente consegue usar e conferir.',
@@ -623,7 +628,7 @@ export const blogArticles = expandedBlogArticles.map((article) => {
     ...editorialArticle,
     ...(snippet?.title ? { title: snippet.title } : {}),
     ...(snippet?.description ? { description: snippet.description } : {}),
-    ...(snippet ? { updated: '2026-10-05' } : {}),
+    ...(snippet ? { updated: snippet.updated || '2026-10-05' } : {}),
     cta,
     primaryGuide: primaryGuideFor(article.slug),
     readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,
