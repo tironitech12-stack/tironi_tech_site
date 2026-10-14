@@ -111,6 +111,11 @@ for (const url of sitemapUrls) {
   else localizedCounts.pt++;
 }
 const robots = await read('robots.txt');
+const blogHtml = await read('blog/index.html');
+const { serviceLandingPages } = await import('../src/content/serviceLandingPages.js');
+for (const page of serviceLandingPages) {
+  assert(blogHtml.includes(`href="/${page.slug}"`), `Missing commercial discovery link: ${page.slug}`);
+}
 assert(robots.includes(`Sitemap: ${origin}/sitemap.xml`), 'robots.txt must advertise the canonical sitemap');
 const hosting = JSON.parse(await readFile(resolve('vercel.json'), 'utf8'));
 for (const redirect of hosting.redirects || []) {

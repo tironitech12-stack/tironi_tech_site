@@ -7,6 +7,7 @@ import { commercialSearchArticles } from './commercialSearchArticles.js';
 import { customerIntentArticles } from './customerIntentArticles.js';
 import { referenceArticles, referenceCategories } from './referenceArticles.js';
 import { guardedExpansionArticles } from './guardedExpansionArticles.js';
+import { searchConsoleArticleRevisions } from './searchConsoleArticleRevisions.js';
 
 const googleHelpful = { label: 'Google — conteúdo útil e confiável', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' };
 const googleAI = { label: 'Google — otimização para recursos de busca com IA', url: 'https://developers.google.com/search/docs/fundamentals/ai-optimization-guide' };
@@ -611,6 +612,7 @@ function primaryGuideFor(slug) {
 }
 
 export const blogArticles = expandedBlogArticles.map((article) => {
+  article = { ...article, ...searchConsoleArticleRevisions[article.slug] };
   const sections = article.sections
     .map((section) => ({
       ...section,
@@ -630,7 +632,7 @@ export const blogArticles = expandedBlogArticles.map((article) => {
     ...(snippet?.description ? { description: snippet.description } : {}),
     ...(snippet ? { updated: snippet.updated || '2026-10-05' } : {}),
     cta,
-    primaryGuide: primaryGuideFor(article.slug),
+    primaryGuide: article.primaryGuide || primaryGuideFor(article.slug),
     readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,
   };
 });

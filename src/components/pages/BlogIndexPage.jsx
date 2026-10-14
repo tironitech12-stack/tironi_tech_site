@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { BLOG_SEO } from '../../content/positioning';
+import { serviceLandingPages } from '../../content/serviceLandingPages';
 import { blogIndexArticles, blogArticleCounts } from '../../content/blogIndexArticles.generated';
 import { getSiteText } from '../../content/siteContent';
 import Navbar from '../layout/Navbar';
@@ -89,6 +90,7 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
               <span className="tt-blog-kicker">INSIGHTS TIRONI TECH</span>
               <h1>{archiveMode ? copy.archiveTitle : copy.title}</h1><p>{archiveMode ? copy.archiveDeck : copy.deck}</p>
               {archiveMode ? null : <p className="tt-blog-offer"><a href="/club">Tironi Tech Club</a> · <a href="/formulario?interesse=club&origem=blog">{locale === 'en' ? 'Schedule a diagnosis' : 'Agendar diagnóstico'}</a></p>}
+              {!archiveMode && locale === 'pt' && <nav className="tt-blog-solutions" aria-label="Soluções para empresas">{serviceLandingPages.map((service) => <a key={service.slug} href={`/${service.slug}`}>{service.keyword}</a>)}</nav>}
             </div>
           </section>
 
