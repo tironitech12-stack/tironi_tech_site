@@ -6,6 +6,7 @@ import { ensureGoogleTag, trackGooglePageView, updateGoogleConsent } from "./uti
 import { getServiceLandingPage } from './content/serviceLandingPages';
 import { getOfferPageKey, HOME_SEO } from './content/positioning';
 import { applyPageMeta } from './utils/pageMeta';
+import { trackFunnelEvent } from './utils/conversionTracking';
 
 const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
 const loadBlogIndexPage = () => import('./components/pages/BlogIndexPage');
@@ -67,10 +68,26 @@ function useClientLocation() {
       syncLocation();
     };
 
+    const trackContactClick = (event) => {
+      const anchor = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (!anchor || event.button !== 0) return;
+      const url = new URL(anchor.href, window.location.href);
+      if (['wa.me', 'api.whatsapp.com'].includes(url.hostname)) {
+        trackFunnelEvent('whatsapp_contact_click');
+      } else if (url.protocol === 'mailto:') {
+        trackFunnelEvent('email_contact_click');
+      } else if (url.origin === window.location.origin && getServiceLandingPage(url.pathname.slice(1))) {
+        trackFunnelEvent('service_link_click', { service: url.pathname.slice(1) });
+      } else if (url.origin === window.location.origin && url.pathname === '/formulario') {
+        trackFunnelEvent('diagnostic_link_click', { interest: url.searchParams.get('interesse') || 'outro' });
+      }
+    };
+    document.addEventListener('click', trackContactClick, true);
     window.addEventListener('popstate', syncLocation);
     document.addEventListener('click', handleClick);
     document.addEventListener('pointerover', preloadInternalRoute, { passive: true });
     return () => {
+      document.removeEventListener('click', trackContactClick, true);
       window.removeEventListener('popstate', syncLocation);
       document.removeEventListener('click', handleClick);
       document.removeEventListener('pointerover', preloadInternalRoute);

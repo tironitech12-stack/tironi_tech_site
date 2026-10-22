@@ -69,7 +69,8 @@ export default function LeadFormPage() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || 'Não foi possível enviar seus dados.');
-      trackFunnelEvent('diagnostic_submit', { interest: form.interest });
+      const origin = new URLSearchParams(window.location.search).get('origem') || 'direto';
+      trackFunnelEvent('diagnostic_submit', { interest: form.interest, origem: origin });
       if (form.interest === 'Tironi Tech Club' || form.interest === 'Ferramentas da Tironi') {
         trackFunnelEvent('club_lead', { interest: form.interest });
       }

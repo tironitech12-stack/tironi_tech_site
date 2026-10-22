@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { blogArticles } from '../src/content/blogArticles.js';
 import { getArticleLocales } from '../src/content/localizedBlogArticles.js';
+import { searchConsoleArticleRevisions } from '../src/content/searchConsoleArticleRevisions.js';
 
 const root = resolve('dist');
 const origin = 'https://www.tironitech.com';
@@ -25,6 +26,12 @@ for (const location of sitemapLocations) {
   assert(!sitemapUrls.has(location), `Duplicate sitemap URL: ${location}`);
   sitemapUrls.add(location);
 }
+const sitemapDates = new Map(sitemapEntries.map(([, url, date]) => [url, date]));
+for (const [url, date] of sitemapDates) {
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(Date.parse(date)), `Invalid lastmod: ${url}`);
+  assert(date <= new Date().toISOString().slice(0, 10), `Future lastmod: ${url}`);
+  assert(!new URL(url).search && !new URL(url).hash, `Noncanonical sitemap parameters: ${url}`);
+}
 let checked = 0;
 for (const locale of ['pt', 'en', 'es']) {
   const published = blogArticles.filter((article) => getArticleLocales(article).includes(locale));
@@ -41,6 +48,11 @@ for (const locale of ['pt', 'en', 'es']) {
     assert(sitemapUrls.has(url), `Missing from sitemap: ${url}`);
     assert(archive.includes(`href="/${path}"`), `Missing archive link: ${url}`);
     const html = await read(`${path}/index.html`);
+    assert.equal(sitemapDates.get(url), article.updated, `Outdated sitemap lastmod: ${url}`);
+    if (locale === 'pt' && article.primaryGuide) {
+      assert(sitemapUrls.has(`${origin}${article.primaryGuide.href}`), `Unknown commercial destination: ${url}`);
+      assert(html.includes(`href="${article.primaryGuide.href}"`), `Missing contextual service link: ${url}`);
+    }
     const payload = JSON.parse(await read(`article-data/${locale}/${article.slug}.json`));
     assert.equal(payload.locale, locale, `Wrong article payload locale: ${url}`);
     assert.equal(payload.article.slug, article.slug, `Wrong article payload: ${url}`);
@@ -57,6 +69,15 @@ for (const locale of ['pt', 'en', 'es']) {
     }
     assert(html.includes('<h1>'), `Missing article heading: ${url}`);
     if (locale === 'pt') {
+      const revision = searchConsoleArticleRevisions[article.slug];
+      if (revision) {
+        assert(article.updated >= revision.updated, `Revision date was overwritten: ${url}`);
+        for (const section of revision.sections || []) {
+          for (const paragraph of section.paragraphs || []) {
+            assert(html.includes(escapeHtml(paragraph)), `Revised content lost during filtering: ${url}`);
+          }
+        }
+      }
       assert(html.includes(`<h1>${escapeHtml(article.title)}</h1>`), `Wrong prerendered article: ${url}`);
       const firstParagraph = article.sections.flatMap((section) => section.paragraphs || [])[0];
       if (firstParagraph) assert(html.includes(escapeHtml(firstParagraph)), `Article body absent from HTML: ${url}`);
@@ -106,6 +127,7 @@ for (const url of sitemapUrls) {
   assert(!robotRules.some(({ content }) => /\b(noindex|none)\b/i.test(content)), `Blocked page in sitemap: ${url}`);
   assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical in sitemap page: ${url}`);
   assert(/<h1(?:\s[^>]*)?>[^<]/i.test(html), `Missing visible heading in sitemap page: ${url}`);
+  assert.equal([...html.matchAll(/<h1(?:\s|>)/gi)].length, 1, `Multiple main headings: ${url}`);
   if (path.startsWith('/en/')) localizedCounts.en++;
   else if (path.startsWith('/es/')) localizedCounts.es++;
   else localizedCounts.pt++;

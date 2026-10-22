@@ -8,6 +8,7 @@ import { customerIntentArticles } from './customerIntentArticles.js';
 import { referenceArticles, referenceCategories } from './referenceArticles.js';
 import { guardedExpansionArticles } from './guardedExpansionArticles.js';
 import { searchConsoleArticleRevisions } from './searchConsoleArticleRevisions.js';
+import { articleServiceFor } from './articleServices.js';
 
 const googleHelpful = { label: 'Google — conteúdo útil e confiável', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' };
 const googleAI = { label: 'Google — otimização para recursos de busca com IA', url: 'https://developers.google.com/search/docs/fundamentals/ai-optimization-guide' };
@@ -608,7 +609,7 @@ function primaryGuideFor(slug) {
   if (/automacao-de-processos|automacao-processos|roi-automacao-processos/.test(slug)) {
     return { href: '/automacao-processos-com-ia', label: 'Automação de processos com IA' };
   }
-  return null;
+  return articleServiceFor(slug);
 }
 
 export const blogArticles = expandedBlogArticles.map((article) => {
@@ -616,7 +617,7 @@ export const blogArticles = expandedBlogArticles.map((article) => {
   const sections = article.sections
     .map((section) => ({
       ...section,
-      paragraphs: (section.paragraphs || []).filter((paragraph) => paragraphFrequency.get(paragraph.trim().replace(/\s+/g, ' ')) <= 4),
+      paragraphs: (section.paragraphs || []).filter((paragraph) => (paragraphFrequency.get(paragraph.trim().replace(/\s+/g, ' ')) || 0) <= 4),
     }))
     .filter((section) => section.paragraphs.length || section.bullets?.length);
   const editorialArticle = { ...article, sections };
@@ -630,7 +631,7 @@ export const blogArticles = expandedBlogArticles.map((article) => {
     ...editorialArticle,
     ...(snippet?.title ? { title: snippet.title } : {}),
     ...(snippet?.description ? { description: snippet.description } : {}),
-    ...(snippet ? { updated: snippet.updated || '2026-10-05' } : {}),
+    ...(snippet ? { updated: [article.updated, snippet.updated || '2026-10-05'].sort().at(-1) } : {}),
     cta,
     primaryGuide: article.primaryGuide || primaryGuideFor(article.slug),
     readTime: `${Math.max(3, Math.ceil(articleWordCount(editorialArticle) / 180))} min de leitura`,

@@ -11,7 +11,11 @@ const words = (article) => [
 ].join(' ').trim().split(/\s+/).filter(Boolean).length;
 
 const paragraphUses = new Map();
+const titles = new Map();
 for (const article of blogArticles) {
+  const title = normalize(article.title).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  if (!titles.has(title)) titles.set(title, []);
+  titles.get(title).push(article.slug);
   for (const paragraph of article.sections.flatMap((section) => section.paragraphs || [])) {
     const key = normalize(paragraph);
     if (!paragraphUses.has(key)) paragraphUses.set(key, new Set());
@@ -34,10 +38,15 @@ const report = {
   coreWords: { min: coreCounts[0], median: coreCounts[Math.floor(coreCounts.length / 2)], max: coreCounts.at(-1) },
   allWords: { min: allCounts[0], median: allCounts[Math.floor(allCounts.length / 2)], max: allCounts.at(-1) },
   paragraphsRepeatedAcrossFiveOrMoreArticles: repeated.length,
+  duplicateTitles: [...titles.values()].filter((slugs) => slugs.length > 1),
 };
 
 console.log(JSON.stringify(report, null, 2));
 if (repeated.length) {
   console.error(`Quality gate failed: ${repeated.length} paragraph(s) still occur in five or more articles.`);
+  process.exitCode = 1;
+}
+if (report.duplicateTitles.length) {
+  console.error('Quality gate failed: articles with the same title need an editorial review.');
   process.exitCode = 1;
 }

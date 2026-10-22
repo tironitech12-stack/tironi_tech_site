@@ -7,9 +7,10 @@ export function trackFunnelEvent(name, properties = {}) {
 
   try {
     if (getStoredCookieConsent()?.analytics) {
-      track(name, properties);
+      const context = { page_path: window.location.pathname, ...properties };
+      track(name, context);
       if (typeof window.gtag === "function") {
-        window.gtag("event", name, { ...properties, send_to: GOOGLE_ANALYTICS_ID });
+        window.gtag("event", name, { ...context, send_to: GOOGLE_ANALYTICS_ID });
       }
     }
   } catch {

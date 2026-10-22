@@ -76,7 +76,7 @@ export const blogIndexArticles = {
       "description": "Retome conversas abandonadas no WhatsApp com contexto, consentimento e uma próxima ajuda útil, sem follow-up genérico.",
       "category": "ChatBô e atendimento",
       "date": "2026-09-29",
-      "updated": "2026-10-05",
+      "updated": "2026-10-21",
       "readTime": "17 min de leitura",
       "featured": true,
       "keywords": [
@@ -242,11 +242,11 @@ export const blogIndexArticles = {
     },
     {
       "slug": "central-atendimento-whatsapp-multiequipe",
-      "title": "Central de atendimento no WhatsApp para várias equipes: como distribuir conversas com regras transparentes e supervisão",
-      "description": "como distribuir conversas com regras transparentes e supervisão. Guia aprofundado com diagnóstico, matriz de competência, fila e escalonamento, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "title": "Central de atendimento no WhatsApp: filas, responsáveis e contexto",
+      "description": "Organize o WhatsApp entre vendas, suporte e financeiro com filas, responsável pela conversa e transferência de contexto entre equipes.",
       "category": "ChatBô e atendimento",
       "date": "2026-09-29",
-      "updated": "2026-09-29",
+      "updated": "2026-10-21",
       "readTime": "17 min de leitura",
       "featured": true,
       "keywords": [
@@ -581,7 +581,7 @@ export const blogIndexArticles = {
       "description": "Como responder dúvidas de uma proposta pelo WhatsApp, separar esclarecimento de alteração e manter a versão comercial combinada.",
       "category": "ChatBô e atendimento",
       "date": "2026-09-24",
-      "updated": "2026-10-05",
+      "updated": "2026-10-21",
       "readTime": "14 min de leitura",
       "featured": true,
       "keywords": [
@@ -1882,11 +1882,11 @@ export const blogIndexArticles = {
     },
     {
       "slug": "ia-para-atendimento-ao-cliente",
-      "title": "IA para atendimento ao cliente: aplicações, arquitetura e métricas",
-      "description": "IA para atendimento ao cliente: aplicações, arquitetura e métricas. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
+      "title": "IA para atendimento ao cliente: como planejar a implantação",
+      "description": "Planeje a implantação de IA no atendimento: escolha do caso de uso, integração com sistemas, transferência para pessoas e critérios de contratação.",
       "category": "Serviços de IA",
       "date": "2026-09-22",
-      "updated": "2026-09-22",
+      "updated": "2026-10-21",
       "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
