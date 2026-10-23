@@ -551,8 +551,24 @@ const searchSnippets = {
     description: 'Como organizar o onboarding de clientes B2B com responsáveis, dependências e uma primeira entrega que o cliente consegue usar e conferir.',
   },
   'como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente': {
-    title: 'Dúvidas de proposta no WhatsApp sem mudar o escopo',
-    description: 'Como responder dúvidas de uma proposta pelo WhatsApp, separar esclarecimento de alteração e manter a versão comercial combinada.',
+    title: 'Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo',
+    description: 'Responda dúvidas de proposta no WhatsApp, diferencie esclarecimento de alteração e preserve escopo, prazo, preço e versão aprovada.',
+    updated: '2026-10-23',
+  },
+  'idempotencia-integracao-pedidos': {
+    title: 'Idempotência em integrações: evite pedidos duplicados',
+    description: 'Use chaves idempotentes, estados e reconciliação para repetir chamadas sem duplicar pedidos, cobranças ou mensagens.',
+    updated: '2026-10-23',
+  },
+  'reconciliacao-dados-entre-sistemas': {
+    title: 'Reconciliação de dados entre sistemas: corrija divergências',
+    description: 'Compare estado, autoridade e histórico para encontrar e corrigir divergências entre CRM, ERP, pedidos e financeiro.',
+    updated: '2026-10-23',
+  },
+  'como-levar-instagram-whatsapp-preservar-contexto-venda': {
+    title: 'Instagram para WhatsApp: preserve o contexto da venda',
+    description: 'Leve o cliente do Instagram ao WhatsApp com oferta, origem e próxima ação registradas para continuar a venda sem repetir perguntas.',
+    updated: '2026-10-23',
   },
   'como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher': {
     title: 'Como comparar dois produtos no WhatsApp e ajudar a escolher',

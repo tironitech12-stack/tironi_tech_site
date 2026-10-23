@@ -12,12 +12,15 @@
     "audit:batch100": "node scripts/audit-tutorials.mjs --require-request-complete",
     "audit:ai150": "node scripts/audit-ai-reviewed-content.mjs",
     "audit:indexability": "node scripts/audit-blog-indexability.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "gsc": "node --env-file-if-exists=.env.local scripts/search-console.mjs",
+    "gsc:analyze": "node --env-file-if-exists=.env.local scripts/analyze-search-console.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^9.7.0",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.38.0",
+    "google-auth-library": "^11.3.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "three": "^0.185.1"

@@ -1,5 +1,9 @@
 // Editorial revisions of existing URLs; no new pages are created.
 export const searchConsoleArticleRevisions = {
+  'pesquisa-138-how-to-build-a-whatsapp-chatbot-guia-aplicacao': {
+    updated: '2026-10-23',
+    primaryGuide: { href: '/automacao-whatsapp-com-ia', label: 'Automação de WhatsApp com IA', description: 'Veja como aplicar atendimento, qualificação e transferência humana em um fluxo conectado à operação.' },
+  },
   'ia-atendimento-cliente-aplicacoes-metricas': {
     title: 'Como medir triagem e resolução no atendimento com IA',
     description: 'Defina métricas de triagem, resolução, reabertura e transferência no atendimento com IA, com critérios para comparar o piloto à operação atual.',
@@ -25,9 +29,9 @@ export const searchConsoleArticleRevisions = {
     primaryGuide: { href: '/agentes-de-ia-para-empresas', label: 'Agentes de IA para empresas' },
   },
   'central-atendimento-whatsapp-multiequipe': {
-    title: 'Central de atendimento no WhatsApp: filas, responsáveis e contexto',
-    description: 'Organize o WhatsApp entre vendas, suporte e financeiro com filas, responsável pela conversa e transferência de contexto entre equipes.',
-    updated: '2026-10-21',
+    title: 'Central de atendimento WhatsApp: filas, equipes e contexto',
+    description: 'Organize vendas, suporte e financeiro no WhatsApp com filas, responsáveis, regras de transferência e contexto preservado entre equipes.',
+    updated: '2026-10-23',
     intro: 'Uma central de atendimento no WhatsApp precisa deixar claro quem responde, qual é a próxima ação e quando transferir a conversa. Considere um cliente que pede orçamento e, na mesma mensagem, pergunta sobre uma cobrança: vendas pode conduzir a proposta enquanto o financeiro recebe uma tarefa com contexto, sem dois atendentes responderem ao mesmo tempo. O desenho deve ser validado na rotina da equipe antes de ampliar a automação.',
     primaryGuide: { href: '/agente-ia-whatsapp', label: 'Agente de IA para WhatsApp', description: 'Veja como integrar triagem, filas e transferência para pessoas na operação de atendimento.' },
   },
@@ -36,7 +40,9 @@ export const searchConsoleArticleRevisions = {
     intro: 'Para recuperar uma conversa abandonada no WhatsApp, comece pelo último compromisso registrado: qual dúvida ficou aberta, quem deveria agir e se ainda faz sentido retomar. Se o cliente pediu uma comparação de planos, uma retomada útil apresenta a diferença que faltava e pergunta se o cenário continua o mesmo. Antes de enviar, confira consentimento, regras do canal e pedidos para não receber novas mensagens. Este guia propõe um processo de retomada; não apresenta uma taxa de recuperação medida.',
   },
   'como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente': {
-    updated: '2026-10-21',
+    title: 'Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo',
+    description: 'Responda dúvidas de proposta no WhatsApp, diferencie esclarecimento de alteração e preserve escopo, prazo, preço e versão aprovada.',
+    updated: '2026-10-23',
     intro: 'Ao responder uma dúvida de proposta no WhatsApp, indique a versão da proposta e se a resposta apenas esclarece o combinado ou exige uma alteração. Por exemplo: explicar como funciona uma integração prevista é esclarecimento; incluir uma integração adicional pede revisão de escopo, prazo e preço. Registre a decisão na proposta e confirme a versão aprovada antes de a equipe executar. Assim, a conversa ajuda a decidir sem criar dois acordos diferentes.',
   },
   'pesquisa-187-cursor-ai-coding-agent-guia-aplicacao': {

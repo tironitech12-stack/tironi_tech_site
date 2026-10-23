@@ -242,11 +242,11 @@ export const blogIndexArticles = {
     },
     {
       "slug": "central-atendimento-whatsapp-multiequipe",
-      "title": "Central de atendimento no WhatsApp: filas, responsáveis e contexto",
-      "description": "Organize o WhatsApp entre vendas, suporte e financeiro com filas, responsável pela conversa e transferência de contexto entre equipes.",
+      "title": "Central de atendimento WhatsApp: filas, equipes e contexto",
+      "description": "Organize vendas, suporte e financeiro no WhatsApp com filas, responsáveis, regras de transferência e contexto preservado entre equipes.",
       "category": "ChatBô e atendimento",
       "date": "2026-09-29",
-      "updated": "2026-10-21",
+      "updated": "2026-10-23",
       "readTime": "17 min de leitura",
       "featured": true,
       "keywords": [
@@ -577,11 +577,11 @@ export const blogIndexArticles = {
     },
     {
       "slug": "como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente",
-      "title": "Dúvidas de proposta no WhatsApp sem mudar o escopo",
-      "description": "Como responder dúvidas de uma proposta pelo WhatsApp, separar esclarecimento de alteração e manter a versão comercial combinada.",
+      "title": "Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo",
+      "description": "Responda dúvidas de proposta no WhatsApp, diferencie esclarecimento de alteração e preserve escopo, prazo, preço e versão aprovada.",
       "category": "ChatBô e atendimento",
       "date": "2026-09-24",
-      "updated": "2026-10-21",
+      "updated": "2026-10-23",
       "readTime": "14 min de leitura",
       "featured": true,
       "keywords": [
@@ -980,11 +980,11 @@ export const blogIndexArticles = {
     },
     {
       "slug": "como-levar-instagram-whatsapp-preservar-contexto-venda",
-      "title": "Como levar o cliente do Instagram para o WhatsApp sem perder o contexto da venda",
-      "description": "Organize a passagem entre Instagram e WhatsApp com identificação da oferta, confirmação do cliente, continuidade do atendimento e medição do abandono.",
+      "title": "Instagram para WhatsApp: preserve o contexto da venda",
+      "description": "Leve o cliente do Instagram ao WhatsApp com oferta, origem e próxima ação registradas para continuar a venda sem repetir perguntas.",
       "category": "Vendas e crescimento",
       "date": "2026-09-24",
-      "updated": "2026-09-24",
+      "updated": "2026-10-23",
       "readTime": "13 min de leitura",
       "featured": true,
       "keywords": [

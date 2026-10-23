@@ -9,6 +9,7 @@ import ClubSection from '../sections/ClubSection';
 import { CLUB_SEO, diagnosticHref } from '../../content/positioning';
 import { applyPageMeta } from '../../utils/pageMeta';
 import { trackFunnelEvent } from '../../utils/conversionTracking';
+import CommercialSolutionsLinks from '../sections/CommercialSolutionsLinks';
 
 export default function ClubPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
@@ -36,6 +37,7 @@ export default function ClubPage() {
         <Navbar t={t} language={language} setLanguage={setLanguage} languageOptions={languageOptions} />
         <main className="tt2-site-main">
           <ClubSection />
+          <CommercialSolutionsLinks />
           <section className="tt-club-join" aria-labelledby="club-join-title">
             <span className="tt-club-label">TIRONI TECH <b>CLUB</b></span>
             <h2 id="club-join-title">{copy.connection}</h2>

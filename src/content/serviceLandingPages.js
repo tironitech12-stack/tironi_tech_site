@@ -120,6 +120,12 @@ export const serviceLandingPages = [
   },
 ];
 
+export const searchConsolePriorityServiceSlugs = [
+  'agente-ia-whatsapp',
+  'agentes-de-ia-para-empresas',
+  'automacao-whatsapp-com-ia',
+];
+
 const diagnosticInterest = {
   'software-sob-medida': 'desenvolvimento',
   'desenvolvimento-software-sob-medida': 'desenvolvimento',

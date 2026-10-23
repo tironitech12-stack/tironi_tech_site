@@ -134,9 +134,26 @@ for (const url of sitemapUrls) {
 }
 const robots = await read('robots.txt');
 const blogHtml = await read('blog/index.html');
-const { serviceLandingPages } = await import('../src/content/serviceLandingPages.js');
+const { serviceLandingPages, searchConsolePriorityServiceSlugs } = await import('../src/content/serviceLandingPages.js');
 for (const page of serviceLandingPages) {
   assert(blogHtml.includes(`href="/${page.slug}"`), `Missing commercial discovery link: ${page.slug}`);
+}
+const homeHtml = await read('index.html');
+const clubHtml = await read('club/index.html');
+const commercialArticleLinks = new Map();
+for (const article of blogArticles) {
+  if (!article.primaryGuide) continue;
+  commercialArticleLinks.set(article.primaryGuide.href, (commercialArticleLinks.get(article.primaryGuide.href) || 0) + 1);
+}
+for (const slug of searchConsolePriorityServiceSlugs) {
+  const href = `/${slug}`;
+  assert(homeHtml.includes(`href="${href}"`), `Homepage must link to priority service: ${slug}`);
+  assert(clubHtml.includes(`href="${href}"`), `Club must link to priority service: ${slug}`);
+  assert((commercialArticleLinks.get(href) || 0) >= 10, `Priority service needs at least ten contextual article links: ${slug}`);
+  const serviceHtml = await read(`${slug}/index.html`);
+  for (const relatedSlug of searchConsolePriorityServiceSlugs.filter((candidate) => candidate !== slug)) {
+    assert(serviceHtml.includes(`href="/${relatedSlug}"`), `Priority service must link to related service: ${slug} -> ${relatedSlug}`);
+  }
 }
 assert(robots.includes(`Sitemap: ${origin}/sitemap.xml`), 'robots.txt must advertise the canonical sitemap');
 const hosting = JSON.parse(await readFile(resolve('vercel.json'), 'utf8'));

@@ -18,6 +18,7 @@ import { trackFunnelEvent } from "../utils/conversionTracking";
 import { getProjectStory } from "../content/projectStories";
 import { getSolutionExperience, solutionLinks } from "../content/solutionExperience";
 import BusinessResultsSection from "../components/sections/BusinessResultsSection";
+import CommercialSolutionsLinks from "../components/sections/CommercialSolutionsLinks";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
@@ -141,6 +142,7 @@ export default function MobileHome() {
         </section>
 
         <PillarsSection />
+        <CommercialSolutionsLinks />
         <ClubHighlight />
         <BusinessResultsSection compact />
 

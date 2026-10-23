@@ -20,6 +20,7 @@ import { PillarsSection, ToolsSection } from "./components/sections/PositioningH
 import BlogHighlight from "./components/sections/BlogHighlight";
 import ProcessSection from "./components/sections/ProcessSection";
 import FinalCtaSection from "./components/sections/FinalCtaSection";
+import CommercialSolutionsLinks from "./components/sections/CommercialSolutionsLinks";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
@@ -66,6 +67,7 @@ export default function AppRoot() {
         <main className="tt2-site-main">
           <HeroSection t={t} />
           <PillarsSection />
+          <CommercialSolutionsLinks />
           <ClubHighlight />
           <BusinessResultsSection />
           <TrustedBySection t={t} clients={CLIENTS} />
