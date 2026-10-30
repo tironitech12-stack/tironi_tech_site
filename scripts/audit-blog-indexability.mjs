@@ -1,9 +1,16 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { blogArticles } from '../src/content/blogArticles.js';
+import { blogArticles, coreBlogArticles } from '../src/content/blogArticles.js';
 import { getArticleLocales } from '../src/content/localizedBlogArticles.js';
 import { searchConsoleArticleRevisions } from '../src/content/searchConsoleArticleRevisions.js';
+import { getBlogListingRoutes } from '../src/utils/blogListing.js';
+import { createHomeSchema } from '../src/utils/homePageSeo.js';
+import { createServiceSchema } from '../src/utils/servicePageSeo.js';
+import { blogIndexArticles } from '../src/content/blogIndexArticles.generated.js';
+
+assert.deepEqual(blogIndexArticles.pt.map(({ slug }) => slug), coreBlogArticles.map(({ slug }) => slug), 'Browser and prerender must retain the same editorial order');
+assert.deepEqual(getBlogListingRoutes(blogIndexArticles.pt).map(({ schema }) => schema), getBlogListingRoutes(coreBlogArticles).map(({ schema }) => schema), 'Listing schemas and article destinations must not change when JavaScript loads');
 
 const root = resolve('dist');
 const origin = 'https://www.tironitech.com';
@@ -139,6 +146,32 @@ for (const page of serviceLandingPages) {
   assert(blogHtml.includes(`href="/${page.slug}"`), `Missing commercial discovery link: ${page.slug}`);
 }
 const homeHtml = await read('index.html');
+const schemaFrom = (html) => JSON.parse(html.match(/<script id="tt-page-schema" type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+assert.deepEqual(schemaFrom(homeHtml), createHomeSchema(), 'Home graph must match the client-side home graph');
+const listedArticleSlugs = new Set();
+for (const listing of getBlogListingRoutes(coreBlogArticles)) {
+  const html = await read(`${listing.path.slice(1)}/index.html`);
+  assert(sitemapUrls.has(`${origin}${listing.path}`), `Blog listing missing from sitemap: ${listing.path}`);
+  assert.deepEqual(schemaFrom(html), listing.schema, `Listing schema differs from its rendered route: ${listing.path}`);
+  for (const article of listing.visibleArticles) {
+    assert(html.includes(`href="/blog/${article.slug}"`), `Article missing from listing: ${listing.path}`);
+    if (!listing.category) listedArticleSlugs.add(article.slug);
+  }
+  for (const target of [listing.previousPath, listing.nextPath].filter(Boolean)) {
+    assert(html.includes(`href="${target}"`), `Missing crawlable pagination link: ${listing.path}`);
+    assert(sitemapUrls.has(`${origin}${target}`), `Pagination points to an unpublished page: ${target}`);
+  }
+}
+assert.equal(listedArticleSlugs.size, coreBlogArticles.length, 'Pagination must expose every selected article');
+for (const service of serviceLandingPages) {
+  const html = await read(`${service.slug}/index.html`);
+  assert.deepEqual(schemaFrom(html), createServiceSchema(service), `Service schema differs from its client route: ${service.slug}`);
+  assert(html.includes('<meta property="og:type" content="website">'), `Service is incorrectly marked as a blog article: ${service.slug}`);
+  if (service.image.startsWith('/brand/')) assert(html.includes('srcset='), `Missing responsive service image: ${service.slug}`);
+  for (const item of [...(service.deliverables || []), ...(service.limits || []), ...(service.costFactors || [])]) {
+    assert(html.includes(escapeHtml(item)), `Service scope missing from HTML: ${service.slug}`);
+  }
+}
 const clubHtml = await read('club/index.html');
 const commercialArticleLinks = new Map();
 for (const article of blogArticles) {

@@ -33,7 +33,7 @@ export default function ClubSection() {
           <div className="tt-club-visual">
             <div className="tt-club-orbit" aria-hidden="true" />
             <div className="tt-club-card">
-              <div className="tt-club-card-top"><span>TIRONI TECH</span><img src="/brand/tironi-symbol.png" alt="" width="72" height="72" loading="lazy" /></div>
+              <div className="tt-club-card-top"><span>TIRONI TECH</span><img src="/brand/tironi-symbol-256.webp" alt="" width="72" height="72" loading="lazy" /></div>
               <div className="tt-club-card-name">Tironi<br /><span>Tech Club</span></div>
               <div className="tt-club-card-bottom"><span>{copy.card}</span><span>{copy.member}</span></div>
             </div>

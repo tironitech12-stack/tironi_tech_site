@@ -8,7 +8,7 @@
     "authored": 100,
     "remaining": 0,
     "bodyCharacters": {
-      "min": 10153,
+      "min": 2138,
       "max": 15770
     },
     "categories": {
@@ -28,7 +28,7 @@
       "Vendas e crescimento": 21
     }
   },
-  "validation": "Structure, body length after content processing, exact paragraph uniqueness and pairwise five-word Jaccard overlap within the tutorial batch. Does not certify semantic uniqueness, source accuracy or ranking.",
+  "validation": "Structure, historical body-length checks (targeted editorial rewrites instead validate preserved answers, revision records and source lists), exact paragraph uniqueness and pairwise five-word Jaccard overlap within the tutorial batch. Does not certify semantic uniqueness, source accuracy or ranking.",
   "maximumLexicalOverlap": {
     "ratio": 0.0032386646736422523,
     "slugs": [
@@ -63,8 +63,8 @@
       "slug": "como-transferir-carteira-clientes-entre-vendedores-sem-perder-compromissos",
       "title": "Como transferir uma carteira de clientes entre vendedores preservando compromissos e confiança",
       "category": "Prospecção e CRM",
-      "bodyCharacters": 15689,
-      "sections": 10,
+      "bodyCharacters": 2138,
+      "sections": 5,
       "languages": [
         "pt"
       ],
@@ -105,7 +105,7 @@
     },
     {
       "slug": "como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher",
-      "title": "Como comparar dois produtos no WhatsApp e ajudar o cliente a escolher pelo uso real",
+      "title": "Como comparar dois produtos no WhatsApp e ajudar a escolher",
       "category": "ChatBô e atendimento",
       "bodyCharacters": 12716,
       "sections": 8,
@@ -160,10 +160,10 @@
     },
     {
       "slug": "como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente",
-      "title": "Como responder dúvidas de uma proposta pelo WhatsApp sem mudar o escopo por acidente",
+      "title": "Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo",
       "category": "ChatBô e atendimento",
-      "bodyCharacters": 14192,
-      "sections": 9,
+      "bodyCharacters": 2732,
+      "sections": 5,
       "languages": [
         "pt"
       ],
@@ -1194,7 +1194,7 @@
     },
     {
       "slug": "como-organizar-onboarding-cliente-b2b-primeira-entrega",
-      "title": "Como organizar o onboarding de um cliente B2B até a primeira entrega utilizável",
+      "title": "Onboarding de clientes B2B: da contratação à primeira entrega",
       "category": "SaaS, produto e AI-native software",
       "bodyCharacters": 11410,
       "sections": 8,
@@ -1216,10 +1216,10 @@
     },
     {
       "slug": "como-levar-instagram-whatsapp-preservar-contexto-venda",
-      "title": "Como levar o cliente do Instagram para o WhatsApp sem perder o contexto da venda",
+      "title": "Instagram para WhatsApp: preserve o contexto da venda",
       "category": "Vendas e crescimento",
-      "bodyCharacters": 12267,
-      "sections": 8,
+      "bodyCharacters": 1833,
+      "sections": 4,
       "languages": [
         "pt"
       ],

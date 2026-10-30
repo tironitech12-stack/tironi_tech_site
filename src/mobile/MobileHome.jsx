@@ -107,7 +107,7 @@ export default function MobileHome() {
       <header className="mobile-header">
         <a href="#inicio" className="mobile-brand">
           <div className="mobile-brand-mark">
-            <img src="/brand/tironi-symbol.png" alt="TironiTech" />
+            <img src="/brand/tironi-symbol-128.webp" alt="TironiTech" width="46" height="46" />
           </div>
           <div className="mobile-brand-copy">
             <strong>TironiTech</strong>

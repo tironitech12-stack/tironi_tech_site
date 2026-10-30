@@ -3372,8 +3372,8 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
     rgba(255, 255, 255, 0) 58%
   );
   /* o brilho fica confinado ao desenho do símbolo, nunca a um retângulo */
-  -webkit-mask-image: url("/brand/tironi-symbol.png");
-  mask-image: url("/brand/tironi-symbol.png");
+  -webkit-mask-image: url("/brand/tironi-symbol-512.webp");
+  mask-image: url("/brand/tironi-symbol-512.webp");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;

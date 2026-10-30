@@ -1,5 +1,7 @@
+import { seoGrowthArticleRevisions } from './seoGrowthArticleRevisions.js';
+
 // Editorial revisions of existing URLs; no new pages are created.
-export const searchConsoleArticleRevisions = {
+const previousSearchConsoleArticleRevisions = {
   'pesquisa-138-how-to-build-a-whatsapp-chatbot-guia-aplicacao': {
     updated: '2026-10-23',
     primaryGuide: { href: '/automacao-whatsapp-com-ia', label: 'Automação de WhatsApp com IA', description: 'Veja como aplicar atendimento, qualificação e transferência humana em um fluxo conectado à operação.' },
@@ -66,4 +68,18 @@ export const searchConsoleArticleRevisions = {
     sources: [{ label: 'Cursor — documentação oficial', url: 'https://cursor.com/docs' }],
     primaryGuide: { href: '/desenvolvimento-software-sob-medida', label: 'Desenvolvimento de software sob medida' },
   },
+};
+
+export const searchConsoleArticleRevisions = {
+  ...previousSearchConsoleArticleRevisions,
+  ...Object.fromEntries(Object.entries(seoGrowthArticleRevisions).map(([slug, revision]) => [
+    slug,
+    {
+      ...previousSearchConsoleArticleRevisions[slug],
+      ...revision,
+      // A score assigned to an older generated draft cannot certify this rewrite.
+      aiReview: null,
+      editorialRevision: { date: revision.updated, kind: 'practical-guide', basis: 'Search Console e revisão de intenção e conteúdo' },
+    },
+  ])),
 };

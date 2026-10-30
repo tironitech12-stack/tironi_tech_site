@@ -3,190 +3,20 @@ export const blogArticleCounts = {"pt":1954,"en":0,"es":0};
 export const blogIndexArticles = {
   "pt": [
     {
-      "slug": "triagem-whatsapp-por-intencao-e-risco",
-      "title": "Triagem no WhatsApp por intenção e risco",
-      "description": "Como classificar contatos no WhatsApp por intenção e risco, sem transformar toda conversa em lead nem misturar orçamento, suporte e cobrança.",
+      "slug": "whatsapp-com-ia-para-vendas-playbook-completo",
+      "title": "WhatsApp com IA para vendas: playbook completo do primeiro contato ao CRM",
+      "description": "Um guia operacional para transformar conversas no WhatsApp em atendimento rápido, qualificação consistente, agenda preenchida e dados confiáveis no CRM.",
       "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-10-05",
-      "readTime": "17 min de leitura",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "12 min de leitura",
       "featured": true,
       "keywords": [
-        "triagem no whatsapp por intenção e risco",
-        "triagem no WhatsApp",
-        "automação de atendimento",
+        "WhatsApp com IA para vendas",
+        "chatbot de vendas no WhatsApp",
+        "automação comercial no WhatsApp",
         "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "handoff-chatbot-atendente-contexto",
-      "title": "Transferência do chatbot para o atendente, com contexto",
-      "description": "Como passar a conversa do chatbot para uma pessoa sem o cliente repetir tudo: resumo, prioridade e estado do atendimento.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-10-05",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "transferência do chatbot para atendente",
-        "transferência de chatbot para humano",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "base-conhecimento-atendimento-whatsapp",
-      "title": "Base de conhecimento para atendimento no WhatsApp: como manter respostas verificáveis sem copiar documentos desatualizados",
-      "description": "como manter respostas verificáveis sem copiar documentos desatualizados. Guia aprofundado com diagnóstico, catálogo de fontes com dono, validade e permissão, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "base de conhecimento para atendimento no whatsapp",
-        "base de conhecimento para WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "qualificacao-leads-whatsapp-sem-formulario-longo",
-      "title": "Qualificação de leads no WhatsApp sem formulário longo: como coletar contexto suficiente sem cansar quem está pesquisando",
-      "description": "como coletar contexto suficiente sem cansar quem está pesquisando. Guia aprofundado com diagnóstico, roteiro progressivo de qualificação e critérios de passagem, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "qualificação de leads no whatsapp sem formulário longo",
-        "qualificação de leads no WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "recuperar-conversas-abandonadas-whatsapp",
-      "title": "Como recuperar conversas abandonadas no WhatsApp",
-      "description": "Retome conversas abandonadas no WhatsApp com contexto, consentimento e uma próxima ajuda útil, sem follow-up genérico.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-10-21",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "recuperação de conversas abandonadas no whatsapp",
-        "recuperação de conversas no WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "sla-atendimento-whatsapp-picos",
-      "title": "SLA de atendimento no WhatsApp em horários de pico: como dimensionar fila, prioridade e comunicação de espera",
-      "description": "como dimensionar fila, prioridade e comunicação de espera. Guia aprofundado com diagnóstico, modelo de capacidade, prioridade e mensagem de espera, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "18 min de leitura",
-      "featured": true,
-      "keywords": [
-        "sla de atendimento no whatsapp em horários de pico",
-        "SLA para atendimento no WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "auditar-qualidade-conversas-chatbot",
-      "title": "Auditoria de qualidade de conversas com chatbot: como avaliar resolução, clareza, segurança e transferência",
-      "description": "como avaliar resolução, clareza, segurança e transferência. Guia aprofundado com diagnóstico, rubrica de qualidade com exemplos aprovados e críticos, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "auditoria de qualidade de conversas com chatbot",
-        "auditoria de chatbot",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "atendimento-multicanal-historico-unico",
-      "title": "Atendimento multicanal com histórico único: como preservar identidade e continuidade entre site, WhatsApp e equipe",
-      "description": "como preservar identidade e continuidade entre site, WhatsApp e equipe. Guia aprofundado com diagnóstico, modelo de identidade, atendimento e oportunidade, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "atendimento multicanal com histórico único",
-        "atendimento multicanal integrado",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "chatbot-catalogo-produtos-variacoes",
-      "title": "Chatbot de catálogo com produtos e variações: como consultar atributos, estoque e alternativas sem inventar equivalência",
-      "description": "como consultar atributos, estoque e alternativas sem inventar equivalência. Guia aprofundado com diagnóstico, mapa de atributos decisivos e fontes por campo, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "chatbot de catálogo com produtos e variações",
-        "chatbot para catálogo de produtos",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "agendamento-whatsapp-confirmacao-reagendamento",
-      "title": "Agendamento pelo WhatsApp com confirmação e reagendamento: como integrar disponibilidade, identidade e regras de agenda",
-      "description": "como integrar disponibilidade, identidade e regras de agenda. Guia aprofundado com diagnóstico, contrato de agenda com estados e regras de alteração, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "agendamento pelo whatsapp com confirmação e reagendamento",
-        "agendamento automatizado no WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "atendimento-whatsapp-fora-horario",
-      "title": "Atendimento no WhatsApp fora do horário comercial: como acolher, resolver o que for seguro e preparar a continuidade",
-      "description": "como acolher, resolver o que for seguro e preparar a continuidade. Guia aprofundado com diagnóstico, árvore de urgência, autosserviço e retorno comprometido, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "atendimento no whatsapp fora do horário comercial",
-        "atendimento automático fora do horário",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
+        "IA para atendimento"
       ]
     },
     {
@@ -207,1477 +37,20 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "governanca-templates-whatsapp",
-      "title": "Governança de templates e mensagens no WhatsApp: como aprovar, versionar e medir comunicações iniciadas pela empresa",
-      "description": "como aprovar, versionar e medir comunicações iniciadas pela empresa. Guia aprofundado com diagnóstico, catálogo de templates com finalidade, público, versão e responsável, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "governança de templates e mensagens no whatsapp",
-        "templates de WhatsApp Business",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "detectar-intencao-mudanca-assunto-whatsapp",
-      "title": "Mudança de intenção durante a conversa no WhatsApp: como reconhecer novos assuntos sem perder pedidos anteriores",
-      "description": "como reconhecer novos assuntos sem perder pedidos anteriores. Guia aprofundado com diagnóstico, modelo de tópicos, compromissos e retomadas, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "mudança de intenção durante a conversa no whatsapp",
-        "detecção de intenção em conversas",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "central-atendimento-whatsapp-multiequipe",
-      "title": "Central de atendimento WhatsApp: filas, equipes e contexto",
-      "description": "Organize vendas, suporte e financeiro no WhatsApp com filas, responsáveis, regras de transferência e contexto preservado entre equipes.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-29",
-      "updated": "2026-10-23",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "central de atendimento no whatsapp para várias equipes",
-        "central de atendimento WhatsApp",
-        "automação de atendimento",
-        "ChatBô",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "lead-scoring-explicavel-b2b",
-      "title": "Lead scoring explicável para vendas B2B: como priorizar oportunidades sem esconder critérios em uma nota opaca",
-      "description": "como priorizar oportunidades sem esconder critérios em uma nota opaca. Guia aprofundado com diagnóstico, matriz de sinais, pesos, evidências e revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "lead scoring explicável para vendas b2b",
-        "lead scoring B2B",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "higienizar-crm-sem-apagar-historico",
-      "title": "Higienização de CRM sem apagar histórico comercial: como corrigir duplicidades, campos e estados preservando rastreabilidade",
-      "description": "como corrigir duplicidades, campos e estados preservando rastreabilidade. Guia aprofundado com diagnóstico, plano de qualidade, deduplicação e reconciliação, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "higienização de crm sem apagar histórico comercial",
-        "higienização de CRM",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "proxima-melhor-acao-vendas",
-      "title": "Próxima melhor ação em vendas com IA: como recomendar ações usando estágio, compromisso e contexto verificável",
-      "description": "como recomendar ações usando estágio, compromisso e contexto verificável. Guia aprofundado com diagnóstico, contrato de recomendação com evidência, prazo e opção de recusa, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "próxima melhor ação em vendas com ia",
-        "next best action vendas",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "resumir-reuniao-vendas-atualizar-crm",
-      "title": "Resumo de reunião de vendas e atualização do CRM: como extrair compromissos sem registrar inferências como fatos",
-      "description": "como extrair compromissos sem registrar inferências como fatos. Guia aprofundado com diagnóstico, modelo de resumo, fatos, dúvidas e campos confirmáveis, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "resumo de reunião de vendas e atualização do crm",
-        "IA para resumo de reunião comercial",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "previsao-vendas-com-faixas-incerteza",
-      "title": "Previsão de vendas com faixas de incerteza: como combinar pipeline, histórico e julgamento sem fingir precisão",
-      "description": "como combinar pipeline, histórico e julgamento sem fingir precisão. Guia aprofundado com diagnóstico, modelo de cenários, premissas e motivos de variação, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "previsão de vendas com faixas de incerteza",
-        "forecast de vendas B2B",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "detectar-oportunidades-paradas-crm",
-      "title": "Detecção de oportunidades paradas no CRM: como distinguir espera legítima de negócio esquecido",
-      "description": "como distinguir espera legítima de negócio esquecido. Guia aprofundado com diagnóstico, regra de inatividade contextual e fila de revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "detecção de oportunidades paradas no crm",
-        "oportunidades paradas CRM",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "roteamento-leads-territorio-competencia",
-      "title": "Roteamento de leads por território e competência: como distribuir oportunidades sem criar disputa ou tempo morto",
-      "description": "como distribuir oportunidades sem criar disputa ou tempo morto. Guia aprofundado com diagnóstico, matriz de roteamento, fallback e balanceamento, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "roteamento de leads por território e competência",
-        "roteamento de leads",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "personalizar-proposta-comercial-sem-inventar",
-      "title": "Personalização de proposta comercial com IA: como adaptar linguagem e escopo sem criar compromissos não aprovados",
-      "description": "como adaptar linguagem e escopo sem criar compromissos não aprovados. Guia aprofundado com diagnóstico, estrutura de proposta com campos controlados e revisão de compromisso, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "personalização de proposta comercial com ia",
-        "IA para proposta comercial",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "analisar-motivos-perda-vendas",
-      "title": "Análise de motivos de perda em vendas: como transformar relatos livres em categorias úteis sem culpar preço ou vendedor",
-      "description": "como transformar relatos livres em categorias úteis sem culpar preço ou vendedor. Guia aprofundado com diagnóstico, taxonomia de perdas, evidências e entrevistas de revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "análise de motivos de perda em vendas",
-        "motivos de perda vendas",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "cadencia-prospeccao-com-consentimento",
-      "title": "Cadência de prospecção com relevância e consentimento: como coordenar canais e intervalos sem escalar ruído",
-      "description": "como coordenar canais e intervalos sem escalar ruído. Guia aprofundado com diagnóstico, política de cadência por hipótese, canal e sinal, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "cadência de prospecção com relevância e consentimento",
-        "cadência de prospecção B2B",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "mapear-comite-compra-b2b",
-      "title": "Mapeamento do comitê de compra B2B: como entender papéis sem confundir cargo com poder de decisão",
-      "description": "como entender papéis sem confundir cargo com poder de decisão. Guia aprofundado com diagnóstico, mapa de participantes, critérios, riscos e evidências, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "mapeamento do comitê de compra b2b",
-        "comitê de compra B2B",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "integrar-marketing-vendas-definicao-lead",
-      "title": "Integração entre marketing e vendas pela definição de lead: como criar acordos de passagem com critérios observáveis",
-      "description": "como criar acordos de passagem com critérios observáveis. Guia aprofundado com diagnóstico, contrato de passagem, devolução e feedback, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "integração entre marketing e vendas pela definição de lead",
-        "SLA marketing e vendas",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "pipeline-vendas-estados-evidencias",
-      "title": "Pipeline de vendas baseado em estados e evidências: como substituir etapas subjetivas por compromissos verificáveis",
-      "description": "como substituir etapas subjetivas por compromissos verificáveis. Guia aprofundado com diagnóstico, definição de etapas, evidências e saída, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "pipeline de vendas baseado em estados e evidências",
-        "pipeline comercial B2B",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "onboarding-cliente-vendas-implantacao",
-      "title": "Passagem de vendas para onboarding do cliente: como preservar promessa, contexto e riscos depois da assinatura",
-      "description": "como preservar promessa, contexto e riscos depois da assinatura. Guia aprofundado com diagnóstico, dossiê de passagem, validação e reunião de transição, cenário aplicado, riscos, indicadores e plano de implantação.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-29",
-      "updated": "2026-09-29",
-      "readTime": "17 min de leitura",
-      "featured": true,
-      "keywords": [
-        "passagem de vendas para onboarding do cliente",
-        "handoff vendas implantação",
-        "IA para vendas",
-        "automação comercial",
-        "Tironi Tech"
-      ]
-    },
-    {
-      "slug": "como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher",
-      "title": "Como comparar dois produtos no WhatsApp e ajudar a escolher",
-      "description": "Compare dois produtos no WhatsApp pelo uso real: critérios, diferenças confirmadas e limites para não indicar a opção errada.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-10-05",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "comparar produtos no WhatsApp",
-        "venda consultiva WhatsApp",
-        "como vender mais pelo WhatsApp",
-        "escolha de produto"
-      ]
-    },
-    {
-      "slug": "como-transformar-audio-cliente-whatsapp-em-pedido-conferivel",
-      "title": "Como transformar um áudio de cliente no WhatsApp em uma solicitação comercial conferível",
-      "description": "Organize áudios com itens, mudanças e dúvidas em um resumo verificável antes de cotar, encaminhar ou confirmar uma ação comercial.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "áudio de cliente WhatsApp",
-        "pedido por áudio",
-        "atendimento comercial WhatsApp",
-        "resumo de solicitação"
-      ]
-    },
-    {
-      "slug": "como-organizar-conversa-whatsapp-varios-assuntos-sem-esquecer-pedidos",
-      "title": "Como organizar uma conversa de WhatsApp com vários assuntos sem esquecer parte do pedido",
-      "description": "Separe demandas simultâneas, mantenha referências e apresente um resumo de andamento para resolver conversas comerciais com vários temas.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "conversa multitema WhatsApp",
-        "organizar atendimento WhatsApp",
-        "solicitações de clientes",
-        "vendas e atendimento"
-      ]
-    },
-    {
-      "slug": "como-negociar-data-entrega-whatsapp-sem-prometer-prazo-nao-confirmado",
-      "title": "Como negociar uma data de entrega pelo WhatsApp sem prometer um prazo ainda não confirmado",
-      "description": "Transforme pedidos de urgência em alternativas verificadas, distinguindo necessidade do cliente, capacidade operacional e confirmação comercial.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "negociar entrega WhatsApp",
-        "prazo de entrega comercial",
-        "venda urgente",
-        "atendimento logístico"
-      ]
-    },
-    {
-      "slug": "como-usar-fotos-cliente-whatsapp-orientar-compra-sem-adivinhar-medidas",
-      "title": "Como usar fotos do cliente no WhatsApp para orientar uma compra sem adivinhar medidas ou compatibilidade",
-      "description": "Conduza uma venda consultiva com imagens, separando observação, informação confirmada e avaliação necessária antes de recomendar um produto.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "venda por fotos WhatsApp",
-        "atendimento consultivo por imagem",
-        "compatibilidade de produto",
-        "orientar compra WhatsApp"
-      ]
-    },
-    {
-      "slug": "como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente",
-      "title": "Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo",
-      "description": "Responda dúvidas de proposta no WhatsApp, diferencie esclarecimento de alteração e preserve escopo, prazo, preço e versão aprovada.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-10-23",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "dúvidas de proposta WhatsApp",
-        "escopo comercial",
-        "responder orçamento",
-        "negociação pelo WhatsApp"
-      ]
-    },
-    {
-      "slug": "como-receber-indicacoes-clientes-whatsapp-sem-abordagem-surpresa",
-      "title": "Como receber indicações de clientes pelo WhatsApp com uma apresentação clara para o novo contato",
-      "description": "Organize um processo de indicação que preserve contexto, evite abordagens inesperadas e permita acompanhar a origem da oportunidade sem confundir indicação com venda.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "indicação de clientes WhatsApp",
-        "vendas por indicação",
-        "prospecção com indicação",
-        "origem de oportunidade CRM"
-      ]
-    },
-    {
-      "slug": "como-oferecer-substituto-produto-indisponivel-whatsapp-com-confirmacao",
-      "title": "Como oferecer um substituto para um produto indisponível no WhatsApp sem presumir equivalência",
-      "description": "Descubra o que precisa ser preservado na substituição, verifique diferenças e obtenha uma escolha explícita antes de alterar a compra.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "produto indisponível WhatsApp",
-        "substituição de produto",
-        "venda consultiva",
-        "alternativa de estoque"
-      ]
-    },
-    {
-      "slug": "como-atender-compra-presentes-empresariais-whatsapp-com-aprovacao",
-      "title": "Como atender uma compra de presentes empresariais pelo WhatsApp com quantidades e aprovação claras",
-      "description": "Organize finalidade, composição, personalização e entrega de presentes corporativos sem confundir uma preferência inicial com aprovação do pedido.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "presentes empresariais WhatsApp",
-        "compra corporativa de presentes",
-        "aprovação de personalização",
-        "venda consultiva WhatsApp"
-      ]
-    },
-    {
-      "slug": "como-montar-conjunto-produtos-whatsapp-dentro-orcamento-cliente",
-      "title": "Como montar um conjunto de produtos pelo WhatsApp dentro do orçamento informado pelo cliente",
-      "description": "Priorize funções, calcule o total completo e apresente escolhas conscientes para montar uma compra com limite de investimento.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "comprar dentro do orçamento WhatsApp",
-        "conjunto de produtos",
-        "venda consultiva com orçamento",
-        "atendimento de compras"
-      ]
-    },
-    {
-      "slug": "como-modernizar-sistema-legado-substituicao-modulo-roteamento",
-      "title": "Como modernizar um sistema legado substituindo um módulo de cada vez",
-      "description": "Escolha uma fronteira de migração, preserve regras operacionais e transfira um módulo legado com roteamento, comparação e retorno testados.",
-      "category": "Desenvolvimento com IA",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "modernização de sistemas",
-        "sistema legado",
-        "migração incremental",
-        "software sob medida",
-        "Strangler Fig"
-      ]
-    },
-    {
-      "slug": "como-conceder-acesso-temporario-suporte-saas-expiracao",
-      "title": "Como conceder acesso temporário de suporte em um SaaS com escopo e expiração",
-      "description": "Projete uma autorização temporária de suporte com solicitante, escopo, prazo, revogação e registro das ações realizadas.",
-      "category": "Governança, segurança e confiabilidade",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "acesso temporário",
-        "permissões SaaS",
-        "suporte técnico",
-        "autorização",
-        "revogação de acesso"
-      ]
-    },
-    {
-      "slug": "como-ensaiar-restauracao-backup-sistema-ambiente-isolado",
-      "title": "Como ensaiar a restauração de um sistema sem interferir na produção",
-      "description": "Monte um exercício de recuperação em ambiente isolado, confira banco e arquivos e meça o tempo até a operação estar utilizável.",
-      "category": "Governança, segurança e confiabilidade",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "restauração de backup",
-        "recuperação de sistema",
-        "continuidade operacional",
-        "teste de recuperação",
-        "backup de aplicação"
-      ]
-    },
-    {
-      "slug": "como-avaliar-busca-rag-conjunto-perguntas-evidencias",
-      "title": "Como avaliar a busca de um RAG com perguntas e evidências conferidas",
-      "description": "Prepare um conjunto de avaliação para a recuperação de documentos, encontre falhas por classe de pergunta e compare mudanças sem depender da fluência da resposta.",
-      "category": "RAG, conhecimento corporativo e context engineering",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "avaliação RAG",
-        "busca semântica",
-        "conjunto de avaliação",
-        "recuperação de documentos",
-        "qualidade de IA"
-      ]
-    },
-    {
-      "slug": "como-testar-agente-ia-ferramentas-estado-final-trajetoria",
-      "title": "Como testar um agente de IA pelas ferramentas usadas e pelo estado final",
-      "description": "Crie cenários de avaliação para agentes que executam tarefas, verificando autorização, argumentos, efeitos e comunicação do resultado.",
-      "category": "Agentes de IA e Agentic AI",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
+      "slug": "agentes-de-ia-para-empresas-guia-producao",
+      "title": "Agentes de IA para empresas: do caso de uso à produção com segurança e resultado",
+      "description": "Como escolher, projetar, integrar, avaliar e operar agentes de IA que executam trabalho real sem abrir mão de controle, rastreabilidade e responsabilidade humana.",
+      "category": "Automação com IA",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
       "readTime": "11 min de leitura",
       "featured": true,
       "keywords": [
-        "avaliação de agentes",
-        "agentes de IA",
-        "teste de ferramentas",
-        "automação com IA",
-        "estado final"
-      ]
-    },
-    {
-      "slug": "como-preparar-formulario-offline-rascunho-sincronizacao",
-      "title": "Como preparar um formulário para trabalhar offline e sincronizar depois",
-      "description": "Defina o que pode ser feito sem conexão, preserve rascunhos locais e trate conflitos quando o servidor voltar a receber as alterações.",
-      "category": "Desenvolvimento com IA",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "11 min de leitura",
-      "featured": true,
-      "keywords": [
-        "formulário offline",
-        "sincronização",
-        "rascunho local",
-        "aplicação de campo",
-        "software sob medida"
-      ]
-    },
-    {
-      "slug": "como-reconstruir-indice-rag-validacao-troca-versao",
-      "title": "Como reconstruir um índice de RAG e trocar a versão depois da validação",
-      "description": "Prepare uma reconstrução paralela do índice, confira cobertura e resultados e transfira consultas com uma referência de retorno conhecida.",
-      "category": "RAG, conhecimento corporativo e context engineering",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "reindexação RAG",
-        "índice de busca",
-        "atualização de conhecimento",
-        "versão de corpus",
-        "reconstrução de índice"
-      ]
-    },
-    {
-      "slug": "como-priorizar-automacoes-capacidade-gargalo-negocio",
-      "title": "Como priorizar automações pelo gargalo do negócio e pela capacidade realmente liberada",
-      "description": "Compare oportunidades de automação com dados de demanda, fila, retrabalho e capacidade aproveitável para decidir qual processo melhorar primeiro.",
-      "category": "Automação de processos e operações",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "priorizar automações",
-        "automação de processos",
-        "gargalo operacional",
-        "capacidade produtiva",
-        "software sob medida"
-      ]
-    },
-    {
-      "slug": "como-mapear-servico-promessa-comercial-capacidade-entrega",
-      "title": "Como mapear um serviço para alinhar a promessa comercial à capacidade de entrega",
-      "description": "Construa um mapa de serviço com ações do cliente, bastidores, evidências e exceções para encontrar promessas que a operação ainda não consegue sustentar.",
-      "category": "Tecnologia para empresas",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "mapa de serviço",
-        "service blueprint",
-        "promessa comercial",
-        "gestão de serviços B2B",
-        "crescimento sustentável"
-      ]
-    },
-    {
-      "slug": "como-pesquisar-duvidas-compradores-pautas-conteudo-b2b",
-      "title": "Como pesquisar dúvidas de compradores e transformá-las em pautas B2B úteis",
-      "description": "Organize entrevistas e registros de dúvidas para construir um plano de conteúdo B2B baseado em decisões reais, evidências e limites de representatividade.",
-      "category": "IA em marketing, aquisição e personalização",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "pesquisa de compradores B2B",
-        "pautas de conteúdo",
-        "marketing B2B",
-        "conteúdo para empresas",
-        "dúvidas de clientes"
-      ]
-    },
-    {
-      "slug": "como-medir-seo-geo-aeo-separar-busca-citacao-trafego",
-      "title": "Como medir SEO, GEO e AEO sem misturar impressões, citações e visitas",
-      "description": "Monte um protocolo que separa dados de busca, observações de respostas com IA e uso do site, com denominadores claros e decisões editoriais verificáveis.",
-      "category": "SEO e GEO",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "medir GEO",
-        "métricas AEO",
-        "SEO e inteligência artificial",
-        "Search Console",
-        "visibilidade em respostas de IA"
-      ]
-    },
-    {
-      "slug": "como-consolidar-artigos-intencoes-repetidas-preservar-utilidade",
-      "title": "Como consolidar artigos com intenções repetidas preservando o que o leitor precisa",
-      "description": "Compare tarefas, evidências e caminhos de navegação para decidir quais artigos manter, diferenciar ou reunir em uma página mais útil.",
-      "category": "SEO e GEO",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "consolidar conteúdo",
-        "artigos duplicados",
-        "intenção de busca",
-        "arquitetura de conteúdo",
-        "auditoria editorial"
-      ]
-    },
-    {
-      "slug": "como-acompanhar-beneficios-projeto-digital-apos-implantacao",
-      "title": "Como acompanhar os benefícios de um projeto digital depois da implantação",
-      "description": "Crie um registro de benefícios com linha de base, responsável operacional e ações de captura para verificar o que mudou após a entrega do sistema.",
-      "category": "ROI, custo e business case para IA",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "benefícios de projeto digital",
-        "pós implantação",
-        "gestão de benefícios",
-        "resultado de software",
-        "ROI de automação"
-      ]
-    },
-    {
-      "slug": "como-medir-custo-servir-clientes-atividades-decisoes",
-      "title": "Como medir o custo de servir clientes e transformar a análise em melhorias de atendimento",
-      "description": "Associe atividades de atendimento, administração e entrega aos contextos que as geram para identificar custos de servir e avaliar mudanças de processo.",
-      "category": "ROI, custo e business case para IA",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "custo de servir",
-        "rentabilidade de clientes",
-        "custeio por atividades",
-        "gestão B2B",
-        "BI de atendimento"
-      ]
-    },
-    {
-      "slug": "como-planejar-capacidade-demanda-sazonal-cenarios-semanais",
-      "title": "Como planejar capacidade para uma demanda sazonal com cenários semanais",
-      "description": "Organize histórico, calendário e esforço por tipo de serviço para preparar cenários de capacidade e agir antes que o pico vire uma fila sem controle.",
-      "category": "Automação de processos e operações",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "demanda sazonal",
-        "planejamento de capacidade",
-        "previsão operacional",
-        "gestão de serviços",
-        "BI de demanda"
-      ]
-    },
-    {
-      "slug": "como-distribuir-conteudo-b2b-tarefa-canal-preservar-contexto",
-      "title": "Como distribuir conteúdo B2B por tarefa e canal sem perder o contexto",
-      "description": "Transforme um material principal em peças com funções distintas, preserve evidências e planeje publicação e acompanhamento com capacidade editorial real.",
-      "category": "IA em marketing, aquisição e personalização",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "distribuição de conteúdo B2B",
-        "estratégia de canais",
-        "reaproveitamento de conteúdo",
-        "marketing de conteúdo",
-        "planejamento editorial"
-      ]
-    },
-    {
-      "slug": "como-qualificar-leads-whatsapp-perguntas-proxima-decisao",
-      "title": "Como qualificar leads no WhatsApp com perguntas que ajudam o cliente a avançar",
-      "description": "Construa uma qualificação comercial por necessidade, contexto e próximo passo, distinguindo informação ausente de falta de interesse.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como qualificar leads no WhatsApp",
-        "IA para vendas",
-        "lead qualificado",
-        "qualificação comercial",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "como-criar-ia-documentos-internos-permissoes-versoes",
-      "title": "Como criar uma IA para consultar documentos internos com permissões e versões corretas",
-      "description": "Organize fontes, acessos e avaliação de respostas para um assistente interno que consulte procedimentos sem misturar documentos vencidos ou restritos.",
-      "category": "Agentes de IA e Agentic AI",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para documentos internos",
-        "RAG para empresas",
-        "assistente de conhecimento",
-        "consultoria de IA para empresas",
-        "desenvolvimento de agentes de IA"
-      ]
-    },
-    {
-      "slug": "como-ia-consultar-produtos-whatsapp-respostas-verificaveis",
-      "title": "Como fazer a IA consultar seus produtos no WhatsApp: catálogo, perguntas de confirmação e respostas verificáveis",
-      "description": "Desenhe um assistente de catálogo que encontre o produto correto, consulte informações atuais e encaminhe dúvidas sem inventar preço ou compatibilidade.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para consultar meus produtos no whats",
-        "IA para WhatsApp",
-        "assistente de catálogo",
-        "consulta de produtos com IA",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "como-levar-instagram-whatsapp-preservar-contexto-venda",
-      "title": "Instagram para WhatsApp: preserve o contexto da venda",
-      "description": "Leve o cliente do Instagram ao WhatsApp com oferta, origem e próxima ação registradas para continuar a venda sem repetir perguntas.",
-      "category": "Vendas e crescimento",
-      "date": "2026-09-24",
-      "updated": "2026-10-23",
-      "readTime": "13 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como vender pelo Instagram e WhatsApp",
-        "IA para whats e insta",
-        "integrar atendimento Instagram WhatsApp",
-        "vendas nas redes sociais",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "como-atender-whatsapp-fora-horario-retomada-equipe",
-      "title": "Como atender no WhatsApp fora do horário: colete a demanda e prepare a retomada da equipe",
-      "description": "Monte um atendimento fora do expediente com limites claros, coleta mínima, confirmação de recebimento e uma fila que a equipe consiga assumir na abertura.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "atendimento WhatsApp fora do horário",
-        "como automatizar WhatsApp",
-        "IA para atendimento ao cliente",
-        "atendimento noturno",
-        "automação de atendimento"
-      ]
-    },
-    {
-      "slug": "como-integrar-crm-erp-pedido-timeout-reconciliacao",
-      "title": "Como integrar CRM e ERP sem duplicar pedidos quando a conexão falha",
-      "description": "Desenhe a criação de pedidos entre sistemas com identificação da operação, tratamento de resposta incerta e reconciliação para evitar reenvios cegos.",
-      "category": "Integrações com CRM, ERP e APIs",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "integração CRM ERP",
-        "pedido duplicado API",
-        "automação de pedidos",
-        "integração de sistemas empresariais",
-        "software sob medida"
-      ]
-    },
-    {
-      "slug": "como-especificar-software-sob-medida-exemplos-aceite",
-      "title": "Como especificar um software sob medida com exemplos que evitam retrabalho",
-      "description": "Transforme pedidos vagos em regras e cenários verificáveis, definindo escopo, exceções e critérios de aceite para desenvolver software ligado à operação.",
-      "category": "SaaS, produto e AI-native software",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como especificar software sob medida",
-        "desenvolvimento de software sob medida",
-        "requisitos de software",
-        "critérios de aceite",
-        "software empresarial"
-      ]
-    },
-    {
-      "slug": "como-validar-mvp-b2b-primeiro-fluxo-operacional",
-      "title": "Como validar um MVP B2B com um fluxo real antes de construir uma plataforma completa",
-      "description": "Escolha uma hipótese de produto, teste uma tarefa de ponta a ponta e defina evidências para decidir a próxima etapa de um software B2B.",
-      "category": "SaaS, produto e AI-native software",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "12 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como validar MVP",
-        "criação de MVP B2B",
-        "desenvolvimento de SaaS",
-        "validar ideia de software",
-        "software sob medida"
-      ]
-    },
-    {
-      "slug": "como-vender-mais-whatsapp-fila-prioridade-atendimento",
-      "title": "Como vender mais no WhatsApp organizando a fila de atendimento: tutorial com prioridades e passagem para vendas",
-      "description": "Monte uma fila comercial no WhatsApp com critérios de prioridade, responsáveis, exemplos de mensagens e indicadores para reduzir oportunidades esquecidas.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como vender mais no WhatsApp",
-        "como vender mais com whats",
-        "fila de atendimento WhatsApp",
-        "priorização de leads",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "como-cotar-varios-produtos-whatsapp-sku-estoque-versao",
-      "title": "Como montar uma cotação com vários produtos no WhatsApp: SKU, estoque, frete e controle de versões",
-      "description": "Tutorial para transformar uma lista enviada no WhatsApp em cotação conferida, com itens, quantidades, validade e tratamento de alterações antes do pedido.",
-      "category": "Integrações com CRM, ERP e APIs",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "cotação de produtos no WhatsApp",
-        "orçamento com vários itens",
-        "IA para consultar produtos no whats",
-        "integração de catálogo e ERP"
-      ]
-    },
-    {
-      "slug": "como-rastrear-vendas-whatsapp-utm-crm-pedido",
-      "title": "Como rastrear vendas pelo WhatsApp: conecte campanha, conversa, CRM e pedido sem contar cliques como compras",
-      "description": "Aprenda a construir uma trilha de medição do anúncio ao pedido confirmado, com UTMs, identificadores, regras de atribuição e conciliação comercial.",
-      "category": "Vendas e crescimento",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como rastrear vendas pelo WhatsApp",
-        "UTM WhatsApp CRM",
-        "medir campanhas no WhatsApp",
-        "conversão de leads em vendas",
-        "BI comercial"
-      ]
-    },
-    {
-      "slug": "como-retomar-propostas-whatsapp-motivo-proxima-acao",
-      "title": "Como retomar propostas paradas no WhatsApp: descubra o motivo, combine a próxima ação e proteja a margem",
-      "description": "Organize a recuperação de propostas com motivos de espera, perguntas úteis, critérios de encerramento e avaliação de resultado sem depender de descontos automáticos.",
-      "category": "Prospecção e CRM",
-      "date": "2026-09-24",
-      "updated": "2026-09-24",
-      "readTime": "14 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como retomar propostas no WhatsApp",
-        "follow-up de orçamento",
-        "recuperar vendas paradas",
-        "vender mais pelo whats",
-        "automação comercial"
-      ]
-    },
-    {
-      "slug": "pesquisa-001-the-state-of-ai-global-survey-2026-mckinsey-analise-executiva",
-      "title": "O que “The State of AI: Global Survey 2026 — McKinsey” ensina sobre Estratégia, adoção e transformação com IA",
-      "description": "O que “The State of AI: Global Survey 2026 — McKinsey” ensina sobre Estratégia, adoção e transformação com IA. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Estratégia, adoção e transformação com IA",
-      "date": "2026-09-20",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "The State of AI: Global Survey 2026 — McKinsey",
-        "Estratégia, adoção e transformação com IA",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-004-the-state-of-ai-in-the-enterprise-2026-deloitte-analise-executiva",
-      "title": "O que “The State of AI in the Enterprise 2026 — Deloitte” ensina sobre Estratégia, adoção e transformação com IA",
-      "description": "O que “The State of AI in the Enterprise 2026 — Deloitte” ensina sobre Estratégia, adoção e transformação com IA. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Estratégia, adoção e transformação com IA",
-      "date": "2026-09-17",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "The State of AI in the Enterprise 2026 — Deloitte",
-        "Estratégia, adoção e transformação com IA",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-073-ai-chatbot-for-customer-service-buyer-s-guide-analise-executiva",
-      "title": "O que “AI Chatbot for Customer Service Buyer's Guide” ensina sobre Chat IA, atendimento e Customer Experience",
-      "description": "O que “AI Chatbot for Customer Service Buyer's Guide” ensina sobre Chat IA, atendimento e Customer Experience. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Chat IA, atendimento e Customer Experience",
-      "date": "2026-07-10",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Chatbot for Customer Service Buyer's Guide",
-        "Chat IA, atendimento e Customer Experience",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-073-ai-chatbot-for-customer-service-buyer-s-guide-guia-aplicacao",
-      "title": "Como aplicar as ideias de “AI Chatbot for Customer Service Buyer's Guide” em uma empresa",
-      "description": "Como aplicar as ideias de “AI Chatbot for Customer Service Buyer's Guide” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Chat IA, atendimento e Customer Experience",
-      "date": "2026-07-10",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Chatbot for Customer Service Buyer's Guide",
-        "Chat IA, atendimento e Customer Experience",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-092-ai-tools-for-b2b-sales-prospecting-analise-executiva",
-      "title": "O que “AI Tools for B2B Sales Prospecting” ensina sobre IA para vendas, CRM e geração de leads",
-      "description": "O que “AI Tools for B2B Sales Prospecting” ensina sobre IA para vendas, CRM e geração de leads. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA para vendas, CRM e geração de leads",
-      "date": "2026-06-21",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Tools for B2B Sales Prospecting",
-        "IA para vendas, CRM e geração de leads",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-093-ai-sales-automation-tools-zoominfo-analise-executiva",
-      "title": "O que “AI Sales Automation Tools — ZoomInfo” ensina sobre IA para vendas, CRM e geração de leads",
-      "description": "O que “AI Sales Automation Tools — ZoomInfo” ensina sobre IA para vendas, CRM e geração de leads. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA para vendas, CRM e geração de leads",
-      "date": "2026-06-20",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Sales Automation Tools — ZoomInfo",
-        "IA para vendas, CRM e geração de leads",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-124-whatsapp-chatbot-costs-and-limits-analise-executiva",
-      "title": "O que “WhatsApp Chatbot: Costs and Limits” ensina sobre WhatsApp, IA e conversational commerce",
-      "description": "O que “WhatsApp Chatbot: Costs and Limits” ensina sobre WhatsApp, IA e conversational commerce. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "WhatsApp, IA e conversational commerce",
-      "date": "2026-05-20",
-      "updated": "2026-09-22",
-      "readTime": "5 min de leitura",
-      "featured": false,
-      "keywords": [
-        "WhatsApp Chatbot: Costs and Limits",
-        "WhatsApp, IA e conversational commerce",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-138-how-to-build-a-whatsapp-chatbot-analise-executiva",
-      "title": "O que “How to Build a WhatsApp Chatbot” ensina sobre WhatsApp, IA e conversational commerce",
-      "description": "O que “How to Build a WhatsApp Chatbot” ensina sobre WhatsApp, IA e conversational commerce. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "WhatsApp, IA e conversational commerce",
-      "date": "2026-05-06",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "How to Build a WhatsApp Chatbot",
-        "WhatsApp, IA e conversational commerce",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-172-the-ai-revolution-in-software-development-mckinsey-analise-executiva",
-      "title": "O que “The AI Revolution in Software Development — McKinsey” ensina sobre IA no desenvolvimento de software",
-      "description": "O que “The AI Revolution in Software Development — McKinsey” ensina sobre IA no desenvolvimento de software. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA no desenvolvimento de software",
-      "date": "2026-04-02",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "The AI Revolution in Software Development — McKinsey",
-        "IA no desenvolvimento de software",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-175-ai-developer-tools-for-coding-and-security-analise-executiva",
-      "title": "O que “AI Developer Tools for Coding and Security” ensina sobre IA no desenvolvimento de software",
-      "description": "O que “AI Developer Tools for Coding and Security” ensina sobre IA no desenvolvimento de software. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA no desenvolvimento de software",
-      "date": "2026-03-30",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Developer Tools for Coding and Security",
-        "IA no desenvolvimento de software",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-339-cleo-conversational-commerce-chatbot-analise-executiva",
-      "title": "O que “Cleo: Conversational Commerce Chatbot” ensina sobre IA no e-commerce e varejo",
-      "description": "O que “Cleo: Conversational Commerce Chatbot” ensina sobre IA no e-commerce e varejo. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA no e-commerce e varejo",
-      "date": "2025-10-17",
-      "updated": "2026-09-22",
-      "readTime": "5 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Cleo: Conversational Commerce Chatbot",
-        "IA no e-commerce e varejo",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-339-cleo-conversational-commerce-chatbot-guia-aplicacao",
-      "title": "Como aplicar as ideias de “Cleo: Conversational Commerce Chatbot” em uma empresa",
-      "description": "Como aplicar as ideias de “Cleo: Conversational Commerce Chatbot” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA no e-commerce e varejo",
-      "date": "2025-10-17",
-      "updated": "2026-09-22",
-      "readTime": "5 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Cleo: Conversational Commerce Chatbot",
-        "IA no e-commerce e varejo",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-analise-executiva",
-      "title": "O que “Agente de IA no WhatsApp: ROI em PMEs” ensina sobre IA nas empresas brasileiras e PMEs",
-      "description": "O que “Agente de IA no WhatsApp: ROI em PMEs” ensina sobre IA nas empresas brasileiras e PMEs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA nas empresas brasileiras e PMEs",
-      "date": "2025-09-19",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Agente de IA no WhatsApp: ROI em PMEs",
-        "IA nas empresas brasileiras e PMEs",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-guia-aplicacao",
-      "title": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa",
-      "description": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "IA nas empresas brasileiras e PMEs",
-      "date": "2025-09-19",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Agente de IA no WhatsApp: ROI em PMEs",
-        "IA nas empresas brasileiras e PMEs",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-384-google-guide-to-optimizing-for-generative-ai-analise-executiva",
-      "title": "O que “Google Guide to Optimizing for Generative AI” ensina sobre GEO, AEO e aparecer nas respostas das IAs",
-      "description": "O que “Google Guide to Optimizing for Generative AI” ensina sobre GEO, AEO e aparecer nas respostas das IAs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "GEO, AEO e aparecer nas respostas das IAs",
-      "date": "2025-09-02",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Google Guide to Optimizing for Generative AI",
-        "GEO, AEO e aparecer nas respostas das IAs",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-389-getting-cited-in-google-ai-chatgpt-and-perplexity-analise-executiva",
-      "title": "O que “Getting Cited in Google AI, ChatGPT and Perplexity” ensina sobre GEO, AEO e aparecer nas respostas das IAs",
-      "description": "O que “Getting Cited in Google AI, ChatGPT and Perplexity” ensina sobre GEO, AEO e aparecer nas respostas das IAs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "GEO, AEO e aparecer nas respostas das IAs",
-      "date": "2025-08-28",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Getting Cited in Google AI, ChatGPT and Perplexity",
-        "GEO, AEO e aparecer nas respostas das IAs",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-418-scaling-ai-agent-infrastructure-with-mcp-google-analise-executiva",
-      "title": "O que “Scaling AI Agent Infrastructure With MCP — Google” ensina sobre MCP, tool use e interoperabilidade",
-      "description": "O que “Scaling AI Agent Infrastructure With MCP — Google” ensina sobre MCP, tool use e interoperabilidade. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "MCP, tool use e interoperabilidade",
-      "date": "2025-07-30",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Scaling AI Agent Infrastructure With MCP — Google",
-        "MCP, tool use e interoperabilidade",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-418-scaling-ai-agent-infrastructure-with-mcp-google-guia-aplicacao",
-      "title": "Como aplicar as ideias de “Scaling AI Agent Infrastructure With MCP — Google” em uma empresa",
-      "description": "Como aplicar as ideias de “Scaling AI Agent Infrastructure With MCP — Google” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "MCP, tool use e interoperabilidade",
-      "date": "2025-07-30",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "Scaling AI Agent Infrastructure With MCP — Google",
-        "MCP, tool use e interoperabilidade",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-449-ai-voice-agent-services-for-businesses-aircall-analise-executiva",
-      "title": "O que “AI Voice Agent Services for Businesses — Aircall” ensina sobre Voice AI e agentes de voz",
-      "description": "O que “AI Voice Agent Services for Businesses — Aircall” ensina sobre Voice AI e agentes de voz. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Voice AI e agentes de voz",
-      "date": "2025-06-29",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Voice Agent Services for Businesses — Aircall",
-        "Voice AI e agentes de voz",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "pesquisa-450-ai-voice-agents-for-customer-service-cresta-analise-executiva",
-      "title": "O que “AI Voice Agents for Customer Service — Cresta” ensina sobre Voice AI e agentes de voz",
-      "description": "O que “AI Voice Agents for Customer Service — Cresta” ensina sobre Voice AI e agentes de voz. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
-      "category": "Voice AI e agentes de voz",
-      "date": "2025-06-28",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
-      "keywords": [
-        "AI Voice Agents for Customer Service — Cresta",
-        "Voice AI e agentes de voz",
-        "pesquisa inteligência artificial",
-        "Tironi Tech",
-        "IA para empresas"
-      ]
-    },
-    {
-      "slug": "como-conseguir-clientes-pelo-whatsapp-guia-pratico",
-      "title": "Como conseguir clientes pelo WhatsApp: guia prático para empresas",
-      "description": "Como conseguir clientes pelo WhatsApp: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "IA para WhatsApp",
-      "date": "2026-04-19",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como conseguir clientes pelo WhatsApp",
-        "como conseguir clientes pelo WhatsApp para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "como-vender-pelo-whatsapp-guia-pratico",
-      "title": "Como vender pelo WhatsApp: guia prático para empresas",
-      "description": "Como vender pelo WhatsApp: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "IA para WhatsApp",
-      "date": "2026-04-14",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como vender pelo WhatsApp",
-        "como vender pelo WhatsApp para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "ia-para-vendas-guia-pratico",
-      "title": "IA para vendas: guia prático para empresas",
-      "description": "IA para vendas: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "Vendas e crescimento",
-      "date": "2026-03-25",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para vendas",
-        "IA para vendas para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "melhor-crm-para-vendas-guia-pratico",
-      "title": "Melhor CRM para vendas: guia prático para empresas",
-      "description": "Melhor CRM para vendas: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "Prospecção e CRM",
-      "date": "2025-12-10",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "melhor CRM para vendas",
-        "melhor CRM para vendas para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "como-automatizar-atendimento-ao-cliente-guia-pratico",
-      "title": "Como automatizar atendimento ao cliente: guia prático para empresas",
-      "description": "Como automatizar atendimento ao cliente: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "ChatBô e atendimento",
-      "date": "2025-09-01",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como automatizar atendimento ao cliente",
-        "como automatizar atendimento ao cliente para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "ia-para-atendimento-ao-cliente-guia-pratico",
-      "title": "IA para atendimento ao cliente: guia prático para empresas",
-      "description": "IA para atendimento ao cliente: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "ChatBô e atendimento",
-      "date": "2025-08-27",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para atendimento ao cliente",
-        "IA para atendimento ao cliente para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "software-sob-medida-guia-pratico",
-      "title": "Software sob medida: guia prático para empresas",
-      "description": "Software sob medida: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "Software personalizado",
-      "date": "2025-06-03",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "software sob medida",
-        "software sob medida para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "empresa-de-software-sob-medida-guia-pratico",
-      "title": "Empresa de software sob medida: guia prático para empresas",
-      "description": "Empresa de software sob medida: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
-      "category": "Software personalizado",
-      "date": "2025-05-29",
-      "updated": "2026-09-22",
-      "readTime": "10 min de leitura",
-      "featured": true,
-      "keywords": [
-        "empresa de software sob medida",
-        "empresa de software sob medida para empresas",
-        "Guia prático",
-        "Tironi Tech",
-        "ChatBô",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "como-vender-pelo-whatsapp-jornada-completa",
-      "title": "Como vender pelo WhatsApp: da primeira mensagem ao fechamento",
-      "description": "Como vender pelo WhatsApp: da primeira mensagem ao fechamento. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
-      "category": "IA para WhatsApp",
-      "date": "2025-04-24",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "como conseguir clientes pelo WhatsApp",
-        "como vender pelo WhatsApp",
-        "automação de vendas WhatsApp",
-        "agente de vendas WhatsApp",
-        "follow-up automático WhatsApp",
-        "vendas pelo WhatsApp",
-        "Tironi Tech",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "ia-para-vendas-aplicacoes-resultados",
-      "title": "IA para vendas: 15 aplicações ligadas a conversão, velocidade e margem",
-      "description": "IA para vendas: 15 aplicações ligadas a conversão, velocidade e margem. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
-      "category": "Vendas e crescimento",
-      "date": "2025-04-19",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para vendas",
-        "inteligência artificial para aumentar vendas",
-        "agente de IA para vendas",
-        "vendedor com inteligência artificial",
-        "como automatizar vendas",
-        "automação comercial",
-        "sistema de automação comercial",
-        "como automatizar meu comercial",
-        "como aumentar vendas sem contratar vendedores",
-        "como automatizar uma equipe comercial",
-        "IA aplicada a vendas",
-        "Tironi Tech",
-        "ChatBô"
-      ]
-    },
-    {
-      "slug": "crm-pequenas-empresas-guia-escolha",
-      "title": "CRM para pequenas empresas: guia de escolha e implantação",
-      "description": "CRM para pequenas empresas: guia de escolha e implantação. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
-      "category": "Prospecção e CRM",
-      "date": "2025-04-09",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "CRM para pequenas empresas",
-        "melhor CRM para vendas",
-        "CRM com inteligência artificial",
-        "CRM integrado com WhatsApp",
-        "automatizar CRM com IA",
-        "como integrar WhatsApp ao CRM",
-        "CRM para pequenas empresas",
-        "Tironi Tech",
-        "ChatBô"
+        "agentes de IA para empresas",
+        "empresa de automação com IA",
+        "IA aplicada a negócios",
+        "automação de processos com IA",
+        "desenvolvimento de agente de IA"
       ]
     },
     {
@@ -1736,24 +109,212 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "reduzir-custos-empresa-automacao",
-      "title": "Como reduzir custos na empresa com automação sem cortar valor",
-      "description": "Como reduzir custos na empresa com automação sem cortar valor. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
-      "category": "Automação com IA",
-      "date": "2025-03-25",
+      "slug": "agente-de-ia-para-whatsapp",
+      "title": "Agente de IA para WhatsApp: atendimento que consulta dados e executa ações",
+      "description": "Agente de IA para WhatsApp: atendimento que consulta dados e executa ações. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
+      "category": "Serviços de IA",
+      "date": "2026-09-22",
       "updated": "2026-09-22",
       "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
-        "como reduzir custos na empresa",
-        "como melhorar produtividade da empresa",
-        "como automatizar processos da empresa",
-        "automação de processos empresariais",
-        "como identificar processos para automatizar",
-        "como reduzir trabalho manual na empresa",
-        "software para automatizar processos",
-        "automação de tarefas repetitivas",
-        "redução de custos com automação",
+        "agente de IA para WhatsApp",
+        "agente de IA para WhatsApp para empresas",
+        "Tironi Tech",
+        "inteligência artificial empresarial",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "sla-atendimento-whatsapp-picos",
+      "title": "SLA de atendimento no WhatsApp em horários de pico: como dimensionar fila, prioridade e comunicação de espera",
+      "description": "como dimensionar fila, prioridade e comunicação de espera. Guia aprofundado com diagnóstico, modelo de capacidade, prioridade e mensagem de espera, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "18 min de leitura",
+      "featured": true,
+      "keywords": [
+        "sla de atendimento no whatsapp em horários de pico",
+        "SLA para atendimento no WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "qualificacao-leads-whatsapp-sem-formulario-longo",
+      "title": "Qualificação de leads no WhatsApp sem formulário longo: como coletar contexto suficiente sem cansar quem está pesquisando",
+      "description": "como coletar contexto suficiente sem cansar quem está pesquisando. Guia aprofundado com diagnóstico, roteiro progressivo de qualificação e critérios de passagem, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "qualificação de leads no whatsapp sem formulário longo",
+        "qualificação de leads no WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "detectar-intencao-mudanca-assunto-whatsapp",
+      "title": "Mudança de intenção durante a conversa no WhatsApp: como reconhecer novos assuntos sem perder pedidos anteriores",
+      "description": "como reconhecer novos assuntos sem perder pedidos anteriores. Guia aprofundado com diagnóstico, modelo de tópicos, compromissos e retomadas, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "mudança de intenção durante a conversa no whatsapp",
+        "detecção de intenção em conversas",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "atendimento-whatsapp-fora-horario",
+      "title": "Atendimento no WhatsApp fora do horário comercial: como acolher, resolver o que for seguro e preparar a continuidade",
+      "description": "como acolher, resolver o que for seguro e preparar a continuidade. Guia aprofundado com diagnóstico, árvore de urgência, autosserviço e retorno comprometido, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "atendimento no whatsapp fora do horário comercial",
+        "atendimento automático fora do horário",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "governanca-templates-whatsapp",
+      "title": "Governança de templates e mensagens no WhatsApp: como aprovar, versionar e medir comunicações iniciadas pela empresa",
+      "description": "como aprovar, versionar e medir comunicações iniciadas pela empresa. Guia aprofundado com diagnóstico, catálogo de templates com finalidade, público, versão e responsável, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "governança de templates e mensagens no whatsapp",
+        "templates de WhatsApp Business",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "base-conhecimento-atendimento-whatsapp",
+      "title": "Base de conhecimento para atendimento no WhatsApp: como manter respostas verificáveis sem copiar documentos desatualizados",
+      "description": "como manter respostas verificáveis sem copiar documentos desatualizados. Guia aprofundado com diagnóstico, catálogo de fontes com dono, validade e permissão, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "base de conhecimento para atendimento no whatsapp",
+        "base de conhecimento para WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "agendamento-whatsapp-confirmacao-reagendamento",
+      "title": "Agendamento pelo WhatsApp com confirmação e reagendamento: como integrar disponibilidade, identidade e regras de agenda",
+      "description": "como integrar disponibilidade, identidade e regras de agenda. Guia aprofundado com diagnóstico, contrato de agenda com estados e regras de alteração, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "agendamento pelo whatsapp com confirmação e reagendamento",
+        "agendamento automatizado no WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "triagem-whatsapp-por-intencao-e-risco",
+      "title": "Triagem no WhatsApp por intenção e risco",
+      "description": "Como classificar contatos no WhatsApp por intenção e risco, sem transformar toda conversa em lead nem misturar orçamento, suporte e cobrança.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-10-05",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "triagem no whatsapp por intenção e risco",
+        "triagem no WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "atendimento-multicanal-historico-unico",
+      "title": "Atendimento multicanal com histórico único: como preservar identidade e continuidade entre site, WhatsApp e equipe",
+      "description": "como preservar identidade e continuidade entre site, WhatsApp e equipe. Guia aprofundado com diagnóstico, modelo de identidade, atendimento e oportunidade, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "atendimento multicanal com histórico único",
+        "atendimento multicanal integrado",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "chatbot-com-ia-no-whatsapp-guia-completo",
+      "title": "Chatbot com IA no WhatsApp: o guia completo para transformar conversas em vendas",
+      "description": "Como estruturar atendimento, qualificação e acompanhamento de leads no canal mais presente na rotina do cliente brasileiro.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-14",
+      "updated": "2026-09-14",
+      "readTime": "5 min de leitura",
+      "featured": true,
+      "keywords": [
+        "chatbot com IA",
+        "chatbot para WhatsApp",
+        "automação de atendimento",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "ia-para-vendas-aplicacoes-resultados",
+      "title": "IA para vendas: 15 aplicações ligadas a conversão, velocidade e margem",
+      "description": "IA para vendas: 15 aplicações ligadas a conversão, velocidade e margem. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
+      "category": "Vendas e crescimento",
+      "date": "2025-04-19",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para vendas",
+        "inteligência artificial para aumentar vendas",
+        "agente de IA para vendas",
+        "vendedor com inteligência artificial",
+        "como automatizar vendas",
+        "automação comercial",
+        "sistema de automação comercial",
+        "como automatizar meu comercial",
+        "como aumentar vendas sem contratar vendedores",
+        "como automatizar uma equipe comercial",
+        "IA aplicada a vendas",
         "Tironi Tech",
         "ChatBô"
       ]
@@ -1779,20 +340,383 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "empresa-de-inteligencia-artificial",
-      "title": "Empresa de inteligência artificial: serviços, projetos e como escolher",
-      "description": "Empresa de inteligência artificial: serviços, projetos e como escolher. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
-      "category": "Serviços de IA",
+      "slug": "como-qualificar-leads-whatsapp-perguntas-proxima-decisao",
+      "title": "Como qualificar leads no WhatsApp com perguntas que ajudam o cliente a avançar",
+      "description": "Construa uma qualificação comercial por necessidade, contexto e próximo passo, distinguindo informação ausente de falta de interesse.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como qualificar leads no WhatsApp",
+        "IA para vendas",
+        "lead qualificado",
+        "qualificação comercial",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-conseguir-clientes-pelo-whatsapp-guia-pratico",
+      "title": "Como conseguir clientes pelo WhatsApp: guia prático para empresas",
+      "description": "Como conseguir clientes pelo WhatsApp: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "IA para WhatsApp",
+      "date": "2026-04-19",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como conseguir clientes pelo WhatsApp",
+        "como conseguir clientes pelo WhatsApp para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "como-vender-pelo-whatsapp-guia-pratico",
+      "title": "Como vender pelo WhatsApp: guia prático para empresas",
+      "description": "Como vender pelo WhatsApp: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "IA para WhatsApp",
+      "date": "2026-04-14",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como vender pelo WhatsApp",
+        "como vender pelo WhatsApp para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "ia-para-atendimento-ao-cliente-guia-pratico",
+      "title": "IA para atendimento ao cliente: guia prático para empresas",
+      "description": "IA para atendimento ao cliente: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-08-27",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para atendimento ao cliente",
+        "IA para atendimento ao cliente para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "como-automatizar-atendimento-ao-cliente-guia-pratico",
+      "title": "Como automatizar atendimento ao cliente: guia prático para empresas",
+      "description": "Como automatizar atendimento ao cliente: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "ChatBô e atendimento",
+      "date": "2025-09-01",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como automatizar atendimento ao cliente",
+        "como automatizar atendimento ao cliente para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "ia-para-vendas-guia-pratico",
+      "title": "IA para vendas: guia prático para empresas",
+      "description": "IA para vendas: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "Vendas e crescimento",
+      "date": "2026-03-25",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para vendas",
+        "IA para vendas para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "chatbot-catalogo-produtos-variacoes",
+      "title": "Chatbot de catálogo com produtos e variações: como consultar atributos, estoque e alternativas sem inventar equivalência",
+      "description": "como consultar atributos, estoque e alternativas sem inventar equivalência. Guia aprofundado com diagnóstico, mapa de atributos decisivos e fontes por campo, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "chatbot de catálogo com produtos e variações",
+        "chatbot para catálogo de produtos",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "auditar-qualidade-conversas-chatbot",
+      "title": "Auditoria de qualidade de conversas com chatbot: como avaliar resolução, clareza, segurança e transferência",
+      "description": "como avaliar resolução, clareza, segurança e transferência. Guia aprofundado com diagnóstico, rubrica de qualidade com exemplos aprovados e críticos, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "auditoria de qualidade de conversas com chatbot",
+        "auditoria de chatbot",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "handoff-chatbot-atendente-contexto",
+      "title": "Transferência do chatbot para o atendente, com contexto",
+      "description": "Como passar a conversa do chatbot para uma pessoa sem o cliente repetir tudo: resumo, prioridade e estado do atendimento.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-10-05",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "transferência do chatbot para atendente",
+        "transferência de chatbot para humano",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "como-vender-mais-whatsapp-fila-prioridade-atendimento",
+      "title": "Como vender mais no WhatsApp organizando a fila de atendimento: tutorial com prioridades e passagem para vendas",
+      "description": "Monte uma fila comercial no WhatsApp com critérios de prioridade, responsáveis, exemplos de mensagens e indicadores para reduzir oportunidades esquecidas.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como vender mais no WhatsApp",
+        "como vender mais com whats",
+        "fila de atendimento WhatsApp",
+        "priorização de leads",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-vender-pelo-whatsapp-jornada-completa",
+      "title": "Como vender pelo WhatsApp: da primeira mensagem ao fechamento",
+      "description": "Como vender pelo WhatsApp: da primeira mensagem ao fechamento. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
+      "category": "IA para WhatsApp",
+      "date": "2025-04-24",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como conseguir clientes pelo WhatsApp",
+        "como vender pelo WhatsApp",
+        "automação de vendas WhatsApp",
+        "agente de vendas WhatsApp",
+        "follow-up automático WhatsApp",
+        "vendas pelo WhatsApp",
+        "Tironi Tech",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-ia-consultar-produtos-whatsapp-respostas-verificaveis",
+      "title": "Como fazer a IA consultar seus produtos no WhatsApp: catálogo, perguntas de confirmação e respostas verificáveis",
+      "description": "Desenhe um assistente de catálogo que encontre o produto correto, consulte informações atuais e encaminhe dúvidas sem inventar preço ou compatibilidade.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para consultar meus produtos no whats",
+        "IA para WhatsApp",
+        "assistente de catálogo",
+        "consulta de produtos com IA",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-atender-whatsapp-fora-horario-retomada-equipe",
+      "title": "Como atender no WhatsApp fora do horário: colete a demanda e prepare a retomada da equipe",
+      "description": "Monte um atendimento fora do expediente com limites claros, coleta mínima, confirmação de recebimento e uma fila que a equipe consiga assumir na abertura.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "atendimento WhatsApp fora do horário",
+        "como automatizar WhatsApp",
+        "IA para atendimento ao cliente",
+        "atendimento noturno",
+        "automação de atendimento"
+      ]
+    },
+    {
+      "slug": "como-especificar-software-sob-medida-exemplos-aceite",
+      "title": "Como especificar um software sob medida com exemplos que evitam retrabalho",
+      "description": "Transforme pedidos vagos em regras e cenários verificáveis, definindo escopo, exceções e critérios de aceite para desenvolver software ligado à operação.",
+      "category": "SaaS, produto e AI-native software",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como especificar software sob medida",
+        "desenvolvimento de software sob medida",
+        "requisitos de software",
+        "critérios de aceite",
+        "software empresarial"
+      ]
+    },
+    {
+      "slug": "ia-consultar-produtos-no-whatsapp",
+      "title": "IA para consultar meus produtos no WhatsApp: catálogo, preço e estoque em tempo real",
+      "description": "IA para consultar meus produtos no WhatsApp: catálogo, preço e estoque em tempo real. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
+      "category": "IA para WhatsApp",
       "date": "2026-09-22",
       "updated": "2026-09-22",
       "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
-        "empresa de inteligência artificial",
-        "empresa de inteligência artificial para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
+        "IA para consultar produtos no WhatsApp",
+        "IA para WhatsApp",
+        "IA para Whats",
+        "chatbot com IA",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "ia-whatsapp-e-instagram-integrados",
+      "title": "IA para WhatsApp e Instagram: atendimento integrado sem perder contexto",
+      "description": "IA para WhatsApp e Instagram: atendimento integrado sem perder contexto. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
+      "category": "IA para WhatsApp",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para WhatsApp e Instagram",
+        "IA para WhatsApp",
+        "IA para Whats",
+        "chatbot com IA",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "ia-para-whatsapp-guia-completo",
+      "title": "IA para WhatsApp: guia completo para atender, vender e automatizar",
+      "description": "IA para WhatsApp: guia completo para atender, vender e automatizar. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
+      "category": "IA para WhatsApp",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "IA para WhatsApp",
+        "IA para WhatsApp",
+        "IA para Whats",
+        "chatbot com IA",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-testar-agente-ia-ferramentas-estado-final-trajetoria",
+      "title": "Como testar um agente de IA pelas ferramentas usadas e pelo estado final",
+      "description": "Crie cenários de avaliação para agentes que executam tarefas, verificando autorização, argumentos, efeitos e comunicação do resultado.",
+      "category": "Agentes de IA e Agentic AI",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "11 min de leitura",
+      "featured": true,
+      "keywords": [
+        "avaliação de agentes",
+        "agentes de IA",
+        "teste de ferramentas",
+        "automação com IA",
+        "estado final"
+      ]
+    },
+    {
+      "slug": "como-rastrear-vendas-whatsapp-utm-crm-pedido",
+      "title": "Como rastrear vendas pelo WhatsApp: conecte campanha, conversa, CRM e pedido sem contar cliques como compras",
+      "description": "Aprenda a construir uma trilha de medição do anúncio ao pedido confirmado, com UTMs, identificadores, regras de atribuição e conciliação comercial.",
+      "category": "Vendas e crescimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como rastrear vendas pelo WhatsApp",
+        "UTM WhatsApp CRM",
+        "medir campanhas no WhatsApp",
+        "conversão de leads em vendas",
+        "BI comercial"
+      ]
+    },
+    {
+      "slug": "como-cotar-varios-produtos-whatsapp-sku-estoque-versao",
+      "title": "Como montar uma cotação com vários produtos no WhatsApp: SKU, estoque, frete e controle de versões",
+      "description": "Tutorial para transformar uma lista enviada no WhatsApp em cotação conferida, com itens, quantidades, validade e tratamento de alterações antes do pedido.",
+      "category": "Integrações com CRM, ERP e APIs",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "cotação de produtos no WhatsApp",
+        "orçamento com vários itens",
+        "IA para consultar produtos no whats",
+        "integração de catálogo e ERP"
+      ]
+    },
+    {
+      "slug": "como-organizar-conversa-whatsapp-varios-assuntos-sem-esquecer-pedidos",
+      "title": "Como organizar uma conversa de WhatsApp com vários assuntos sem esquecer parte do pedido",
+      "description": "Separe demandas simultâneas, mantenha referências e apresente um resumo de andamento para resolver conversas comerciais com vários temas.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "conversa multitema WhatsApp",
+        "organizar atendimento WhatsApp",
+        "solicitações de clientes",
+        "vendas e atendimento"
+      ]
+    },
+    {
+      "slug": "como-retomar-propostas-whatsapp-motivo-proxima-acao",
+      "title": "Como retomar propostas paradas no WhatsApp: descubra o motivo, combine a próxima ação e proteja a margem",
+      "description": "Organize a recuperação de propostas com motivos de espera, perguntas úteis, critérios de encerramento e avaliação de resultado sem depender de descontos automáticos.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como retomar propostas no WhatsApp",
+        "follow-up de orçamento",
+        "recuperar vendas paradas",
+        "vender mais pelo whats",
+        "automação comercial"
       ]
     },
     {
@@ -1807,6 +731,23 @@ export const blogIndexArticles = {
       "keywords": [
         "empresa de automação com IA",
         "empresa de automação com IA para empresas",
+        "Tironi Tech",
+        "inteligência artificial empresarial",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "empresa-de-inteligencia-artificial",
+      "title": "Empresa de inteligência artificial: serviços, projetos e como escolher",
+      "description": "Empresa de inteligência artificial: serviços, projetos e como escolher. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
+      "category": "Serviços de IA",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "empresa de inteligência artificial",
+        "empresa de inteligência artificial para empresas",
         "Tironi Tech",
         "inteligência artificial empresarial",
         "automação com IA"
@@ -1847,23 +788,6 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "agente-de-ia-para-whatsapp",
-      "title": "Agente de IA para WhatsApp: atendimento que consulta dados e executa ações",
-      "description": "Agente de IA para WhatsApp: atendimento que consulta dados e executa ações. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
-      "category": "Serviços de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "agente de IA para WhatsApp",
-        "agente de IA para WhatsApp para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
-      ]
-    },
-    {
       "slug": "automacao-de-whatsapp-com-ia",
       "title": "Automação de WhatsApp com IA: arquitetura, integrações e implantação",
       "description": "Automação de WhatsApp com IA: arquitetura, integrações e implantação. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
@@ -1875,40 +799,6 @@ export const blogIndexArticles = {
       "keywords": [
         "automação de WhatsApp com IA",
         "automação de WhatsApp com IA para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "ia-para-atendimento-ao-cliente",
-      "title": "IA para atendimento ao cliente: como planejar a implantação",
-      "description": "Planeje a implantação de IA no atendimento: escolha do caso de uso, integração com sistemas, transferência para pessoas e critérios de contratação.",
-      "category": "Serviços de IA",
-      "date": "2026-09-22",
-      "updated": "2026-10-21",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para atendimento ao cliente",
-        "IA para atendimento ao cliente para empresas",
-        "Tironi Tech",
-        "inteligência artificial empresarial",
-        "automação com IA"
-      ]
-    },
-    {
-      "slug": "ia-para-vendas-empresas",
-      "title": "IA para vendas: como aumentar conversão com dados, atendimento e automação",
-      "description": "IA para vendas: como aumentar conversão com dados, atendimento e automação. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
-      "category": "Serviços de IA",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": true,
-      "keywords": [
-        "IA para vendas",
-        "IA para vendas para empresas",
         "Tironi Tech",
         "inteligência artificial empresarial",
         "automação com IA"
@@ -1932,84 +822,182 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "ia-para-whatsapp-guia-completo",
-      "title": "IA para WhatsApp: guia completo para atender, vender e automatizar",
-      "description": "IA para WhatsApp: guia completo para atender, vender e automatizar. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
-      "category": "IA para WhatsApp",
+      "slug": "ia-para-vendas-empresas",
+      "title": "IA para vendas: como aumentar conversão com dados, atendimento e automação",
+      "description": "IA para vendas: como aumentar conversão com dados, atendimento e automação. Guia completo para comparar alternativas, planejar implantação, controlar riscos e medir retorno.",
+      "category": "Serviços de IA",
       "date": "2026-09-22",
       "updated": "2026-09-22",
       "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
-        "IA para WhatsApp",
-        "IA para WhatsApp",
-        "IA para Whats",
-        "chatbot com IA",
-        "ChatBô"
+        "IA para vendas",
+        "IA para vendas para empresas",
+        "Tironi Tech",
+        "inteligência artificial empresarial",
+        "automação com IA"
       ]
     },
     {
-      "slug": "ia-consultar-produtos-no-whatsapp",
-      "title": "IA para consultar meus produtos no WhatsApp: catálogo, preço e estoque em tempo real",
-      "description": "IA para consultar meus produtos no WhatsApp: catálogo, preço e estoque em tempo real. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
-      "category": "IA para WhatsApp",
+      "slug": "ia-para-atendimento-ao-cliente",
+      "title": "IA para atendimento ao cliente: como planejar a implantação",
+      "description": "Planeje a implantação de IA no atendimento: escolha do caso de uso, integração com sistemas, transferência para pessoas e critérios de contratação.",
+      "category": "Serviços de IA",
       "date": "2026-09-22",
-      "updated": "2026-09-22",
+      "updated": "2026-10-21",
       "readTime": "6 min de leitura",
       "featured": true,
       "keywords": [
-        "IA para consultar produtos no WhatsApp",
-        "IA para WhatsApp",
-        "IA para Whats",
-        "chatbot com IA",
-        "ChatBô"
+        "IA para atendimento ao cliente",
+        "IA para atendimento ao cliente para empresas",
+        "Tironi Tech",
+        "inteligência artificial empresarial",
+        "automação com IA"
       ]
     },
     {
-      "slug": "ia-whatsapp-e-instagram-integrados",
-      "title": "IA para WhatsApp e Instagram: atendimento integrado sem perder contexto",
-      "description": "IA para WhatsApp e Instagram: atendimento integrado sem perder contexto. Entenda arquitetura, integrações, segurança, implantação, métricas e como transformar conversa em resultado.",
-      "category": "IA para WhatsApp",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
+      "slug": "como-comparar-dois-produtos-whatsapp-ajudar-cliente-escolher",
+      "title": "Como comparar dois produtos no WhatsApp e ajudar a escolher",
+      "description": "Compare dois produtos no WhatsApp pelo uso real: critérios, diferenças confirmadas e limites para não indicar a opção errada.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-10-05",
+      "readTime": "13 min de leitura",
       "featured": true,
       "keywords": [
-        "IA para WhatsApp e Instagram",
-        "IA para WhatsApp",
-        "IA para Whats",
-        "chatbot com IA",
-        "ChatBô"
+        "comparar produtos no WhatsApp",
+        "venda consultiva WhatsApp",
+        "como vender mais pelo WhatsApp",
+        "escolha de produto"
       ]
     },
     {
-      "slug": "geoaura-visibilidade-de-marca-em-ias",
-      "title": "GeoAura e visibilidade de marca em IAs: como construir presença citável",
-      "description": "Um plano para tornar conhecimento, produtos e autoridade mais compreensíveis em buscas e respostas generativas.",
-      "category": "GeoAura e GEO",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
+      "slug": "como-transformar-audio-cliente-whatsapp-em-pedido-conferivel",
+      "title": "Como transformar um áudio de cliente no WhatsApp em uma solicitação comercial conferível",
+      "description": "Organize áudios com itens, mudanças e dúvidas em um resumo verificável antes de cotar, encaminhar ou confirmar uma ação comercial.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
       "keywords": [
-        "GeoAura",
-        "visibilidade de marca em IA",
-        "GEO para empresas"
+        "áudio de cliente WhatsApp",
+        "pedido por áudio",
+        "atendimento comercial WhatsApp",
+        "resumo de solicitação"
       ]
     },
     {
-      "slug": "operacao-de-conteudo-geo-com-geoaura",
-      "title": "Operação de conteúdo GEO com GeoAura: pesquisa, produção e atualização",
-      "description": "Como criar um processo editorial contínuo com especialistas, fontes, distribuição, medição e revisão.",
-      "category": "GeoAura e GEO",
-      "date": "2026-09-22",
-      "updated": "2026-09-22",
-      "readTime": "6 min de leitura",
-      "featured": false,
+      "slug": "como-montar-conjunto-produtos-whatsapp-dentro-orcamento-cliente",
+      "title": "Como montar um conjunto de produtos pelo WhatsApp dentro do orçamento informado pelo cliente",
+      "description": "Priorize funções, calcule o total completo e apresente escolhas conscientes para montar uma compra com limite de investimento.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
       "keywords": [
-        "operação de conteúdo GEO",
-        "GeoAura conteúdo",
-        "estratégia editorial para IA"
+        "comprar dentro do orçamento WhatsApp",
+        "conjunto de produtos",
+        "venda consultiva com orçamento",
+        "atendimento de compras"
+      ]
+    },
+    {
+      "slug": "como-oferecer-substituto-produto-indisponivel-whatsapp-com-confirmacao",
+      "title": "Como oferecer um substituto para um produto indisponível no WhatsApp sem presumir equivalência",
+      "description": "Descubra o que precisa ser preservado na substituição, verifique diferenças e obtenha uma escolha explícita antes de alterar a compra.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "produto indisponível WhatsApp",
+        "substituição de produto",
+        "venda consultiva",
+        "alternativa de estoque"
+      ]
+    },
+    {
+      "slug": "como-usar-fotos-cliente-whatsapp-orientar-compra-sem-adivinhar-medidas",
+      "title": "Como usar fotos do cliente no WhatsApp para orientar uma compra sem adivinhar medidas ou compatibilidade",
+      "description": "Conduza uma venda consultiva com imagens, separando observação, informação confirmada e avaliação necessária antes de recomendar um produto.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "venda por fotos WhatsApp",
+        "atendimento consultivo por imagem",
+        "compatibilidade de produto",
+        "orientar compra WhatsApp"
+      ]
+    },
+    {
+      "slug": "como-receber-indicacoes-clientes-whatsapp-sem-abordagem-surpresa",
+      "title": "Como receber indicações de clientes pelo WhatsApp com uma apresentação clara para o novo contato",
+      "description": "Organize um processo de indicação que preserve contexto, evite abordagens inesperadas e permita acompanhar a origem da oportunidade sem confundir indicação com venda.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "indicação de clientes WhatsApp",
+        "vendas por indicação",
+        "prospecção com indicação",
+        "origem de oportunidade CRM"
+      ]
+    },
+    {
+      "slug": "como-negociar-data-entrega-whatsapp-sem-prometer-prazo-nao-confirmado",
+      "title": "Como negociar uma data de entrega pelo WhatsApp sem prometer um prazo ainda não confirmado",
+      "description": "Transforme pedidos de urgência em alternativas verificadas, distinguindo necessidade do cliente, capacidade operacional e confirmação comercial.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "negociar entrega WhatsApp",
+        "prazo de entrega comercial",
+        "venda urgente",
+        "atendimento logístico"
+      ]
+    },
+    {
+      "slug": "como-atender-compra-presentes-empresariais-whatsapp-com-aprovacao",
+      "title": "Como atender uma compra de presentes empresariais pelo WhatsApp com quantidades e aprovação claras",
+      "description": "Organize finalidade, composição, personalização e entrega de presentes corporativos sem confundir uma preferência inicial com aprovação do pedido.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "presentes empresariais WhatsApp",
+        "compra corporativa de presentes",
+        "aprovação de personalização",
+        "venda consultiva WhatsApp"
+      ]
+    },
+    {
+      "slug": "central-atendimento-whatsapp-multiequipe",
+      "title": "Central de atendimento WhatsApp: filas, equipes e contexto",
+      "description": "Organize vendas, suporte e financeiro no WhatsApp com filas, responsáveis, regras de transferência e contexto preservado entre equipes.",
+      "category": "ChatBô e atendimento",
+      "date": "2026-09-29",
+      "updated": "2026-10-29",
+      "readTime": "4 min de leitura",
+      "featured": true,
+      "keywords": [
+        "central de atendimento no whatsapp para várias equipes",
+        "central de atendimento WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
       ]
     },
     {
@@ -2030,53 +1018,1067 @@ export const blogIndexArticles = {
       ]
     },
     {
-      "slug": "whatsapp-com-ia-para-vendas-playbook-completo",
-      "title": "WhatsApp com IA para vendas: playbook completo do primeiro contato ao CRM",
-      "description": "Um guia operacional para transformar conversas no WhatsApp em atendimento rápido, qualificação consistente, agenda preenchida e dados confiáveis no CRM.",
+      "slug": "recuperar-conversas-abandonadas-whatsapp",
+      "title": "Como recuperar conversas abandonadas no WhatsApp",
+      "description": "Retome conversas abandonadas no WhatsApp com contexto, consentimento e uma próxima ajuda útil, sem follow-up genérico.",
       "category": "ChatBô e atendimento",
-      "date": "2026-09-22",
+      "date": "2026-09-29",
+      "updated": "2026-10-29",
+      "readTime": "4 min de leitura",
+      "featured": true,
+      "keywords": [
+        "recuperação de conversas abandonadas no whatsapp",
+        "recuperação de conversas no WhatsApp",
+        "automação de atendimento",
+        "ChatBô",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "como-levar-instagram-whatsapp-preservar-contexto-venda",
+      "title": "Instagram para WhatsApp: preserve o contexto da venda",
+      "description": "Leve o cliente do Instagram ao WhatsApp com oferta, origem e próxima ação registradas para continuar a venda sem repetir perguntas.",
+      "category": "Vendas e crescimento",
+      "date": "2026-09-24",
+      "updated": "2026-10-29",
+      "readTime": "3 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como vender pelo Instagram e WhatsApp",
+        "IA para whats e insta",
+        "integrar atendimento Instagram WhatsApp",
+        "vendas nas redes sociais",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "resumir-reuniao-vendas-atualizar-crm",
+      "title": "Resumo de reunião de vendas e atualização do CRM: como extrair compromissos sem registrar inferências como fatos",
+      "description": "como extrair compromissos sem registrar inferências como fatos. Guia aprofundado com diagnóstico, modelo de resumo, fatos, dúvidas e campos confirmáveis, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "resumo de reunião de vendas e atualização do crm",
+        "IA para resumo de reunião comercial",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "personalizar-proposta-comercial-sem-inventar",
+      "title": "Personalização de proposta comercial com IA: como adaptar linguagem e escopo sem criar compromissos não aprovados",
+      "description": "como adaptar linguagem e escopo sem criar compromissos não aprovados. Guia aprofundado com diagnóstico, estrutura de proposta com campos controlados e revisão de compromisso, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "personalização de proposta comercial com ia",
+        "IA para proposta comercial",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "analisar-motivos-perda-vendas",
+      "title": "Análise de motivos de perda em vendas: como transformar relatos livres em categorias úteis sem culpar preço ou vendedor",
+      "description": "como transformar relatos livres em categorias úteis sem culpar preço ou vendedor. Guia aprofundado com diagnóstico, taxonomia de perdas, evidências e entrevistas de revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "análise de motivos de perda em vendas",
+        "motivos de perda vendas",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "proxima-melhor-acao-vendas",
+      "title": "Próxima melhor ação em vendas com IA: como recomendar ações usando estágio, compromisso e contexto verificável",
+      "description": "como recomendar ações usando estágio, compromisso e contexto verificável. Guia aprofundado com diagnóstico, contrato de recomendação com evidência, prazo e opção de recusa, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "próxima melhor ação em vendas com ia",
+        "next best action vendas",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "previsao-vendas-com-faixas-incerteza",
+      "title": "Previsão de vendas com faixas de incerteza: como combinar pipeline, histórico e julgamento sem fingir precisão",
+      "description": "como combinar pipeline, histórico e julgamento sem fingir precisão. Guia aprofundado com diagnóstico, modelo de cenários, premissas e motivos de variação, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "previsão de vendas com faixas de incerteza",
+        "forecast de vendas B2B",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "integrar-marketing-vendas-definicao-lead",
+      "title": "Integração entre marketing e vendas pela definição de lead: como criar acordos de passagem com critérios observáveis",
+      "description": "como criar acordos de passagem com critérios observáveis. Guia aprofundado com diagnóstico, contrato de passagem, devolução e feedback, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "integração entre marketing e vendas pela definição de lead",
+        "SLA marketing e vendas",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "cadencia-prospeccao-com-consentimento",
+      "title": "Cadência de prospecção com relevância e consentimento: como coordenar canais e intervalos sem escalar ruído",
+      "description": "como coordenar canais e intervalos sem escalar ruído. Guia aprofundado com diagnóstico, política de cadência por hipótese, canal e sinal, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "cadência de prospecção com relevância e consentimento",
+        "cadência de prospecção B2B",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "onboarding-cliente-vendas-implantacao",
+      "title": "Passagem de vendas para onboarding do cliente: como preservar promessa, contexto e riscos depois da assinatura",
+      "description": "como preservar promessa, contexto e riscos depois da assinatura. Guia aprofundado com diagnóstico, dossiê de passagem, validação e reunião de transição, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "passagem de vendas para onboarding do cliente",
+        "handoff vendas implantação",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "lead-scoring-explicavel-b2b",
+      "title": "Lead scoring explicável para vendas B2B: como priorizar oportunidades sem esconder critérios em uma nota opaca",
+      "description": "como priorizar oportunidades sem esconder critérios em uma nota opaca. Guia aprofundado com diagnóstico, matriz de sinais, pesos, evidências e revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "lead scoring explicável para vendas b2b",
+        "lead scoring B2B",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "higienizar-crm-sem-apagar-historico",
+      "title": "Higienização de CRM sem apagar histórico comercial: como corrigir duplicidades, campos e estados preservando rastreabilidade",
+      "description": "como corrigir duplicidades, campos e estados preservando rastreabilidade. Guia aprofundado com diagnóstico, plano de qualidade, deduplicação e reconciliação, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "higienização de crm sem apagar histórico comercial",
+        "higienização de CRM",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "software-sob-medida-guia-pratico",
+      "title": "Software sob medida: guia prático para empresas",
+      "description": "Software sob medida: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "Software personalizado",
+      "date": "2025-06-03",
+      "updated": "2026-10-29",
+      "readTime": "4 min de leitura",
+      "featured": true,
+      "keywords": [
+        "software sob medida",
+        "software sob medida para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "roteamento-leads-territorio-competencia",
+      "title": "Roteamento de leads por território e competência: como distribuir oportunidades sem criar disputa ou tempo morto",
+      "description": "como distribuir oportunidades sem criar disputa ou tempo morto. Guia aprofundado com diagnóstico, matriz de roteamento, fallback e balanceamento, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "roteamento de leads por território e competência",
+        "roteamento de leads",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "pipeline-vendas-estados-evidencias",
+      "title": "Pipeline de vendas baseado em estados e evidências: como substituir etapas subjetivas por compromissos verificáveis",
+      "description": "como substituir etapas subjetivas por compromissos verificáveis. Guia aprofundado com diagnóstico, definição de etapas, evidências e saída, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "pipeline de vendas baseado em estados e evidências",
+        "pipeline comercial B2B",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "empresa-de-software-sob-medida-guia-pratico",
+      "title": "Empresa de software sob medida: guia prático para empresas",
+      "description": "Empresa de software sob medida: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "Software personalizado",
+      "date": "2025-05-29",
+      "updated": "2026-10-29",
+      "readTime": "3 min de leitura",
+      "featured": true,
+      "keywords": [
+        "empresa de software sob medida",
+        "empresa de software sob medida para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "detectar-oportunidades-paradas-crm",
+      "title": "Detecção de oportunidades paradas no CRM: como distinguir espera legítima de negócio esquecido",
+      "description": "como distinguir espera legítima de negócio esquecido. Guia aprofundado com diagnóstico, regra de inatividade contextual e fila de revisão, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "detecção de oportunidades paradas no crm",
+        "oportunidades paradas CRM",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "mapear-comite-compra-b2b",
+      "title": "Mapeamento do comitê de compra B2B: como entender papéis sem confundir cargo com poder de decisão",
+      "description": "como entender papéis sem confundir cargo com poder de decisão. Guia aprofundado com diagnóstico, mapa de participantes, critérios, riscos e evidências, cenário aplicado, riscos, indicadores e plano de implantação.",
+      "category": "Prospecção e CRM",
+      "date": "2026-09-29",
+      "updated": "2026-09-29",
+      "readTime": "17 min de leitura",
+      "featured": true,
+      "keywords": [
+        "mapeamento do comitê de compra b2b",
+        "comitê de compra B2B",
+        "IA para vendas",
+        "automação comercial",
+        "Tironi Tech"
+      ]
+    },
+    {
+      "slug": "como-priorizar-automacoes-capacidade-gargalo-negocio",
+      "title": "Como priorizar automações pelo gargalo do negócio e pela capacidade realmente liberada",
+      "description": "Compare oportunidades de automação com dados de demanda, fila, retrabalho e capacidade aproveitável para decidir qual processo melhorar primeiro.",
+      "category": "Automação de processos e operações",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "priorizar automações",
+        "automação de processos",
+        "gargalo operacional",
+        "capacidade produtiva",
+        "software sob medida"
+      ]
+    },
+    {
+      "slug": "reduzir-custos-empresa-automacao",
+      "title": "Como reduzir custos na empresa com automação sem cortar valor",
+      "description": "Como reduzir custos na empresa com automação sem cortar valor. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
+      "category": "Automação com IA",
+      "date": "2025-03-25",
       "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como reduzir custos na empresa",
+        "como melhorar produtividade da empresa",
+        "como automatizar processos da empresa",
+        "automação de processos empresariais",
+        "como identificar processos para automatizar",
+        "como reduzir trabalho manual na empresa",
+        "software para automatizar processos",
+        "automação de tarefas repetitivas",
+        "redução de custos com automação",
+        "Tironi Tech",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "crm-pequenas-empresas-guia-escolha",
+      "title": "CRM para pequenas empresas: guia de escolha e implantação",
+      "description": "CRM para pequenas empresas: guia de escolha e implantação. Guia aprofundado com diagnóstico, decisões, implantação, métricas, riscos e próximos passos para empresas.",
+      "category": "Prospecção e CRM",
+      "date": "2025-04-09",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "CRM para pequenas empresas",
+        "melhor CRM para vendas",
+        "CRM com inteligência artificial",
+        "CRM integrado com WhatsApp",
+        "automatizar CRM com IA",
+        "como integrar WhatsApp ao CRM",
+        "CRM para pequenas empresas",
+        "Tironi Tech",
+        "ChatBô"
+      ]
+    },
+    {
+      "slug": "como-criar-ia-documentos-internos-permissoes-versoes",
+      "title": "Como criar uma IA para consultar documentos internos com permissões e versões corretas",
+      "description": "Organize fontes, acessos e avaliação de respostas para um assistente interno que consulte procedimentos sem misturar documentos vencidos ou restritos.",
+      "category": "Agentes de IA e Agentic AI",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
       "readTime": "12 min de leitura",
       "featured": true,
       "keywords": [
-        "WhatsApp com IA para vendas",
-        "chatbot de vendas no WhatsApp",
-        "automação comercial no WhatsApp",
-        "ChatBô",
-        "IA para atendimento"
+        "IA para documentos internos",
+        "RAG para empresas",
+        "assistente de conhecimento",
+        "consultoria de IA para empresas",
+        "desenvolvimento de agentes de IA"
       ]
     },
     {
-      "slug": "agentes-de-ia-para-empresas-guia-producao",
-      "title": "Agentes de IA para empresas: do caso de uso à produção com segurança e resultado",
-      "description": "Como escolher, projetar, integrar, avaliar e operar agentes de IA que executam trabalho real sem abrir mão de controle, rastreabilidade e responsabilidade humana.",
-      "category": "Automação com IA",
-      "date": "2026-09-22",
+      "slug": "melhor-crm-para-vendas-guia-pratico",
+      "title": "Melhor CRM para vendas: guia prático para empresas",
+      "description": "Melhor CRM para vendas: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "Prospecção e CRM",
+      "date": "2025-12-10",
       "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "melhor CRM para vendas",
+        "melhor CRM para vendas para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "como-usar-inteligencia-artificial-na-minha-empresa-guia-pratico",
+      "title": "Como usar inteligência artificial na minha empresa: guia prático para empresas",
+      "description": "Como usar inteligência artificial na minha empresa: guia prático para empresas. Conteúdo aprofundado da Tironi Tech com exemplos, decisões, riscos, métricas e aplicação prática.",
+      "category": "Serviços de IA",
+      "date": "2025-11-15",
+      "updated": "2026-09-22",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como usar inteligência artificial na minha empresa",
+        "como usar inteligência artificial na minha empresa para empresas",
+        "Guia prático",
+        "Tironi Tech",
+        "ChatBô",
+        "automação com IA"
+      ]
+    },
+    {
+      "slug": "como-integrar-crm-erp-pedido-timeout-reconciliacao",
+      "title": "Como integrar CRM e ERP sem duplicar pedidos quando a conexão falha",
+      "description": "Desenhe a criação de pedidos entre sistemas com identificação da operação, tratamento de resposta incerta e reconciliação para evitar reenvios cegos.",
+      "category": "Integrações com CRM, ERP e APIs",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "integração CRM ERP",
+        "pedido duplicado API",
+        "automação de pedidos",
+        "integração de sistemas empresariais",
+        "software sob medida"
+      ]
+    },
+    {
+      "slug": "como-validar-mvp-b2b-primeiro-fluxo-operacional",
+      "title": "Como validar um MVP B2B com um fluxo real antes de construir uma plataforma completa",
+      "description": "Escolha uma hipótese de produto, teste uma tarefa de ponta a ponta e defina evidências para decidir a próxima etapa de um software B2B.",
+      "category": "SaaS, produto e AI-native software",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "como validar MVP",
+        "criação de MVP B2B",
+        "desenvolvimento de SaaS",
+        "validar ideia de software",
+        "software sob medida"
+      ]
+    },
+    {
+      "slug": "como-preparar-formulario-offline-rascunho-sincronizacao",
+      "title": "Como preparar um formulário para trabalhar offline e sincronizar depois",
+      "description": "Defina o que pode ser feito sem conexão, preserve rascunhos locais e trate conflitos quando o servidor voltar a receber as alterações.",
+      "category": "Desenvolvimento com IA",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
       "readTime": "11 min de leitura",
       "featured": true,
       "keywords": [
-        "agentes de IA para empresas",
-        "empresa de automação com IA",
-        "IA aplicada a negócios",
-        "automação de processos com IA",
-        "desenvolvimento de agente de IA"
+        "formulário offline",
+        "sincronização",
+        "rascunho local",
+        "aplicação de campo",
+        "software sob medida"
       ]
     },
     {
-      "slug": "chatbot-com-ia-no-whatsapp-guia-completo",
-      "title": "Chatbot com IA no WhatsApp: o guia completo para transformar conversas em vendas",
-      "description": "Como estruturar atendimento, qualificação e acompanhamento de leads no canal mais presente na rotina do cliente brasileiro.",
-      "category": "ChatBô e atendimento",
-      "date": "2026-09-14",
-      "updated": "2026-09-14",
-      "readTime": "5 min de leitura",
+      "slug": "como-modernizar-sistema-legado-substituicao-modulo-roteamento",
+      "title": "Como modernizar um sistema legado substituindo um módulo de cada vez",
+      "description": "Escolha uma fronteira de migração, preserve regras operacionais e transfira um módulo legado com roteamento, comparação e retorno testados.",
+      "category": "Desenvolvimento com IA",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
       "featured": true,
       "keywords": [
-        "chatbot com IA",
-        "chatbot para WhatsApp",
-        "automação de atendimento",
-        "ChatBô"
+        "modernização de sistemas",
+        "sistema legado",
+        "migração incremental",
+        "software sob medida",
+        "Strangler Fig"
+      ]
+    },
+    {
+      "slug": "como-medir-seo-geo-aeo-separar-busca-citacao-trafego",
+      "title": "Como medir SEO, GEO e AEO sem misturar impressões, citações e visitas",
+      "description": "Monte um protocolo que separa dados de busca, observações de respostas com IA e uso do site, com denominadores claros e decisões editoriais verificáveis.",
+      "category": "SEO e GEO",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "medir GEO",
+        "métricas AEO",
+        "SEO e inteligência artificial",
+        "Search Console",
+        "visibilidade em respostas de IA"
+      ]
+    },
+    {
+      "slug": "como-mapear-servico-promessa-comercial-capacidade-entrega",
+      "title": "Como mapear um serviço para alinhar a promessa comercial à capacidade de entrega",
+      "description": "Construa um mapa de serviço com ações do cliente, bastidores, evidências e exceções para encontrar promessas que a operação ainda não consegue sustentar.",
+      "category": "Tecnologia para empresas",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "14 min de leitura",
+      "featured": true,
+      "keywords": [
+        "mapa de serviço",
+        "service blueprint",
+        "promessa comercial",
+        "gestão de serviços B2B",
+        "crescimento sustentável"
+      ]
+    },
+    {
+      "slug": "como-pesquisar-duvidas-compradores-pautas-conteudo-b2b",
+      "title": "Como pesquisar dúvidas de compradores e transformá-las em pautas B2B úteis",
+      "description": "Organize entrevistas e registros de dúvidas para construir um plano de conteúdo B2B baseado em decisões reais, evidências e limites de representatividade.",
+      "category": "IA em marketing, aquisição e personalização",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "pesquisa de compradores B2B",
+        "pautas de conteúdo",
+        "marketing B2B",
+        "conteúdo para empresas",
+        "dúvidas de clientes"
+      ]
+    },
+    {
+      "slug": "como-consolidar-artigos-intencoes-repetidas-preservar-utilidade",
+      "title": "Como consolidar artigos com intenções repetidas preservando o que o leitor precisa",
+      "description": "Compare tarefas, evidências e caminhos de navegação para decidir quais artigos manter, diferenciar ou reunir em uma página mais útil.",
+      "category": "SEO e GEO",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "consolidar conteúdo",
+        "artigos duplicados",
+        "intenção de busca",
+        "arquitetura de conteúdo",
+        "auditoria editorial"
+      ]
+    },
+    {
+      "slug": "como-medir-custo-servir-clientes-atividades-decisoes",
+      "title": "Como medir o custo de servir clientes e transformar a análise em melhorias de atendimento",
+      "description": "Associe atividades de atendimento, administração e entrega aos contextos que as geram para identificar custos de servir e avaliar mudanças de processo.",
+      "category": "ROI, custo e business case para IA",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "custo de servir",
+        "rentabilidade de clientes",
+        "custeio por atividades",
+        "gestão B2B",
+        "BI de atendimento"
+      ]
+    },
+    {
+      "slug": "como-acompanhar-beneficios-projeto-digital-apos-implantacao",
+      "title": "Como acompanhar os benefícios de um projeto digital depois da implantação",
+      "description": "Crie um registro de benefícios com linha de base, responsável operacional e ações de captura para verificar o que mudou após a entrega do sistema.",
+      "category": "ROI, custo e business case para IA",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "benefícios de projeto digital",
+        "pós implantação",
+        "gestão de benefícios",
+        "resultado de software",
+        "ROI de automação"
+      ]
+    },
+    {
+      "slug": "como-planejar-capacidade-demanda-sazonal-cenarios-semanais",
+      "title": "Como planejar capacidade para uma demanda sazonal com cenários semanais",
+      "description": "Organize histórico, calendário e esforço por tipo de serviço para preparar cenários de capacidade e agir antes que o pico vire uma fila sem controle.",
+      "category": "Automação de processos e operações",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "demanda sazonal",
+        "planejamento de capacidade",
+        "previsão operacional",
+        "gestão de serviços",
+        "BI de demanda"
+      ]
+    },
+    {
+      "slug": "como-distribuir-conteudo-b2b-tarefa-canal-preservar-contexto",
+      "title": "Como distribuir conteúdo B2B por tarefa e canal sem perder o contexto",
+      "description": "Transforme um material principal em peças com funções distintas, preserve evidências e planeje publicação e acompanhamento com capacidade editorial real.",
+      "category": "IA em marketing, aquisição e personalização",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "13 min de leitura",
+      "featured": true,
+      "keywords": [
+        "distribuição de conteúdo B2B",
+        "estratégia de canais",
+        "reaproveitamento de conteúdo",
+        "marketing de conteúdo",
+        "planejamento editorial"
+      ]
+    },
+    {
+      "slug": "como-ensaiar-restauracao-backup-sistema-ambiente-isolado",
+      "title": "Como ensaiar a restauração de um sistema sem interferir na produção",
+      "description": "Monte um exercício de recuperação em ambiente isolado, confira banco e arquivos e meça o tempo até a operação estar utilizável.",
+      "category": "Governança, segurança e confiabilidade",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "restauração de backup",
+        "recuperação de sistema",
+        "continuidade operacional",
+        "teste de recuperação",
+        "backup de aplicação"
+      ]
+    },
+    {
+      "slug": "como-conceder-acesso-temporario-suporte-saas-expiracao",
+      "title": "Como conceder acesso temporário de suporte em um SaaS com escopo e expiração",
+      "description": "Projete uma autorização temporária de suporte com solicitante, escopo, prazo, revogação e registro das ações realizadas.",
+      "category": "Governança, segurança e confiabilidade",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "acesso temporário",
+        "permissões SaaS",
+        "suporte técnico",
+        "autorização",
+        "revogação de acesso"
+      ]
+    },
+    {
+      "slug": "como-avaliar-busca-rag-conjunto-perguntas-evidencias",
+      "title": "Como avaliar a busca de um RAG com perguntas e evidências conferidas",
+      "description": "Prepare um conjunto de avaliação para a recuperação de documentos, encontre falhas por classe de pergunta e compare mudanças sem depender da fluência da resposta.",
+      "category": "RAG, conhecimento corporativo e context engineering",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "12 min de leitura",
+      "featured": true,
+      "keywords": [
+        "avaliação RAG",
+        "busca semântica",
+        "conjunto de avaliação",
+        "recuperação de documentos",
+        "qualidade de IA"
+      ]
+    },
+    {
+      "slug": "como-reconstruir-indice-rag-validacao-troca-versao",
+      "title": "Como reconstruir um índice de RAG e trocar a versão depois da validação",
+      "description": "Prepare uma reconstrução paralela do índice, confira cobertura e resultados e transfira consultas com uma referência de retorno conhecida.",
+      "category": "RAG, conhecimento corporativo e context engineering",
+      "date": "2026-09-24",
+      "updated": "2026-09-24",
+      "readTime": "10 min de leitura",
+      "featured": true,
+      "keywords": [
+        "reindexação RAG",
+        "índice de busca",
+        "atualização de conhecimento",
+        "versão de corpus",
+        "reconstrução de índice"
+      ]
+    },
+    {
+      "slug": "operacao-de-conteudo-geo-com-geoaura",
+      "title": "Operação de conteúdo GEO com GeoAura: pesquisa, produção e atualização",
+      "description": "Como criar um processo editorial contínuo com especialistas, fontes, distribuição, medição e revisão.",
+      "category": "GeoAura e GEO",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "operação de conteúdo GEO",
+        "GeoAura conteúdo",
+        "estratégia editorial para IA"
+      ]
+    },
+    {
+      "slug": "geoaura-visibilidade-de-marca-em-ias",
+      "title": "GeoAura e visibilidade de marca em IAs: como construir presença citável",
+      "description": "Um plano para tornar conhecimento, produtos e autoridade mais compreensíveis em buscas e respostas generativas.",
+      "category": "GeoAura e GEO",
+      "date": "2026-09-22",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "GeoAura",
+        "visibilidade de marca em IA",
+        "GEO para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-004-the-state-of-ai-in-the-enterprise-2026-deloitte-analise-executiva",
+      "title": "O que “The State of AI in the Enterprise 2026 — Deloitte” ensina sobre Estratégia, adoção e transformação com IA",
+      "description": "O que “The State of AI in the Enterprise 2026 — Deloitte” ensina sobre Estratégia, adoção e transformação com IA. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Estratégia, adoção e transformação com IA",
+      "date": "2026-09-17",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "The State of AI in the Enterprise 2026 — Deloitte",
+        "Estratégia, adoção e transformação com IA",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-001-the-state-of-ai-global-survey-2026-mckinsey-analise-executiva",
+      "title": "O que “The State of AI: Global Survey 2026 — McKinsey” ensina sobre Estratégia, adoção e transformação com IA",
+      "description": "O que “The State of AI: Global Survey 2026 — McKinsey” ensina sobre Estratégia, adoção e transformação com IA. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Estratégia, adoção e transformação com IA",
+      "date": "2026-09-20",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": true,
+      "keywords": [
+        "The State of AI: Global Survey 2026 — McKinsey",
+        "Estratégia, adoção e transformação com IA",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-analise-executiva",
+      "title": "O que “Agente de IA no WhatsApp: ROI em PMEs” ensina sobre IA nas empresas brasileiras e PMEs",
+      "description": "O que “Agente de IA no WhatsApp: ROI em PMEs” ensina sobre IA nas empresas brasileiras e PMEs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA nas empresas brasileiras e PMEs",
+      "date": "2025-09-19",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Agente de IA no WhatsApp: ROI em PMEs",
+        "IA nas empresas brasileiras e PMEs",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-367-agente-de-ia-no-whatsapp-roi-em-pmes-guia-aplicacao",
+      "title": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa",
+      "description": "Como aplicar as ideias de “Agente de IA no WhatsApp: ROI em PMEs” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA nas empresas brasileiras e PMEs",
+      "date": "2025-09-19",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Agente de IA no WhatsApp: ROI em PMEs",
+        "IA nas empresas brasileiras e PMEs",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-138-how-to-build-a-whatsapp-chatbot-analise-executiva",
+      "title": "O que “How to Build a WhatsApp Chatbot” ensina sobre WhatsApp, IA e conversational commerce",
+      "description": "O que “How to Build a WhatsApp Chatbot” ensina sobre WhatsApp, IA e conversational commerce. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "WhatsApp, IA e conversational commerce",
+      "date": "2026-05-06",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "How to Build a WhatsApp Chatbot",
+        "WhatsApp, IA e conversational commerce",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-124-whatsapp-chatbot-costs-and-limits-analise-executiva",
+      "title": "O que “WhatsApp Chatbot: Costs and Limits” ensina sobre WhatsApp, IA e conversational commerce",
+      "description": "O que “WhatsApp Chatbot: Costs and Limits” ensina sobre WhatsApp, IA e conversational commerce. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "WhatsApp, IA e conversational commerce",
+      "date": "2026-05-20",
+      "updated": "2026-09-22",
+      "readTime": "5 min de leitura",
+      "featured": false,
+      "keywords": [
+        "WhatsApp Chatbot: Costs and Limits",
+        "WhatsApp, IA e conversational commerce",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-172-the-ai-revolution-in-software-development-mckinsey-analise-executiva",
+      "title": "O que “The AI Revolution in Software Development — McKinsey” ensina sobre IA no desenvolvimento de software",
+      "description": "O que “The AI Revolution in Software Development — McKinsey” ensina sobre IA no desenvolvimento de software. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA no desenvolvimento de software",
+      "date": "2026-04-02",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "The AI Revolution in Software Development — McKinsey",
+        "IA no desenvolvimento de software",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-073-ai-chatbot-for-customer-service-buyer-s-guide-analise-executiva",
+      "title": "O que “AI Chatbot for Customer Service Buyer's Guide” ensina sobre Chat IA, atendimento e Customer Experience",
+      "description": "O que “AI Chatbot for Customer Service Buyer's Guide” ensina sobre Chat IA, atendimento e Customer Experience. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Chat IA, atendimento e Customer Experience",
+      "date": "2026-07-10",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Chatbot for Customer Service Buyer's Guide",
+        "Chat IA, atendimento e Customer Experience",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-092-ai-tools-for-b2b-sales-prospecting-analise-executiva",
+      "title": "O que “AI Tools for B2B Sales Prospecting” ensina sobre IA para vendas, CRM e geração de leads",
+      "description": "O que “AI Tools for B2B Sales Prospecting” ensina sobre IA para vendas, CRM e geração de leads. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA para vendas, CRM e geração de leads",
+      "date": "2026-06-21",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Tools for B2B Sales Prospecting",
+        "IA para vendas, CRM e geração de leads",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-093-ai-sales-automation-tools-zoominfo-analise-executiva",
+      "title": "O que “AI Sales Automation Tools — ZoomInfo” ensina sobre IA para vendas, CRM e geração de leads",
+      "description": "O que “AI Sales Automation Tools — ZoomInfo” ensina sobre IA para vendas, CRM e geração de leads. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA para vendas, CRM e geração de leads",
+      "date": "2026-06-20",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Sales Automation Tools — ZoomInfo",
+        "IA para vendas, CRM e geração de leads",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-175-ai-developer-tools-for-coding-and-security-analise-executiva",
+      "title": "O que “AI Developer Tools for Coding and Security” ensina sobre IA no desenvolvimento de software",
+      "description": "O que “AI Developer Tools for Coding and Security” ensina sobre IA no desenvolvimento de software. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA no desenvolvimento de software",
+      "date": "2026-03-30",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Developer Tools for Coding and Security",
+        "IA no desenvolvimento de software",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-073-ai-chatbot-for-customer-service-buyer-s-guide-guia-aplicacao",
+      "title": "Como aplicar as ideias de “AI Chatbot for Customer Service Buyer's Guide” em uma empresa",
+      "description": "Como aplicar as ideias de “AI Chatbot for Customer Service Buyer's Guide” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Chat IA, atendimento e Customer Experience",
+      "date": "2026-07-10",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Chatbot for Customer Service Buyer's Guide",
+        "Chat IA, atendimento e Customer Experience",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-339-cleo-conversational-commerce-chatbot-analise-executiva",
+      "title": "O que “Cleo: Conversational Commerce Chatbot” ensina sobre IA no e-commerce e varejo",
+      "description": "O que “Cleo: Conversational Commerce Chatbot” ensina sobre IA no e-commerce e varejo. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA no e-commerce e varejo",
+      "date": "2025-10-17",
+      "updated": "2026-09-22",
+      "readTime": "5 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Cleo: Conversational Commerce Chatbot",
+        "IA no e-commerce e varejo",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-339-cleo-conversational-commerce-chatbot-guia-aplicacao",
+      "title": "Como aplicar as ideias de “Cleo: Conversational Commerce Chatbot” em uma empresa",
+      "description": "Como aplicar as ideias de “Cleo: Conversational Commerce Chatbot” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "IA no e-commerce e varejo",
+      "date": "2025-10-17",
+      "updated": "2026-09-22",
+      "readTime": "5 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Cleo: Conversational Commerce Chatbot",
+        "IA no e-commerce e varejo",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-389-getting-cited-in-google-ai-chatgpt-and-perplexity-analise-executiva",
+      "title": "O que “Getting Cited in Google AI, ChatGPT and Perplexity” ensina sobre GEO, AEO e aparecer nas respostas das IAs",
+      "description": "O que “Getting Cited in Google AI, ChatGPT and Perplexity” ensina sobre GEO, AEO e aparecer nas respostas das IAs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "GEO, AEO e aparecer nas respostas das IAs",
+      "date": "2025-08-28",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Getting Cited in Google AI, ChatGPT and Perplexity",
+        "GEO, AEO e aparecer nas respostas das IAs",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-449-ai-voice-agent-services-for-businesses-aircall-analise-executiva",
+      "title": "O que “AI Voice Agent Services for Businesses — Aircall” ensina sobre Voice AI e agentes de voz",
+      "description": "O que “AI Voice Agent Services for Businesses — Aircall” ensina sobre Voice AI e agentes de voz. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Voice AI e agentes de voz",
+      "date": "2025-06-29",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Voice Agent Services for Businesses — Aircall",
+        "Voice AI e agentes de voz",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-450-ai-voice-agents-for-customer-service-cresta-analise-executiva",
+      "title": "O que “AI Voice Agents for Customer Service — Cresta” ensina sobre Voice AI e agentes de voz",
+      "description": "O que “AI Voice Agents for Customer Service — Cresta” ensina sobre Voice AI e agentes de voz. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "Voice AI e agentes de voz",
+      "date": "2025-06-28",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "AI Voice Agents for Customer Service — Cresta",
+        "Voice AI e agentes de voz",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-384-google-guide-to-optimizing-for-generative-ai-analise-executiva",
+      "title": "O que “Google Guide to Optimizing for Generative AI” ensina sobre GEO, AEO e aparecer nas respostas das IAs",
+      "description": "O que “Google Guide to Optimizing for Generative AI” ensina sobre GEO, AEO e aparecer nas respostas das IAs. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "GEO, AEO e aparecer nas respostas das IAs",
+      "date": "2025-09-02",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Google Guide to Optimizing for Generative AI",
+        "GEO, AEO e aparecer nas respostas das IAs",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-418-scaling-ai-agent-infrastructure-with-mcp-google-analise-executiva",
+      "title": "O que “Scaling AI Agent Infrastructure With MCP — Google” ensina sobre MCP, tool use e interoperabilidade",
+      "description": "O que “Scaling AI Agent Infrastructure With MCP — Google” ensina sobre MCP, tool use e interoperabilidade. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "MCP, tool use e interoperabilidade",
+      "date": "2025-07-30",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Scaling AI Agent Infrastructure With MCP — Google",
+        "MCP, tool use e interoperabilidade",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
+      ]
+    },
+    {
+      "slug": "pesquisa-418-scaling-ai-agent-infrastructure-with-mcp-google-guia-aplicacao",
+      "title": "Como aplicar as ideias de “Scaling AI Agent Infrastructure With MCP — Google” em uma empresa",
+      "description": "Como aplicar as ideias de “Scaling AI Agent Infrastructure With MCP — Google” em uma empresa. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.",
+      "category": "MCP, tool use e interoperabilidade",
+      "date": "2025-07-30",
+      "updated": "2026-09-22",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "keywords": [
+        "Scaling AI Agent Infrastructure With MCP — Google",
+        "MCP, tool use e interoperabilidade",
+        "pesquisa inteligência artificial",
+        "Tironi Tech",
+        "IA para empresas"
       ]
     }
   ],

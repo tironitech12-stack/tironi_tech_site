@@ -8,16 +8,16 @@ Inventário de conteúdo local; este relatório não confirma publicação ou in
 | ---: | --- | --- | ---: |
 | 1 | Como investigar vendas perdidas e transformar relatos de clientes em decisões comerciais | Prospecção e CRM | 15770 |
 | 2 | Como preparar uma demonstração comercial B2B que ajude o comprador a avaliar uma tarefa real | Vendas e crescimento | 15383 |
-| 3 | Como transferir uma carteira de clientes entre vendedores preservando compromissos e confiança | Prospecção e CRM | 15689 |
+| 3 | Como transferir uma carteira de clientes entre vendedores preservando compromissos e confiança | Prospecção e CRM | 2138 |
 | 4 | Como conduzir uma reunião de pipeline comercial que termine com decisões e responsáveis | Prospecção e CRM | 15675 |
 | 5 | Como mapear os participantes de uma compra B2B sem confundir cargo com poder de decisão | Vendas e crescimento | 14060 |
 | 6 | Como decidir se vale participar de uma concorrência privada B2B antes de preparar a proposta | Vendas e crescimento | 14157 |
-| 7 | Como comparar dois produtos no WhatsApp e ajudar o cliente a escolher pelo uso real | ChatBô e atendimento | 12716 |
+| 7 | Como comparar dois produtos no WhatsApp e ajudar a escolher | ChatBô e atendimento | 12716 |
 | 8 | Como transformar um áudio de cliente no WhatsApp em uma solicitação comercial conferível | ChatBô e atendimento | 12424 |
 | 9 | Como organizar uma conversa de WhatsApp com vários assuntos sem esquecer parte do pedido | ChatBô e atendimento | 13833 |
 | 10 | Como negociar uma data de entrega pelo WhatsApp sem prometer um prazo ainda não confirmado | ChatBô e atendimento | 12388 |
 | 11 | Como usar fotos do cliente no WhatsApp para orientar uma compra sem adivinhar medidas ou compatibilidade | ChatBô e atendimento | 12174 |
-| 12 | Como responder dúvidas de uma proposta pelo WhatsApp sem mudar o escopo por acidente | ChatBô e atendimento | 14192 |
+| 12 | Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo | ChatBô e atendimento | 2732 |
 | 13 | Como receber indicações de clientes pelo WhatsApp com uma apresentação clara para o novo contato | ChatBô e atendimento | 12265 |
 | 14 | Como oferecer um substituto para um produto indisponível no WhatsApp sem presumir equivalência | ChatBô e atendimento | 12328 |
 | 15 | Como atender uma compra de presentes empresariais pelo WhatsApp com quantidades e aprovação claras | ChatBô e atendimento | 12078 |

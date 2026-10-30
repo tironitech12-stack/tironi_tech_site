@@ -50,7 +50,11 @@ export default function SiteIntro({ onFinish, mobile = false, subtitle = "Tecnol
       <div className="site-intro__content">
         <div className="site-intro__logoWrap">
           <img
-            src="/brand/tironi-symbol.png"
+            src="/brand/tironi-symbol-256.webp"
+            srcSet="/brand/tironi-symbol-128.webp 128w, /brand/tironi-symbol-256.webp 256w, /brand/tironi-symbol-512.webp 512w"
+            sizes="180px"
+            width="1024"
+            height="1024"
             alt="Tironi Tech símbolo"
             className="site-intro__logo"
             onError={(e) => {

@@ -6,6 +6,7 @@ import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import ArticleVisual from '../blog/ArticleVisual';
+import { applyPageMeta } from '../../utils/pageMeta';
 import '../../styles/theme.css';
 import '../../styles/blog.css';
 
@@ -23,17 +24,6 @@ function readEmbeddedArticle(slug, locale) {
   } catch {
     return null;
   }
-}
-
-function updateMeta(selector, attribute, value) {
-  let node = document.head.querySelector(selector);
-  if (!node) {
-    node = document.createElement('meta');
-    const match = selector.match(/meta\[(name|property)="([^"]+)"\]/);
-    if (match) node.setAttribute(match[1], match[2]);
-    document.head.appendChild(node);
-  }
-  node.setAttribute(attribute, value);
 }
 
 const pageCopy = {
@@ -73,29 +63,17 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
       return;
     }
     const url = `${SITE_URL}${localizedPath(article.slug, locale)}`;
-    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
-    document.title = `${article.title} | Tironi Tech`;
-    updateMeta('meta[name="description"]', 'content', article.description);
-    updateMeta('meta[property="og:title"]', 'content', article.title);
-    updateMeta('meta[property="og:description"]', 'content', article.description);
-    updateMeta('meta[property="og:type"]', 'content', 'article');
-    updateMeta('meta[property="og:url"]', 'content', url);
-    updateMeta('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
-    let canonical = document.head.querySelector('link[rel="canonical"]');
-    if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
-    canonical.href = url;
-    let schema = document.head.querySelector('#tt-page-schema');
-    const createdSchema = !schema;
-    if (!schema) { schema = document.createElement('script'); schema.id = 'tt-page-schema'; schema.type = 'application/ld+json'; document.head.appendChild(schema); }
     const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
     const languageUrls = Object.fromEntries(getArticleLocales(article).map((lang) => [lang, `${SITE_URL}${localizedPath(article.slug, lang)}`]));
-    document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((node) => node.remove());
-    Object.entries({ ...languageUrls, 'x-default': languageUrls.pt }).forEach(([lang, href]) => { const link = document.createElement('link'); link.rel = 'alternate'; link.hreflang = lang; link.href = href; link.dataset.ttHreflang = 'true'; document.head.appendChild(link); });
     const graph = [{ '@type': 'BlogPosting', headline: article.title, description: article.description, image: `${SITE_URL}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: locale === 'pt' ? 'pt-BR' : locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: `${SITE_URL}/sobre/editorial` }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/brand/tironi-symbol.png` } }, mainEntityOfPage: url, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: copy.home, item: `${SITE_URL}/` }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}${locale === 'pt' ? '' : `/${locale}`}/blog` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] }];
     if (article.faqs?.length) graph.push({ '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) });
-    schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+    applyPageMeta({
+      title: `${article.title} | Tironi Tech`, description: article.description,
+      path: localizedPath(article.slug, locale), language: locale === 'pt' ? 'pt-BR' : locale,
+      ogType: 'article', schema: { '@context': 'https://schema.org', '@graph': graph },
+      alternates: Object.entries({ ...languageUrls, 'x-default': languageUrls.pt }).map(([hreflang, href]) => ({ hreflang, href })),
+    });
     window.scrollTo(0, 0);
-    return () => { if (createdSchema) schema.remove(); };
   }, [article, copy.home, copy.notFound, loadState, locale]);
 
   if (loadState === 'loading') {
@@ -156,7 +134,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
                 <section className="tt-article-cta">
                   <span className="tt-blog-kicker">{copy.next}</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? 'noreferrer' : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
                 </section>
-                <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">{copy.sources}</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>
+                {article.sources.length > 0 && <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">{copy.sources}</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>}
               </div>
             </div>
           </article>

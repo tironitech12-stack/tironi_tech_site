@@ -63,8 +63,8 @@
 .tt-blog-archive-access a { padding: .7rem 1rem; border: 1px solid rgba(88,184,255,.28); border-radius: 999px; color: var(--blog-cyan); font-size: .82rem; font-weight: 750; text-decoration: none; background: rgba(8,31,50,.62); }
 .tt-blog-archive-access a:hover { color: white; border-color: rgba(88,184,255,.58); }
 .tt-blog-tracks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 1.2rem 0 2rem; }
-.tt-blog-tracks button { min-height: 10rem; display: grid; align-content: space-between; gap: .7rem; padding: 1.2rem; border: 1px solid var(--blog-line); border-radius: 1rem; color: white; text-align: left; background: radial-gradient(circle at 100% 0, rgba(77, 59, 205, .16), transparent 45%), rgba(7, 22, 36, .78); cursor: pointer; transition: border-color .2s ease, transform .2s ease; }
-.tt-blog-tracks button:hover { transform: translateY(-2px); border-color: rgba(72, 183, 255, .42); }
+.tt-blog-tracks button, .tt-blog-tracks > a { min-height: 10rem; display: grid; align-content: space-between; gap: .7rem; padding: 1.2rem; border: 1px solid var(--blog-line); border-radius: 1rem; color: white; text-align: left; text-decoration: none; background: radial-gradient(circle at 100% 0, rgba(77, 59, 205, .16), transparent 45%), rgba(7, 22, 36, .78); cursor: pointer; transition: border-color .2s ease, transform .2s ease; }
+.tt-blog-tracks button:hover, .tt-blog-tracks > a:hover { transform: translateY(-2px); border-color: rgba(72, 183, 255, .42); }
 .tt-blog-tracks span { color: #5cbef4; font-size: .65rem; font-weight: 800; letter-spacing: .14em; }
 .tt-blog-tracks strong { font-size: 1.2rem; letter-spacing: -.02em; }
 .tt-blog-tracks small { color: #829bad; }.tt-blog-tracks small b { color: var(--blog-cyan); }
@@ -76,6 +76,15 @@
 .tt-blog-filters::-webkit-scrollbar { display: none; }
 .tt-blog-filters button { flex: 0 0 auto; padding: .72rem 1rem; border: 1px solid var(--blog-line); border-radius: 999px; color: #a9bdcc; background: rgba(8, 24, 39, .74); font: inherit; font-size: .82rem; cursor: pointer; }
 .tt-blog-filters button:hover, .tt-blog-filters button.is-active { color: white; border-color: rgba(62, 179, 255, .55); background: rgba(23, 120, 191, .22); box-shadow: 0 0 20px rgba(37, 151, 231, .08); }
+.tt-blog-filter-links { flex-wrap: wrap; overflow: visible; }
+.tt-blog-filter-links a { padding: .6rem .85rem; border: 1px solid var(--blog-line); border-radius: 999px; color: #a9bdcc; background: rgba(8, 24, 39, .74); font-size: .78rem; text-decoration: none; }
+.tt-blog-filter-links a:hover, .tt-blog-filter-links a[aria-current="page"] { color: white; border-color: rgba(62, 179, 255, .55); background: rgba(23, 120, 191, .22); }
+.tt-blog-active-trail > a { color: var(--blog-cyan); font-weight: 750; text-decoration: none; }
+.tt-blog-more { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
+.tt-blog-more > a { padding: .9rem 1.35rem; border: 1px solid rgba(83, 191, 255, .4); border-radius: 999px; color: white; background: rgba(15, 76, 116, .35); font-weight: 780; text-decoration: none; }
+.tt-blog-more > a:hover { border-color: var(--blog-cyan); background: rgba(20, 104, 158, .45); }
+.tt-blog-more > [aria-disabled="true"], .tt-blog-more > button:disabled { opacity: .5; cursor: default; }
+.tt-blog-filter-links a:focus-visible, .tt-blog-tracks > a:focus-visible, .tt-blog-more > a:focus-visible { outline: 2px solid var(--blog-cyan); outline-offset: 4px; }
 .tt-blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .tt-blog-card { position: relative; display: flex; flex-direction: column; min-height: 25rem; padding: 1.65rem; border: 1px solid var(--blog-line); border-radius: 1.15rem; overflow: hidden; background: linear-gradient(145deg, rgba(10, 29, 46, .82), rgba(5, 15, 25, .9)); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .tt-blog-card::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 100% 0, rgba(61, 167, 255, .1), transparent 34%); opacity: 0; transition: opacity .25s ease; }

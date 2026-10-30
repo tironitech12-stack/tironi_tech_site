@@ -8,7 +8,9 @@ export function LogoMark({ className = "", size = 44, title = "TironiTech" }) {
     return (
       <img
         className={className}
-        src="/brand/tironi-symbol.png"
+        src="/brand/tironi-symbol-128.webp"
+        srcSet="/brand/tironi-symbol-128.webp 128w, /brand/tironi-symbol-256.webp 256w"
+        sizes={`${size}px`}
         alt={title}
         width={size}
         height={size}

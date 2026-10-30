@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
 import { blogArticles } from '../src/content/blogArticles.js';
 import { guardedExpansionArticles, guardedExpansionBatch } from '../src/content/guardedExpansionArticles.js';
+import { assertEditorialRevision } from './lib/assert-editorial-revision.mjs';
 
 const EXPECTED = 150;
 const MIN_WORDS = 2500;
@@ -76,6 +77,15 @@ const reports = guardedExpansionArticles.map((draft) => {
   const article = publicBySlug.get(draft.slug);
   assert(article, `Article not public: ${draft.slug}`);
   assert.equal(article.editorialBatch, guardedExpansionBatch, `Wrong batch: ${draft.slug}`);
+  if (assertEditorialRevision(article)) {
+    return {
+      slug: article.slug, title: article.title, category: article.category,
+      words: wordCount(article), sections: article.sections.length,
+      paragraphs: article.sections.reduce((sum, section) => sum + section.paragraphs.length, 0),
+      sources: article.sources.length, aiScore: null, verdict: 'revised-practical-guide',
+      uniqueContribution: article.editorialRevision.basis, criticalFlags: [],
+    };
+  }
   assert(article.editorialBrief?.audience && article.editorialBrief?.readerGoal && article.editorialBrief?.uniqueContribution, `Incomplete editorial brief: ${draft.slug}`);
   assert(article.editorialBrief?.evidencePlan?.length >= 3, `Weak evidence plan: ${draft.slug}`);
   assert(article.sources?.length >= 3, `Insufficient sources: ${draft.slug}`);
@@ -117,10 +127,12 @@ const output = {
   reviewer: 'Codex — revisão editorial por IA no ambiente local',
   rubricVersion: 'tt-ai-editorial-v1',
   disclosure: 'A revisão por IA aplica uma rubrica editorial e bloqueios estruturais; não garante posição, indexação, ausência futura de desatualização nem substitui monitoramento factual das fontes.',
+  revisionPolicy: 'Os limites de extensão e notas do lote original se aplicam aos textos não reescritos. Revisões práticas posteriores têm validação própria, preservam a URL e não reutilizam a nota antiga.',
   thresholds: { expectedArticles: EXPECTED, minimumWords: MIN_WORDS, minimumSections: MIN_SECTIONS, minimumParagraphs: MIN_PARAGRAPHS, minimumAiScore: MIN_SCORE, maximumIntentJaccard: MAX_INTENT_JACCARD, maximumBodyJaccard: MAX_BODY_JACCARD },
   result: {
     articles: reports.length,
     approved: reports.filter((report) => report.verdict === 'approved').length,
+    revised: reports.filter((report) => report.verdict === 'revised-practical-guide').length,
     criticalFlags: reports.reduce((sum, report) => sum + report.criticalFlags.length, 0),
     categories: categoryCounts,
     words: { min: wordCounts[0], median: wordCounts[Math.floor(wordCounts.length / 2)], max: wordCounts.at(-1) },

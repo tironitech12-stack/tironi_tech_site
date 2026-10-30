@@ -16,7 +16,7 @@ export default function ClubHighlight() {
   return (
     <section id="club" className="tt-club-highlight" aria-labelledby="club-highlight-title">
       <div className="tt-club-highlight-inner">
-        <div className="tt-club-highlight-mark" aria-hidden="true"><img src="/brand/tironi-symbol.png" alt="" width="64" height="64" /><span>TECH CLUB</span></div>
+        <div className="tt-club-highlight-mark" aria-hidden="true"><img src="/brand/tironi-symbol-128.webp" alt="" width="64" height="64" /><span>TECH CLUB</span></div>
         <div className="tt-club-highlight-copy">
           <span className="tt-club-label">TIRONI TECH <b>CLUB</b></span>
           <h2 id="club-highlight-title">{title}</h2>

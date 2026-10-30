@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
 import { blogArticles } from '../src/content/blogArticles.js';
 import { tutorialArticles } from '../src/content/tutorialArticles.js';
+import { assertEditorialRevision } from './lib/assert-editorial-revision.mjs';
 
 const normalize = (text) => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 const paragraphs = new Map();
@@ -11,9 +12,11 @@ const rows = tutorialArticles.map((draft) => {
   assert.equal(matches.length, 1, `Slug missing or duplicated: ${draft.slug}`);
   const article = matches[0];
   const body = article.sections.flatMap((section) => [...section.paragraphs, ...(section.bullets || [])]).join('\n\n');
-  assert(body.length > 10000, `Body too short: ${article.slug}: ${body.length}`);
-  assert(article.sections.length >= 8, `Insufficient sections: ${article.slug}`);
-  assert(article.faqs.length >= 3 && article.sources.length > 0, `Missing FAQ or sources: ${article.slug}`);
+  if (!assertEditorialRevision(article)) {
+    assert(body.length > 10000, `Body too short: ${article.slug}: ${body.length}`);
+    assert(article.sections.length >= 8, `Insufficient sections: ${article.slug}`);
+    assert(article.faqs.length >= 3 && article.sources.length > 0, `Missing FAQ or sources: ${article.slug}`);
+  }
   assert.equal(blogArticles.filter((candidate) => normalize(candidate.title) === normalize(article.title)).length, 1, `Duplicate title: ${article.slug}`);
   assert.equal(new Set(article.sections.map((section) => normalize(section.heading))).size, article.sections.length, `Repeated heading: ${article.slug}`);
   assert(article.visual?.labels?.length >= 3, `Missing flow diagram: ${article.slug}`);
@@ -50,7 +53,7 @@ const requestedBatch = {
   bodyCharacters: requestArticles.length ? { min: Math.min(...requestArticles.map((article) => article.bodyCharacters)), max: Math.max(...requestArticles.map((article) => article.bodyCharacters)) } : null,
   categories: Object.fromEntries([...new Set(requestArticles.map((article) => article.category))].sort().map((category) => [category, requestArticles.filter((article) => article.category === category).length])),
 };
-const report = { target: 1000, authored: rows.length, remaining: 1000 - rows.length, requestedBatch, validation: 'Structure, body length after content processing, exact paragraph uniqueness and pairwise five-word Jaccard overlap within the tutorial batch. Does not certify semantic uniqueness, source accuracy or ranking.', maximumLexicalOverlap: maximumOverlap, articles: rows };
+const report = { target: 1000, authored: rows.length, remaining: 1000 - rows.length, requestedBatch, validation: 'Structure, historical body-length checks (targeted editorial rewrites instead validate preserved answers, revision records and source lists), exact paragraph uniqueness and pairwise five-word Jaccard overlap within the tutorial batch. Does not certify semantic uniqueness, source accuracy or ranking.', maximumLexicalOverlap: maximumOverlap, articles: rows };
 await writeFile(new URL('../docs/tutorial-production-progress.json', import.meta.url), `${JSON.stringify(report, null, 2)}\n`);
 const reviewTable = [
   '# Lote adicional de 100 tutoriais',

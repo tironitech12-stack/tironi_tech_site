@@ -7,6 +7,8 @@ import { getServiceLandingPage } from './content/serviceLandingPages';
 import { getOfferPageKey, HOME_SEO } from './content/positioning';
 import { applyPageMeta } from './utils/pageMeta';
 import { trackFunnelEvent } from './utils/conversionTracking';
+import { parseBlogListingPath } from './utils/blogListing';
+import { createHomeSchema } from './utils/homePageSeo';
 
 const loadResponsiveHome = () => import('./responsive/ResponsiveHome');
 const loadBlogIndexPage = () => import('./components/pages/BlogIndexPage');
@@ -42,7 +44,7 @@ function useClientLocation() {
       if (nextUrl.origin === window.location.origin && /^\/(?:en\/|es\/)?blog(?:\/|$)/.test(nextUrl.pathname)) {
         const match = nextUrl.pathname.match(/^\/(?:(en|es)\/)?blog\/([^/]+)\/?$/);
         const isArchive = match?.[2] === 'arquivo' || match?.[2] === 'archive';
-        if (match && !isArchive) {
+        if (match && !isArchive && !parseBlogListingPath(nextUrl.pathname)) {
           const locale = match[1] || 'pt';
           const slug = decodeURIComponent(match[2]);
           loadBlogArticlePage().catch(() => {});
@@ -173,6 +175,7 @@ function ConsentAwareAnalytics({ location, pathname }) {
 function AppContent({ pathname }) {
   const localizedBlog = pathname.match(/^\/(en|es)\/blog(?:\/(.*))?\/?$/);
   const servicePage = getServiceLandingPage(pathname.replace(/^\//, '').replace(/\/$/, ''));
+  const blogListing = parseBlogListingPath(pathname);
 
   useEffect(() => {
     if (!(pathname.startsWith('/blog') || /^\/(en|es)\/blog/.test(pathname))) return undefined;
@@ -186,6 +189,10 @@ function AppContent({ pathname }) {
     return () => window.clearTimeout(id);
   }, [pathname]);
 
+  if (blogListing) {
+    return <BlogIndexPage key={pathname} locale={blogListing.locale} categorySlug={blogListing.categorySlug} pageNumber={blogListing.page} />;
+  }
+
   if (localizedBlog) {
     const [, locale, slug] = localizedBlog;
     if (slug?.replace(/\/$/, '') === 'archive') return <BlogArchivePage locale={locale} />;
@@ -198,10 +205,6 @@ function AppContent({ pathname }) {
 
   const offerPageKey = getOfferPageKey(pathname);
   if (offerPageKey) return <OfferPage pageKey={offerPageKey} />;
-
-  if (pathname === "/blog" || pathname === "/blog/") {
-    return <BlogIndexPage locale="pt" />;
-  }
 
   if (pathname === "/blog/arquivo" || pathname === "/blog/arquivo/") {
     return <BlogArchivePage locale="pt" />;
@@ -272,6 +275,7 @@ export default function App() {
       description: HOME_SEO.description,
       path: '/',
       breadcrumbs: [],
+      schema: createHomeSchema(),
     });
   }, [pathname]);
 

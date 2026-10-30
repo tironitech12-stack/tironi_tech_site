@@ -1,28 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { BLOG_SEO } from '../../content/positioning';
 import { serviceLandingPages } from '../../content/serviceLandingPages';
 import { blogIndexArticles, blogArticleCounts } from '../../content/blogIndexArticles.generated';
 import { getSiteText } from '../../content/siteContent';
+import { BLOG_PAGE_SIZE, getBlogCategorySlug, getBlogListing, getBlogListingPath } from '../../utils/blogListing';
+import { applyPageMeta } from '../../utils/pageMeta';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
+import NotFoundPage from './NotFoundPage';
 import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 const SITE_URL = 'https://www.tironitech.com';
-
-function setMeta(name, content, property = false) {
-  const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
-  let node = document.head.querySelector(selector);
-  if (!node) {
-    node = document.createElement('meta');
-    node.setAttribute(property ? 'property' : 'name', name);
-    document.head.appendChild(node);
-  }
-  node.setAttribute('content', content);
-}
 
 const labels = {
   pt: { all: 'Todos', title: 'IA, automação e processos para a operação da empresa', deck: 'Guias práticos sobre inteligência artificial, automação de processos, atendimento e software. Quando o gargalo pede execução, o caminho é o Tironi Tech Club.', library: 'Conhecimento para aplicar', archiveTitle: 'Acervo completo', archiveDeck: 'Lista interna de todos os artigos publicados pela Tironi Tech. A leitura recomendada continua na biblioteca principal.', archiveLink: 'Ver acervo completo com {count} artigos', coreLink: 'Voltar à seleção principal', search: 'Busque por IA para WhatsApp, automação, software, GEO...', found: 'guias encontrados', read: 'Ler', updated: 'Atualizado em', track: 'Explorar trilha', active: 'TRILHA ATIVA', allButton: 'Ver todas', previous: 'Anterior', next: 'Próxima', topic: 'Filtrar por assunto' },
@@ -30,17 +21,19 @@ const labels = {
   es: { all: 'Todos', title: 'IA, automatización y procesos para la operación de la empresa', deck: 'Guías prácticas sobre inteligencia artificial, automatización de procesos, atención y software. Cuando el cuello de botella pide ejecución, el camino es Tironi Tech Club.', library: 'Conocimiento para aplicar', archiveTitle: 'Archivo completo', archiveDeck: 'Lista interna de todos los artículos publicados por Tironi Tech. La lectura recomendada sigue en la biblioteca principal.', archiveLink: 'Ver el archivo completo con {count} artículos', coreLink: 'Volver a la selección principal', search: 'Busca IA, WhatsApp, automatización, software, GEO...', found: 'guías encontradas', read: 'Leer', updated: 'Actualizado', track: 'Explorar tema', active: 'TEMA ACTIVO', allButton: 'Ver todos', previous: 'Anterior', next: 'Siguiente', topic: 'Filtrar por tema' }
 };
 
-const PAGE_SIZE = 18;
+const PAGE_SIZE = BLOG_PAGE_SIZE;
 const localizedPath = (slug, locale) => `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
 const formatLocalizedDate = (date, locale) => new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
 
-export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, archiveMode = false }) {
+export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, archiveMode = false, categorySlug = '', pageNumber = 1 }) {
   const { languageOptions } = useLanguage();
   const t = getSiteText(locale);
   const copy = labels[locale] || labels.pt;
   const blogArticles = useMemo(() => articlesOverride || blogIndexArticles[locale] || blogIndexArticles.pt, [articlesOverride, locale]);
   const blogCategories = useMemo(() => [copy.all, ...new Set(blogArticles.map((article) => article.category))], [blogArticles, copy.all]);
-  const [category, setCategory] = useState(copy.all);
+  const listing = useMemo(() => getBlogListing(blogArticles, { locale, categorySlug, page: pageNumber }), [blogArticles, locale, categorySlug, pageNumber]);
+  const [archiveCategory, setArchiveCategory] = useState(copy.all);
+  const category = archiveMode ? archiveCategory : listing.category?.name || copy.all;
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const normalizedQuery = query.trim().toLocaleLowerCase('pt-BR');
@@ -53,30 +46,32 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
   const categoryCounts = useMemo(() => Object.fromEntries(blogCategories.filter((item) => item !== copy.all).map((item) => [item, blogArticles.filter((article) => article.category === item).length])), [blogArticles, blogCategories, copy.all]);
   const highlightedCategories = useMemo(() => blogCategories.filter((item) => item !== copy.all).sort((left, right) => categoryCounts[right] - categoryCounts[left]).slice(0, 8), [blogCategories, categoryCounts, copy.all]);
   const totalPages = Math.max(1, Math.ceil(articles.length / PAGE_SIZE));
-  const currentPage = Math.min(page, totalPages);
+  const currentPage = normalizedQuery || archiveMode ? Math.min(page, totalPages) : pageNumber;
   const visibleArticles = articles.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
-  const featured = blogArticles[0];
+  const featured = articles[0];
 
   useEffect(() => {
-    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale;
-    const seo = BLOG_SEO[locale] || BLOG_SEO.pt;
-    document.title = archiveMode ? `${copy.archiveTitle} | Tironi Tech` : seo.title;
-    setMeta('description', archiveMode ? copy.archiveDeck : seo.description);
-    setMeta('robots', archiveMode ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
-    setMeta('og:title', document.title, true);
-    setMeta('og:description', archiveMode ? copy.archiveDeck : seo.description, true);
-    setMeta('og:type', 'website', true);
+    if (!archiveMode && !listing.valid) return;
+    const title = archiveMode ? `${copy.archiveTitle} | Tironi Tech` : listing.title;
+    const description = archiveMode ? copy.archiveDeck : listing.description;
     const path = archiveMode
       ? `${locale === 'pt' ? '' : `/${locale}`}/blog/${locale === 'pt' ? 'arquivo' : 'archive'}`
-      : `${locale === 'pt' ? '' : `/${locale}`}/blog`;
-    setMeta('og:url', `${SITE_URL}${path}`, true);
-    let canonical = document.head.querySelector('link[rel="canonical"]');
-    if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
-    canonical.href = `${SITE_URL}${path}`;
+      : listing.path;
+    applyPageMeta({
+      title, description, path, language: locale === 'pt' ? 'pt-BR' : locale,
+      ...(archiveMode ? { robots: 'noindex, follow' } : {}),
+      alternates: [locale, 'x-default'].map((hreflang) => ({ hreflang, href: path })),
+      schema: archiveMode ? {
+        '@context': 'https://schema.org', '@type': 'CollectionPage', name: title,
+        description, url: `${SITE_URL}${path}`, mainEntity: { '@type': 'ItemList', numberOfItems: blogArticles.length },
+      } : listing.schema,
+    });
     window.scrollTo(0, 0);
-  }, [archiveMode, copy.archiveDeck, copy.archiveTitle, locale]);
+  }, [archiveMode, blogArticles.length, copy.archiveDeck, copy.archiveTitle, listing, locale]);
 
   const changeLanguage = (nextLocale) => { window.location.assign(`${nextLocale === 'pt' ? '' : `/${nextLocale}`}/blog`); };
+
+  if (!archiveMode && !listing.valid) return <NotFoundPage />;
 
   return (
     <div className="tt2-page tt-blog-page">
@@ -88,13 +83,13 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
             <div className="tt-blog-orb tt-blog-orb-two" aria-hidden="true" />
             <div className="tt2-container tt-blog-hero-inner">
               <span className="tt-blog-kicker">INSIGHTS TIRONI TECH</span>
-              <h1>{archiveMode ? copy.archiveTitle : copy.title}</h1><p>{archiveMode ? copy.archiveDeck : copy.deck}</p>
+              <h1>{archiveMode ? copy.archiveTitle : listing.heading || copy.title}{!archiveMode && pageNumber > 1 ? ` — ${locale === 'en' ? 'Page' : 'Página'} ${pageNumber}` : ''}</h1><p>{archiveMode ? copy.archiveDeck : listing.category ? listing.description : copy.deck}</p>
               {archiveMode ? null : <p className="tt-blog-offer"><a href="/club">Tironi Tech Club</a> · <a href="/formulario?interesse=club&origem=blog">{locale === 'en' ? 'Schedule a diagnosis' : 'Agendar diagnóstico'}</a></p>}
               {!archiveMode && locale === 'pt' && <nav className="tt-blog-solutions" aria-label="Soluções para empresas">{serviceLandingPages.map((service) => <a key={service.slug} href={`/${service.slug}`}>{service.keyword}</a>)}</nav>}
             </div>
           </section>
 
-          <section className="tt-blog-feature-wrap" aria-label="Artigo em destaque">
+          {featured && currentPage === 1 && !normalizedQuery && <section className="tt-blog-feature-wrap" aria-label="Artigo em destaque">
             <div className="tt2-container">
               <article className="tt-blog-feature">
                 <div className="tt-blog-feature-visual" aria-hidden="true">
@@ -113,7 +108,7 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
                 </div>
               </article>
             </div>
-          </section>
+          </section>}
 
           <section className="tt-blog-library" aria-labelledby="blog-library-title">
             <div className="tt2-container">
@@ -133,18 +128,24 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
               {!normalizedQuery && category === copy.all && (
                 <div className="tt-blog-tracks" aria-label="Trilhas de conteúdo">
                   {highlightedCategories.map((item) => (
-                    <button type="button" key={item} onClick={() => { setCategory(item); setPage(1); }}>
+                    archiveMode ? <button type="button" key={item} onClick={() => { setArchiveCategory(item); setPage(1); }}>
                       <span>{String(categoryCounts[item] || 0).padStart(2, '0')} GUIAS</span>
                       <strong>{item}</strong>
                       <small>{copy.track} <b aria-hidden="true">→</b></small>
-                    </button>
+                    </button> : <a key={item} href={getBlogListingPath({ locale, categorySlug: getBlogCategorySlug(item) })}>
+                      <span>{String(categoryCounts[item] || 0).padStart(2, '0')} GUIAS</span>
+                      <strong>{item}</strong>
+                      <small>{copy.track} <b aria-hidden="true">→</b></small>
+                    </a>
                   ))}
                 </div>
               )}
-              <div className="tt-blog-filters" aria-label="Filtrar artigos por assunto">
-                <label><span>{copy.topic}</span><select value={category} onChange={(event) => { setCategory(event.target.value); setPage(1); }}>{blogCategories.map((item) => <option key={item} value={item}>{item} ({item === copy.all ? blogArticles.length : categoryCounts[item]})</option>)}</select></label>
-              </div>
-              {category !== copy.all && <div className="tt-blog-active-trail"><span>{copy.active}</span><strong>{category}</strong><button type="button" onClick={() => { setCategory(copy.all); setPage(1); }}>{copy.allButton}</button></div>}
+              {archiveMode ? <div className="tt-blog-filters" aria-label="Filtrar artigos por assunto">
+                <label><span>{copy.topic}</span><select value={category} onChange={(event) => { setArchiveCategory(event.target.value); setPage(1); }}>{blogCategories.map((item) => <option key={item} value={item}>{item} ({item === copy.all ? blogArticles.length : categoryCounts[item]})</option>)}</select></label>
+              </div> : <nav className="tt-blog-filters tt-blog-filter-links" aria-label="Guias por assunto">
+                {blogCategories.map((item) => <a key={item} href={getBlogListingPath({ locale, categorySlug: item === copy.all ? '' : getBlogCategorySlug(item) })} aria-current={item === category ? 'page' : undefined}>{item} ({item === copy.all ? blogArticles.length : categoryCounts[item]})</a>)}
+              </nav>}
+              {category !== copy.all && <div className="tt-blog-active-trail"><span>{copy.active}</span><strong>{category}</strong>{archiveMode ? <button type="button" onClick={() => { setArchiveCategory(copy.all); setPage(1); }}>{copy.allButton}</button> : <a href={getBlogListingPath({ locale })}>{copy.allButton}</a>}</div>}
               <div className="tt-blog-grid">
                 {visibleArticles.map((article, index) => (
                   <article className="tt-blog-card" key={article.slug}>
@@ -156,8 +157,14 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
                   </article>
                 ))}
               </div>
-              {articles.length > PAGE_SIZE && <nav className="tt-blog-more" aria-label="Paginação do blog"><button type="button" disabled={currentPage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>← {copy.previous}</button><span>{currentPage} / {totalPages}</span><button type="button" disabled={currentPage === totalPages} onClick={() => setPage((value) => Math.min(totalPages, value + 1))}>{copy.next} →</button></nav>}
-              {articles.length === 0 && <div className="tt-blog-empty"><strong>0</strong><p>{copy.search}</p><button type="button" onClick={() => { setQuery(''); setCategory(copy.all); }}>{copy.allButton}</button></div>}
+              {articles.length > PAGE_SIZE && <nav className="tt-blog-more" aria-label="Paginação do blog">{normalizedQuery || archiveMode ? <>
+                <button type="button" disabled={currentPage === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>← {copy.previous}</button><span>{currentPage} / {totalPages}</span><button type="button" disabled={currentPage === totalPages} onClick={() => setPage((value) => Math.min(totalPages, value + 1))}>{copy.next} →</button>
+              </> : <>
+                {listing.previousPath ? <a href={listing.previousPath} rel="prev">← {copy.previous}</a> : <span aria-disabled="true">← {copy.previous}</span>}
+                <span aria-current="page">{currentPage} / {totalPages}</span>
+                {listing.nextPath ? <a href={listing.nextPath} rel="next">{copy.next} →</a> : <span aria-disabled="true">{copy.next} →</span>}
+              </>}</nav>}
+              {articles.length === 0 && <div className="tt-blog-empty"><strong>0</strong><p>{copy.search}</p><button type="button" onClick={() => { setQuery(''); setArchiveCategory(copy.all); setPage(1); }}>{copy.allButton}</button></div>}
               {archiveMode && !normalizedQuery && category === copy.all && <section className="tt-blog-full-directory" aria-labelledby="full-directory-title">
                 <span className="tt-blog-kicker">ÍNDICE COMPLETO</span><h2 id="full-directory-title">Todos os artigos por assunto</h2>
                 <p>Abra uma trilha para consultar cada conteúdo publicado. Artigos em revisão continuam acessíveis enquanto recebem exemplos, evidências e atualização editorial.</p>
