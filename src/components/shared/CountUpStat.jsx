@@ -14,7 +14,7 @@ function prefersReducedMotion() {
 
 export default function CountUpStat({ value, label, className = "" }) {
   const parsed = parseValue(value);
-  const [displayValue, setDisplayValue] = useState(parsed.numeric && !prefersReducedMotion() ? "0" : parsed.text);
+  const [displayValue, setDisplayValue] = useState(parsed.text);
   const rootRef = useRef(null);
   const hasAnimatedRef = useRef(false);
 
@@ -67,8 +67,8 @@ export default function CountUpStat({ value, label, className = "" }) {
   }, [parsed.end, parsed.numeric, parsed.suffix]);
 
   return (
-    <article ref={rootRef} className={`tt2-count-stat ${className}`.trim()}>
-      <strong>{displayValue}</strong>
+    <article ref={rootRef} className={`tt2-count-stat ${className}`.trim()} aria-label={`${parsed.text} ${label}`}>
+      <strong aria-hidden="true">{displayValue}</strong>
       <span>{label}</span>
     </article>
   );

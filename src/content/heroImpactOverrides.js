@@ -25,7 +25,7 @@ export const heroImpactOverrides = {
         { pain: "Execução", outcome: "Implementação + acompanhamento contínuo" },
       ],
       authority: [
-        { value: "23+", label: "anos de experiência acumulada" },
+        { value: "23+", label: "anos de experiência em tecnologia" },
         { value: "150+", label: "projetos para empresas" },
         { value: "50+", label: "soluções e projetos próprios" },
         { value: "3", label: "frentes de impacto: vendas, processos e operação" },
@@ -44,7 +44,7 @@ export const heroImpactOverrides = {
       title: "Experiência aplicada em soluções que geram resultado",
       text: "A TironiTech cria softwares, automações e plataformas digitais para organizar processos, integrar operações e acelerar o crescimento de empresas com mais clareza e eficiência.",
       metrics: [
-        { value: "23+", label: "anos de experiência acumulada" },
+        { value: "23+", label: "anos de experiência em tecnologia" },
         { value: "150+", label: "projetos para empresas" },
         { value: "50+", label: "soluções e projetos próprios" },
         { value: "3", label: "frentes de impacto: vendas, processos e operação" },
@@ -78,7 +78,7 @@ export const heroImpactOverrides = {
         { pain: "Execution", outcome: "Implementation + ongoing follow-up" },
       ],
       authority: [
-        { value: "23+", label: "years of combined experience" },
+        { value: "23+", label: "years of experience in technology" },
         { value: "150+", label: "business projects" },
         { value: "50+", label: "proprietary solutions and products" },
         { value: "3", label: "impact areas: sales, processes and operations" },
@@ -97,7 +97,7 @@ export const heroImpactOverrides = {
       title: "Experience applied to solutions that generate results",
       text: "TironiTech builds software, automations and digital platforms to organize processes, integrate operations and accelerate business growth with clarity and efficiency.",
       metrics: [
-        { value: "23+", label: "years of combined experience" },
+        { value: "23+", label: "years of experience in technology" },
         { value: "150+", label: "business projects" },
         { value: "50+", label: "proprietary solutions and products" },
         { value: "3", label: "impact areas: sales, processes and operations" },
@@ -131,7 +131,7 @@ export const heroImpactOverrides = {
         { pain: "Ejecución", outcome: "Implementación + seguimiento continuo" },
       ],
       authority: [
-        { value: "23+", label: "años de experiencia acumulada" },
+        { value: "23+", label: "años de experiencia en tecnología" },
         { value: "150+", label: "proyectos para empresas" },
         { value: "50+", label: "soluciones y proyectos propios" },
         { value: "3", label: "áreas de impacto: ventas, procesos y operación" },
@@ -150,7 +150,7 @@ export const heroImpactOverrides = {
       title: "Experiencia aplicada en soluciones que generan resultados",
       text: "TironiTech crea software, automatizaciones y plataformas digitales para organizar procesos, integrar operaciones y acelerar el crecimiento de empresas con más claridad y eficiencia.",
       metrics: [
-        { value: "23+", label: "años de experiencia acumulada" },
+        { value: "23+", label: "años de experiencia en tecnología" },
         { value: "150+", label: "proyectos para empresas" },
         { value: "50+", label: "soluciones y proyectos propios" },
         { value: "3", label: "áreas de impacto: ventas, procesos y operación" },

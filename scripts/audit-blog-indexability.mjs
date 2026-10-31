@@ -8,6 +8,8 @@ import { getBlogListingRoutes } from '../src/utils/blogListing.js';
 import { createHomeSchema } from '../src/utils/homePageSeo.js';
 import { createServiceSchema } from '../src/utils/servicePageSeo.js';
 import { blogIndexArticles } from '../src/content/blogIndexArticles.generated.js';
+import { corporateOverrides } from '../src/content/corporateOverrides.js';
+import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
 
 assert.deepEqual(blogIndexArticles.pt.map(({ slug }) => slug), coreBlogArticles.map(({ slug }) => slug), 'Browser and prerender must retain the same editorial order');
 assert.deepEqual(getBlogListingRoutes(blogIndexArticles.pt).map(({ schema }) => schema), getBlogListingRoutes(coreBlogArticles).map(({ schema }) => schema), 'Listing schemas and article destinations must not change when JavaScript loads');
@@ -141,11 +143,20 @@ for (const url of sitemapUrls) {
 }
 const robots = await read('robots.txt');
 const blogHtml = await read('blog/index.html');
-const { serviceLandingPages, searchConsolePriorityServiceSlugs } = await import('../src/content/serviceLandingPages.js');
+const { serviceLandingPages, serviceEvidence, searchConsolePriorityServiceSlugs } = await import('../src/content/serviceLandingPages.js');
 for (const page of serviceLandingPages) {
   assert(blogHtml.includes(`href="/${page.slug}"`), `Missing commercial discovery link: ${page.slug}`);
 }
 const homeHtml = await read('index.html');
+// Experience must be readable before JavaScript runs, not only inside metadata or bundles.
+const visibleBody = (html) => html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1].replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '') || '';
+const homeVisibleBody = visibleBody(homeHtml);
+for (const text of [corporateOverrides.pt.about.title, corporateOverrides.pt.about.description]) {
+  assert(homeVisibleBody.includes(escapeHtml(text)), 'Institutional experience must be visible in the initial home HTML');
+}
+for (const { value, label } of heroImpactOverrides.pt.experienceProof.metrics) {
+  assert(homeVisibleBody.includes(`>${escapeHtml(value)}<`) && homeVisibleBody.includes(escapeHtml(label)), `Home experience metric missing from visible HTML: ${label}`);
+}
 const schemaFrom = (html) => JSON.parse(html.match(/<script id="tt-page-schema" type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 assert.deepEqual(schemaFrom(homeHtml), createHomeSchema(), 'Home graph must match the client-side home graph');
 const listedArticleSlugs = new Set();
@@ -165,6 +176,10 @@ for (const listing of getBlogListingRoutes(coreBlogArticles)) {
 assert.equal(listedArticleSlugs.size, coreBlogArticles.length, 'Pagination must expose every selected article');
 for (const service of serviceLandingPages) {
   const html = await read(`${service.slug}/index.html`);
+  const body = visibleBody(html);
+  for (const { value, label } of serviceEvidence) {
+    assert(body.includes(`>${escapeHtml(value)}<`) && body.includes(escapeHtml(label)), `Service experience metric missing from visible HTML: ${service.slug}, ${label}`);
+  }
   assert.deepEqual(schemaFrom(html), createServiceSchema(service), `Service schema differs from its client route: ${service.slug}`);
   assert(html.includes('<meta property="og:type" content="website">'), `Service is incorrectly marked as a blog article: ${service.slug}`);
   if (service.image.startsWith('/brand/')) assert(html.includes('srcset='), `Missing responsive service image: ${service.slug}`);
