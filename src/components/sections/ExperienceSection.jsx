@@ -1,6 +1,7 @@
 import { motion as Motion, useReducedMotion } from "framer-motion";
+import FounderProfile from "../shared/FounderProfile";
 
-export default function ExperienceSection({ t }) {
+export default function ExperienceSection({ t, language = 'pt' }) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -36,6 +37,8 @@ export default function ExperienceSection({ t }) {
           ))}
         </div>
       </div>
+
+      <div className="tt2-container"><FounderProfile language={language} /></div>
 
       <div className="tt2-container tt2-method-band">
         <div className="tt2-section-head tt2-section-head-center">

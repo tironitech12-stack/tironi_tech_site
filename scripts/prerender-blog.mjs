@@ -6,6 +6,7 @@ import { clubContent } from '../src/content/clubContent.js';
 import { LEGAL_COPY } from '../src/content/legalPolicies.js';
 import { serviceLandingPages, serviceDiagnosticPath, serviceEvidence, searchConsolePriorityServiceSlugs } from '../src/content/serviceLandingPages.js';
 import { corporateOverrides } from '../src/content/corporateOverrides.js';
+import { founderProfile, getFounderCopy } from '../src/content/founderProfile.js';
 import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
 import { BLOG_SEO, CLUB_SEO, HOME_SEO, OFFER_PAGE_KEYS, getPositioning } from '../src/content/positioning.js';
 import { getBlogListingPath, getBlogListingRoutes } from '../src/utils/blogListing.js';
@@ -213,8 +214,18 @@ const homeDescription = HOME_SEO.description;
 const homeProjects = corporateOverrides.pt.featuredProjects.items;
 const homeAbout = corporateOverrides.pt.about;
 const homeExperience = heroImpactOverrides.pt.experienceProof;
+const founder = getFounderCopy('pt');
+const founderBody = `
+  <article id="fundador" aria-labelledby="fundador-nome">
+    <header><p>${escapeHtml(founder.eyebrow)}</p><h3 id="fundador-nome">${escapeHtml(founderProfile.name)}</h3><p>${escapeHtml(founder.role)}</p></header>
+    <p>${escapeHtml(founder.summary)}</p>
+    <ol aria-label="${escapeHtml(founder.timelineLabel)}">${founder.milestones.map(({ period, description }) => `<li><strong>${escapeHtml(period)}</strong> ${escapeHtml(description)}</li>`).join('')}</ol>
+    <p>${escapeHtml(founder.disclaimer)}</p>
+    <p><a href="${escapeHtml(founderProfile.linkedinUrl)}">${escapeHtml(founder.profileLinkLabel)}</a></p>
+    <p><a href="${escapeHtml(founderProfile.businessHistoryUrl)}">${escapeHtml(founder.businessHistoryLinkLabel)}</a></p>
+  </article>`;
 const homeExperienceBody = `<section aria-label="${escapeHtml(homeExperience.title)}"><dl>${homeExperience.metrics.map(({ value, label }) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('')}</dl></section>`;
-const homeAboutBody = `<section id="experiencia"><p>${escapeHtml(homeAbout.eyebrow)}</p><h2>${escapeHtml(homeAbout.title)}</h2><p>${escapeHtml(homeAbout.description)}</p>${homeAbout.items.map(({ title, text }) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section>`;
+const homeAboutBody = `<section id="experiencia"><p>${escapeHtml(homeAbout.eyebrow)}</p><h2>${escapeHtml(homeAbout.title)}</h2><p>${escapeHtml(homeAbout.description)}</p>${homeAbout.items.map(({ title, text }) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}${founderBody}</section>`;
 const homeProjectUrls = { SignGuard: 'https://www.walletsignguard.com/', DeleteActPro: 'https://www.deleteactpro.com/', 'Sales Game': 'https://www.salesgame.com.br/', 'Sorteios xNaMai': 'https://www.sorteiosxnamai.com.br/', 'ProfitPilot Ads': 'https://www.profitpilotads.com/' };
 const homeBody = `<main><header><p>TIRONI TECH CLUB · TRANSFORMAÇÃO CONTÍNUA</p><h1>Entramos no seu negócio para encontrar o que trava o crescimento — e fazer a mudança acontecer.</h1><p>Nosso time entra na operação, organiza o que importa, constrói o que falta e acompanha os indicadores mês a mês. ${escapeHtml(homeDescription)}</p><a href="/formulario?interesse=club&origem=hero">Agendar diagnóstico estratégico</a><a href="/como-funciona">Conhecer como o Club funciona</a></header><section><h2>O Tironi Tech Club é a oferta principal</h2><p>Diagnóstico, prioridades, implementação e acompanhamento contínuo. Desenvolvimento sob medida permanece como capacidade de execução e como projeto específico.</p><a href="/club">Quero mapear minha empresa</a></section>${homeExperienceBody}${priorityServicesBody}<nav><a href="/consultoria-ia-para-empresas">Consultoria de IA para empresas</a> · <a href="/automacao-processos-com-ia">Automação de processos empresariais</a> · <a href="/software-sob-medida">Software sob medida para empresas</a></nav><section><h2>Capacidades de execução</h2><article><h3>Software sob medida</h3><p>Sistemas personalizados para organizar dados, integrar processos e eliminar controles dispersos.</p></article><article><h3>Automação com IA</h3><p>Agentes e fluxos conectados às regras e ferramentas da empresa, com controle e acompanhamento.</p></article><article><h3>ChatBô</h3><p>Atendimento e qualificação de oportunidades no WhatsApp e em outros canais, trabalhando junto da equipe comercial.</p><a href="https://www.chatbo.com.br/">Conhecer o ChatBô</a></article><article><h3>Integrações e APIs</h3><p>Conexão entre CRM, ERP, plataformas, bancos de dados e serviços usados pela operação.</p></article></section><section><h2>Cases e produtos Tironi Tech</h2>${homeProjects.map((project) => `<article><p>${escapeHtml(project.tag)}</p><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description)}</p><ul>${project.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>${homeProjectUrls[project.title] ? `<a href="${homeProjectUrls[project.title]}">${escapeHtml(project.cta)}</a>` : '<a href="#contato">Conversar sobre este projeto</a>'}</article>`).join('')}</section>${homeAboutBody}<section><h2>Conteúdo para decisões melhores</h2><p>Guias aprofundados sobre IA aplicada, automação, atendimento e software empresarial.</p><a href="/blog">Acessar o blog da Tironi Tech</a></section></main>`;
 const homeSchema = createHomeSchema();

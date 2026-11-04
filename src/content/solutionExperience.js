@@ -11,7 +11,7 @@ const experienceByLanguage = {
   pt: {
     lead: "Estas frentes são meios de execução. O Club organiza a prioridade; um projeto de desenvolvimento existe quando o escopo pede uma entrega dedicada.",
     outcomeLabel: "O que muda", linkLabel: "Explorar solução", proofLabel: "Experiência aplicada",
-    proof: [["23+", "anos de experiência em tecnologia"], ["150+", "projetos para empresas"], ["50+", "soluções e produtos próprios"]],
+    proof: [["23+", "anos de atuação do fundador em tecnologia"], ["150+", "projetos para empresas"], ["50+", "soluções e produtos próprios"]],
     items: [
       { signal: "Operação sem encaixe em software pronto", outcome: "Um sistema que segue o processo real da empresa, centraliza dados e elimina controles paralelos.", chips: ["Sistemas internos", "SaaS e MVP", "Portais e dashboards"], evidence: "Sales Game • DeleteActPro • Sorteios" },
       { signal: "Presença digital que precisa gerar confiança", outcome: "Experiências digitais rápidas, claras e preparadas para conversão, SEO e descoberta por mecanismos de IA.", chips: ["Sites institucionais", "Landing pages", "Plataformas web"], evidence: "Tironi Tech • GeoAura • ProfitPilot Ads" },
@@ -27,7 +27,7 @@ const experienceByLanguage = {
   en: {
     lead: "These fronts are means of execution. The Club sets the priority; a development project exists when the scope needs a dedicated delivery.",
     outcomeLabel: "What changes", linkLabel: "Explore solution", proofLabel: "Applied experience",
-    proof: [["23+", "years of experience in technology"], ["150+", "business projects"], ["50+", "solutions and proprietary products"]],
+    proof: [["23+", "years our founder has worked in technology"], ["150+", "business projects"], ["50+", "solutions and proprietary products"]],
     items: [
       { signal: "Operations that do not fit ready-made software", outcome: "A system built around the real process, centralizing data and eliminating parallel controls.", chips: ["Internal systems", "SaaS and MVP", "Portals and dashboards"], evidence: "Sales Game • DeleteActPro • Raffles" },
       { signal: "A digital presence that must build trust", outcome: "Fast, clear digital experiences prepared for conversion, SEO and discovery by AI engines.", chips: ["Corporate websites", "Landing pages", "Web platforms"], evidence: "Tironi Tech • GeoAura • ProfitPilot Ads" },
@@ -43,7 +43,7 @@ const experienceByLanguage = {
   es: {
     lead: "Estos frentes son medios de ejecución. El Club organiza la prioridad; un proyecto de desarrollo existe cuando el alcance pide una entrega dedicada.",
     outcomeLabel: "Qué cambia", linkLabel: "Explorar solución", proofLabel: "Experiencia aplicada",
-    proof: [["23+", "años de experiencia en tecnología"], ["150+", "proyectos para empresas"], ["50+", "soluciones y productos propios"]],
+    proof: [["23+", "años de trayectoria del fundador en tecnología"], ["150+", "proyectos para empresas"], ["50+", "soluciones y productos propios"]],
     items: [
       { signal: "Operación que no encaja en software listo", outcome: "Un sistema que sigue el proceso real, centraliza datos y elimina controles paralelos.", chips: ["Sistemas internos", "SaaS y MVP", "Portales y dashboards"], evidence: "Sales Game • DeleteActPro • Sorteos" },
       { signal: "Presencia digital que debe generar confianza", outcome: "Experiencias rápidas y claras, preparadas para conversión, SEO y descubrimiento por motores de IA.", chips: ["Sitios institucionales", "Landing pages", "Plataformas web"], evidence: "Tironi Tech • GeoAura • ProfitPilot Ads" },

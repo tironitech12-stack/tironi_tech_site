@@ -19,6 +19,7 @@ import { getProjectStory } from "../content/projectStories";
 import { getSolutionExperience, solutionLinks } from "../content/solutionExperience";
 import BusinessResultsSection from "../components/sections/BusinessResultsSection";
 import CommercialSolutionsLinks from "../components/sections/CommercialSolutionsLinks";
+import FounderProfile from "../components/shared/FounderProfile";
 
 const CONTACT_EMAIL = "tironi@tironitech.com";
 const WHATSAPP_NUMBER = "5543996676633";
@@ -286,6 +287,7 @@ export default function MobileHome() {
           <div className="mobile-highlight-grid">
             {t.about.items.map((item) => <div key={item.title} className="mobile-highlight-pill">{item.title}</div>)}
           </div>
+          <FounderProfile language={language} />
         </section>
 
         <BlogHighlight />

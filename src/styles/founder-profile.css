@@ -1,0 +1,119 @@
+.tt-founder-profile {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  margin-block-start: 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(99, 205, 235, 0.24);
+  border-radius: 20px;
+  background: #0b1722;
+  color: #e9f2f7;
+  text-align: start;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 100px;
+}
+
+.tt-founder-profile .tt-founder-profile-header {
+  display: grid;
+  gap: 8px;
+}
+
+.tt-founder-profile p,
+.tt-founder-profile h3 {
+  margin: 0;
+}
+
+.tt-founder-profile .tt-founder-profile-eyebrow {
+  color: #91dcef;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tt-founder-profile h3 {
+  color: #f5fbff;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.25;
+}
+
+.tt-founder-profile .tt-founder-profile-role {
+  color: #d3e9f2;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tt-founder-profile .tt-founder-profile-summary {
+  color: #bfced8;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.tt-founder-profile .tt-founder-profile-timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tt-founder-profile-timeline li {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+  padding-block: 11px;
+  border-top: 1px solid rgba(99, 205, 235, 0.15);
+  color: #d3e0e8;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.tt-founder-profile-period {
+  color: #91dcef;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.tt-founder-profile .tt-founder-profile-disclaimer {
+  color: #b3c4cf;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.tt-founder-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+}
+
+.tt-founder-profile .tt-founder-profile-link {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: #91dcef;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  border-radius: 4px;
+}
+
+.tt-founder-profile-link:hover {
+  color: #d2f5ff;
+}
+
+.tt-founder-profile-link:focus-visible {
+  outline: 2px solid #91dcef;
+  outline-offset: 5px;
+}
+
+@media (max-width: 380px) {
+  .tt-founder-profile-timeline li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+}

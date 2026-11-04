@@ -55,11 +55,11 @@ html[data-theme="club"] .tt-hero-pitch-title.is-statement { font-size: clamp(34p
 .tt-hero-cycle span { color: #b9a8ff; font: 11px ui-monospace, SFMono-Regular, Consolas, monospace; }
 .tt-hero-cycle strong { color: #f4ecff; font-size: 14px; font-weight: 600; letter-spacing: .04em; }
 @media (max-width: 1360px) and (min-width: 1121px) {
-  .tt2-nav-toggle { display: inline-flex; }
-  .tt2-nav { display: none; position: fixed; top: 88px; left: 0; right: 0; z-index: 1001; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; background: #071522; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .tt2-nav.tt2-nav-open { display: flex; }
+  .tt2-header .tt2-nav-toggle { display: inline-flex; }
+  .tt2-header .tt2-nav { display: none; position: fixed; top: 88px; left: 0; right: 0; z-index: 1001; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; background: #071522; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .tt2-header .tt2-nav.tt2-nav-open { display: flex; }
   .tt2-nav a { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
-  .tt2-nav-backdrop { display: block; position: fixed; inset: 88px 0 0 0; z-index: 1000; border: 0; background: rgba(0,0,0,.45); cursor: pointer; }
+  .tt2-header .tt2-nav-backdrop { display: block; position: fixed; inset: 88px 0 0 0; z-index: 1000; border: 0; background: rgba(0,0,0,.45); cursor: pointer; }
 }
 @media (min-width: 1361px) {
   .tt2-nav { gap: 16px; }

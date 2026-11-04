@@ -9,6 +9,7 @@ import { createHomeSchema } from '../src/utils/homePageSeo.js';
 import { createServiceSchema } from '../src/utils/servicePageSeo.js';
 import { blogIndexArticles } from '../src/content/blogIndexArticles.generated.js';
 import { corporateOverrides } from '../src/content/corporateOverrides.js';
+import { founderProfile, getFounderCopy } from '../src/content/founderProfile.js';
 import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
 
 assert.deepEqual(blogIndexArticles.pt.map(({ slug }) => slug), coreBlogArticles.map(({ slug }) => slug), 'Browser and prerender must retain the same editorial order');
@@ -151,6 +152,14 @@ const homeHtml = await read('index.html');
 // Experience must be readable before JavaScript runs, not only inside metadata or bundles.
 const visibleBody = (html) => html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1].replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '') || '';
 const homeVisibleBody = visibleBody(homeHtml);
+const founderSection = homeVisibleBody.match(/<article id="fundador"[^>]*>[\s\S]*?<\/article>/)?.[0];
+assert(founderSection, 'Founder linked from Organization must be present before JavaScript loads');
+for (const href of [founderProfile.linkedinUrl, founderProfile.businessHistoryUrl]) {
+  assert(founderSection.includes(`href="${escapeHtml(href)}"`), 'Missing founder history source link');
+}
+for (const { period, description } of getFounderCopy('pt').milestones) {
+  assert(founderSection.includes(escapeHtml(period)) && founderSection.includes(escapeHtml(description)), `Missing founder milestone: ${period}`);
+}
 for (const text of [corporateOverrides.pt.about.title, corporateOverrides.pt.about.description]) {
   assert(homeVisibleBody.includes(escapeHtml(text)), 'Institutional experience must be visible in the initial home HTML');
 }

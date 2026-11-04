@@ -5,6 +5,7 @@ import { createHomeSchema } from '../src/utils/homePageSeo.js';
 import { createServiceSchema, getRelatedServicePages } from '../src/utils/servicePageSeo.js';
 import { serviceLandingPages, searchConsolePriorityServiceSlugs } from '../src/content/serviceLandingPages.js';
 import { HOME_SEO } from '../src/content/positioning.js';
+import { founderProfile } from '../src/content/founderProfile.js';
 
 // Model the relevant head APIs so navigation can be checked without providers or a browser.
 const children = [];
@@ -44,7 +45,12 @@ initialSchema.textContent = JSON.stringify(createHomeSchema());
 document.head.appendChild(initialSchema);
 applyPageMeta({ ...HOME_SEO, schema: createHomeSchema() });
 assert.equal(document.head.querySelectorAll('script[type="application/ld+json"]').length, 1);
-assert.deepEqual(graph().map((node) => node['@type']), ['Organization', 'WebSite', 'WebPage']);
+assert.deepEqual(graph().map((node) => node['@type']), ['Organization', 'Person', 'WebSite', 'WebPage']);
+const organization = graph().find((node) => node['@type'] === 'Organization');
+const founder = graph().find((node) => node['@id'] === organization.founder['@id']);
+assert.equal(organization.foundingDate, founderProfile.foundingYear);
+assert.equal(founder.name, founderProfile.name);
+assert(founder.sameAs.includes(founderProfile.linkedinUrl));
 assert(graph().find((node) => node['@type'] === 'WebPage').hasPart.length > 0);
 
 // An article-to-service transition must discard inherited language alternate URLs.

@@ -76,7 +76,7 @@ export default function AppRoot() {
           <FeaturedProjectsSection t={t} language={language} />
           <ToolsSection />
           <SolutionsSection t={t} />
-          <ExperienceSection t={t} />
+          <ExperienceSection t={t} language={language} />
           <ChatboSpotlight t={t} />
           <BlogHighlight />
           <FinalCtaSection t={t} contactEmail={CONTACT_EMAIL} whatsappNumber={WHATSAPP_NUMBER} />

@@ -1,6 +1,8 @@
+import { founderProfile } from './founderProfile.js';
+
 export const HOME_SEO = {
   title: 'Tironi Tech | Transformação Empresarial, IA e Automação',
-  description: 'Tironi Tech: 23+ anos de experiência em tecnologia. Software sob medida, automação e IA para empresas, com projetos e evolução contínua.',
+  description: `Tironi Tech desde ${founderProfile.foundingYear}, com a experiência de ${founderProfile.name} em tecnologia desde ${founderProfile.careerStartYear}. Software sob medida, automação e IA para empresas.`,
 };
 
 export const CLUB_SEO = {
@@ -194,7 +196,7 @@ function pagesFor(language) {
         seoDescription: 'Cases e produtos da Tironi Tech: plataformas, automação, IA e operações digitais entregues para empresas.',
         showProjects: true,
         proof: [
-          ['23+', 'anos de experiência em tecnologia'],
+          ['23+', 'anos de atuação do fundador em tecnologia'],
           ['150+', 'projetos para empresas'],
           ['50+', 'soluções e projetos próprios'],
         ],
@@ -298,7 +300,7 @@ function pagesFor(language) {
         seoDescription: 'Tironi Tech cases and products: platforms, automation, AI and digital operations delivered for companies.',
         showProjects: true,
         proof: [
-          ['23+', 'years of experience in technology'],
+          ['23+', 'years our founder has worked in technology'],
           ['150+', 'business projects'],
           ['50+', 'proprietary solutions and products'],
         ],
@@ -402,7 +404,7 @@ function pagesFor(language) {
         seoDescription: 'Casos y productos de Tironi Tech: plataformas, automatización, IA y operaciones digitales entregadas a empresas.',
         showProjects: true,
         proof: [
-          ['23+', 'años de experiencia en tecnología'],
+          ['23+', 'años de trayectoria del fundador en tecnología'],
           ['150+', 'proyectos para empresas'],
           ['50+', 'soluciones y proyectos propios'],
         ],

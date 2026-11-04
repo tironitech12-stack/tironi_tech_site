@@ -1,4 +1,5 @@
 import { HOME_SEO } from '../content/positioning.js';
+import { founderProfile, getFounderCopy } from '../content/founderProfile.js';
 
 export const SITE_URL = 'https://www.tironitech.com';
 export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/brand/tironi-symbol.png`;
@@ -30,6 +31,17 @@ export function createSiteEntities() {
       areaServed: { '@type': 'Country', name: 'Brasil' },
       knowsAbout: ['consultoria de IA para empresas', 'automação de processos empresariais', 'software sob medida', 'Tironi Tech Club'],
       sameAs: ['https://www.linkedin.com/company/tironi-tech'],
+      foundingDate: founderProfile.foundingYear,
+      founder: { '@id': `${SITE_URL}/#fundador` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#fundador`,
+      name: founderProfile.name,
+      url: `${SITE_URL}/#fundador`,
+      jobTitle: getFounderCopy('pt').role,
+      worksFor: { '@id': `${SITE_URL}/#organization` },
+      sameAs: [founderProfile.linkedinUrl],
     },
     {
       '@type': 'WebSite',

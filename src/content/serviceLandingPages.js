@@ -1,7 +1,7 @@
 const whatsapp = 'https://wa.me/5543996676633?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Tironi%20Tech.';
 
 export const serviceEvidence = [
-  { value: '23+', label: 'anos de experiência em tecnologia' },
+  { value: '23+', label: 'anos de atuação do fundador em tecnologia' },
   { value: '150+', label: 'projetos para empresas' },
   { value: '1', label: 'parceiro do diagnóstico à evolução' },
 ];
@@ -21,7 +21,7 @@ export const serviceLandingPages = [
     problem: 'Sua equipe copia dados, responde as mesmas perguntas e depende de planilhas para manter a operação em movimento.',
     outcomes: ['Menos tarefas repetitivas e retrabalho', 'Processos conectados a CRM, ERP e APIs', 'Decisões e exceções registradas para auditoria'],
     solution: 'Combinamos regras, integrações e agentes de IA. A automação interpreta informações variáveis, executa apenas ações autorizadas e encaminha exceções para a pessoa certa.',
-    proof: '23+ anos de experiência em tecnologia e mais de 150 projetos ajudam a transformar uma ideia de automação em uma operação que pode ser acompanhada e evoluída.',
+    proof: 'A Tironi Tech aplica à automação o repertório de mais de 150 projetos para empresas e a experiência de seu fundador em tecnologia desde 2002.',
     image: '/brand/tironi-symbol.png', imageAlt: 'Símbolo Tironi Tech', process: commonProcess,
     faqs: [['O que uma empresa de automação com IA entrega?', 'Diagnóstico, desenho do fluxo, integrações, agentes, testes, implantação, monitoramento e evolução.'], ['É preciso trocar os sistemas atuais?', 'Na maioria dos projetos, não. A automação pode conectar CRM, ERP, WhatsApp e bases existentes por APIs.'], ['Como começar com menor risco?', 'Escolha um processo frequente, mensurável e com exceções conhecidas para uma prova controlada.']],
   },
@@ -113,7 +113,7 @@ export const serviceLandingPages = [
     problem: 'Projetos atrasam quando requisitos viram uma lista de telas sem prioridade, validação com usuários ou estratégia de evolução.',
     outcomes: ['Escopo organizado por jornadas e valor', 'Arquitetura compatível com segurança e crescimento', 'Entregas progressivas com demonstrações e critérios de aceite'],
     solution: 'Trabalhamos em ciclos curtos: entendimento, protótipo, implementação, demonstração e aprendizado. IA entra onde melhora o produto ou acelera o processo com qualidade verificável.',
-    proof: 'Mais de 150 projetos e 23+ anos de experiência em tecnologia sustentam decisões técnicas ligadas à realidade do negócio.',
+    proof: 'As decisões de arquitetura se apoiam em mais de 150 projetos para empresas e na experiência do fundador em tecnologia desde 2002.',
     image: '/projects/deleteactpro-logo.png', imageAlt: 'Produto digital desenvolvido sob medida', process: commonProcess,
     faqs: [['Quanto tempo leva?', 'Depende do menor produto completo. O diagnóstico transforma a ideia em etapas e reduz a incerteza antes da estimativa.'], ['Quem é dono do código e dos dados?', 'Esses pontos são definidos em contrato; a solução deve preservar acesso e portabilidade do cliente.'], ['É possível integrar IA depois?', 'Sim, quando arquitetura, dados e permissões são preparados para evolução.']],
   },
