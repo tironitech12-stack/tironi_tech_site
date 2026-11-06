@@ -2,6 +2,7 @@ import { LogoMark } from "./Navbar";
 import { getLegalCopy } from "../../content/legalPolicies";
 import { openCookiePreferences } from "../../utils/cookieConsent";
 import { reportWhatsAppConversionAndRedirect } from "../../utils/googleAdsConversion";
+import { externalRel } from "../../utils/externalRel";
 
 export default function Footer({ t, contactEmail, whatsappNumber, language, setLanguage, languageOptions = [] }) {
   const legalCopy = getLegalCopy(language);
@@ -46,7 +47,7 @@ export default function Footer({ t, contactEmail, whatsappNumber, language, setL
           <a
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
-            rel="noreferrer"
+            rel={externalRel()}
             onClick={(event) => {
               const href = `https://wa.me/${whatsappNumber}`;
               if (!href.startsWith("https://wa.me/5543996676633")) return;

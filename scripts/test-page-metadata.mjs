@@ -45,8 +45,15 @@ initialSchema.textContent = JSON.stringify(createHomeSchema());
 document.head.appendChild(initialSchema);
 applyPageMeta({ ...HOME_SEO, schema: createHomeSchema() });
 assert.equal(document.head.querySelectorAll('script[type="application/ld+json"]').length, 1);
-assert.deepEqual(graph().map((node) => node['@type']), ['Organization', 'Person', 'WebSite', 'WebPage']);
-const organization = graph().find((node) => node['@type'] === 'Organization');
+const hasType = (node, type) => {
+  const value = node['@type'];
+  return value === type || (Array.isArray(value) && value.includes(type));
+};
+assert.deepEqual(graph().map((node) => node['@type']), [['Organization', 'ProfessionalService'], 'Person', 'WebSite', 'WebPage']);
+const organization = graph().find((node) => hasType(node, 'Organization'));
+assert(hasType(organization, 'ProfessionalService'), 'Organization must also declare ProfessionalService for local business details');
+assert.equal(organization.priceRange, '$$');
+assert.equal(organization.image, 'https://www.tironitech.com/brand/tironi-symbol.png');
 const founder = graph().find((node) => node['@id'] === organization.founder['@id']);
 assert.equal(organization.foundingDate, founderProfile.foundingYear);
 assert.equal(founder.name, founderProfile.name);
@@ -82,20 +89,32 @@ assert.equal(graph().find((node) => node['@type'] === 'FAQPage').mainEntity[0].n
 assert(!document.getElementById('tt-page-schema').textContent.includes('agente-ia-whatsapp'));
 
 // Service-to-article navigation must reset every social field, including the image.
-applyPageMeta({ title: 'Guia de WhatsApp | Tironi Tech', description: 'Como estruturar o atendimento.', path: '/blog/guia-whatsapp', ogType: 'article', alternates: [{ hreflang: 'pt', href: '/blog/guia-whatsapp' }] });
+applyPageMeta({
+  title: 'Guia de WhatsApp | Tironi Tech',
+  description: 'Como estruturar o atendimento.',
+  path: '/blog/guia-whatsapp',
+  ogType: 'article',
+  publishedTime: '2026-01-15',
+  modifiedTime: '2026-03-01',
+  alternates: [{ hreflang: 'pt', href: '/blog/guia-whatsapp' }],
+});
 assert.equal(meta('og:type', 'property'), 'article');
 assert.equal(meta('twitter:title'), 'Guia de WhatsApp | Tironi Tech');
 assert.equal(meta('og:image', 'property'), 'https://www.tironitech.com/brand/tironi-symbol.png');
 assert.equal(meta('twitter:url'), 'https://www.tironitech.com/blog/guia-whatsapp');
+assert.equal(meta('article:published_time', 'property'), '2026-01-15');
+assert.equal(meta('article:modified_time', 'property'), '2026-03-01');
+assert.equal(meta('article:author', 'property'), 'Tironi Tech');
 assert.equal(document.head.querySelector('link[rel="alternate"][hreflang]').href, 'https://www.tironitech.com/blog/guia-whatsapp');
 
 // Going back home must replace service entities while retaining the business identity.
 applyPageMeta({ ...HOME_SEO, schema: createHomeSchema() });
 assert(!graph().some((node) => ['Service', 'FAQPage'].includes(node['@type'])));
-assert(graph().some((node) => node['@type'] === 'Organization'));
+assert(graph().some((node) => hasType(node, 'Organization')));
 assert(graph().some((node) => node['@type'] === 'WebSite'));
 assert.equal(meta('og:url', 'property'), 'https://www.tironitech.com/');
 assert.equal(meta('og:type', 'property'), 'website');
+assert.equal(document.head.querySelectorAll('meta[property^="article:"]').length, 0);
 
 for (const slug of searchConsolePriorityServiceSlugs) {
   assert.deepEqual(getRelatedServicePages(slug).map((page) => page.slug), searchConsolePriorityServiceSlugs.filter((candidate) => candidate !== slug));

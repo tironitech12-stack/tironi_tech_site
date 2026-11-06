@@ -10,7 +10,28 @@ function setMeta(name, value, attribute = 'name') {
   element.setAttribute('content', value);
 }
 
-export function applyPageMeta({ title, description, path = '/', breadcrumbs = [], language = 'pt-BR', image = DEFAULT_SOCIAL_IMAGE, imageAlt = 'Tironi Tech', ogType = 'website', robots = INDEXABLE_ROBOTS, schema, pageType = 'WebPage', pageData = {}, alternates = [] }) {
+function clearArticleMeta() {
+  document.head.querySelectorAll('meta[property^="article:"]').forEach((element) => element.remove());
+}
+
+export function applyPageMeta({
+  title,
+  description,
+  path = '/',
+  breadcrumbs = [],
+  language = 'pt-BR',
+  image = DEFAULT_SOCIAL_IMAGE,
+  imageAlt = 'Tironi Tech',
+  ogType = 'website',
+  robots = INDEXABLE_ROBOTS,
+  schema,
+  pageType = 'WebPage',
+  pageData = {},
+  alternates = [],
+  publishedTime,
+  modifiedTime,
+  authorName = 'Tironi Tech',
+} = {}) {
   const url = siteUrl(path);
   const imageUrl = siteUrl(image);
   document.documentElement.lang = language;
@@ -35,6 +56,13 @@ export function applyPageMeta({ title, description, path = '/', breadcrumbs = []
     'twitter:image': imageUrl,
     'twitter:image:alt': imageAlt,
   })) setMeta(name, value);
+
+  clearArticleMeta();
+  if (ogType === 'article') {
+    if (publishedTime) setMeta('article:published_time', publishedTime, 'property');
+    if (modifiedTime) setMeta('article:modified_time', modifiedTime, 'property');
+    if (authorName) setMeta('article:author', authorName, 'property');
+  }
 
   let canonical = document.head.querySelector('link[rel="canonical"]');
   if (!canonical) {

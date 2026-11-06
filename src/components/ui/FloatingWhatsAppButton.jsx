@@ -2,6 +2,7 @@ import {
   DEFAULT_WHATSAPP_URL,
   reportWhatsAppConversionAndRedirect,
 } from "../../utils/googleAdsConversion";
+import { externalRel } from "../../utils/externalRel";
 
 const WHATSAPP_LEAD_HREF = DEFAULT_WHATSAPP_URL;
 
@@ -11,7 +12,7 @@ export default function FloatingWhatsAppButton() {
       className="tt2-floating-whatsapp"
       href={WHATSAPP_LEAD_HREF}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={externalRel()}
       aria-label="Falar com a TironiTech no WhatsApp"
       onClick={(event) => {
         event.preventDefault();

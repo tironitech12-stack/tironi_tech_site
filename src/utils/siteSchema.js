@@ -12,13 +12,16 @@ export function siteUrl(path = '/') {
 export function createSiteEntities() {
   return [
     {
-      '@type': 'Organization',
+      // ProfessionalService extends LocalBusiness — helps Google establish business details
+      // without inventing opening hours or geo coordinates we do not publish.
+      '@type': ['Organization', 'ProfessionalService'],
       '@id': `${SITE_URL}/#organization`,
       name: 'Tironi Tech',
       alternateName: 'TironiTech',
       description: HOME_SEO.description,
       url: `${SITE_URL}/`,
       logo: DEFAULT_SOCIAL_IMAGE,
+      image: DEFAULT_SOCIAL_IMAGE,
       email: 'tironi@tironitech.com',
       telephone: '+55-43-99667-6633',
       address: {
@@ -29,6 +32,7 @@ export function createSiteEntities() {
         addressCountry: 'BR',
       },
       areaServed: { '@type': 'Country', name: 'Brasil' },
+      priceRange: '$$',
       knowsAbout: ['consultoria de IA para empresas', 'automação de processos empresariais', 'software sob medida', 'Tironi Tech Club'],
       sameAs: ['https://www.linkedin.com/company/tironi-tech'],
       foundingDate: founderProfile.foundingYear,

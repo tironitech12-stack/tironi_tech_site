@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { blogArticles, coreBlogArticles } from '../src/content/blogArticles.js';
-import { getArticleLocales } from '../src/content/localizedBlogArticles.js';
+import { getArticleLocales, getBlogArticlesForLocale } from '../src/content/localizedBlogArticles.js';
 import { searchConsoleArticleRevisions } from '../src/content/searchConsoleArticleRevisions.js';
 import { getBlogListingRoutes } from '../src/utils/blogListing.js';
 import { createHomeSchema } from '../src/utils/homePageSeo.js';
@@ -22,11 +22,13 @@ const locations = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 const sitemap = await read('sitemap.xml');
 const sitemapUrls = new Set();
-assert(sitemap.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'), 'Root sitemap must list every URL directly');
+assert(/<urlset[^>]*xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/.test(sitemap), 'Root sitemap must list every URL directly');
+assert(sitemap.includes('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'), 'Root sitemap must include the image extension when pages expose images');
 assert(!sitemap.includes('<sitemapindex'), 'Root sitemap must not delegate URLs to child sitemaps');
 assert(!sitemap.includes('<priority>') && !sitemap.includes('<changefreq>'), 'Ignored sitemap hints found in root sitemap');
+// Match page <loc> only — image:loc uses a different tag name.
 const sitemapLocations = locations(sitemap);
-const sitemapEntries = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/url>/g)];
+const sitemapEntries = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>(?:<image:image>[\s\S]*?<\/image:image>)*<\/url>/g)];
 assert(sitemapLocations.length > 0, 'Root sitemap is empty');
 assert(sitemapLocations.length <= 50_000, 'Root sitemap exceeds 50,000 URLs');
 assert(Buffer.byteLength(sitemap) <= 52_428_800, 'Root sitemap exceeds 50 MB');
@@ -36,6 +38,9 @@ for (const location of sitemapLocations) {
   assert(!sitemapUrls.has(location), `Duplicate sitemap URL: ${location}`);
   sitemapUrls.add(location);
 }
+assert(sitemap.includes('<image:image>'), 'Image sitemap extension must annotate pages with primary images');
+assert(!sitemapUrls.has(`${origin}/en/blog`) || getBlogArticlesForLocale('en').length > 0, 'English blog index must not appear in the sitemap without published EN articles');
+assert(!sitemapUrls.has(`${origin}/es/blog`) || getBlogArticlesForLocale('es').length > 0, 'Spanish blog index must not appear in the sitemap without published ES articles');
 const sitemapDates = new Map(sitemapEntries.map(([, url, date]) => [url, date]));
 for (const [url, date] of sitemapDates) {
   assert(/^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(Date.parse(date)), `Invalid lastmod: ${url}`);
@@ -73,6 +78,9 @@ for (const locale of ['pt', 'en', 'es']) {
     assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Unexpected noindex: ${url}`);
     assert(html.includes('<meta name="robots" content="index, follow'), `Missing index rule: ${url}`);
     assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical: ${url}`);
+    assert(html.includes(`<meta property="article:published_time" content="${article.date}">`), `Missing article:published_time: ${url}`);
+    assert(html.includes(`<meta property="article:modified_time" content="${article.updated}">`), `Missing article:modified_time: ${url}`);
+    assert(html.includes('<meta property="article:author" content="Tironi Tech">'), `Missing article:author: ${url}`);
     for (const target of ['pt', 'en', 'es']) {
       const hasAlternate = html.includes(`hreflang="${target}"`);
       assert.equal(hasAlternate, getArticleLocales(article).includes(target), `Incorrect alternate: ${url} -> ${target}`);

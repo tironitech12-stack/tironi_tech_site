@@ -25,15 +25,21 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
-function pageTemplate({ title, description, path, body, schema, articleData = null, locale = 'pt', alternates = [], image = `${origin}/brand/tironi-symbol.png`, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }) {
+function pageTemplate({ title, description, path, body, schema, articleData = null, locale = 'pt', alternates = [], image = `${origin}/brand/tironi-symbol.png`, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', publishedTime = null, modifiedTime = null }) {
   const url = `${origin}${path}`;
   const isArticle = (schema?.['@graph'] || [schema]).some((node) => node?.['@type'] === 'BlogPosting');
   const cleanTemplate = template
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, '')
     .replace(/\s*<meta\s+name="robots"[^>]*>/gi, '')
-    .replace(/\s*<meta\s+property="og:(?:type|title|description|url|image)"[^>]*>/gi, '')
+    .replace(/\s*<meta\s+property="og:(?:type|title|description|url|image|image:alt|site_name|locale)"[^>]*>/gi, '')
+    .replace(/\s*<meta\s+property="article:[^"]*"[^>]*>/gi, '')
     .replace(/\s*<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
     .replace(/\s*<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
+  const articleTags = isArticle ? [
+    publishedTime ? `<meta property="article:published_time" content="${escapeHtml(publishedTime)}">` : '',
+    modifiedTime ? `<meta property="article:modified_time" content="${escapeHtml(modifiedTime)}">` : '',
+    `<meta property="article:author" content="Tironi Tech">`,
+  ].filter(Boolean) : [];
   const tags = [
     `<link rel="canonical" href="${url}">`,
     `<meta name="robots" content="${robots}">`,
@@ -42,6 +48,8 @@ function pageTemplate({ title, description, path, body, schema, articleData = nu
     `<meta property="og:type" content="${isArticle ? 'article' : 'website'}">`,
     `<meta property="og:url" content="${url}">`,
     `<meta property="og:image" content="${escapeHtml(image)}">`,
+    `<meta property="og:site_name" content="Tironi Tech">`,
+    ...articleTags,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${escapeHtml(title)}">`,
     `<meta name="twitter:description" content="${escapeHtml(description)}">`,
@@ -50,13 +58,14 @@ function pageTemplate({ title, description, path, body, schema, articleData = nu
     `<script id="tt-page-schema" type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`
   ].join('\n    ');
 
+  // Use function replacements so JSON/`$` in schema or body is not treated as replace patterns ($$ → $).
   return cleanTemplate
-    .replace(/<html\s+lang="[^"]*"/, `<html lang="${locale === 'pt' ? 'pt-BR' : locale}"`)
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
-    .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
-    .replace('</head>', `    ${tags}\n  </head>`)
-    .replace('<div id="root"></div>', `<div id="root">${body}</div>`)
-    .replace('</body>', `${articleData ? `<script id="tt-article-data" type="application/json">${JSON.stringify(articleData).replaceAll('<', '\\u003c')}</script>` : ''}</body>`);
+    .replace(/<html\s+lang="[^"]*"/, () => `<html lang="${locale === 'pt' ? 'pt-BR' : locale}"`)
+    .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${escapeHtml(title)}</title>`)
+    .replace(/<meta\s+name="description"[\s\S]*?\/>/, () => `<meta name="description" content="${escapeHtml(description)}" />`)
+    .replace('</head>', () => `    ${tags}\n  </head>`)
+    .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
+    .replace('</body>', () => `${articleData ? `<script id="tt-article-data" type="application/json">${JSON.stringify(articleData).replaceAll('<', '\\u003c')}</script>` : ''}</body>`);
 }
 
 async function writeArticleData(locale, article, related) {
@@ -85,6 +94,8 @@ const offerHtml = {
   es: '<aside><p>Si esto frena la operación, Tironi Tech Club prioriza el frente, implementa la mejora y acompaña el resultado cada mes.</p><p><a href="/club">Conocer Tironi Tech Club</a> · <a href="/formulario?interesse=club&amp;origem=artigo">Agendar diagnóstico</a></p></aside>',
 };
 await mkdir(resolve(root, 'blog'), { recursive: true });
+// Published locales are Portuguese-only today (availableLocales defaults to ['pt']).
+// EN/ES routes redirect to PT in vercel.json until translations are republished.
 const blogIndexAlternates = [{ hreflang: 'pt', href: `${origin}/blog` }, { hreflang: 'x-default', href: `${origin}/blog` }];
 for (const listing of blogListings) {
   const directory = resolve(root, listing.path.slice(1));
@@ -102,7 +113,7 @@ for (const article of blogArticles) {
   const related = getRelatedBlogArticles(article);
   const relatedBody = `<section><h2>Artigos relacionados</h2><ul>${related.map((relatedArticle) => `<li><a href="/blog/${relatedArticle.slug}">${escapeHtml(relatedArticle.title)}</a></li>`).join('')}</ul></section>`;
   const visualBody = article.visual ? `<figure><figcaption><strong>${escapeHtml(article.visual.title)}</strong></figcaption><ol>${article.visual.labels.map((label) => `<li>${escapeHtml(label)}</li>`).join('')}</ol><p>${escapeHtml(article.visual.caption)}</p></figure>` : '';
-  const articleBody = `<main class="tt-article-static"><article><nav><a href="/">Início</a> / <a href="/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>Por Tironi Tech · Publicado em <time datetime="${article.date}">${article.date}</time> · Atualizado em <time datetime="${article.updated}">${article.updated}</time></p></header><p>${escapeHtml(article.intro)}</p>${offerHtml.pt}${article.primaryGuide ? `<p>${escapeHtml(article.primaryGuide.description || 'Conheça a aplicação deste tema na sua empresa:')} <a href="${article.primaryGuide.href}">${escapeHtml(article.primaryGuide.label)}</a>.</p>` : ''}<section><h2>O que você vai levar deste guia</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}${article.sources.length ? `<section><h2>Fontes consultadas</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section>` : ''}</article></main>`;
+  const articleBody = `<main class="tt-article-static"><article><nav><a href="/">Início</a> / <a href="/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>Por Tironi Tech · Publicado em <time datetime="${article.date}">${article.date}</time> · Atualizado em <time datetime="${article.updated}">${article.updated}</time></p></header><p>${escapeHtml(article.intro)}</p>${offerHtml.pt}${article.primaryGuide ? `<p>${escapeHtml(article.primaryGuide.description || 'Conheça a aplicação deste tema na sua empresa:')} <a href="${article.primaryGuide.href}">${escapeHtml(article.primaryGuide.label)}</a>.</p>` : ''}<section><h2>O que você vai levar deste guia</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}${article.sources.length ? `<section><h2>Fontes consultadas</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section>` : ''}</article></main>`;
   const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets || [])]), ...(article.faqs || []).flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
   const graph = [
     { '@type': 'BlogPosting', '@id': `${origin}${path}#article`, headline: article.title, description: article.description, image: `${origin}/brand/tironi-symbol.png`, datePublished: article.date, dateModified: article.updated, inLanguage: 'pt-BR', articleSection: article.category, wordCount, author: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech', url: `${origin}/sobre/editorial` }, publisher: { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'Tironi Tech', url: origin, logo: { '@type': 'ImageObject', url: `${origin}/brand/tironi-symbol.png` } }, mainEntityOfPage: { '@type': 'WebPage', '@id': `${origin}${path}` }, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) },
@@ -118,7 +129,7 @@ for (const article of blogArticles) {
   await mkdir(directory, { recursive: true });
   const alternates = getArticleLocales(article).map((locale) => ({ hreflang: locale, href: `${origin}${localizedPath(article.slug, locale)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
   const articleData = await writeArticleData('pt', article, related);
-  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, alternates }));
+  await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, alternates, publishedTime: article.date, modifiedTime: article.updated }));
 }
 
 const localizedStaticCopy = {
@@ -150,14 +161,14 @@ for (const locale of ['en', 'es']) {
     const related = getRelatedArticlesForLocale(article, locale);
     const relatedBody = `<section><h2>${localeCopy.related}</h2><ul>${related.map((relatedArticle) => `<li><a href="${localizedPath(relatedArticle.slug, locale)}">${escapeHtml(relatedArticle.title)}</a></li>`).join('')}</ul></section>`;
     const visualBody = article.visual ? `<figure><figcaption><strong>${escapeHtml(article.visual.title)}</strong></figcaption><ol>${article.visual.labels.map((label) => `<li>${escapeHtml(label)}</li>`).join('')}</ol><p>${escapeHtml(article.visual.caption)}</p></figure>` : '';
-    const articleBody = `<main class="tt-article-static"><article><nav><a href="/">${localeCopy.home}</a> / <a href="/${locale}/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>${localeCopy.byline} <time datetime="${article.date}">${article.date}</time> · ${localeCopy.updated} <time datetime="${article.updated}">${article.updated}</time></p><nav><a href="/blog/${article.slug}">PT</a> · <a href="/en/blog/${article.slug}">EN</a> · <a href="/es/blog/${article.slug}">ES</a></nav></header><p>${escapeHtml(article.intro)}</p>${offerHtml[locale]}<section><h2>${localeCopy.takeaway}</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}<section><h2>${localeCopy.sources}</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section></article></main>`;
+    const articleBody = `<main class="tt-article-static"><article><nav><a href="/">${localeCopy.home}</a> / <a href="/${locale}/blog">Blog</a> / ${escapeHtml(article.category)}</nav><header><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p><h1>${escapeHtml(article.title)}</h1><p>${escapeHtml(article.description)}</p><p>${localeCopy.byline} <time datetime="${article.date}">${article.date}</time> · ${localeCopy.updated} <time datetime="${article.updated}">${article.updated}</time></p><nav><a href="/blog/${article.slug}">PT</a> · <a href="/en/blog/${article.slug}">EN</a> · <a href="/es/blog/${article.slug}">ES</a></nav></header><p>${escapeHtml(article.intro)}</p>${offerHtml[locale]}<section><h2>${localeCopy.takeaway}</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>${visualBody}${article.sections.map((section) => `<section><h2>${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${faqBody}<section><h2>${escapeHtml(article.cta.title)}</h2><p>${escapeHtml(article.cta.text)}</p><a href="${article.cta.href}">${escapeHtml(article.cta.label)}</a></section>${relatedBody}<section><h2>${localeCopy.sources}</h2><ul>${article.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join('')}</ul></section></article></main>`;
     const wordCount = [article.title, article.description, article.intro, ...article.takeaways, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...article.faqs.flatMap((faq) => [faq.question, faq.answer])].join(' ').trim().split(/\s+/).length;
     const schema = { '@context': 'https://schema.org', '@graph': [{ '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.date, dateModified: article.updated, inLanguage: locale, articleSection: article.category, wordCount, author: { '@type': 'Organization', name: 'Tironi Tech', url: `${origin}/sobre/editorial` }, publisher: { '@type': 'Organization', name: 'Tironi Tech', url: origin }, mainEntityOfPage: `${origin}${path}`, keywords: article.keywords.join(', '), citation: article.sources.map((source) => source.url) }, { '@type': 'FAQPage', mainEntity: article.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }] };
     const directory = resolve(root, locale, 'blog', article.slug);
     await mkdir(directory, { recursive: true });
     const alternates = getArticleLocales(article).map((language) => ({ hreflang: language, href: `${origin}${localizedPath(article.slug, language)}` })).concat({ hreflang: 'x-default', href: `${origin}/blog/${article.slug}` });
     const articleData = await writeArticleData(locale, article, related);
-    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, locale, alternates }));
+    await writeFile(resolve(directory, 'index.html'), pageTemplate({ title: `${article.title} | Tironi Tech`, description: article.description, path, body: articleBody, schema, articleData, locale, alternates, publishedTime: article.date, modifiedTime: article.updated }));
   }
 }
 
@@ -201,7 +212,7 @@ for (const page of serviceLandingPages) {
   const path = `/${page.slug}`;
   const relatedServices = getRelatedServicePages(page.slug);
   const asset = getOptimizedImageAttributes(page.image);
-  const imageBody = `<figure><img src="${escapeHtml(asset.src)}"${asset.srcSet ? ` srcset="${escapeHtml(asset.srcSet)}" sizes="${escapeHtml(asset.sizes)}" width="${asset.width}" height="${asset.height}"` : ''} alt="${escapeHtml(page.imageAlt)}" loading="eager" decoding="async"><figcaption>Solução desenhada para o processo, os dados e a meta da sua empresa.</figcaption></figure>`;
+  const imageBody = `<figure><img src="${escapeHtml(asset.src)}"${asset.srcSet ? ` srcset="${escapeHtml(asset.srcSet)}" sizes="${escapeHtml(asset.sizes)}" width="${asset.width}" height="${asset.height}"` : ''} alt="${escapeHtml(page.imageAlt)}" loading="eager" fetchpriority="high" decoding="async"><figcaption>Solução desenhada para o processo, os dados e a meta da sua empresa.</figcaption></figure>`;
   const scopeBody = [['Entregáveis para validar na proposta', page.deliverables], ['Limites e dependências do projeto', page.limits], ['O que determina o investimento', page.costFactors]].filter(([, items]) => items?.length).map(([title, items]) => `<section><h2>${escapeHtml(title)}</h2><ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`).join('');
   const body = `<main><article><header><p>${escapeHtml(page.keyword)}</p><h1>${escapeHtml(page.title)}</h1><p>${escapeHtml(page.description)}</p><nav><a href="/consultoria-ia-para-empresas">Consultoria de IA para empresas</a> · <a href="/automacao-processos-com-ia">Automação de processos com IA</a> · <a href="/software-sob-medida">Software sob medida</a> · <a href="/club">Tironi Tech Club</a></nav><a href="${serviceDiagnosticPath(page.slug)}">Agendar diagnóstico</a></header>${imageBody}<section><h2>O gargalo</h2><p>${escapeHtml(page.problem)}</p><ul>${page.outcomes.map((outcome) => `<li>${escapeHtml(outcome)}</li>`).join('')}</ul></section><section><h2>Tecnologia ligada à operação</h2><p>${escapeHtml(page.solution)}</p><p>${escapeHtml(page.proof)}</p>${page.proofLink ? `<p><a href="${escapeHtml(page.proofLink.href)}">${escapeHtml(page.proofLink.label)}</a></p>` : ''}</section><section><h2>Como funciona</h2>${page.process.map(([title, text]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section><section><h2>Soluções relacionadas</h2><ul>${relatedServices.map((candidate) => `<li><a href="/${candidate.slug}">${escapeHtml(candidate.keyword)}</a>: ${escapeHtml(candidate.description)}</li>`).join('')}</ul></section><section><h2>O que precisa ficar claro antes de contratar</h2><p>Uma proposta responsável descreve processo atual, resultado esperado, dados, integrações, exceções e responsáveis por ações sensíveis.</p><p>A entrega deve incluir mapa do fluxo, arquitetura e permissões, critérios de aceite, plano de implantação, documentação e indicadores.</p></section>${scopeBody}${serviceEvidenceBody}<section><h2>Como comparar fornecedores e reduzir risco</h2><p>Valide o processo completo, incluindo informação incompleta, falhas de integração e transferência para uma pessoa. Compare custo total, propriedade dos dados, observabilidade e capacidade de evolução.</p><p>A Tironi Tech começa pelo menor fluxo completo capaz de gerar evidência e chegar ao sistema, à equipe e ao resultado do projeto.</p></section><section><h2>Perguntas frequentes</h2>${page.faqs.map(([question, answer]) => `<h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p>`).join('')}</section><section><h2>Converse com a Tironi Tech</h2><p>Comece pelo problema que mais custa tempo, vendas ou capacidade.</p><a href="${serviceDiagnosticPath(page.slug)}">Agendar diagnóstico</a></section></article></main>`;
   const schema = createServiceSchema(page);
@@ -281,13 +292,40 @@ const staticUrls = [
   { path: '/politica-cookies', lastmod: '2026-07-01' },
   ...serviceLandingPages.map((page) => ({ path: `/${page.slug}`, lastmod: page.updated || priorityLinksUpdated })),
 ];
-const renderUrlset = (items) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items.map((item) => `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
+const renderUrlset = (items) => {
+  const hasImages = items.some((item) => item.images?.length);
+  const xmlns = hasImages
+    ? 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
+    : 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"';
+  const rows = items.map((item) => {
+    const imageXml = (item.images || []).map((image) => {
+      const title = image.title ? `<image:title>${escapeHtml(image.title)}</image:title>` : '';
+      const caption = image.caption ? `<image:caption>${escapeHtml(image.caption)}</image:caption>` : '';
+      return `<image:image><image:loc>${image.loc.startsWith('http') ? image.loc : `${origin}${image.loc}`}</image:loc>${title}${caption}</image:image>`;
+    }).join('');
+    return `  <url><loc>${origin}${item.path}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ''}${imageXml}</url>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset ${xmlns}>\n${rows.join('\n')}\n</urlset>\n`;
+};
 const sitemapItems = [...staticUrls];
 for (const locale of ['pt', 'en', 'es']) {
   for (const article of blogArticles) {
     if (!getArticleLocales(article).includes(locale)) continue;
-    sitemapItems.push({ path: localizedPath(article.slug, locale), lastmod: article.updated });
+    sitemapItems.push({
+      path: localizedPath(article.slug, locale),
+      lastmod: article.updated,
+      images: [{ loc: '/brand/tironi-symbol.png', title: article.title, caption: article.description }],
+    });
   }
+}
+// Localized blog indexes only when that locale has published articles.
+for (const locale of ['en', 'es']) {
+  if (!getBlogArticlesForLocale(locale).length) continue;
+  sitemapItems.push({ path: `/${locale}/blog`, lastmod: '2026-10-29' });
+}
+for (const page of serviceLandingPages) {
+  const item = sitemapItems.find((entry) => entry.path === `/${page.slug}`);
+  if (item) item.images = [{ loc: page.image, title: page.keyword, caption: page.description }];
 }
 await writeFile(resolve(root, 'sitemap.xml'), renderUrlset(sitemapItems));
 await writeFile(resolve(root, 'robots.txt'), `User-agent: Googlebot\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Perplexity-User\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);

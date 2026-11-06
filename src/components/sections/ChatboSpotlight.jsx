@@ -1,5 +1,6 @@
 import { motion as Motion, useReducedMotion } from "framer-motion";
 import { trackFunnelEvent } from "../../utils/conversionTracking";
+import { externalRel } from "../../utils/externalRel";
 
 const CHATBO_URL = "https://www.chatbo.com.br/";
 const CHATBO_HOW_IT_WORKS_URL = "https://www.chatbo.com.br/#como-funciona";
@@ -46,7 +47,7 @@ export default function ChatboSpotlight({ t }) {
               className="tt2-chatbo-primary"
               href={CHATBO_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={externalRel()}
               onClick={() => trackFunnelEvent("chatbo_trial_click", { origin: "homepage" })}
             >
               {copy.primaryCta} <span aria-hidden="true">↗</span>
@@ -55,7 +56,7 @@ export default function ChatboSpotlight({ t }) {
               className="tt2-chatbo-secondary"
               href={CHATBO_HOW_IT_WORKS_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={externalRel()}
               onClick={() => trackFunnelEvent("chatbo_how_it_works_click", { origin: "homepage" })}
             >
               {copy.secondaryCta} <span aria-hidden="true">→</span>

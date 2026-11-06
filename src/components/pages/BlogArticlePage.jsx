@@ -7,13 +7,14 @@ import CookieConsent from '../shared/CookieConsent';
 import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import ArticleVisual from '../blog/ArticleVisual';
 import { applyPageMeta } from '../../utils/pageMeta';
+import { externalRel } from '../../utils/externalRel';
 import '../../styles/theme.css';
 import '../../styles/blog.css';
 
 const SITE_URL = 'https://www.tironitech.com';
 const localizedPath = (slug, locale = 'pt') => `${locale === 'pt' ? '' : `/${locale}`}/blog/${slug}`;
 const formatLocalizedDate = (date, locale = 'pt') => new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
-const getArticleLocales = (article) => article?.availableLocales || ['pt', 'en', 'es'];
+const getArticleLocales = (article) => article?.availableLocales || ['pt'];
 
 function readEmbeddedArticle(slug, locale) {
   const node = document.getElementById('tt-article-data');
@@ -71,6 +72,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
       title: `${article.title} | Tironi Tech`, description: article.description,
       path: localizedPath(article.slug, locale), language: locale === 'pt' ? 'pt-BR' : locale,
       ogType: 'article', schema: { '@context': 'https://schema.org', '@graph': graph },
+      publishedTime: article.date, modifiedTime: article.updated, authorName: 'Tironi Tech',
       alternates: Object.entries({ ...languageUrls, 'x-default': languageUrls.pt }).map(([hreflang, href]) => ({ hreflang, href })),
     });
     window.scrollTo(0, 0);
@@ -132,9 +134,9 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
                 ))}
                 {article.faqs?.length ? <section className="tt-article-faq" aria-labelledby="article-faq-title"><span className="tt-blog-kicker">{copy.answers}</span><h2 id="article-faq-title">{copy.faq}</h2>{article.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section> : null}
                 <section className="tt-article-cta">
-                  <span className="tt-blog-kicker">{copy.next}</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? 'noreferrer' : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
+                  <span className="tt-blog-kicker">{copy.next}</span><h2>{article.cta.title}</h2><p>{article.cta.text}</p><a href={article.cta.href} target={article.cta.href.startsWith('http') ? '_blank' : undefined} rel={article.cta.href.startsWith('http') ? externalRel() : undefined}>{article.cta.label} <span aria-hidden="true">→</span></a>
                 </section>
-                {article.sources.length > 0 && <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">{copy.sources}</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>}
+                {article.sources.length > 0 && <section className="tt-article-sources" aria-labelledby="article-sources-title"><h2 id="article-sources-title">{copy.sources}</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel={externalRel()}>{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul></section>}
               </div>
             </div>
           </article>
