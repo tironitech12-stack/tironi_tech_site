@@ -8,7 +8,6 @@ const EXPECTED = 150;
 const MIN_WORDS = 2500;
 const MIN_SECTIONS = 12;
 const MIN_PARAGRAPHS = 24;
-const MIN_SCORE = 80;
 const MAX_INTENT_JACCARD = 0.35;
 const MAX_BODY_JACCARD = 0.65;
 const stopWords = new Set(['para', 'como', 'com', 'sem', 'uma', 'das', 'dos', 'que', 'por', 'entre', 'sobre', 'mais', 'cada']);
@@ -42,9 +41,9 @@ function wordCount(article) {
   ].join(' ').trim().split(/\s+/).filter(Boolean).length;
 }
 
-assert.equal(guardedExpansionArticles.length, EXPECTED, `Expected ${EXPECTED} AI-reviewed articles`);
-assert.equal(new Set(guardedExpansionArticles.map((article) => article.slug)).size, EXPECTED, 'Duplicate slug in AI-reviewed batch');
-assert.equal(new Set(guardedExpansionArticles.map((article) => normalize(article.title))).size, EXPECTED, 'Duplicate title in AI-reviewed batch');
+assert.equal(guardedExpansionArticles.length, EXPECTED, `Expected ${EXPECTED} articles in the editorial batch`);
+assert.equal(new Set(guardedExpansionArticles.map((article) => article.slug)).size, EXPECTED, 'Duplicate slug in editorial batch');
+assert.equal(new Set(guardedExpansionArticles.map((article) => normalize(article.title))).size, EXPECTED, 'Duplicate title in editorial batch');
 
 const publicBySlug = new Map(blogArticles.map((article) => [article.slug, article]));
 const allSlugCounts = new Map();
@@ -77,13 +76,15 @@ const reports = guardedExpansionArticles.map((draft) => {
   const article = publicBySlug.get(draft.slug);
   assert(article, `Article not public: ${draft.slug}`);
   assert.equal(article.editorialBatch, guardedExpansionBatch, `Wrong batch: ${draft.slug}`);
+  assert.equal(article.aiReview, null, `Generated approval must not be used as factual review: ${draft.slug}`);
   if (assertEditorialRevision(article)) {
     return {
       slug: article.slug, title: article.title, category: article.category,
       words: wordCount(article), sections: article.sections.length,
       paragraphs: article.sections.reduce((sum, section) => sum + section.paragraphs.length, 0),
-      sources: article.sources.length, aiScore: null, verdict: 'revised-practical-guide',
-      uniqueContribution: article.editorialRevision.basis, criticalFlags: [],
+      sources: article.sources.length, revision: 'practical-guide',
+      structuralChecks: 'passed', factualReviewStatus: 'pending',
+      uniqueContribution: article.editorialRevision.basis,
     };
   }
   assert(article.editorialBrief?.audience && article.editorialBrief?.readerGoal && article.editorialBrief?.uniqueContribution, `Incomplete editorial brief: ${draft.slug}`);
@@ -97,13 +98,6 @@ const reports = guardedExpansionArticles.map((draft) => {
   assert(words >= MIN_WORDS, `Long-form requirement failed: ${draft.slug} (${words} words)`);
   assert(article.visual?.labels?.length >= 5, `Missing useful visual: ${draft.slug}`);
   assert(article.faqs?.length >= 4, `Insufficient FAQ: ${draft.slug}`);
-  assert.equal(article.aiReview?.reviewer, 'Codex — revisão editorial por IA no ambiente local', `Missing local AI reviewer: ${draft.slug}`);
-  assert.equal(article.aiReview?.verdict, 'approved', `AI review not approved: ${draft.slug}`);
-  assert.equal(article.aiReview?.criticalFlags?.length, 0, `Critical AI review flag: ${draft.slug}`);
-  const scoreTotal = Object.values(article.aiReview?.scores || {}).reduce((sum, value) => sum + value, 0);
-  assert.equal(scoreTotal, article.aiReview.total, `AI score mismatch: ${draft.slug}`);
-  assert(scoreTotal >= MIN_SCORE, `AI review below threshold: ${draft.slug}`);
-  assert(article.aiReview?.rationale?.includes(article.editorialBrief.uniqueContribution.split(',')[0].replace('Aplicação do tema a ', '').trim()) || article.aiReview?.rationale?.length > 120, `Generic AI review rationale: ${draft.slug}`);
   return {
     slug: article.slug,
     title: article.title,
@@ -112,28 +106,26 @@ const reports = guardedExpansionArticles.map((draft) => {
     sections: article.sections.length,
     paragraphs: paragraphCount,
     sources: article.sources.length,
-    aiScore: scoreTotal,
-    verdict: article.aiReview.verdict,
+    structuralChecks: 'passed',
+    factualReviewStatus: 'pending',
     uniqueContribution: article.editorialBrief.uniqueContribution,
-    criticalFlags: article.aiReview.criticalFlags,
   };
 });
 
 const wordCounts = reports.map((report) => report.words).sort((left, right) => left - right);
 const categoryCounts = Object.fromEntries([...new Set(reports.map((report) => report.category))].sort().map((category) => [category, reports.filter((report) => report.category === category).length]));
 const output = {
-  generatedAt: guardedExpansionArticles[0].aiReview.reviewedAt,
+  generatedAt: new Date().toISOString(),
   batch: guardedExpansionBatch,
-  reviewer: 'Codex — revisão editorial por IA no ambiente local',
-  rubricVersion: 'tt-ai-editorial-v1',
-  disclosure: 'A revisão por IA aplica uma rubrica editorial e bloqueios estruturais; não garante posição, indexação, ausência futura de desatualização nem substitui monitoramento factual das fontes.',
-  revisionPolicy: 'Os limites de extensão e notas do lote original se aplicam aos textos não reescritos. Revisões práticas posteriores têm validação própria, preservam a URL e não reutilizam a nota antiga.',
-  thresholds: { expectedArticles: EXPECTED, minimumWords: MIN_WORDS, minimumSections: MIN_SECTIONS, minimumParagraphs: MIN_PARAGRAPHS, minimumAiScore: MIN_SCORE, maximumIntentJaccard: MAX_INTENT_JACCARD, maximumBodyJaccard: MAX_BODY_JACCARD },
+  checkType: 'automated-structural-validation',
+  disclosure: 'Esta execução verifica estrutura, integridade e sobreposição textual. A revisão factual por pessoa identificada permanece pendente em cada artigo e exige conferência das afirmações nas fontes.',
+  revisionPolicy: 'Os limites de extensão são critérios editoriais do lote original. Revisões práticas posteriores têm verificações de integridade próprias e preservam a URL.',
+  thresholds: { expectedArticles: EXPECTED, minimumWords: MIN_WORDS, minimumSections: MIN_SECTIONS, minimumParagraphs: MIN_PARAGRAPHS, maximumIntentJaccard: MAX_INTENT_JACCARD, maximumBodyJaccard: MAX_BODY_JACCARD },
   result: {
     articles: reports.length,
-    approved: reports.filter((report) => report.verdict === 'approved').length,
-    revised: reports.filter((report) => report.verdict === 'revised-practical-guide').length,
-    criticalFlags: reports.reduce((sum, report) => sum + report.criticalFlags.length, 0),
+    structurallyValidated: reports.filter((report) => report.structuralChecks === 'passed').length,
+    revised: reports.filter((report) => report.revision === 'practical-guide').length,
+    factualReviewPending: reports.filter((report) => report.factualReviewStatus === 'pending').length,
     categories: categoryCounts,
     words: { min: wordCounts[0], median: wordCounts[Math.floor(wordCounts.length / 2)], max: wordCounts.at(-1) },
     maximumIntentOverlap,

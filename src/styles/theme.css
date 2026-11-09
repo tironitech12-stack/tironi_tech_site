@@ -4345,6 +4345,10 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
   padding: clamp(30px, 4vw, 52px);
 }
 
+.tt2-project-feature[hidden] {
+  display: none;
+}
+
 .tt2-project-feature-head {
   display: flex;
   align-items: flex-start;

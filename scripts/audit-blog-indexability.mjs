@@ -11,6 +11,15 @@ import { blogIndexArticles } from '../src/content/blogIndexArticles.generated.js
 import { corporateOverrides } from '../src/content/corporateOverrides.js';
 import { founderProfile, getFounderCopy } from '../src/content/founderProfile.js';
 import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
+import { referenceArticles } from '../src/content/referenceArticles.js';
+import { customerIntentArticles } from '../src/content/customerIntentArticles.js';
+
+// These collections have no reliable original publication record. Their known
+// revision date must not be repurposed as a publication date by the factory.
+const unknownPublicationSlugs = new Set([...referenceArticles, ...customerIntentArticles].map(({ slug }) => slug));
+for (const article of blogArticles.filter(({ slug }) => unknownPublicationSlugs.has(slug))) {
+  assert.equal(article.date, null, `Synthetic publication date returned: ${article.slug}`);
+}
 
 assert.deepEqual(blogIndexArticles.pt.map(({ slug }) => slug), coreBlogArticles.map(({ slug }) => slug), 'Browser and prerender must retain the same editorial order');
 assert.deepEqual(getBlogListingRoutes(blogIndexArticles.pt).map(({ schema }) => schema), getBlogListingRoutes(coreBlogArticles).map(({ schema }) => schema), 'Listing schemas and article destinations must not change when JavaScript loads');
@@ -71,6 +80,7 @@ for (const locale of ['pt', 'en', 'es']) {
     const payload = JSON.parse(await read(`article-data/${locale}/${article.slug}.json`));
     assert.equal(payload.locale, locale, `Wrong article payload locale: ${url}`);
     assert.equal(payload.article.slug, article.slug, `Wrong article payload: ${url}`);
+    assert.equal(payload.article.date, article.date, `Publication record changed in payload: ${url}`);
     assert(Array.isArray(payload.related) && payload.related.length <= 3, `Invalid related articles payload: ${url}`);
     const embeddedPayload = html.match(/<script id="tt-article-data" type="application\/json">([\s\S]*?)<\/script>/);
     assert(embeddedPayload, `Missing embedded article payload: ${url}`);
@@ -78,9 +88,25 @@ for (const locale of ['pt', 'en', 'es']) {
     assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Unexpected noindex: ${url}`);
     assert(html.includes('<meta name="robots" content="index, follow'), `Missing index rule: ${url}`);
     assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical: ${url}`);
-    assert(html.includes(`<meta property="article:published_time" content="${article.date}">`), `Missing article:published_time: ${url}`);
+    if (article.date) {
+      assert(html.includes(`<meta property="article:published_time" content="${article.date}">`), `Missing article:published_time: ${url}`);
+    } else {
+      assert(!html.includes('property="article:published_time"'), `Unknown publication date exposed in metadata: ${url}`);
+      const byline = html.match(/<p>(?:Por|By) Tironi Tech · ([\s\S]*?)<\/p>/)?.[1];
+      assert(byline && !/Publicado|Published/.test(byline), `Unknown publication date exposed in byline: ${url}`);
+      assert(byline.includes(`<time datetime="${article.updated}">${article.updated}</time>`), `Known update date missing from byline: ${url}`);
+    }
+    assert(!/datetime="(?:null|undefined|Invalid Date|1970-01-01)"/.test(html), `Invalid visible date: ${url}`);
     assert(html.includes(`<meta property="article:modified_time" content="${article.updated}">`), `Missing article:modified_time: ${url}`);
     assert(html.includes('<meta property="article:author" content="Tironi Tech">'), `Missing article:author: ${url}`);
+    const schemaMatch = html.match(/<script id="tt-page-schema" type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert(schemaMatch, `Missing structured data: ${url}`);
+    const graph = JSON.parse(schemaMatch[1])['@graph'];
+    const posting = graph.find((node) => node['@type'] === 'BlogPosting');
+    assert(posting, `Missing article schema: ${url}`);
+    if (article.date) assert.equal(posting.datePublished, article.date, `Wrong publication date: ${url}`);
+    else assert(!Object.hasOwn(posting, 'datePublished'), `Unknown datePublished must be omitted: ${url}`);
+    assert.equal(posting.dateModified, article.updated, `Wrong modification date: ${url}`);
     for (const target of ['pt', 'en', 'es']) {
       const hasAlternate = html.includes(`hreflang="${target}"`);
       assert.equal(hasAlternate, getArticleLocales(article).includes(target), `Incorrect alternate: ${url} -> ${target}`);
@@ -106,12 +132,7 @@ for (const locale of ['pt', 'en', 'es']) {
           }
         }
         assert(html.includes(escapeHtml(article.visual.title)), `Missing tutorial diagram: ${url}`);
-        const schemaMatch = html.match(/<script id="tt-page-schema" type="application\/ld\+json">([\s\S]*?)<\/script>/);
-        assert(schemaMatch, `Missing structured data: ${url}`);
-        const graph = JSON.parse(schemaMatch[1])['@graph'];
-        const posting = graph.find((node) => node['@type'] === 'BlogPosting');
         assert.equal(posting?.headline, article.title, `Wrong schema title: ${url}`);
-        assert.equal(posting?.datePublished, article.date, `Wrong publication date: ${url}`);
         const faq = graph.find((node) => node['@type'] === 'FAQPage');
         assert.equal(faq?.mainEntity?.length, article.faqs.length, `Missing FAQ schema: ${url}`);
         for (const item of article.faqs) {

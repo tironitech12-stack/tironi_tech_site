@@ -153,7 +153,7 @@ export default function BlogIndexPage({ locale = 'pt', articlesOverride = null, 
                     <div className="tt-blog-preview-meta"><span>{article.category}</span><span>{article.readTime}</span></div>
                     <h3><a href={localizedPath(article.slug, locale)}>{article.title}</a></h3>
                     <p>{article.description}</p>
-                    <footer><time dateTime={article.date}>{formatLocalizedDate(article.date, locale)}</time><a className="tt-blog-read" href={localizedPath(article.slug, locale)}>{copy.read} <span aria-hidden="true">↗</span></a></footer>
+                    <footer><time dateTime={article.date || article.updated}>{!article.date && `${copy.updated} `}{formatLocalizedDate(article.date || article.updated, locale)}</time><a className="tt-blog-read" href={localizedPath(article.slug, locale)}>{copy.read} <span aria-hidden="true">↗</span></a></footer>
                   </article>
                 ))}
               </div>

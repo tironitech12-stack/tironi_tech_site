@@ -79,16 +79,7 @@ function makeArticle(cluster, focus, index) {
       businessFit: cluster.productFit,
       overlapDecision: `Página proprietária da intenção “${normalize(focus.query)}”; não deve ser replicada por variações lexicais.`
     },
-    aiReview: {
-      reviewer: 'Codex — revisão editorial por IA no ambiente local',
-      reviewedAt: DATE,
-      rubricVersion: 'tt-ai-editorial-v1',
-      scores: { usefulness: 24, originality: 23, evidence: 18, clarity: 14, businessFit: 10, technical: 5 },
-      total: 94,
-      criticalFlags: [],
-      verdict: 'approved',
-      rationale: `A pauta atende uma tarefa observável, entrega ${artifact.toLocaleLowerCase('pt-BR')}, inclui cenário, decisão, risco, métrica, fontes primárias e limites explícitos. O texto longo é justificado pela cobertura operacional do tema.`
-    },
+    aiReview: null,
     editorialBatch: BATCH,
     availableLocales: ['pt'],
   };

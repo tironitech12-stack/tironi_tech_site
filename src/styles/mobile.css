@@ -2079,6 +2079,10 @@ body.tt2-cookie-banner-visible .tt2-floating-lead {
   box-shadow: 0 24px 62px rgba(0, 0, 0, 0.28);
 }
 
+.mobile-project-feature[hidden] {
+  display: none;
+}
+
 .mobile-project-feature::before {
   position: absolute;
   inset: 0;

@@ -1,24 +1,22 @@
 {
-  "generatedAt": "2026-09-29",
+  "generatedAt": "2026-11-09T12:29:52.999Z",
   "batch": "ai-guarded-150-20260929",
-  "reviewer": "Codex — revisão editorial por IA no ambiente local",
-  "rubricVersion": "tt-ai-editorial-v1",
-  "disclosure": "A revisão por IA aplica uma rubrica editorial e bloqueios estruturais; não garante posição, indexação, ausência futura de desatualização nem substitui monitoramento factual das fontes.",
-  "revisionPolicy": "Os limites de extensão e notas do lote original se aplicam aos textos não reescritos. Revisões práticas posteriores têm validação própria, preservam a URL e não reutilizam a nota antiga.",
+  "checkType": "automated-structural-validation",
+  "disclosure": "Esta execução verifica estrutura, integridade e sobreposição textual. A revisão factual por pessoa identificada permanece pendente em cada artigo e exige conferência das afirmações nas fontes.",
+  "revisionPolicy": "Os limites de extensão são critérios editoriais do lote original. Revisões práticas posteriores têm verificações de integridade próprias e preservam a URL.",
   "thresholds": {
     "expectedArticles": 150,
     "minimumWords": 2500,
     "minimumSections": 12,
     "minimumParagraphs": 24,
-    "minimumAiScore": 80,
     "maximumIntentJaccard": 0.35,
     "maximumBodyJaccard": 0.65
   },
   "result": {
     "articles": 150,
-    "approved": 146,
+    "structurallyValidated": 150,
     "revised": 4,
-    "criticalFlags": 0,
+    "factualReviewPending": 150,
     "categories": {
       "Agentes de IA e Agentic AI": 15,
       "Automação de processos e operações": 15,
@@ -61,10 +59,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação de serviços que recebe orçamento, suporte e cobrança no mesmo número, com entrega de matriz de intenção, risco e responsável, decisão sobre quando responder, perguntar, encaminhar ou bloquear e medição de tempo até primeira resposta útil e encaminhamentos corretos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação de serviços que recebe orçamento, suporte e cobrança no mesmo número, com entrega de matriz de intenção, risco e responsável, decisão sobre quando responder, perguntar, encaminhar ou bloquear e medição de tempo até primeira resposta útil e encaminhamentos corretos."
     },
     {
       "slug": "handoff-chatbot-atendente-contexto",
@@ -74,10 +71,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um chatbot de suporte que identifica uma exceção contratual e chama a equipe, com entrega de contrato de transferência com resumo, prioridade e estado, decisão sobre quais casos transferir e quais dados acompanharão o caso e medição de repetição de informações e tempo até resolução.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um chatbot de suporte que identifica uma exceção contratual e chama a equipe, com entrega de contrato de transferência com resumo, prioridade e estado, decisão sobre quais casos transferir e quais dados acompanharão o caso e medição de repetição de informações e tempo até resolução."
     },
     {
       "slug": "base-conhecimento-atendimento-whatsapp",
@@ -87,10 +83,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com manuais, tabelas e comunicados dispersos, com entrega de catálogo de fontes com dono, validade e permissão, decisão sobre qual fonte responde cada tipo de pergunta e medição de respostas sustentadas por fonte válida e dúvidas sem cobertura.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com manuais, tabelas e comunicados dispersos, com entrega de catálogo de fontes com dono, validade e permissão, decisão sobre qual fonte responde cada tipo de pergunta e medição de respostas sustentadas por fonte válida e dúvidas sem cobertura."
     },
     {
       "slug": "qualificacao-leads-whatsapp-sem-formulario-longo",
@@ -100,10 +95,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa b2b que precisa distinguir pesquisa inicial de projeto ativo, com entrega de roteiro progressivo de qualificação e critérios de passagem, decisão sobre quais perguntas fazer agora e quais deixar para o vendedor e medição de conclusão da conversa e oportunidades aceitas por vendas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa b2b que precisa distinguir pesquisa inicial de projeto ativo, com entrega de roteiro progressivo de qualificação e critérios de passagem, decisão sobre quais perguntas fazer agora e quais deixar para o vendedor e medição de conclusão da conversa e oportunidades aceitas por vendas."
     },
     {
       "slug": "recuperar-conversas-abandonadas-whatsapp",
@@ -113,10 +107,10 @@
       "sections": 5,
       "paragraphs": 10,
       "sources": 2,
-      "aiScore": null,
-      "verdict": "revised-practical-guide",
-      "uniqueContribution": "Search Console e revisão de intenção e conteúdo",
-      "criticalFlags": []
+      "revision": "practical-guide",
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Search Console e revisão de intenção e conteúdo"
     },
     {
       "slug": "sla-atendimento-whatsapp-picos",
@@ -126,10 +120,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que concentra metade dos contatos após campanhas e eventos, com entrega de modelo de capacidade, prioridade e mensagem de espera, decisão sobre qual compromisso oferecer para cada classe de atendimento e medição de percentual atendido no prazo por classe e tempo de resolução.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que concentra metade dos contatos após campanhas e eventos, com entrega de modelo de capacidade, prioridade e mensagem de espera, decisão sobre qual compromisso oferecer para cada classe de atendimento e medição de percentual atendido no prazo por classe e tempo de resolução."
     },
     {
       "slug": "auditar-qualidade-conversas-chatbot",
@@ -139,10 +132,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que revisa conversas apenas quando recebe reclamação, com entrega de rubrica de qualidade com exemplos aprovados e críticos, decisão sobre como combinar avaliação automática e revisão por exceção e medição de resolução útil, recusa correta e qualidade da transferência.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que revisa conversas apenas quando recebe reclamação, com entrega de rubrica de qualidade com exemplos aprovados e críticos, decisão sobre como combinar avaliação automática e revisão por exceção e medição de resolução útil, recusa correta e qualidade da transferência."
     },
     {
       "slug": "atendimento-multicanal-historico-unico",
@@ -152,10 +144,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um comprador que começa no site, continua no whatsapp e conclui com vendedor, com entrega de modelo de identidade, atendimento e oportunidade, decisão sobre quando unir interações e quando mantê-las separadas e medição de casos continuados sem repetição e duplicidades evitadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um comprador que começa no site, continua no whatsapp e conclui com vendedor, com entrega de modelo de identidade, atendimento e oportunidade, decisão sobre quando unir interações e quando mantê-las separadas e medição de casos continuados sem repetição e duplicidades evitadas."
     },
     {
       "slug": "chatbot-catalogo-produtos-variacoes",
@@ -165,10 +156,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma distribuidora com milhares de skus e compradores que descrevem uso, não código, com entrega de mapa de atributos decisivos e fontes por campo, decisão sobre quando recomendar, comparar ou pedir análise técnica e medição de itens corretamente identificados e encaminhamentos técnicos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma distribuidora com milhares de skus e compradores que descrevem uso, não código, com entrega de mapa de atributos decisivos e fontes por campo, decisão sobre quando recomendar, comparar ou pedir análise técnica e medição de itens corretamente identificados e encaminhamentos técnicos."
     },
     {
       "slug": "agendamento-whatsapp-confirmacao-reagendamento",
@@ -178,10 +168,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa de serviços com profissionais, locais e durações diferentes, com entrega de contrato de agenda com estados e regras de alteração, decisão sobre quando reservar, segurar horário ou pedir confirmação e medição de agendamentos concluídos, comparecimento e conflitos evitados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa de serviços com profissionais, locais e durações diferentes, com entrega de contrato de agenda com estados e regras de alteração, decisão sobre quando reservar, segurar horário ou pedir confirmação e medição de agendamentos concluídos, comparecimento e conflitos evitados."
     },
     {
       "slug": "atendimento-whatsapp-fora-horario",
@@ -191,10 +180,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que recebe pedidos urgentes e dúvidas comuns durante a noite, com entrega de árvore de urgência, autosserviço e retorno comprometido, decisão sobre o que pode terminar sozinho e o que deve aguardar e medição de casos resolvidos, contexto coletado e retornos cumpridos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que recebe pedidos urgentes e dúvidas comuns durante a noite, com entrega de árvore de urgência, autosserviço e retorno comprometido, decisão sobre o que pode terminar sozinho e o que deve aguardar e medição de casos resolvidos, contexto coletado e retornos cumpridos."
     },
     {
       "slug": "mensurar-roi-chatbot-whatsapp",
@@ -204,10 +192,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa comparando atendimento manual, automação parcial e operação integrada, com entrega de modelo de custos, benefícios e análise de sensibilidade, decisão sobre quando o investimento se paga e sob quais hipóteses e medição de custo por resolução, conversão, capacidade e reabertura.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa comparando atendimento manual, automação parcial e operação integrada, com entrega de modelo de custos, benefícios e análise de sensibilidade, decisão sobre quando o investimento se paga e sob quais hipóteses e medição de custo por resolução, conversão, capacidade e reabertura."
     },
     {
       "slug": "governanca-templates-whatsapp",
@@ -217,10 +204,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe com marketing, vendas e suporte criando mensagens no mesmo canal, com entrega de catálogo de templates com finalidade, público, versão e responsável, decisão sobre quais templates manter, revisar ou retirar e medição de qualidade da resposta, descadastros e avanço esperado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe com marketing, vendas e suporte criando mensagens no mesmo canal, com entrega de catálogo de templates com finalidade, público, versão e responsável, decisão sobre quais templates manter, revisar ou retirar e medição de qualidade da resposta, descadastros e avanço esperado."
     },
     {
       "slug": "detectar-intencao-mudanca-assunto-whatsapp",
@@ -230,10 +216,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um cliente que pergunta sobre produto, depois cobrança e retorna ao orçamento, com entrega de modelo de tópicos, compromissos e retomadas, decisão sobre quando abrir nova tarefa e quando continuar a existente e medição de assuntos concluídos e pedidos não esquecidos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um cliente que pergunta sobre produto, depois cobrança e retorna ao orçamento, com entrega de modelo de tópicos, compromissos e retomadas, decisão sobre quando abrir nova tarefa e quando continuar a existente e medição de assuntos concluídos e pedidos não esquecidos."
     },
     {
       "slug": "central-atendimento-whatsapp-multiequipe",
@@ -243,10 +228,10 @@
       "sections": 5,
       "paragraphs": 10,
       "sources": 2,
-      "aiScore": null,
-      "verdict": "revised-practical-guide",
-      "uniqueContribution": "Search Console e revisão de intenção e conteúdo",
-      "criticalFlags": []
+      "revision": "practical-guide",
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Search Console e revisão de intenção e conteúdo"
     },
     {
       "slug": "lead-scoring-explicavel-b2b",
@@ -256,10 +241,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que recebe leads de conteúdo, indicação, eventos e prospecção, com entrega de matriz de sinais, pesos, evidências e revisão, decisão sobre quando priorizar, nutrir ou devolver para diagnóstico e medição de conversão por faixa, tempo de resposta e falsos descartes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que recebe leads de conteúdo, indicação, eventos e prospecção, com entrega de matriz de sinais, pesos, evidências e revisão, decisão sobre quando priorizar, nutrir ou devolver para diagnóstico e medição de conversão por faixa, tempo de resposta e falsos descartes."
     },
     {
       "slug": "higienizar-crm-sem-apagar-historico",
@@ -269,10 +253,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que acumulou anos de importações, planilhas e integrações, com entrega de plano de qualidade, deduplicação e reconciliação, decisão sobre o que corrigir, arquivar, fundir ou manter e medição de duplicidades, completude útil e oportunidades com próxima ação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que acumulou anos de importações, planilhas e integrações, com entrega de plano de qualidade, deduplicação e reconciliação, decisão sobre o que corrigir, arquivar, fundir ou manter e medição de duplicidades, completude útil e oportunidades com próxima ação."
     },
     {
       "slug": "proxima-melhor-acao-vendas",
@@ -282,10 +265,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação b2b com ciclos longos e múltiplos participantes, com entrega de contrato de recomendação com evidência, prazo e opção de recusa, decisão sobre quando sugerir contato, conteúdo, espera ou encerramento e medição de ações aceitas, compromissos cumpridos e avanço real.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação b2b com ciclos longos e múltiplos participantes, com entrega de contrato de recomendação com evidência, prazo e opção de recusa, decisão sobre quando sugerir contato, conteúdo, espera ou encerramento e medição de ações aceitas, compromissos cumpridos e avanço real."
     },
     {
       "slug": "resumir-reuniao-vendas-atualizar-crm",
@@ -295,10 +277,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que realiza descobertas, demonstrações e negociações por vídeo, com entrega de modelo de resumo, fatos, dúvidas e campos confirmáveis, decisão sobre quais campos sugerir e quais exigir confirmação e medição de tempo de registro, correções e compromissos capturados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que realiza descobertas, demonstrações e negociações por vídeo, com entrega de modelo de resumo, fatos, dúvidas e campos confirmáveis, decisão sobre quais campos sugerir e quais exigir confirmação e medição de tempo de registro, correções e compromissos capturados."
     },
     {
       "slug": "previsao-vendas-com-faixas-incerteza",
@@ -308,10 +289,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que precisa planejar equipe e receita com poucos negócios grandes, com entrega de modelo de cenários, premissas e motivos de variação, decisão sobre como apresentar base, provável e risco e medição de erro por horizonte, cobertura e mudanças explicadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que precisa planejar equipe e receita com poucos negócios grandes, com entrega de modelo de cenários, premissas e motivos de variação, decisão sobre como apresentar base, provável e risco e medição de erro por horizonte, cobertura e mudanças explicadas."
     },
     {
       "slug": "detectar-oportunidades-paradas-crm",
@@ -321,10 +301,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma carteira com ciclos diferentes por produto, porte e etapa, com entrega de regra de inatividade contextual e fila de revisão, decisão sobre quando lembrar, investigar, encerrar ou aguardar e medição de oportunidades revisadas, retomadas úteis e encerramentos corretos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma carteira com ciclos diferentes por produto, porte e etapa, com entrega de regra de inatividade contextual e fila de revisão, decisão sobre quando lembrar, investigar, encerrar ou aguardar e medição de oportunidades revisadas, retomadas úteis e encerramentos corretos."
     },
     {
       "slug": "roteamento-leads-territorio-competencia",
@@ -334,10 +313,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que vende por região, segmento e especialidade técnica, com entrega de matriz de roteamento, fallback e balanceamento, decisão sobre qual regra prevalece e como tratar ausência e medição de tempo até aceite, reatribuições e distribuição de carga.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que vende por região, segmento e especialidade técnica, com entrega de matriz de roteamento, fallback e balanceamento, decisão sobre qual regra prevalece e como tratar ausência e medição de tempo até aceite, reatribuições e distribuição de carga."
     },
     {
       "slug": "pesquisa-conta-b2b-com-fontes",
@@ -347,10 +325,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um vendedor que precisa entender operação, sinais públicos e hipótese de valor, com entrega de briefing de conta com fatos, fontes, hipóteses e lacunas, decisão sobre o que afirmar, inferir ou perguntar e medição de tempo de preparação e correções factuais.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um vendedor que precisa entender operação, sinais públicos e hipótese de valor, com entrega de briefing de conta com fatos, fontes, hipóteses e lacunas, decisão sobre o que afirmar, inferir ou perguntar e medição de tempo de preparação e correções factuais."
     },
     {
       "slug": "personalizar-proposta-comercial-sem-inventar",
@@ -360,10 +337,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma software house que monta propostas a partir de diagnóstico e catálogo de serviços, com entrega de estrutura de proposta com campos controlados e revisão de compromisso, decisão sobre o que a ia redige e o que vem de fonte controlada e medição de tempo de preparação, correções e aceite.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma software house que monta propostas a partir de diagnóstico e catálogo de serviços, com entrega de estrutura de proposta com campos controlados e revisão de compromisso, decisão sobre o que a ia redige e o que vem de fonte controlada e medição de tempo de preparação, correções e aceite."
     },
     {
       "slug": "analisar-motivos-perda-vendas",
@@ -373,10 +349,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que registra “preço” mesmo quando o problema foi prioridade, confiança ou processo, com entrega de taxonomia de perdas, evidências e entrevistas de revisão, decisão sobre quais mudanças testar e quais hipóteses investigar e medição de qualidade de classificação e decisões tomadas por padrão.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que registra “preço” mesmo quando o problema foi prioridade, confiança ou processo, com entrega de taxonomia de perdas, evidências e entrevistas de revisão, decisão sobre quais mudanças testar e quais hipóteses investigar e medição de qualidade de classificação e decisões tomadas por padrão."
     },
     {
       "slug": "cadencia-prospeccao-com-consentimento",
@@ -386,10 +361,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que usa e-mail, telefone, linkedin e whatsapp em contas selecionadas, com entrega de política de cadência por hipótese, canal e sinal, decisão sobre quando continuar, mudar abordagem ou parar e medição de respostas úteis, reuniões qualificadas e opt-outs.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que usa e-mail, telefone, linkedin e whatsapp em contas selecionadas, com entrega de política de cadência por hipótese, canal e sinal, decisão sobre quando continuar, mudar abordagem ou parar e medição de respostas úteis, reuniões qualificadas e opt-outs."
     },
     {
       "slug": "mapear-comite-compra-b2b",
@@ -399,10 +373,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma venda de software envolvendo operação, ti, segurança, finanças e diretoria, com entrega de mapa de participantes, critérios, riscos e evidências, decisão sobre quem precisa participar de qual decisão e medição de lacunas de decisão e próximos compromissos confirmados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma venda de software envolvendo operação, ti, segurança, finanças e diretoria, com entrega de mapa de participantes, critérios, riscos e evidências, decisão sobre quem precisa participar de qual decisão e medição de lacunas de decisão e próximos compromissos confirmados."
     },
     {
       "slug": "integrar-marketing-vendas-definicao-lead",
@@ -412,10 +385,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que produz conteúdo, eventos e campanhas para vendas consultivas, com entrega de contrato de passagem, devolução e feedback, decisão sobre quando marketing nutre, vendas assume ou devolve e medição de aceite, velocidade, conversão e motivos de devolução.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que produz conteúdo, eventos e campanhas para vendas consultivas, com entrega de contrato de passagem, devolução e feedback, decisão sobre quando marketing nutre, vendas assume ou devolve e medição de aceite, velocidade, conversão e motivos de devolução."
     },
     {
       "slug": "pipeline-vendas-estados-evidencias",
@@ -425,10 +397,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma venda consultiva com diagnóstico, validação técnica, proposta e contratação, com entrega de definição de etapas, evidências e saída, decisão sobre qual evidência move ou devolve uma oportunidade e medição de tempo por estado, regressões e previsibilidade.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma venda consultiva com diagnóstico, validação técnica, proposta e contratação, com entrega de definição de etapas, evidências e saída, decisão sobre qual evidência move ou devolve uma oportunidade e medição de tempo por estado, regressões e previsibilidade."
     },
     {
       "slug": "onboarding-cliente-vendas-implantacao",
@@ -438,10 +409,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que vende projetos personalizados com dependências do cliente, com entrega de dossiê de passagem, validação e reunião de transição, decisão sobre o que transferir, confirmar ou renegociar e medição de tempo até primeira entrega e divergências de expectativa.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que vende projetos personalizados com dependências do cliente, com entrega de dossiê de passagem, validação e reunião de transição, decisão sobre o que transferir, confirmar ou renegociar e medição de tempo até primeira entrega e divergências de expectativa."
     },
     {
       "slug": "agente-ia-ferramentas-permissoes",
@@ -451,10 +421,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente operacional que consulta pedidos e só altera registros após confirmação, com entrega de matriz de ferramentas, escopos e confirmações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para ferramentas e permissões para agentes de ia e medição de ações autorizadas, bloqueios corretos e tentativas indevidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente operacional que consulta pedidos e só altera registros após confirmação, com entrega de matriz de ferramentas, escopos e confirmações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para ferramentas e permissões para agentes de ia e medição de ações autorizadas, bloqueios corretos e tentativas indevidas."
     },
     {
       "slug": "agente-ia-limite-passos-custo",
@@ -464,10 +433,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente de pesquisa que precisa parar, resumir lacunas e pedir direção, com entrega de política de orçamento, progresso e encerramento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para limites de passos e custo para agentes de ia e medição de custo por tarefa, passos úteis e interrupções.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente de pesquisa que precisa parar, resumir lacunas e pedir direção, com entrega de política de orçamento, progresso e encerramento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para limites de passos e custo para agentes de ia e medição de custo por tarefa, passos úteis e interrupções."
     },
     {
       "slug": "avaliacao-trajetoria-agente-ia",
@@ -477,10 +445,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente que consulta crm, agenda e documentos antes de recomendar ação, com entrega de rubrica de trajetória com estados e evidências, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de trajetória de agentes de ia e medição de conclusão correta, passos desnecessários e recuperação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente que consulta crm, agenda e documentos antes de recomendar ação, com entrega de rubrica de trajetória com estados e evidências, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de trajetória de agentes de ia e medição de conclusão correta, passos desnecessários e recuperação."
     },
     {
       "slug": "agente-ia-aprovacao-acoes-criticas",
@@ -490,10 +457,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente que prepara alteração financeira e aguarda confirmação autenticada, com entrega de mapa de impacto, reversibilidade e aprovadores, decisão sobre definir o nível adequado de automação, controle e responsabilidade para aprovação de ações críticas em agentes de ia e medição de aprovações válidas, tempo e ações bloqueadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente que prepara alteração financeira e aguarda confirmação autenticada, com entrega de mapa de impacto, reversibilidade e aprovadores, decisão sobre definir o nível adequado de automação, controle e responsabilidade para aprovação de ações críticas em agentes de ia e medição de aprovações válidas, tempo e ações bloqueadas."
     },
     {
       "slug": "observabilidade-agentes-ia-producao",
@@ -503,10 +469,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma com vários agentes e integrações compartilhadas, com entrega de modelo de trace, eventos, retenção e alertas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade de agentes de ia em produção e medição de sucesso por tarefa, latência, custo e regressões.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma com vários agentes e integrações compartilhadas, com entrega de modelo de trace, eventos, retenção e alertas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade de agentes de ia em produção e medição de sucesso por tarefa, latência, custo e regressões."
     },
     {
       "slug": "agente-ia-memoria-curto-longo-prazo",
@@ -516,10 +481,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente de atendimento que retoma tarefas e confirma mudanças relevantes, com entrega de política de memória, validade, correção e exclusão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para memória de curto e longo prazo para agentes e medição de retomadas corretas, correções e dados expirados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente de atendimento que retoma tarefas e confirma mudanças relevantes, com entrega de política de memória, validade, correção e exclusão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para memória de curto e longo prazo para agentes e medição de retomadas corretas, correções e dados expirados."
     },
     {
       "slug": "agente-ia-multiagente-quando-usar",
@@ -529,10 +493,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um processo com pesquisa, análise e execução que pode ou não exigir agentes separados, com entrega de matriz de decomposição, dependências e responsabilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para arquitetura multiagente: quando realmente usar e medição de qualidade, latência, custo e falhas de coordenação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um processo com pesquisa, análise e execução que pode ou não exigir agentes separados, com entrega de matriz de decomposição, dependências e responsabilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para arquitetura multiagente: quando realmente usar e medição de qualidade, latência, custo e falhas de coordenação."
     },
     {
       "slug": "agente-ia-recuperacao-falhas-api",
@@ -542,10 +505,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente que cria pedido após consultar vários serviços instáveis, com entrega de máquina de estados, chaves idempotentes e compensações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para recuperação de falhas de api em agentes e medição de retomadas bem-sucedidas e duplicidades evitadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente que cria pedido após consultar vários serviços instáveis, com entrega de máquina de estados, chaves idempotentes e compensações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para recuperação de falhas de api em agentes e medição de retomadas bem-sucedidas e duplicidades evitadas."
     },
     {
       "slug": "agente-ia-identidade-delegacao",
@@ -555,10 +517,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente corporativo que age em nome de pessoas com papéis diferentes, com entrega de modelo de identidade, token, delegação e auditoria, decisão sobre definir o nível adequado de automação, controle e responsabilidade para identidade e delegação em agentes de ia e medição de ações atribuídas corretamente e acessos negados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente corporativo que age em nome de pessoas com papéis diferentes, com entrega de modelo de identidade, token, delegação e auditoria, decisão sobre definir o nível adequado de automação, controle e responsabilidade para identidade e delegação em agentes de ia e medição de ações atribuídas corretamente e acessos negados."
     },
     {
       "slug": "red-team-agentes-ia",
@@ -568,10 +529,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente com acesso a documentos externos, e-mail e sistema interno, com entrega de catálogo de ameaças, casos adversos e critérios de bloqueio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para red team para agentes de ia e medição de ataques detectados, impacto contido e regressões.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente com acesso a documentos externos, e-mail e sistema interno, com entrega de catálogo de ameaças, casos adversos e critérios de bloqueio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para red team para agentes de ia e medição de ataques detectados, impacto contido e regressões."
     },
     {
       "slug": "agente-ia-suprimentos-cotacao",
@@ -581,10 +541,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe de compras que recebe planilhas e pdfs de vários fornecedores, com entrega de modelo de requisitos, normalização e exceções, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para cotação de fornecedores e medição de tempo de comparação, divergências e decisões documentadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe de compras que recebe planilhas e pdfs de vários fornecedores, com entrega de modelo de requisitos, normalização e exceções, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para cotação de fornecedores e medição de tempo de comparação, divergências e decisões documentadas."
     },
     {
       "slug": "agente-ia-financeiro-conciliacao",
@@ -594,10 +553,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que cruza extratos, faturas e registros do erp, com entrega de fila de conciliação, evidências e aprovação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para apoio à conciliação financeira e medição de itens conciliados, exceções e correções.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que cruza extratos, faturas e registros do erp, com entrega de fila de conciliação, evidências e aprovação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para apoio à conciliação financeira e medição de itens conciliados, exceções e correções."
     },
     {
       "slug": "agente-ia-rh-politicas-internas",
@@ -607,10 +565,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com políticas por unidade, contrato e período, com entrega de mapa de políticas, elegibilidade e encaminhamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para políticas internas de rh e medição de respostas citadas, dúvidas resolvidas e transferências.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com políticas por unidade, contrato e período, com entrega de mapa de políticas, elegibilidade e encaminhamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para políticas internas de rh e medição de respostas citadas, dúvidas resolvidas e transferências."
     },
     {
       "slug": "agente-ia-suporte-tecnico-diagnostico",
@@ -620,10 +577,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que investiga falhas em aplicações e integrações empresariais, com entrega de árvore de diagnóstico, comandos permitidos e evidências, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para diagnóstico de suporte técnico e medição de tempo até causa, escalonamentos e ações revertidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que investiga falhas em aplicações e integrações empresariais, com entrega de árvore de diagnóstico, comandos permitidos e evidências, decisão sobre definir o nível adequado de automação, controle e responsabilidade para agente de ia para diagnóstico de suporte técnico e medição de tempo até causa, escalonamentos e ações revertidas."
     },
     {
       "slug": "catalogo-agentes-governanca-empresa",
@@ -633,10 +589,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que adota agentes em atendimento, vendas e operação, com entrega de registro de agente, dependências, avaliações e incidentes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para catálogo corporativo de agentes de ia e medição de cobertura do catálogo, revisões e ativos sem dono.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que adota agentes em atendimento, vendas e operação, com entrega de registro de agente, dependências, avaliações e incidentes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para catálogo corporativo de agentes de ia e medição de cobertura do catálogo, revisões e ativos sem dono."
     },
     {
       "slug": "inventario-fontes-rag-empresarial",
@@ -646,10 +601,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com manuais, contratos, wiki e arquivos compartilhados, com entrega de catálogo de fontes, domínios e responsáveis, decisão sobre definir o nível adequado de automação, controle e responsabilidade para inventário de fontes para rag empresarial e medição de fontes cobertas, vencidas e sem dono.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com manuais, contratos, wiki e arquivos compartilhados, com entrega de catálogo de fontes, domínios e responsáveis, decisão sobre definir o nível adequado de automação, controle e responsabilidade para inventário de fontes para rag empresarial e medição de fontes cobertas, vencidas e sem dono."
     },
     {
       "slug": "avaliar-retrieval-rag-perguntas-reais",
@@ -659,10 +613,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um assistente que responde procedimentos a partir de centenas de documentos, com entrega de dataset de perguntas, evidências esperadas e métricas de recuperação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de recuperação em rag com perguntas reais e medição de recall, precisão, posição da evidência e lacunas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um assistente que responde procedimentos a partir de centenas de documentos, com entrega de dataset de perguntas, evidências esperadas e métricas de recuperação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de recuperação em rag com perguntas reais e medição de recall, precisão, posição da evidência e lacunas."
     },
     {
       "slug": "chunking-documentos-rag-estrutura",
@@ -672,10 +625,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma base com políticas, manuais técnicos, contratos e tabelas, com entrega de experimento de segmentação, metadados e consulta, decisão sobre definir o nível adequado de automação, controle e responsabilidade para chunking de documentos para rag e medição de falhas de recuperação por tipo de documento.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma base com políticas, manuais técnicos, contratos e tabelas, com entrega de experimento de segmentação, metadados e consulta, decisão sobre definir o nível adequado de automação, controle e responsabilidade para chunking de documentos para rag e medição de falhas de recuperação por tipo de documento."
     },
     {
       "slug": "controle-acesso-rag-permissao-origem",
@@ -685,10 +637,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma intranet com áreas, clientes e níveis de confidencialidade, com entrega de modelo de identidade, acl, filtro e auditoria, decisão sobre definir o nível adequado de automação, controle e responsabilidade para controle de acesso em rag pela permissão da origem e medição de resultados autorizados e tentativas bloqueadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma intranet com áreas, clientes e níveis de confidencialidade, com entrega de modelo de identidade, acl, filtro e auditoria, decisão sobre definir o nível adequado de automação, controle e responsabilidade para controle de acesso em rag pela permissão da origem e medição de resultados autorizados e tentativas bloqueadas."
     },
     {
       "slug": "atualizacao-exclusao-base-vetorial",
@@ -698,10 +649,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma base atualizada diariamente por vários sistemas, com entrega de protocolo de sincronização, versão e exclusão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para atualização e exclusão em bases vetoriais e medição de latência de atualização e resíduos encontrados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma base atualizada diariamente por vários sistemas, com entrega de protocolo de sincronização, versão e exclusão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para atualização e exclusão em bases vetoriais e medição de latência de atualização e resíduos encontrados."
     },
     {
       "slug": "citacoes-respostas-rag",
@@ -711,10 +661,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um assistente de políticas que precisa mostrar documento e seção, com entrega de contrato de citação, link, trecho e confiança, decisão sobre definir o nível adequado de automação, controle e responsabilidade para citações e evidências em respostas rag e medição de afirmações verificáveis e citações corretas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um assistente de políticas que precisa mostrar documento e seção, com entrega de contrato de citação, link, trecho e confiança, decisão sobre definir o nível adequado de automação, controle e responsabilidade para citações e evidências em respostas rag e medição de afirmações verificáveis e citações corretas."
     },
     {
       "slug": "rag-multilingue-portugues-ingles-espanhol",
@@ -724,10 +673,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com documentos locais e globais em três idiomas, com entrega de mapa de versões, idioma e precedência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rag multilíngue em português, inglês e espanhol e medição de recuperação correta por idioma e mercado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com documentos locais e globais em três idiomas, com entrega de mapa de versões, idioma e precedência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rag multilíngue em português, inglês e espanhol e medição de recuperação correta por idioma e mercado."
     },
     {
       "slug": "rag-tabelas-planilhas-pdf",
@@ -737,10 +685,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que consulta especificações, preços e regras tabulares, com entrega de teste de extração, estrutura e perguntas por célula, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rag para tabelas, planilhas e pdfs complexos e medição de respostas corretas para relações e valores.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que consulta especificações, preços e regras tabulares, com entrega de teste de extração, estrutura e perguntas por célula, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rag para tabelas, planilhas e pdfs complexos e medição de respostas corretas para relações e valores."
     },
     {
       "slug": "detectar-conflitos-fontes-rag",
@@ -750,10 +697,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa após fusões e mudanças de procedimento, com entrega de fila de conflitos, precedência e resolução, decisão sobre definir o nível adequado de automação, controle e responsabilidade para detecção de conflitos entre fontes no rag e medição de conflitos detectados e tempo até correção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa após fusões e mudanças de procedimento, com entrega de fila de conflitos, precedência e resolução, decisão sobre definir o nível adequado de automação, controle e responsabilidade para detecção de conflitos entre fontes no rag e medição de conflitos detectados e tempo até correção."
     },
     {
       "slug": "perguntas-sem-resposta-base-conhecimento",
@@ -763,10 +709,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma central que recebe novas perguntas de produtos e políticas, com entrega de fila editorial com frequência, impacto e evidência necessária, decisão sobre definir o nível adequado de automação, controle e responsabilidade para perguntas sem resposta como backlog de conhecimento e medição de lacunas resolvidas e recusas corretas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma central que recebe novas perguntas de produtos e políticas, com entrega de fila editorial com frequência, impacto e evidência necessária, decisão sobre definir o nível adequado de automação, controle e responsabilidade para perguntas sem resposta como backlog de conhecimento e medição de lacunas resolvidas e recusas corretas."
     },
     {
       "slug": "avaliar-fidelidade-resposta-fonte",
@@ -776,10 +721,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um assistente interno usado para decisões operacionais, com entrega de rubrica de fidelidade por afirmação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para fidelidade de respostas à fonte em sistemas rag e medição de afirmações sustentadas, omitidas e contraditórias.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um assistente interno usado para decisões operacionais, com entrega de rubrica de fidelidade por afirmação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para fidelidade de respostas à fonte em sistemas rag e medição de afirmações sustentadas, omitidas e contraditórias."
     },
     {
       "slug": "context-engineering-agentes-empresariais",
@@ -789,10 +733,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente que precisa planejar ação usando crm, política e histórico recente, com entrega de contrato de contexto, prioridade e orçamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para context engineering para agentes empresariais e medição de uso de contexto, qualidade e custo por tarefa.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente que precisa planejar ação usando crm, política e histórico recente, com entrega de contrato de contexto, prioridade e orçamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para context engineering para agentes empresariais e medição de uso de contexto, qualidade e custo por tarefa."
     },
     {
       "slug": "migrar-pasta-documentos-rag",
@@ -802,10 +745,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que pretende usar anos de arquivos compartilhados, com entrega de plano de triagem, núcleo, rejeição e revisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para migração de pastas de documentos para uma base rag e medição de documentos aceitos, rejeitados e cobertura de perguntas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que pretende usar anos de arquivos compartilhados, com entrega de plano de triagem, núcleo, rejeição e revisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para migração de pastas de documentos para uma base rag e medição de documentos aceitos, rejeitados e cobertura de perguntas."
     },
     {
       "slug": "feedback-usuarios-rag-sem-contaminar",
@@ -815,10 +757,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um assistente em que usuários apontam resposta incompleta ou fonte errada, com entrega de workflow de feedback, investigação e atualização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para feedback de usuários em sistemas rag e medição de feedback resolvido e regressões evitadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um assistente em que usuários apontam resposta incompleta ou fonte errada, com entrega de workflow de feedback, investigação e atualização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para feedback de usuários em sistemas rag e medição de feedback resolvido e regressões evitadas."
     },
     {
       "slug": "custo-latencia-rag-empresarial",
@@ -828,10 +769,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma aplicação com picos, fontes atualizadas e níveis de serviço, com entrega de orçamento de latência, custo e qualidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para custo e latência de rag empresarial e medição de custo por resposta útil e percentis de latência.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma aplicação com picos, fontes atualizadas e níveis de serviço, com entrega de orçamento de latência, custo e qualidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para custo e latência de rag empresarial e medição de custo por resposta útil e percentis de latência."
     },
     {
       "slug": "idempotencia-integracao-pedidos",
@@ -841,10 +781,10 @@
       "sections": 5,
       "paragraphs": 10,
       "sources": 2,
-      "aiScore": null,
-      "verdict": "revised-practical-guide",
-      "uniqueContribution": "Search Console e revisão de intenção e conteúdo",
-      "criticalFlags": []
+      "revision": "practical-guide",
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Search Console e revisão de intenção e conteúdo"
     },
     {
       "slug": "webhooks-assinatura-replay-ordem",
@@ -854,10 +794,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma que recebe pagamentos e mudanças de pedido, com entrega de contrato de webhook, assinatura, relógio e versão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para webhooks com assinatura, replay e eventos fora de ordem e medição de eventos válidos, descartados e reconciliados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma que recebe pagamentos e mudanças de pedido, com entrega de contrato de webhook, assinatura, relógio e versão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para webhooks com assinatura, replay e eventos fora de ordem e medição de eventos válidos, descartados e reconciliados."
     },
     {
       "slug": "integracao-crm-erp-fonte-verdade",
@@ -867,10 +806,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que compartilha clientes, produtos, propostas e pedidos, com entrega de matriz de autoridade, direção e conflito, decisão sobre definir o nível adequado de automação, controle e responsabilidade para crm e erp: definição de fonte da verdade e medição de conflitos, latência e correções manuais.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que compartilha clientes, produtos, propostas e pedidos, com entrega de matriz de autoridade, direção e conflito, decisão sobre definir o nível adequado de automação, controle e responsabilidade para crm e erp: definição de fonte da verdade e medição de conflitos, latência e correções manuais."
     },
     {
       "slug": "fila-mensagens-integracao-sistemas",
@@ -880,10 +818,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação com picos de pedidos e serviços externos instáveis, com entrega de topologia de eventos, filas e tratamento de falha, decisão sobre definir o nível adequado de automação, controle e responsabilidade para filas de mensagens em integrações empresariais e medição de tempo em fila, retries e mensagens mortas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação com picos de pedidos e serviços externos instáveis, com entrega de topologia de eventos, filas e tratamento de falha, decisão sobre definir o nível adequado de automação, controle e responsabilidade para filas de mensagens em integrações empresariais e medição de tempo em fila, retries e mensagens mortas."
     },
     {
       "slug": "observabilidade-integracao-ponta-a-ponta",
@@ -893,10 +830,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma jornada que atravessa site, crm, erp e transportadora, com entrega de modelo de correlação, métricas e alertas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade ponta a ponta de integrações e medição de sucesso por jornada, latência e falhas localizadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma jornada que atravessa site, crm, erp e transportadora, com entrega de modelo de correlação, métricas e alertas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade ponta a ponta de integrações e medição de sucesso por jornada, latência e falhas localizadas."
     },
     {
       "slug": "versionamento-api-sem-quebrar-clientes",
@@ -906,10 +842,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma api interna usada por aplicações e parceiros, com entrega de política de versão, contrato e telemetria de clientes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para versionamento de api sem quebrar clientes e medição de adoção da versão e erros por consumidor.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma api interna usada por aplicações e parceiros, com entrega de política de versão, contrato e telemetria de clientes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para versionamento de api sem quebrar clientes e medição de adoção da versão e erros por consumidor."
     },
     {
       "slug": "integracao-legado-modernizacao-incremental",
@@ -919,10 +854,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que depende de banco antigo e processos essenciais, com entrega de mapa de capacidades, fachada e plano de estrangulamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração com sistemas legados e medição de fluxos migrados, incidentes e dependências removidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que depende de banco antigo e processos essenciais, com entrega de mapa de capacidades, fachada e plano de estrangulamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração com sistemas legados e medição de fluxos migrados, incidentes e dependências removidas."
     },
     {
       "slug": "sincronizacao-catalogo-erp-ecommerce",
@@ -932,10 +866,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação com variações, kits e múltiplos depósitos, com entrega de modelo de produto, eventos e reconciliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para sincronização de catálogo entre erp e e-commerce e medição de divergências, tempo de atualização e pedidos afetados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação com variações, kits e múltiplos depósitos, com entrega de modelo de produto, eventos e reconciliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para sincronização de catálogo entre erp e e-commerce e medição de divergências, tempo de atualização e pedidos afetados."
     },
     {
       "slug": "integracao-multicd-roteamento-estoque",
@@ -945,10 +878,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma loja com vários cds, prazos e regras de atendimento, com entrega de modelo de disponibilidade, reserva e compensação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração de múltiplos centros de distribuição e medição de pedidos atendidos, ruptura e reatribuição.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma loja com vários cds, prazos e regras de atendimento, com entrega de modelo de disponibilidade, reserva e compensação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração de múltiplos centros de distribuição e medição de pedidos atendidos, ruptura e reatribuição."
     },
     {
       "slug": "integracao-pagamentos-conciliacao-webhook",
@@ -958,10 +890,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um checkout que recebe confirmações assíncronas de provedores, com entrega de máquina de estados, ledger e rotina de conciliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração de pagamentos e conciliação por eventos e medição de divergências financeiras e tempo de resolução.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um checkout que recebe confirmações assíncronas de provedores, com entrega de máquina de estados, ledger e rotina de conciliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para integração de pagamentos e conciliação por eventos e medição de divergências financeiras e tempo de resolução."
     },
     {
       "slug": "oauth-integracoes-b2b-tokens",
@@ -971,10 +902,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um saas que conecta contas de clientes a crm e erp, com entrega de modelo de autorização, escopos e ciclo de tokens, decisão sobre definir o nível adequado de automação, controle e responsabilidade para oauth em integrações b2b e medição de autorizações ativas, revogadas e falhas de renovação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um saas que conecta contas de clientes a crm e erp, com entrega de modelo de autorização, escopos e ciclo de tokens, decisão sobre definir o nível adequado de automação, controle e responsabilidade para oauth em integrações b2b e medição de autorizações ativas, revogadas e falhas de renovação."
     },
     {
       "slug": "reconciliacao-dados-entre-sistemas",
@@ -984,10 +914,10 @@
       "sections": 5,
       "paragraphs": 10,
       "sources": 1,
-      "aiScore": null,
-      "verdict": "revised-practical-guide",
-      "uniqueContribution": "Search Console e revisão de intenção e conteúdo",
-      "criticalFlags": []
+      "revision": "practical-guide",
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Search Console e revisão de intenção e conteúdo"
     },
     {
       "slug": "sandbox-dados-teste-integracoes",
@@ -997,10 +927,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma integração que depende de serviços de parceiros com sandbox limitado, com entrega de estratégia de mocks, contratos e teste ponta a ponta, decisão sobre definir o nível adequado de automação, controle e responsabilidade para ambientes de teste para integrações e medição de cenários cobertos e defeitos antes da produção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma integração que depende de serviços de parceiros com sandbox limitado, com entrega de estratégia de mocks, contratos e teste ponta a ponta, decisão sobre definir o nível adequado de automação, controle e responsabilidade para ambientes de teste para integrações e medição de cenários cobertos e defeitos antes da produção."
     },
     {
       "slug": "api-rate-limit-backpressure",
@@ -1010,10 +939,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma api de pedidos com campanhas e processamento desigual, com entrega de política de limites, prioridades e sinalização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rate limit e backpressure em apis e medição de erros por limite, fila e recuperação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma api de pedidos com campanhas e processamento desigual, com entrega de política de limites, prioridades e sinalização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para rate limit e backpressure em apis e medição de erros por limite, fila e recuperação."
     },
     {
       "slug": "documentacao-api-exemplos-contratos",
@@ -1023,10 +951,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma api usada por parceiros com níveis técnicos diferentes, com entrega de portal de contrato, tutorial, erros e changelog, decisão sobre definir o nível adequado de automação, controle e responsabilidade para documentação de api orientada a tarefas e medição de tempo de primeira integração e dúvidas recorrentes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma api usada por parceiros com níveis técnicos diferentes, com entrega de portal de contrato, tutorial, erros e changelog, decisão sobre definir o nível adequado de automação, controle e responsabilidade para documentação de api orientada a tarefas e medição de tempo de primeira integração e dúvidas recorrentes."
     },
     {
       "slug": "mapear-processo-tempo-toque-espera",
@@ -1036,10 +963,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que processa solicitações por e-mail, planilha e erp, com entrega de mapa de eventos, duração, espera e exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapeamento de processo por tempo de toque e espera e medição de lead time, tempo de toque e retrabalho.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que processa solicitações por e-mail, planilha e erp, com entrega de mapa de eventos, duração, espera e exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapeamento de processo por tempo de toque e espera e medição de lead time, tempo de toque e retrabalho."
     },
     {
       "slug": "priorizar-automacoes-matriz-valor-risco",
@@ -1049,10 +975,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com dezenas de oportunidades em várias áreas, com entrega de matriz de valor, viabilidade, risco e aprendizagem, decisão sobre definir o nível adequado de automação, controle e responsabilidade para priorização de automações por valor e risco e medição de valor observado, prazo e hipóteses validadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com dezenas de oportunidades em várias áreas, com entrega de matriz de valor, viabilidade, risco e aprendizagem, decisão sobre definir o nível adequado de automação, controle e responsabilidade para priorização de automações por valor e risco e medição de valor observado, prazo e hipóteses validadas."
     },
     {
       "slug": "automacao-documentos-notas-contratos",
@@ -1062,10 +987,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que recebe notas, contratos e formulários heterogêneos, com entrega de modelo de documento, confiança e exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de documentos empresariais e medição de campos corretos, revisão e tempo de processamento.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que recebe notas, contratos e formulários heterogêneos, com entrega de modelo de documento, confiança e exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de documentos empresariais e medição de campos corretos, revisão e tempo de processamento."
     },
     {
       "slug": "automacao-aprovacoes-alcadas",
@@ -1075,10 +999,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com compras, descontos e despesas em faixas diferentes, com entrega de matriz de alçadas, delegação e escalonamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de aprovações e alçadas e medição de tempo de aprovação e exceções justificadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com compras, descontos e despesas em faixas diferentes, com entrega de matriz de alçadas, delegação e escalonamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de aprovações e alçadas e medição de tempo de aprovação e exceções justificadas."
     },
     {
       "slug": "automacao-onboarding-fornecedores",
@@ -1088,10 +1011,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que contrata fornecedores de riscos diferentes, com entrega de checklist por categoria, evidência e aprovação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de onboarding de fornecedores e medição de tempo até ativação e pendências posteriores.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que contrata fornecedores de riscos diferentes, com entrega de checklist por categoria, evidência e aprovação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de onboarding de fornecedores e medição de tempo até ativação e pendências posteriores."
     },
     {
       "slug": "automacao-reposicao-estoque-excecoes",
@@ -1101,10 +1023,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação com sazonalidade, múltiplos cds e fornecedores, com entrega de política de reposição, sinais e exceções, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de reposição de estoque e medição de ruptura, excesso, nível de serviço e intervenção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação com sazonalidade, múltiplos cds e fornecedores, com entrega de política de reposição, sinais e exceções, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de reposição de estoque e medição de ruptura, excesso, nível de serviço e intervenção."
     },
     {
       "slug": "automacao-fechamento-financeiro",
@@ -1114,10 +1035,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que consolida dados de vendas, bancos e erp, com entrega de calendário, checklist, reconciliação e trilha, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação do fechamento financeiro e medição de prazo de fechamento e ajustes após conclusão.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que consolida dados de vendas, bancos e erp, com entrega de calendário, checklist, reconciliação e trilha, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação do fechamento financeiro e medição de prazo de fechamento e ajustes após conclusão."
     },
     {
       "slug": "automacao-ordem-servico-campo",
@@ -1127,10 +1047,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação técnica que atende clientes em diferentes regiões, com entrega de estado da ordem, pacote offline e sincronização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de ordens de serviço em campo e medição de primeira resolução, deslocamento e retrabalho.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação técnica que atende clientes em diferentes regiões, com entrega de estado da ordem, pacote offline e sincronização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de ordens de serviço em campo e medição de primeira resolução, deslocamento e retrabalho."
     },
     {
       "slug": "automacao-devolucoes-logistica-reversa",
@@ -1140,10 +1059,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um e-commerce com motivos, produtos e destinos diferentes, com entrega de fluxo de autorização, etiqueta, recebimento e resolução, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de devoluções e logística reversa e medição de tempo de ciclo, recontato e recuperação de valor.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um e-commerce com motivos, produtos e destinos diferentes, com entrega de fluxo de autorização, etiqueta, recebimento e resolução, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de devoluções e logística reversa e medição de tempo de ciclo, recontato e recuperação de valor."
     },
     {
       "slug": "automacao-incidentes-operacionais",
@@ -1153,10 +1071,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma com integrações críticas e atendimento ao cliente, com entrega de runbook, papéis, comunicação e post-mortem, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de resposta a incidentes operacionais e medição de tempo de detecção, recuperação e recorrência.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma com integrações críticas e atendimento ao cliente, com entrega de runbook, papéis, comunicação e post-mortem, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de resposta a incidentes operacionais e medição de tempo de detecção, recuperação e recorrência."
     },
     {
       "slug": "automacao-qualidade-inspecoes",
@@ -1166,10 +1083,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação que inspeciona produto, serviço ou instalação, com entrega de plano de inspeção, evidências e tratamento de desvio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de inspeções de qualidade e medição de defeitos detectados, reincidência e tempo de correção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação que inspeciona produto, serviço ou instalação, com entrega de plano de inspeção, evidências e tratamento de desvio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de inspeções de qualidade e medição de defeitos detectados, reincidência e tempo de correção."
     },
     {
       "slug": "automacao-solicitacoes-internas",
@@ -1179,10 +1095,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com pedidos de acesso, compra, manutenção e dados, com entrega de catálogo de serviços, formulário progressivo e fila, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de solicitações internas e medição de tempo de atendimento, reabertura e satisfação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com pedidos de acesso, compra, manutenção e dados, com entrega de catálogo de serviços, formulário progressivo e fila, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de solicitações internas e medição de tempo de atendimento, reabertura e satisfação."
     },
     {
       "slug": "automacao-renovacao-contratos",
@@ -1192,10 +1107,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com contratos de clientes e fornecedores em vários formatos, com entrega de registro de obrigação, alerta e revisão responsável, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de renovação de contratos e medição de prazos cumpridos e decisões antecipadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com contratos de clientes e fornecedores em vários formatos, com entrega de registro de obrigação, alerta e revisão responsável, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de renovação de contratos e medição de prazos cumpridos e decisões antecipadas."
     },
     {
       "slug": "automacao-planejamento-capacidade",
@@ -1205,10 +1119,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação de serviços com habilidades e tempos diferentes, com entrega de modelo de demanda, capacidade e cenários, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de planejamento de capacidade e medição de ocupação, espera, horas extras e nível de serviço.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação de serviços com habilidades e tempos diferentes, com entrega de modelo de demanda, capacidade e cenários, decisão sobre definir o nível adequado de automação, controle e responsabilidade para automação de planejamento de capacidade e medição de ocupação, espera, horas extras e nível de serviço."
     },
     {
       "slug": "centro-excelencia-automacao-empresa",
@@ -1218,10 +1131,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que amplia automações por várias áreas, com entrega de catálogo de padrões, pipeline e revisão por risco, decisão sobre definir o nível adequado de automação, controle e responsabilidade para centro de excelência em automação e medição de reuso, tempo de entrega, incidentes e valor realizado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que amplia automações por várias áreas, com entrega de catálogo de padrões, pipeline e revisão por risco, decisão sobre definir o nível adequado de automação, controle e responsabilidade para centro de excelência em automação e medição de reuso, tempo de entrega, incidentes e valor realizado."
     },
     {
       "slug": "software-sob-medida-versus-saas",
@@ -1231,10 +1143,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com processo estratégico que não cabe integralmente em soluções prontas, com entrega de matriz de aderência, diferenciação, risco e custo, decisão sobre definir o nível adequado de automação, controle e responsabilidade para software sob medida versus saas pronto e medição de tempo até valor, custo total e contornos manuais.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com processo estratégico que não cabe integralmente em soluções prontas, com entrega de matriz de aderência, diferenciação, risco e custo, decisão sobre definir o nível adequado de automação, controle e responsabilidade para software sob medida versus saas pronto e medição de tempo até valor, custo total e contornos manuais."
     },
     {
       "slug": "descoberta-produto-software-empresarial",
@@ -1244,10 +1155,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que pretende substituir planilhas e repasses por sistema próprio, com entrega de mapa de jornada, hipóteses e critérios de sucesso, decisão sobre definir o nível adequado de automação, controle e responsabilidade para descoberta de produto para software empresarial e medição de aprendizagens, riscos reduzidos e decisões tomadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que pretende substituir planilhas e repasses por sistema próprio, com entrega de mapa de jornada, hipóteses e critérios de sucesso, decisão sobre definir o nível adequado de automação, controle e responsabilidade para descoberta de produto para software empresarial e medição de aprendizagens, riscos reduzidos e decisões tomadas."
     },
     {
       "slug": "mvp-software-sob-medida-jornada-completa",
@@ -1257,10 +1167,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um produto que precisa receber, decidir, executar e registrar uma solicitação, com entrega de hipótese, jornada mínima e critérios de continuidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mvp de software sob medida com jornada completa e medição de uso, conclusão, qualidade e aprendizagem.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um produto que precisa receber, decidir, executar e registrar uma solicitação, com entrega de hipótese, jornada mínima e critérios de continuidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mvp de software sob medida com jornada completa e medição de uso, conclusão, qualidade e aprendizagem."
     },
     {
       "slug": "arquitetura-modular-sistema-empresarial",
@@ -1270,10 +1179,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma que integra clientes, pedidos, documentos e indicadores, com entrega de mapa de domínio, módulos e contratos, decisão sobre definir o nível adequado de automação, controle e responsabilidade para arquitetura modular para sistemas empresariais e medição de mudanças isoladas, incidentes e tempo de entrega.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma que integra clientes, pedidos, documentos e indicadores, com entrega de mapa de domínio, módulos e contratos, decisão sobre definir o nível adequado de automação, controle e responsabilidade para arquitetura modular para sistemas empresariais e medição de mudanças isoladas, incidentes e tempo de entrega."
     },
     {
       "slug": "migracao-planilha-para-sistema",
@@ -1283,10 +1191,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação crítica baseada em arquivos copiados entre pessoas, com entrega de inventário de regras, dados, usuários e transição, decisão sobre definir o nível adequado de automação, controle e responsabilidade para migração de planilha para sistema empresarial e medição de erros, retrabalho e adoção do novo fluxo.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação crítica baseada em arquivos copiados entre pessoas, com entrega de inventário de regras, dados, usuários e transição, decisão sobre definir o nível adequado de automação, controle e responsabilidade para migração de planilha para sistema empresarial e medição de erros, retrabalho e adoção do novo fluxo."
     },
     {
       "slug": "portal-cliente-autosservico-b2b",
@@ -1296,10 +1203,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com pedidos, documentos, chamados e aprovações de clientes, com entrega de catálogo de tarefas, identidade e estados visíveis, decisão sobre definir o nível adequado de automação, controle e responsabilidade para portal do cliente b2b com autosserviço e medição de tarefas concluídas, contatos evitados e satisfação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com pedidos, documentos, chamados e aprovações de clientes, com entrega de catálogo de tarefas, identidade e estados visíveis, decisão sobre definir o nível adequado de automação, controle e responsabilidade para portal do cliente b2b com autosserviço e medição de tarefas concluídas, contatos evitados e satisfação."
     },
     {
       "slug": "sistema-offline-sincronizacao-campo",
@@ -1309,10 +1215,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe técnica que trabalha em locais com conectividade irregular, com entrega de modelo local, fila de sincronização e resolução de conflito, decisão sobre definir o nível adequado de automação, controle e responsabilidade para sistema offline para operação em campo e medição de tarefas concluídas offline e conflitos resolvidos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe técnica que trabalha em locais com conectividade irregular, com entrega de modelo local, fila de sincronização e resolução de conflito, decisão sobre definir o nível adequado de automação, controle e responsabilidade para sistema offline para operação em campo e medição de tarefas concluídas offline e conflitos resolvidos."
     },
     {
       "slug": "modernizar-sistema-legado-sem-parar-operacao",
@@ -1322,10 +1227,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa cujo sistema central ainda funciona mas limita integração e mudança, com entrega de mapa de capacidades, estrangulamento e cutover, decisão sobre definir o nível adequado de automação, controle e responsabilidade para modernização de sistema legado sem parar a operação e medição de capacidades migradas, incidentes e custo legado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa cujo sistema central ainda funciona mas limita integração e mudança, com entrega de mapa de capacidades, estrangulamento e cutover, decisão sobre definir o nível adequado de automação, controle e responsabilidade para modernização de sistema legado sem parar a operação e medição de capacidades migradas, incidentes e custo legado."
     },
     {
       "slug": "estimativa-software-incerteza-faixas",
@@ -1335,10 +1239,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um projeto com experiência clara e dependências técnicas incertas, com entrega de mapa de incerteza, faixas e marcos de decisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para estimativa de software com faixas de incerteza e medição de previsibilidade por fase e mudanças explicadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um projeto com experiência clara e dependências técnicas incertas, com entrega de mapa de incerteza, faixas e marcos de decisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para estimativa de software com faixas de incerteza e medição de previsibilidade por fase e mudanças explicadas."
     },
     {
       "slug": "criterios-aceite-software-exemplos",
@@ -1348,10 +1251,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um sistema com regras, permissões e integrações críticas, com entrega de exemplos de entrada, comportamento e resultado, decisão sobre definir o nível adequado de automação, controle e responsabilidade para critérios de aceite para software empresarial e medição de aceites claros, defeitos e retrabalho.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um sistema com regras, permissões e integrações críticas, com entrega de exemplos de entrada, comportamento e resultado, decisão sobre definir o nível adequado de automação, controle e responsabilidade para critérios de aceite para software empresarial e medição de aceites claros, defeitos e retrabalho."
     },
     {
       "slug": "roadmap-produto-por-resultados",
@@ -1361,10 +1263,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um produto interno que atende várias áreas com demandas concorrentes, com entrega de árvore de oportunidade, aposta e evidência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para roadmap de produto orientado a resultados e medição de resultado, adoção e hipóteses validadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um produto interno que atende várias áreas com demandas concorrentes, com entrega de árvore de oportunidade, aposta e evidência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para roadmap de produto orientado a resultados e medição de resultado, adoção e hipóteses validadas."
     },
     {
       "slug": "observabilidade-produto-digital",
@@ -1374,10 +1275,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma b2b com jornadas longas e integrações assíncronas, com entrega de mapa de eventos, slos e indicadores de produto, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade de produto digital e medição de sucesso de jornada, erro, latência e adoção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma b2b com jornadas longas e integrações assíncronas, com entrega de mapa de eventos, slos e indicadores de produto, decisão sobre definir o nível adequado de automação, controle e responsabilidade para observabilidade de produto digital e medição de sucesso de jornada, erro, latência e adoção."
     },
     {
       "slug": "seguranca-software-sob-medida-ciclo",
@@ -1387,10 +1287,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma aplicação que manipula dados empresariais e integra serviços externos, com entrega de modelo de ameaças, controles e pipeline de correção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para segurança no ciclo de software sob medida e medição de vulnerabilidades, prazo de correção e incidentes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma aplicação que manipula dados empresariais e integra serviços externos, com entrega de modelo de ameaças, controles e pipeline de correção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para segurança no ciclo de software sob medida e medição de vulnerabilidades, prazo de correção e incidentes."
     },
     {
       "slug": "acessibilidade-software-empresarial",
@@ -1400,10 +1299,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um portal usado por clientes e equipes em contextos diversos, com entrega de inventário de componentes, testes e critérios, decisão sobre definir o nível adequado de automação, controle e responsabilidade para acessibilidade em software empresarial e medição de tarefas acessíveis e defeitos por componente.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um portal usado por clientes e equipes em contextos diversos, com entrega de inventário de componentes, testes e critérios, decisão sobre definir o nível adequado de automação, controle e responsabilidade para acessibilidade em software empresarial e medição de tarefas acessíveis e defeitos por componente."
     },
     {
       "slug": "manutencao-evolucao-software-personalizado",
@@ -1413,10 +1311,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que depende do sistema para rotina e crescimento, com entrega de modelo operacional, backlog, slo e revisão de arquitetura, decisão sobre definir o nível adequado de automação, controle e responsabilidade para manutenção e evolução de software personalizado e medição de incidentes, tempo de mudança e valor entregue.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que depende do sistema para rotina e crescimento, com entrega de modelo operacional, backlog, slo e revisão de arquitetura, decisão sobre definir o nível adequado de automação, controle e responsabilidade para manutenção e evolução de software personalizado e medição de incidentes, tempo de mudança e valor entregue."
     },
     {
       "slug": "inventario-sistemas-ia-empresa",
@@ -1426,10 +1323,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa investigando quais informações saem, retornam e influenciam trabalho em cada área, com entrega de mapa de fluxo, finalidade, retenção e terceiro envolvido, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapa de exposição empresarial a sistemas de ia e medição de fluxos identificados, lacunas de base legal e exposições corrigidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa investigando quais informações saem, retornam e influenciam trabalho em cada área, com entrega de mapa de fluxo, finalidade, retenção e terceiro envolvido, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapa de exposição empresarial a sistemas de ia e medição de fluxos identificados, lacunas de base legal e exposições corrigidas."
     },
     {
       "slug": "classificacao-risco-casos-uso-ia",
@@ -1439,10 +1335,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um portfólio com resumo interno, atendimento e ações financeiras, com entrega de matriz de impacto, autonomia, dados e controle, decisão sobre definir o nível adequado de automação, controle e responsabilidade para classificação de risco para casos de uso de ia e medição de casos classificados, revisados e reavaliados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um portfólio com resumo interno, atendimento e ações financeiras, com entrega de matriz de impacto, autonomia, dados e controle, decisão sobre definir o nível adequado de automação, controle e responsabilidade para classificação de risco para casos de uso de ia e medição de casos classificados, revisados e reavaliados."
     },
     {
       "slug": "politica-uso-ia-generativa-equipes",
@@ -1452,10 +1347,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa em que equipes usam assistentes para texto, código e análise, com entrega de política por cenário, dado e responsabilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para política de uso de ia generativa para equipes e medição de dúvidas resolvidas, incidentes e adesão.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa em que equipes usam assistentes para texto, código e análise, com entrega de política por cenário, dado e responsabilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para política de uso de ia generativa para equipes e medição de dúvidas resolvidas, incidentes e adesão."
     },
     {
       "slug": "avaliacao-fornecedor-ia",
@@ -1465,10 +1359,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que seleciona modelo, plataforma ou aplicação com ia, com entrega de questionário, prova, contrato e plano de saída, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de fornecedores de ia e medição de requisitos atendidos, riscos aceitos e custo total.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que seleciona modelo, plataforma ou aplicação com ia, com entrega de questionário, prova, contrato e plano de saída, decisão sobre definir o nível adequado de automação, controle e responsabilidade para avaliação de fornecedores de ia e medição de requisitos atendidos, riscos aceitos e custo total."
     },
     {
       "slug": "modelo-ameacas-aplicacao-llm",
@@ -1478,10 +1371,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma aplicação que recupera documentos e executa ferramentas internas, com entrega de diagrama de confiança, abuso e defesa em profundidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para modelo de ameaças para aplicações com llm e medição de cenários testados e controles verificados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma aplicação que recupera documentos e executa ferramentas internas, com entrega de diagrama de confiança, abuso e defesa em profundidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para modelo de ameaças para aplicações com llm e medição de cenários testados e controles verificados."
     },
     {
       "slug": "privacidade-minimizacao-dados-ia",
@@ -1491,10 +1383,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma aplicação que atende clientes e consulta histórico operacional, com entrega de mapa de dados, necessidade e retenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para minimização de dados em soluções de ia e medição de campos reduzidos, acessos e exclusões realizadas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma aplicação que atende clientes e consulta histórico operacional, com entrega de mapa de dados, necessidade e retenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para minimização de dados em soluções de ia e medição de campos reduzidos, acessos e exclusões realizadas."
     },
     {
       "slug": "gestao-incidente-sistema-ia",
@@ -1504,10 +1395,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um agente que executa ação incorreta em múltiplos casos, com entrega de runbook, severidade, evidência e recuperação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para gestão de incidentes em sistemas de ia e medição de tempo de contenção, impacto e recorrência.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um agente que executa ação incorreta em múltiplos casos, com entrega de runbook, severidade, evidência e recuperação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para gestão de incidentes em sistemas de ia e medição de tempo de contenção, impacto e recorrência."
     },
     {
       "slug": "monitorar-drift-qualidade-ia",
@@ -1517,10 +1407,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma solução cujo público, documentos e padrões mudam com o tempo, com entrega de painel de qualidade, segmentos e gatilhos de revisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para monitoramento de drift e qualidade em ia e medição de regressões, mudança de distribuição e intervenções.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma solução cujo público, documentos e padrões mudam com o tempo, com entrega de painel de qualidade, segmentos e gatilhos de revisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para monitoramento de drift e qualidade em ia e medição de regressões, mudança de distribuição e intervenções."
     },
     {
       "slug": "gestao-prompts-versoes-testes",
@@ -1530,10 +1419,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que ajusta assistentes para várias jornadas, com entrega de repositório de prompts, fixtures e release, decisão sobre definir o nível adequado de automação, controle e responsabilidade para gestão de prompts com versões e testes e medição de ganho por teste, regressões e rollback.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que ajusta assistentes para várias jornadas, com entrega de repositório de prompts, fixtures e release, decisão sobre definir o nível adequado de automação, controle e responsabilidade para gestão de prompts com versões e testes e medição de ganho por teste, regressões e rollback."
     },
     {
       "slug": "human-in-the-loop-por-risco",
@@ -1543,10 +1431,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação com alto volume e poucos casos de grande impacto, com entrega de matriz de impacto, confiança e intervenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para human in the loop baseado em risco e medição de intervenções úteis, erros evitados e custo de revisão.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação com alto volume e poucos casos de grande impacto, com entrega de matriz de impacto, confiança e intervenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para human in the loop baseado em risco e medição de intervenções úteis, erros evitados e custo de revisão."
     },
     {
       "slug": "explicabilidade-decisoes-assistidas-ia",
@@ -1556,10 +1443,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma ferramenta que prioriza casos para análise humana, com entrega de registro de fatores, fonte e alternativa, decisão sobre definir o nível adequado de automação, controle e responsabilidade para explicabilidade em decisões assistidas por ia e medição de contestações resolvidas e confiança calibrada.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma ferramenta que prioriza casos para análise humana, com entrega de registro de fatores, fonte e alternativa, decisão sobre definir o nível adequado de automação, controle e responsabilidade para explicabilidade em decisões assistidas por ia e medição de contestações resolvidas e confiança calibrada."
     },
     {
       "slug": "governanca-modelos-multiplos-fornecedores",
@@ -1569,10 +1455,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma com tarefas de custo, qualidade e risco diferentes, com entrega de catálogo de modelos, testes e política de roteamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para governança de múltiplos modelos e fornecedores e medição de qualidade, custo, disponibilidade e migração.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma com tarefas de custo, qualidade e risco diferentes, com entrega de catálogo de modelos, testes e política de roteamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para governança de múltiplos modelos e fornecedores e medição de qualidade, custo, disponibilidade e migração."
     },
     {
       "slug": "retencao-logs-ia-auditoria",
@@ -1582,10 +1467,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma aplicação com conversas, fontes e chamadas de ferramenta, com entrega de política de eventos, mascaramento e retenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para retenção de logs para auditoria de ia e medição de incidentes investigáveis e dados expirados corretamente.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma aplicação com conversas, fontes e chamadas de ferramenta, com entrega de política de eventos, mascaramento e retenção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para retenção de logs para auditoria de ia e medição de incidentes investigáveis e dados expirados corretamente."
     },
     {
       "slug": "comite-governanca-ia-decisoes",
@@ -1595,10 +1479,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com iniciativas em diferentes níveis de risco, com entrega de charter, fila, decisão e registro de exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para comitê de governança de ia orientado a decisões e medição de tempo de decisão e pendências resolvidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com iniciativas em diferentes níveis de risco, com entrega de charter, fila, decisão e registro de exceção, decisão sobre definir o nível adequado de automação, controle e responsabilidade para comitê de governança de ia orientado a decisões e medição de tempo de decisão e pendências resolvidas."
     },
     {
       "slug": "plano-saida-fornecedor-ia",
@@ -1608,10 +1491,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma solução crítica dependente de api, modelo e armazenamento externo, com entrega de inventário de ativos, exportação e teste de substituição, decisão sobre definir o nível adequado de automação, controle e responsabilidade para plano de saída para fornecedores de ia e medição de tempo de migração e componentes portáveis.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma solução crítica dependente de api, modelo e armazenamento externo, com entrega de inventário de ativos, exportação e teste de substituição, decisão sobre definir o nível adequado de automação, controle e responsabilidade para plano de saída para fornecedores de ia e medição de tempo de migração e componentes portáveis."
     },
     {
       "slug": "auditoria-conteudo-commodity-original",
@@ -1621,10 +1503,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um acervo empresarial com milhares de artigos e pouca visibilidade por página, com entrega de rubrica de originalidade, utilidade e evidência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para auditoria de conteúdo commodity e valor original e medição de páginas melhoradas, fundidas e com tração.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um acervo empresarial com milhares de artigos e pouca visibilidade por página, com entrega de rubrica de originalidade, utilidade e evidência, decisão sobre definir o nível adequado de automação, controle e responsabilidade para auditoria de conteúdo commodity e valor original e medição de páginas melhoradas, fundidas e com tração."
     },
     {
       "slug": "detectar-canibalizacao-intencao-busca",
@@ -1634,10 +1515,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um blog com títulos próximos e resultados alternando no search console, com entrega de mapa de intenção, consultas e decisão editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para detecção de canibalização por intenção de busca e medição de consultas consolidadas e páginas concorrentes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um blog com títulos próximos e resultados alternando no search console, com entrega de mapa de intenção, consultas e decisão editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para detecção de canibalização por intenção de busca e medição de consultas consolidadas e páginas concorrentes."
     },
     {
       "slug": "briefing-conteudo-people-first",
@@ -1647,10 +1527,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que usa ia para produzir conteúdo aprofundado, com entrega de briefing com quem, por quê, experiência e tarefa, decisão sobre definir o nível adequado de automação, controle e responsabilidade para briefing de conteúdo que prioriza pessoas e medição de pautas aprovadas e rejeitadas por motivo.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que usa ia para produzir conteúdo aprofundado, com entrega de briefing com quem, por quê, experiência e tarefa, decisão sobre definir o nível adequado de automação, controle e responsabilidade para briefing de conteúdo que prioriza pessoas e medição de pautas aprovadas e rejeitadas por motivo."
     },
     {
       "slug": "validacao-ia-qualidade-editorial",
@@ -1660,10 +1539,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma editora que publica lotes longos e precisa bloquear riscos críticos, com entrega de rubrica versionada, amostras e relatório por página, decisão sobre definir o nível adequado de automação, controle e responsabilidade para validação de conteúdo por ia com guardrails e medição de reprovação útil, consistência e falsos aprovados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma editora que publica lotes longos e precisa bloquear riscos críticos, com entrega de rubrica versionada, amostras e relatório por página, decisão sobre definir o nível adequado de automação, controle e responsabilidade para validação de conteúdo por ia com guardrails e medição de reprovação útil, consistência e falsos aprovados."
     },
     {
       "slug": "conteudo-longo-estrutura-utilidade",
@@ -1673,10 +1551,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um guia empresarial que precisa atender leitor iniciante e decisor técnico, com entrega de arquitetura de resposta, cenário, artefato e fontes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para conteúdo longo com estrutura e utilidade e medição de conclusão da leitura, compartilhamento e consultas relevantes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um guia empresarial que precisa atender leitor iniciante e decisor técnico, com entrega de arquitetura de resposta, cenário, artefato e fontes, decisão sobre definir o nível adequado de automação, controle e responsabilidade para conteúdo longo com estrutura e utilidade e medição de conclusão da leitura, compartilhamento e consultas relevantes."
     },
     {
       "slug": "links-internos-clusters-problema",
@@ -1686,10 +1563,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um acervo de ia, vendas, whatsapp e software com sobreposição temática, com entrega de grafo de intenção, pré-requisitos e próximos passos, decisão sobre definir o nível adequado de automação, controle e responsabilidade para links internos por problema e continuação natural e medição de cliques internos, órfãs e profundidade de navegação.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um acervo de ia, vendas, whatsapp e software com sobreposição temática, com entrega de grafo de intenção, pré-requisitos e próximos passos, decisão sobre definir o nível adequado de automação, controle e responsabilidade para links internos por problema e continuação natural e medição de cliques internos, órfãs e profundidade de navegação."
     },
     {
       "slug": "titulos-snippets-search-console",
@@ -1699,10 +1575,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a páginas nas posições iniciais com impressões e poucos cliques, com entrega de hipótese de título, descrição e janela de avaliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para títulos e snippets orientados pelo search console e medição de ctr por consulta e posição com volume suficiente.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a páginas nas posições iniciais com impressões e poucos cliques, com entrega de hipótese de título, descrição e janela de avaliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para títulos e snippets orientados pelo search console e medição de ctr por consulta e posição com volume suficiente."
     },
     {
       "slug": "seo-multilingue-conteudo-localizado",
@@ -1712,10 +1587,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um site brasileiro com conteúdo em português, inglês e espanhol, com entrega de plano por idioma, intenção e capacidade editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para seo multilíngue além da tradução e medição de impressões, cliques e conversão por mercado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um site brasileiro com conteúdo em português, inglês e espanhol, com entrega de plano por idioma, intenção e capacidade editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para seo multilíngue além da tradução e medição de impressões, cliques e conversão por mercado."
     },
     {
       "slug": "dados-estruturados-correspondencia-conteudo",
@@ -1725,10 +1599,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um site com artigos, serviços, produtos e casos próprios, com entrega de mapa de tipos, propriedades e validação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para dados estruturados que correspondem ao conteúdo visível e medição de erros, cobertura e resultados elegíveis.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um site com artigos, serviços, produtos e casos próprios, com entrega de mapa de tipos, propriedades e validação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para dados estruturados que correspondem ao conteúdo visível e medição de erros, cobertura e resultados elegíveis."
     },
     {
       "slug": "atualizar-conteudo-sem-frescor-artificial",
@@ -1738,10 +1611,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um acervo técnico sujeito a mudanças de produto, política e prática, com entrega de política de revisão, gatilho e changelog, decisão sobre definir o nível adequado de automação, controle e responsabilidade para atualização de conteúdo sem frescor artificial e medição de páginas revisadas e afirmações corrigidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um acervo técnico sujeito a mudanças de produto, política e prática, com entrega de política de revisão, gatilho e changelog, decisão sobre definir o nível adequado de automação, controle e responsabilidade para atualização de conteúdo sem frescor artificial e medição de páginas revisadas e afirmações corrigidas."
     },
     {
       "slug": "conteudo-citavel-ia-fontes",
@@ -1751,10 +1623,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que possui método, casos e dados mas não os documenta, com entrega de bloco de evidência, método, limite e fonte, decisão sobre definir o nível adequado de automação, controle e responsabilidade para conteúdo citável por mecanismos de ia e medição de menções, consultas e reutilização do conteúdo.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que possui método, casos e dados mas não os documenta, com entrega de bloco de evidência, método, limite e fonte, decisão sobre definir o nível adequado de automação, controle e responsabilidade para conteúdo citável por mecanismos de ia e medição de menções, consultas e reutilização do conteúdo."
     },
     {
       "slug": "auditar-indexacao-site-grande",
@@ -1764,10 +1635,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um site que publicou grandes lotes em poucos dias, com entrega de amostra por tipo, status e prioridade editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para auditoria de indexação em site com muitas páginas e medição de urls indexadas, com impressão e problemas por grupo.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um site que publicou grandes lotes em poucos dias, com entrega de amostra por tipo, status e prioridade editorial, decisão sobre definir o nível adequado de automação, controle e responsabilidade para auditoria de indexação em site com muitas páginas e medição de urls indexadas, com impressão e problemas por grupo."
     },
     {
       "slug": "mapa-conteudo-por-jornada-comprador",
@@ -1777,10 +1647,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa b2b com serviços consultivos e produtos próprios, com entrega de mapa de tarefas, estágio e próxima ação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapa de conteúdo pela jornada do comprador e medição de avanço entre páginas e contatos assistidos.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa b2b com serviços consultivos e produtos próprios, com entrega de mapa de tarefas, estágio e próxima ação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para mapa de conteúdo pela jornada do comprador e medição de avanço entre páginas e contatos assistidos."
     },
     {
       "slug": "medir-seo-baixo-volume",
@@ -1790,10 +1659,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um domínio que começa a aparecer após mudanças técnicas e editoriais, com entrega de painel de baseline, coortes e anotações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para medição de seo com baixo volume inicial e medição de impressões úteis, consultas, posição e conversões.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um domínio que começa a aparecer após mudanças técnicas e editoriais, com entrega de painel de baseline, coortes e anotações, decisão sobre definir o nível adequado de automação, controle e responsabilidade para medição de seo com baixo volume inicial e medição de impressões úteis, consultas, posição e conversões."
     },
     {
       "slug": "promocao-conteudo-backlinks-legitimos",
@@ -1803,10 +1671,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa técnica com conhecimento próprio e pouca autoridade externa, com entrega de plano de ativo, público, relacionamento e acompanhamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para promoção de conteúdo e backlinks legítimos e medição de referências relevantes, tráfego e oportunidades.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa técnica com conhecimento próprio e pouca autoridade externa, com entrega de plano de ativo, público, relacionamento e acompanhamento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para promoção de conteúdo e backlinks legítimos e medição de referências relevantes, tráfego e oportunidades."
     },
     {
       "slug": "business-case-ia-linha-base",
@@ -1816,10 +1683,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa avaliando automação de atendimento ou documentos, com entrega de modelo de baseline, hipótese e sensibilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para business case de ia com linha de base e medição de retorno, payback, qualidade e capacidade.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa avaliando automação de atendimento ou documentos, com entrega de modelo de baseline, hipótese e sensibilidade, decisão sobre definir o nível adequado de automação, controle e responsabilidade para business case de ia com linha de base e medição de retorno, payback, qualidade e capacidade."
     },
     {
       "slug": "custo-total-solucao-ia",
@@ -1829,10 +1695,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma solução com modelo, busca, apis, suporte e observabilidade, com entrega de mapa de custos fixos, variáveis e de mudança, decisão sobre definir o nível adequado de automação, controle e responsabilidade para custo total de uma solução de ia e medição de custo por tarefa útil e variação por volume.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma solução com modelo, busca, apis, suporte e observabilidade, com entrega de mapa de custos fixos, variáveis e de mudança, decisão sobre definir o nível adequado de automação, controle e responsabilidade para custo total de uma solução de ia e medição de custo por tarefa útil e variação por volume."
     },
     {
       "slug": "piloto-ia-criterios-go-no-go",
@@ -1842,10 +1707,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa testando agente em uma jornada controlada, com entrega de protocolo de piloto, baseline e decisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para piloto de ia com critérios de go/no-go e medição de resultado, qualidade, risco, custo e adoção.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa testando agente em uma jornada controlada, com entrega de protocolo de piloto, baseline e decisão, decisão sobre definir o nível adequado de automação, controle e responsabilidade para piloto de ia com critérios de go/no-go e medição de resultado, qualidade, risco, custo e adoção."
     },
     {
       "slug": "portfolio-casos-uso-ia",
@@ -1855,10 +1719,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com oportunidades em vendas, atendimento e operação, com entrega de mapa de portfólio, dependências e ondas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para portfólio de casos de uso de ia e medição de valor realizado, aprendizagem e componentes reutilizados.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com oportunidades em vendas, atendimento e operação, com entrega de mapa de portfólio, dependências e ondas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para portfólio de casos de uso de ia e medição de valor realizado, aprendizagem e componentes reutilizados."
     },
     {
       "slug": "adocao-ia-equipes-trabalho",
@@ -1868,10 +1731,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe que recebe copiloto ou assistente para tarefas específicas, com entrega de plano de tarefa, competência e suporte, decisão sobre definir o nível adequado de automação, controle e responsabilidade para adoção de ia no trabalho das equipes e medição de uso útil, tempo, qualidade e abandono.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe que recebe copiloto ou assistente para tarefas específicas, com entrega de plano de tarefa, competência e suporte, decisão sobre definir o nível adequado de automação, controle e responsabilidade para adoção de ia no trabalho das equipes e medição de uso útil, tempo, qualidade e abandono."
     },
     {
       "slug": "capacitacao-ia-por-papeis",
@@ -1881,10 +1743,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa implantando ia em áreas com dados e impactos distintos, com entrega de matriz de competência, prática e avaliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para capacitação em ia por papéis e riscos e medição de tarefas concluídas, erros e pedidos de apoio.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa implantando ia em áreas com dados e impactos distintos, com entrega de matriz de competência, prática e avaliação, decisão sobre definir o nível adequado de automação, controle e responsabilidade para capacitação em ia por papéis e riscos e medição de tarefas concluídas, erros e pedidos de apoio."
     },
     {
       "slug": "medir-produtividade-ia-sem-linhas-codigo",
@@ -1894,10 +1755,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma equipe de software ou operações adotando assistência de ia, com entrega de mapa de fluxo, espera, retrabalho e resultado, decisão sobre definir o nível adequado de automação, controle e responsabilidade para produtividade com ia sem métricas de vaidade e medição de lead time, qualidade, adoção e capacidade.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma equipe de software ou operações adotando assistência de ia, com entrega de mapa de fluxo, espera, retrabalho e resultado, decisão sobre definir o nível adequado de automação, controle e responsabilidade para produtividade com ia sem métricas de vaidade e medição de lead time, qualidade, adoção e capacidade."
     },
     {
       "slug": "analise-sensibilidade-roi-automacao",
@@ -1907,10 +1767,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a um projeto cujo ganho depende de frequência e redução de retrabalho, com entrega de planilha de cenários e ponto de equilíbrio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para análise de sensibilidade no roi de automação e medição de payback por cenário e hipóteses críticas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a um projeto cujo ganho depende de frequência e redução de retrabalho, com entrega de planilha de cenários e ponto de equilíbrio, decisão sobre definir o nível adequado de automação, controle e responsabilidade para análise de sensibilidade no roi de automação e medição de payback por cenário e hipóteses críticas."
     },
     {
       "slug": "valor-erros-evitados-automacao",
@@ -1920,10 +1779,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação com retrabalho, multa, devolução ou perda de confiança, com entrega de registro de erro, impacto e faixa de valor, decisão sobre definir o nível adequado de automação, controle e responsabilidade para valor de erros evitados em automação e medição de erros, recuperação e exposição reduzida.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação com retrabalho, multa, devolução ou perda de confiança, com entrega de registro de erro, impacto e faixa de valor, decisão sobre definir o nível adequado de automação, controle e responsabilidade para valor de erros evitados em automação e medição de erros, recuperação e exposição reduzida."
     },
     {
       "slug": "contratar-consultoria-ia-entregaveis",
@@ -1933,10 +1791,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa que precisa priorizar e implantar primeiros casos, com entrega de escopo de descoberta, entregáveis e aceite, decisão sobre definir o nível adequado de automação, controle e responsabilidade para contratação de consultoria de ia por entregáveis e medição de decisões tomadas, riscos reduzidos e próximos testes.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa que precisa priorizar e implantar primeiros casos, com entrega de escopo de descoberta, entregáveis e aceite, decisão sobre definir o nível adequado de automação, controle e responsabilidade para contratação de consultoria de ia por entregáveis e medição de decisões tomadas, riscos reduzidos e próximos testes."
     },
     {
       "slug": "make-or-buy-solucao-ia",
@@ -1946,10 +1803,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa distribuindo dados, modelos, orquestração e experiência entre parceiros e equipe própria, com entrega de mapa de capacidades, controle, portabilidade e saída, decisão sobre definir o nível adequado de automação, controle e responsabilidade para estratégia de sourcing para capacidades de ia e medição de tempo de substituição, dependências e custo operacional.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa distribuindo dados, modelos, orquestração e experiência entre parceiros e equipe própria, com entrega de mapa de capacidades, controle, portabilidade e saída, decisão sobre definir o nível adequado de automação, controle e responsabilidade para estratégia de sourcing para capacidades de ia e medição de tempo de substituição, dependências e custo operacional."
     },
     {
       "slug": "finops-ia-generativa",
@@ -1959,10 +1815,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma plataforma compartilhada por múltiplas áreas e casos, com entrega de modelo de tags, orçamento, alertas e otimização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para finops para ia generativa e medição de custo por resultado, desperdício e previsão.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma plataforma compartilhada por múltiplas áreas e casos, com entrega de modelo de tags, orçamento, alertas e otimização, decisão sobre definir o nível adequado de automação, controle e responsabilidade para finops para ia generativa e medição de custo por resultado, desperdício e previsão."
     },
     {
       "slug": "beneficios-capacidade-versus-reducao-pessoas",
@@ -1972,10 +1827,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma operação em que automação retira repetição mas cria revisão e exceção, com entrega de modelo de capacidade, redistribuição e contramétricas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para capacidade adicional versus redução de equipe e medição de volume atendido, espera e trabalho de maior valor.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma operação em que automação retira repetição mas cria revisão e exceção, com entrega de modelo de capacidade, redistribuição e contramétricas, decisão sobre definir o nível adequado de automação, controle e responsabilidade para capacidade adicional versus redução de equipe e medição de volume atendido, espera e trabalho de maior valor."
     },
     {
       "slug": "governanca-beneficios-projetos-ia",
@@ -1985,10 +1839,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma empresa com portfólio de pilotos e soluções em produção, com entrega de registro de benefício, baseline e revisão periódica, decisão sobre definir o nível adequado de automação, controle e responsabilidade para governança de benefícios em projetos de ia e medição de valor previsto, realizado e explicado.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma empresa com portfólio de pilotos e soluções em produção, com entrega de registro de benefício, baseline e revisão periódica, decisão sobre definir o nível adequado de automação, controle e responsabilidade para governança de benefícios em projetos de ia e medição de valor previsto, realizado e explicado."
     },
     {
       "slug": "encerrar-projeto-ia-sem-retorno",
@@ -1998,10 +1851,9 @@
       "sections": 20,
       "paragraphs": 41,
       "sources": 4,
-      "aiScore": 94,
-      "verdict": "approved",
-      "uniqueContribution": "Aplicação do tema a uma solução tecnicamente funcional que não muda resultado ou adoção, com entrega de relatório de decisão, ativos reutilizáveis e encerramento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para como encerrar um projeto de ia sem retorno e medição de custo interrompido, aprendizagem e dependências removidas.",
-      "criticalFlags": []
+      "structuralChecks": "passed",
+      "factualReviewStatus": "pending",
+      "uniqueContribution": "Aplicação do tema a uma solução tecnicamente funcional que não muda resultado ou adoção, com entrega de relatório de decisão, ativos reutilizáveis e encerramento, decisão sobre definir o nível adequado de automação, controle e responsabilidade para como encerrar um projeto de ia sem retorno e medição de custo interrompido, aprendizagem e dependências removidas."
     }
   ]
 }

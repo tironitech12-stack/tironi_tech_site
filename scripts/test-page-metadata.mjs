@@ -12,9 +12,10 @@ const children = [];
 function matches(element, selector) {
   const tag = selector.match(/^\w+/)?.[0];
   if (tag && element.tagName !== tag) return false;
-  return [...selector.matchAll(/\[([^=\]]+)(?:="([^"]*)")?\]/g)].every(([, attribute, value]) => {
+  return [...selector.matchAll(/\[([^=^\]]+)(?:(\^?=)"([^"]*)")?\]/g)].every(([, attribute, operator, value]) => {
     const actual = element[attribute] ?? element.attributes[attribute];
-    return value === undefined ? actual !== undefined : actual === value;
+    if (value === undefined) return actual !== undefined;
+    return operator === '^=' ? actual?.startsWith(value) : actual === value;
   });
 }
 globalThis.document = {
@@ -107,6 +108,19 @@ assert.equal(meta('article:modified_time', 'property'), '2026-03-01');
 assert.equal(meta('article:author', 'property'), 'Tironi Tech');
 assert.equal(document.head.querySelector('link[rel="alternate"][hreflang]').href, 'https://www.tironitech.com/blog/guia-whatsapp');
 
+// A missing publication record must not inherit the previous article's date.
+applyPageMeta({
+  title: 'Guia sem registro de publicação | Tironi Tech',
+  description: 'Conteúdo com data de revisão conhecida.',
+  path: '/blog/guia-sem-data-publicacao',
+  ogType: 'article',
+  publishedTime: null,
+  modifiedTime: '2026-09-22',
+});
+assert.equal(meta('article:published_time', 'property'), undefined);
+assert.equal(meta('article:modified_time', 'property'), '2026-09-22');
+assert.equal(meta('article:author', 'property'), 'Tironi Tech');
+
 // Going back home must replace service entities while retaining the business identity.
 applyPageMeta({ ...HOME_SEO, schema: createHomeSchema() });
 assert(!graph().some((node) => ['Service', 'FAQPage'].includes(node['@type'])));
@@ -120,4 +134,4 @@ for (const slug of searchConsolePriorityServiceSlugs) {
   assert.deepEqual(getRelatedServicePages(slug).map((page) => page.slug), searchConsolePriorityServiceSlugs.filter((candidate) => candidate !== slug));
 }
 delete globalThis.document;
-console.log('Page metadata: home identity, service navigation, social tags, stale alternates and related service destinations passed.');
+console.log('Page metadata: home identity, service navigation, social tags, unknown publication dates, stale alternates and related service destinations passed.');

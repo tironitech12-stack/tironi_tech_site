@@ -1,4 +1,7 @@
+import { getProjectStory } from './projectStories.js';
+
 const whatsapp = 'https://wa.me/5543996676633?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Tironi%20Tech.';
+const salesGameStory = getProjectStory('pt', 'Sales Game');
 
 export const serviceEvidence = [
   { value: '23+', label: 'anos de atuação do fundador em tecnologia' },
@@ -27,12 +30,22 @@ export const serviceLandingPages = [
   },
   {
     slug: 'software-sob-medida', keyword: 'Software sob medida',
+    updated: '2026-11-09',
     title: 'Software sob medida para eliminar os limites que travam sua operação',
     description: 'Software sob medida é um sistema desenhado para o processo da empresa, quando uma ferramenta pronta obriga a operação a se adaptar. A Tironi Tech projeta, implementa e acompanha essa entrega.',
     problem: 'Ferramentas genéricas obrigam sua equipe a adaptar o processo, manter controles paralelos e aceitar integrações incompletas.',
     outcomes: ['Fluxos desenhados para a rotina real', 'Dados centralizados e acessíveis com segurança', 'Evolução do sistema conforme o negócio cresce'],
     solution: 'A Tironi Tech transforma regras, jornadas e integrações em um produto digital próprio. O projeto começa no problema operacional e termina com software testado, documentado e utilizável.',
     proof: 'Projetos em vendas, gestão, atendimento e operação deram à equipe repertório para equilibrar velocidade, segurança, experiência e custo total.',
+    caseStudy: {
+      name: 'Sales Game',
+      client: 'Casagrande Consultoria e Multiplier',
+      challenge: salesGameStory.challenge,
+      solution: 'A Tironi Tech desenvolveu o jogo de estratégia comercial para web e Android. A solução inclui partidas locais e online e simula decisões de caixa, clientes, equipe, canais, ERP, treinamento e eventos de mercado.',
+      result: salesGameStory.result,
+      href: 'https://www.salesgame.com.br/',
+      linkLabel: 'Conhecer o Sales Game',
+    },
     image: '/projects/sign-wallet-logo.png', imageAlt: 'Projeto de software desenvolvido pela Tironi Tech', process: commonProcess,
     faqs: [['Quando software sob medida vale a pena?', 'Quando diferenciação, integração, governança ou escala não cabem bem em um produto pronto.'], ['A Tironi Tech também mantém o sistema?', 'Sim. O modelo prevê monitoramento, correções e evolução por ciclos priorizados.'], ['É possível começar por um MVP?', 'Sim. O MVP valida a jornada essencial sem antecipar toda a complexidade do produto final.']],
   },

@@ -39,6 +39,21 @@ export default function ServiceLandingPage({ page }) {
       </div></section>
       <section className="tt-service-problem"><div className="tt2-container"><span>O GARGALO</span><h2>{page.problem}</h2><div className="tt-service-outcomes">{page.outcomes.map((item, index) => <article key={item}><small>0{index + 1}</small><p>{item}</p></article>)}</div></div></section>
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">APLICAÇÃO PRÁTICA</span><h2>Tecnologia ligada à operação, do primeiro dado ao próximo passo</h2></div><div><p>{page.solution}</p><p>{page.proof}</p>{page.proofLink && <p><a href={page.proofLink.href}>{page.proofLink.label} →</a></p>}</div></div></section>
+      {page.caseStudy && <section className="tt-service-solution" aria-labelledby="service-case-title">
+        <div className="tt2-container tt-service-two-col">
+          <div>
+            <span className="tt-service-kicker">PROJETO DESENVOLVIDO</span>
+            <h2 id="service-case-title">{page.caseStudy.name}</h2>
+            <p><strong>Cliente:</strong> {page.caseStudy.client}</p>
+            <p><a href={page.caseStudy.href} target="_blank" rel="noopener noreferrer">{page.caseStudy.linkLabel} ↗</a></p>
+          </div>
+          <div>
+            <h3>Desafio</h3><p>{page.caseStudy.challenge}</p>
+            <h3>O que a Tironi Tech desenvolveu</h3><p>{page.caseStudy.solution}</p>
+            <h3>Resultado entregue</h3><p>{page.caseStudy.result}</p>
+          </div>
+        </div>
+      </section>}
       <section className="tt-service-process" id="como-funciona"><div className="tt2-container"><span className="tt-service-kicker">COMO FUNCIONA</span><h2>Da oportunidade à operação em quatro movimentos</h2><div className="tt-service-process-grid">{page.process.map(([title, text], index) => <article key={title}><small>{String(index + 1).padStart(2, '0')}</small><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
       <section className="tt-service-solution"><div className="tt2-container"><span className="tt-service-kicker">SOLUÇÕES PARA SUA OPERAÇÃO</span><h2>Soluções relacionadas</h2><nav className="tt-service-hubs" aria-label="Soluções relacionadas">{relatedServices.map((candidate) => <article key={candidate.slug}><h3><a href={`/${candidate.slug}`}>{candidate.keyword}</a></h3><p>{candidate.description}</p></article>)}</nav></div></section>
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">ESCOPO VERIFICÁVEL</span><h2>O que precisa ficar claro antes de contratar</h2></div><div><p>Uma proposta responsável descreve o processo atual, o resultado esperado, os dados necessários, as integrações, as exceções e quem aprova ações sensíveis. Para este cenário, o ponto de partida é: {page.problem}</p><p>A entrega deve incluir mapa do fluxo, arquitetura e permissões, critérios de aceite, plano de implantação, documentação e indicadores. A solução é avaliada pelo processo que melhora, e não pela quantidade de recursos ou pela promessa genérica de usar IA.</p>{page.deliverables?.length > 0 && <h3>Entregáveis para validar na proposta</h3>}<ul>{(page.deliverables || page.outcomes).map((item) => <li key={item}>{item}</li>)}</ul>{page.limits?.length > 0 && <><h3>Limites e dependências do projeto</h3><ul>{page.limits.map((item) => <li key={item}>{item}</li>)}</ul></>}</div></div></section>

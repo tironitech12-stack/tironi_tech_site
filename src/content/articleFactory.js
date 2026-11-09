@@ -41,7 +41,8 @@ export function createEditorialArticle(spec) {
     title: spec.title,
     description: spec.description,
     category: spec.category,
-    date: spec.date || TODAY,
+    // An explicit null means that the original publication date is not recorded.
+    date: spec.date === null ? null : spec.date || TODAY,
     updated: spec.updated || TODAY,
     featured: Boolean(spec.featured),
     keywords: spec.keywords,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
+import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
 import BlogHighlight from "../components/sections/BlogHighlight";
@@ -99,9 +99,14 @@ export default function MobileHome() {
   const solutionExperience = getSolutionExperience(language);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const mobileProjects = t.featuredProjects.items;
-  const activeMobileProject = mobileProjects[activeProjectIndex] || mobileProjects[0];
-  const activeMobileStory = getProjectStory(language, activeMobileProject.title);
-  const activeMobileHref = projectLinks[activeMobileProject.title] || "#contato";
+
+  const handleProjectTabKeyDown = (event, index) => {
+    const nextIndex = { ArrowRight: (index + 1) % mobileProjects.length, ArrowLeft: (index - 1 + mobileProjects.length) % mobileProjects.length, Home: 0, End: mobileProjects.length - 1 }[event.key];
+    if (nextIndex === undefined) return;
+    event.preventDefault();
+    setActiveProjectIndex(nextIndex);
+    event.currentTarget.parentElement.querySelectorAll('[role="tab"]')[nextIndex]?.focus();
+  };
 
   return (
     <div className="mobile-site-shell">
@@ -224,54 +229,67 @@ export default function MobileHome() {
               {mobileProjects.map((project, index) => (
                 <button
                   key={project.title}
+                  id={`mobile-project-tab-${index}`}
                   type="button"
                   role="tab"
+                  aria-controls={`mobile-project-panel-${index}`}
                   aria-selected={activeProjectIndex === index}
+                  tabIndex={activeProjectIndex === index ? 0 : -1}
                   className={activeProjectIndex === index ? "is-active" : ""}
                   onClick={() => setActiveProjectIndex(index)}
+                  onKeyDown={(event) => handleProjectTabKeyDown(event, index)}
                 >
                   <img src={projectLogos[project.title]} alt="" />
                   <span>{project.title}</span>
                 </button>
               ))}
             </div>
-            <AnimatePresence mode="wait" initial={false}>
+            {mobileProjects.map((project, index) => {
+              const story = getProjectStory(language, project.title);
+              const href = projectLinks[project.title] || "#contato";
+              const isActive = activeProjectIndex === index;
+              return (
               <Motion.article
-                key={activeMobileProject.title}
+                key={project.title}
+                id={`mobile-project-panel-${index}`}
+                role="tabpanel"
+                aria-labelledby={`mobile-project-tab-${index}`}
+                tabIndex={0}
+                hidden={!isActive}
                 className="mobile-project-feature"
-                initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
+                initial={false}
+                animate={isActive || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
                 transition={{ duration: reduceMotion ? 0 : 0.3 }}
               >
                 <div className="mobile-project-feature-head">
                   <div>
-                    <span className="mobile-project-number">{String(activeProjectIndex + 1).padStart(2, "0")} / {String(mobileProjects.length).padStart(2, "0")}</span>
-                    <span className="mobile-project-label">{activeMobileProject.tag}</span>
+                    <span className="mobile-project-number">{String(index + 1).padStart(2, "0")} / {String(mobileProjects.length).padStart(2, "0")}</span>
+                    <span className="mobile-project-label">{project.tag}</span>
                   </div>
                   <div className="mobile-project-logo-wrap">
-                    <img src={projectLogos[activeMobileProject.title]} alt={activeMobileProject.title} className="mobile-project-logo" />
+                    <img src={projectLogos[project.title]} alt={project.title} className="mobile-project-logo" />
                   </div>
                 </div>
                 <div className="mobile-project-copy">
-                  <h3>{activeMobileProject.title}</h3>
-                  <small className="mobile-project-case-label">{activeMobileStory.labels.challenge}</small>
-                  <p>{activeMobileStory.challenge}</p>
-                  <small className="mobile-project-case-label">{activeMobileStory.labels.solution}</small>
-                  <p>{activeMobileProject.description}</p>
-                  <small className="mobile-project-case-label">{activeMobileStory.labels.result}</small>
-                  <p>{activeMobileStory.result}</p>
+                  <h3>{project.title}</h3>
+                  <small className="mobile-project-case-label">{story.labels.challenge}</small>
+                  <p>{story.challenge}</p>
+                  <small className="mobile-project-case-label">{story.labels.solution}</small>
+                  <p>{project.description}</p>
+                  <small className="mobile-project-case-label">{story.labels.result}</small>
+                  <p>{story.result}</p>
                   <a
-                    href={activeMobileHref}
-                    target={activeMobileHref.startsWith("http") ? "_blank" : undefined}
-                    rel={activeMobileHref.startsWith("http") ? "noreferrer" : undefined}
-                    onClick={() => trackFunnelEvent("project_case_click", { project: activeMobileProject.title, device: "mobile" })}
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
+                    onClick={() => trackFunnelEvent("project_case_click", { project: project.title, device: "mobile" })}
                   >
-                    {activeMobileProject.cta}<span aria-hidden="true">↗</span>
+                    {project.cta}<span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </Motion.article>
-            </AnimatePresence>
+              );
+            })}
           </div>
         </section>
 

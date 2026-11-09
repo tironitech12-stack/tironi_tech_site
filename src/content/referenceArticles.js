@@ -2,11 +2,6 @@ import { createEditorialArticle, editorialSources as s } from './articleFactory.
 import { referenceLibrary } from './referenceLibrary.js';
 
 const slugify = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 72);
-const dateFromIndex = (index) => {
-  const date = new Date(Date.UTC(2026, 8, 20));
-  date.setUTCDate(date.getUTCDate() - Math.floor(index / 2));
-  return date.toISOString().slice(0, 10);
-};
 
 const unavailableReferenceUrls = new Set([
   'https://keebai.com/en/blog/conversational-commerce-whatsapp-en',
@@ -61,7 +56,6 @@ const angles = [
 export const referenceCategories = [...new Set(referenceLibrary.map((reference) => reference.category))];
 
 export const referenceArticles = referenceLibrary.flatMap((reference, referenceIndex) => angles.map((angle, angleIndex) => {
-  const globalIndex = referenceIndex * angles.length + angleIndex;
   const previousOccurrences = referenceLibrary.slice(0, referenceIndex).filter((candidate) => candidate.title === reference.title).length;
   const referenceUnavailable = unavailableReferenceUrls.has(reference.url);
   const referenceEdition = previousOccurrences ? { ...reference, title: `${reference.title} — leitura complementar da referência ${referenceIndex + 1}` } : reference;
@@ -82,7 +76,7 @@ export const referenceArticles = referenceLibrary.flatMap((reference, referenceI
       description: `${title}. Análise crítica em português, com implicações empresariais, arquitetura, riscos, métricas e um caminho de aplicação pela Tironi Tech.`,
       keywords: [referenceEdition.title, reference.category, 'pesquisa inteligência artificial', 'Tironi Tech', 'IA para empresas'],
       featured: referenceIndex < 9 && angleIndex === 0,
-      date: dateFromIndex(globalIndex),
+      date: null,
       updated: '2026-09-22',
       example: `Uma empresa lê “${referenceEdition.title}”, separa evidência de recomendação e escolhe um processo ligado a ${reference.category.toLowerCase()} para testar uma hipótese com usuários, integração e métrica de negócio.`,
       conclusion: `A contribuição de “${referenceEdition.title}” aumenta quando a empresa a transforma em perguntas verificáveis. A Tironi Tech pode converter esse aprendizado em diagnóstico, software, ChatBô, agentes e automações que funcionam na operação.`,

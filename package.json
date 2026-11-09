@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run test:seo && npm run audit:ai150 && npm run audit:content && npm run audit:seo-revisions && node scripts/generate-blog-index.mjs && vite build && node scripts/prerender-blog.mjs && npm run audit:indexability",
-    "test:seo": "node scripts/test-page-metadata.mjs && node scripts/test-blog-listing.mjs",
+    "test:seo": "node scripts/test-page-metadata.mjs && node scripts/test-blog-listing.mjs && node scripts/test-blog-publication-rendering.mjs",
     "audit:seo-revisions": "node scripts/audit-seo-revisions.mjs",
     "lint": "eslint .",
     "audit:content": "node scripts/audit-content-quality.mjs",

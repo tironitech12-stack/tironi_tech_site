@@ -266,11 +266,6 @@ const naturalTopic = (value) => {
   if (/^melhor /i.test(term)) return `escolha do ${term.toLowerCase()}`;
   return term;
 };
-const retroactiveDate = (index) => {
-  const date = new Date(Date.UTC(2026, 8, 21));
-  date.setUTCDate(date.getUTCDate() - index);
-  return date.toISOString().slice(0, 10);
-};
 
 const contextualNotes = {
   'Vendas e crescimento': [
@@ -378,7 +373,7 @@ const allCustomerIntentArticles = [...keywordArticles, ...clusterGuides];
 
 export const customerIntentArticles = allCustomerIntentArticles.map((article, index) => ({
   ...article,
-  date: retroactiveDate(index),
+  date: null,
   updated: '2026-09-22',
   visual: article.visual || {
     type: angleBlueprints[index % angleBlueprints.length].visualType,

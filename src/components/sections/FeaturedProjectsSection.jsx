@@ -1,4 +1,4 @@
-import { AnimatePresence, motion as Motion, useReducedMotion } from "framer-motion";
+import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import newstoreSorteiosLogo from "../../assets/newstore-sorteios-logo.png";
 import { trackFunnelEvent } from "../../utils/conversionTracking";
@@ -65,10 +65,14 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const ease = [0.22, 1, 0.36, 1];
   const projects = t.featuredProjects.items;
-  const activeProject = projects[activeIndex] || projects[0];
-  const activeStory = getProjectStory(language, activeProject.title);
-  const activeHref = PROJECT_URLS[activeProject.title] || "#contato";
-  const activeIsExternal = activeHref.startsWith("http");
+
+  const handleTabKeyDown = (event, index) => {
+    const nextIndex = { ArrowRight: (index + 1) % projects.length, ArrowLeft: (index - 1 + projects.length) % projects.length, Home: 0, End: projects.length - 1 }[event.key];
+    if (nextIndex === undefined) return;
+    event.preventDefault();
+    setActiveIndex(nextIndex);
+    event.currentTarget.parentElement.querySelectorAll('[role="tab"]')[nextIndex]?.focus();
+  };
 
   return (
     <Motion.section
@@ -89,67 +93,81 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
         <div className="tt2-project-showcase">
           <div className="tt2-project-stage" aria-live="polite">
             <div className="tt2-project-stage-orb" aria-hidden="true" />
-            <AnimatePresence mode="wait" initial={false}>
+            {projects.map((project, index) => {
+              const story = getProjectStory(language, project.title);
+              const href = PROJECT_URLS[project.title] || "#contato";
+              const isExternal = href.startsWith("http");
+              const isActive = activeIndex === index;
+              return (
               <Motion.article
-                key={activeProject.title}
+                key={project.title}
+                id={`desktop-project-panel-${index}`}
+                role="tabpanel"
+                aria-labelledby={`desktop-project-tab-${index}`}
+                tabIndex={0}
+                hidden={!isActive}
                 className="tt2-project-feature"
-                initial={reduceMotion ? false : { opacity: 0, y: 18, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={reduceMotion ? undefined : { opacity: 0, y: -12, filter: "blur(6px)" }}
+                initial={false}
+                animate={isActive || reduceMotion ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 18, filter: "blur(8px)" }}
                 transition={{ duration: reduceMotion ? 0 : 0.38, ease }}
               >
                 <div className="tt2-project-feature-head">
                   <div>
-                    <span className="tt2-project-count">{String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
-                    <span className="tt2-featured-tag">{activeProject.tag}</span>
+                    <span className="tt2-project-count">{String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
+                    <span className="tt2-featured-tag">{project.tag}</span>
                   </div>
-                  <div className="tt2-project-logo-stage"><ProjectLogo title={activeProject.title} /></div>
+                  <div className="tt2-project-logo-stage"><ProjectLogo title={project.title} /></div>
                 </div>
-                <h3>{activeProject.title}</h3>
+                <h3>{project.title}</h3>
                 <div className="tt2-project-feature-grid">
                   <div className="tt2-featured-case-block tt2-project-challenge">
-                    <span>{activeStory.labels.challenge}</span>
-                    <p>{activeStory.challenge}</p>
+                    <span>{story.labels.challenge}</span>
+                    <p>{story.challenge}</p>
                   </div>
                   <div className="tt2-featured-case-block">
-                    <span>{activeStory.labels.solution}</span>
-                    <p>{activeProject.description}</p>
+                    <span>{story.labels.solution}</span>
+                    <p>{project.description}</p>
                   </div>
                   <div className="tt2-featured-case-block">
-                    <span>{activeStory.labels.result}</span>
-                    <p>{activeStory.result}</p>
+                    <span>{story.labels.result}</span>
+                    <p>{story.result}</p>
                   </div>
                 </div>
                 <div className="tt2-project-feature-footer">
-                  {activeProject.bullets?.length ? (
+                  {project.bullets?.length ? (
                     <div className="tt2-featured-bullets" aria-label={t.featuredProjects.caseLabels?.impact}>
-                      {activeProject.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}
+                      {project.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}
                     </div>
                   ) : null}
                   <a
                     className="tt2-featured-cta"
-                    href={activeHref}
-                    target={activeIsExternal ? "_blank" : undefined}
-                    rel={activeIsExternal ? "noreferrer" : undefined}
-                    onClick={() => trackFunnelEvent("project_case_click", { project: activeProject.title })}
+                    href={href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                    onClick={() => trackFunnelEvent("project_case_click", { project: project.title })}
                   >
-                    {activeProject.cta}<span aria-hidden="true">↗</span>
+                    {project.cta}<span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </Motion.article>
-            </AnimatePresence>
+              );
+            })}
           </div>
 
           <div className="tt2-project-picker" role="tablist" aria-label={t.featuredProjects.eyebrow}>
             {projects.map((item, index) => (
               <Motion.button
                 key={item.title}
+                id={`desktop-project-tab-${index}`}
                 type="button"
                 role="tab"
+                aria-controls={`desktop-project-panel-${index}`}
                 aria-selected={activeIndex === index}
+                tabIndex={activeIndex === index ? 0 : -1}
                 className={`tt2-project-tile${activeIndex === index ? " is-active" : ""}`}
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setActiveIndex(index)}
+                onKeyDown={(event) => handleTabKeyDown(event, index)}
                 whileHover={reduceMotion ? undefined : { y: -3 }}
                 transition={{ duration: 0.2 }}
               >
