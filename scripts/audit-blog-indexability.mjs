@@ -13,6 +13,11 @@ import { founderProfile, getFounderCopy } from '../src/content/founderProfile.js
 import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
 import { referenceArticles } from '../src/content/referenceArticles.js';
 import { customerIntentArticles } from '../src/content/customerIntentArticles.js';
+import { searchConsoleExpansionArticles } from '../src/content/searchConsoleExpansionArticles.js';
+
+const expandedParentSlugs = new Set(searchConsoleExpansionArticles
+  .map(({ primaryGuide }) => primaryGuide.href.match(/^\/blog\/(.+)$/)?.[1])
+  .filter(Boolean));
 
 // These collections have no reliable original publication record. Their known
 // revision date must not be repurposed as a publication date by the factory.
@@ -81,7 +86,8 @@ for (const locale of ['pt', 'en', 'es']) {
     assert.equal(payload.locale, locale, `Wrong article payload locale: ${url}`);
     assert.equal(payload.article.slug, article.slug, `Wrong article payload: ${url}`);
     assert.equal(payload.article.date, article.date, `Publication record changed in payload: ${url}`);
-    assert(Array.isArray(payload.related) && payload.related.length <= 3, `Invalid related articles payload: ${url}`);
+    const expectedRelatedLimit = locale === 'pt' && expandedParentSlugs.has(article.slug) ? 10 : 3;
+    assert(Array.isArray(payload.related) && payload.related.length <= expectedRelatedLimit, `Invalid related articles payload: ${url}`);
     const embeddedPayload = html.match(/<script id="tt-article-data" type="application\/json">([\s\S]*?)<\/script>/);
     assert(embeddedPayload, `Missing embedded article payload: ${url}`);
     assert.equal(JSON.parse(embeddedPayload[1]).article.slug, article.slug, `Wrong embedded article payload: ${url}`);

@@ -7,6 +7,7 @@ import { commercialSearchArticles } from './commercialSearchArticles.js';
 import { customerIntentArticles } from './customerIntentArticles.js';
 import { referenceArticles, referenceCategories } from './referenceArticles.js';
 import { guardedExpansionArticles } from './guardedExpansionArticles.js';
+import { searchConsoleExpansionArticles } from './searchConsoleExpansionArticles.js';
 import { searchConsoleArticleRevisions } from './searchConsoleArticleRevisions.js';
 import { articleServiceFor } from './articleServices.js';
 
@@ -520,7 +521,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-const expandedBlogArticles = [...guardedExpansionArticles, ...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
+const expandedBlogArticles = [...searchConsoleExpansionArticles, ...guardedExpansionArticles, ...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],
@@ -703,6 +704,11 @@ const relatedStopWords = new Set(['para', 'como', 'com', 'sem', 'uma', 'das', 'd
 
 export function getRelatedBlogArticles(article, limit = 3) {
   if (!article) return [];
+  const complementary = searchConsoleExpansionArticles
+    .filter((candidate) => candidate.primaryGuide.href === `/blog/${article.slug}`)
+    .map((candidate) => blogArticles.find((published) => published.slug === candidate.slug))
+    .filter(Boolean);
+  if (complementary.length) return complementary;
   const tokens = new Set([article.title, ...(article.keywords || [])].join(' ').toLocaleLowerCase('pt-BR').split(/[^a-záàâãéêíóôõúç0-9]+/).filter((token) => token.length > 2 && !relatedStopWords.has(token)));
   return blogArticles
     .filter((candidate) => candidate.slug !== article.slug)

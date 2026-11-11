@@ -1,5 +1,8 @@
 import { homeBlogHighlights } from '../../content/homeBlogHighlights';
+import { searchConsoleExpansionArticles } from '../../content/searchConsoleExpansionArticles';
 import '../../styles/blog.css';
+
+const decisionGuides = searchConsoleExpansionArticles.filter((article) => article.primaryGuide.href === '/');
 
 export default function BlogHighlight() {
   return (
@@ -22,6 +25,10 @@ export default function BlogHighlight() {
             </article>
           ))}
         </div>
+        <nav className="tt-blog-home-topics" aria-label="Guias para decisões de tecnologia">
+          <h3>Guias para decisões de tecnologia</h3>
+          <ul>{decisionGuides.map((article) => <li key={article.slug}><a href={`/blog/${article.slug}`}>{article.title}</a></li>)}</ul>
+        </nav>
       </div>
     </section>
   );
