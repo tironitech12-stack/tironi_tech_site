@@ -2,7 +2,7 @@ export const GOOGLE_ANALYTICS_ID = "G-58SQM6BLN1";
 export const GOOGLE_ADS_ID = "AW-18295268277";
 
 const GOOGLE_TAG_SCRIPT_ID = "tt-google-tag";
-const GOOGLE_TAG_MANAGER_ID = "GTM-5B49ZB43";
+const GOOGLE_TAG_MANAGER_ID = "GTM-56QSXBTX";
 const GOOGLE_TAG_MANAGER_SCRIPT_ID = "tt-google-tag-manager";
 const configuredTargets = new Set();
 let queueInitialized = false;
