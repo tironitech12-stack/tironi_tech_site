@@ -2,6 +2,8 @@ export const GOOGLE_ANALYTICS_ID = "G-58SQM6BLN1";
 export const GOOGLE_ADS_ID = "AW-18295268277";
 
 const GOOGLE_TAG_SCRIPT_ID = "tt-google-tag";
+const GOOGLE_TAG_MANAGER_ID = "GTM-5B49ZB43";
+const GOOGLE_TAG_MANAGER_SCRIPT_ID = "tt-google-tag-manager";
 const configuredTargets = new Set();
 let queueInitialized = false;
 
@@ -62,6 +64,16 @@ export function ensureGoogleTag({ analytics = false, marketing = false } = {}) {
   if (marketing && !configuredTargets.has(GOOGLE_ADS_ID)) {
     gtag("config", GOOGLE_ADS_ID);
     configuredTargets.add(GOOGLE_ADS_ID);
+  }
+
+  if (analytics && !document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID)) {
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+
+    const script = document.createElement("script");
+    script.id = GOOGLE_TAG_MANAGER_SCRIPT_ID;
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_MANAGER_ID}`;
+    document.head.appendChild(script);
   }
 
   return true;
