@@ -1,5 +1,7 @@
+import { GOOGLE_ADS_CONVERSION_ID } from "./googleAdsConversion.js";
+
 export const GOOGLE_ANALYTICS_ID = "G-58SQM6BLN1";
-export const GOOGLE_ADS_ID = "AW-18295268277";
+export const GOOGLE_ADS_ID = GOOGLE_ADS_CONVERSION_ID;
 
 const GOOGLE_TAG_SCRIPT_ID = "tt-google-tag";
 const GOOGLE_TAG_MANAGER_ID = "GTM-56QSXBTX";
