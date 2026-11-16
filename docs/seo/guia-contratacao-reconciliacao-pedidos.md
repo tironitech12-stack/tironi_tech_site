@@ -1,0 +1,105 @@
+# Como contratar a reconciliação de pedidos entre sistemas
+
+Contrate a reconciliação quando a empresa precisa descobrir quais pedidos deixaram de atravessar uma integração existente, quais chegaram com dados diferentes e quem deve corrigir cada caso. Comece por um fechamento em que a equipe teve de comparar relatórios manualmente. Separe um pedido ausente de um pedido que chegou com valor divergente. Esses dois casos ajudam a definir se a proposta deve incluir apenas detecção, uma fila de investigação ou também correção assistida.
+
+## Escolha o evento comercial que precisa fechar
+
+Uma distribuidora recebe pedidos em um portal e fatura no ERP. O gestor percebe que o portal registra 240 pedidos aprovados na terça-feira e o ERP mostra 238 pedidos importados. Antes de abrir um chamado por dois pedidos perdidos, confira se ambos os relatórios usam a mesma janela e se um pedido pode gerar mais de um registro quando há entregas de filiais diferentes. A diferença entre totais serve como ponto de partida. Peça que o fornecedor demonstre como identifica cada venda que precisa de investigação mesmo quando os totais coincidem por acaso.
+
+Se a empresa quer evitar pedidos aprovados sem faturamento, escolha o estado que comprova a aprovação e o evento que comprova que o ERP recebeu um registro apto a faturar. O status recebido pode significar que o sistema aceitou a mensagem ou que criou um pedido com regras fiscais validadas. Peça que as duas áreas definam o marco usando um exemplo que já trouxe prejuízo ou retrabalho. A definição deve ser recuperável por quem olhar o painel no dia seguinte.
+
+## Separe diferenças temporárias de casos que precisam de ação
+
+Finalize a primeira comparação com uma janela de tolerância acordada. Um pedido que ainda está dentro do prazo pode aparecer como pendente. Ao vencer a janela, a fila deve apontar a etapa observada e o responsável por investigar. Use a mesma origem de dados para testar três situações. Um pedido chega normalmente antes do prazo, outro chega depois e o terceiro fica pendente até que alguém corrija o cadastro. Peça para ver o horário de ocorrência, o horário de detecção e a evidência disponível para fechar cada caso.
+
+A documentação do AWS Database Migration Service fornece um exemplo de como uma solução de replicação pode comparar linhas na origem e no destino e distinguir resultados pendentes ou divergentes. A sua prova de aceite deve acrescentar as regras de negócio. Uma linha diferente pode ser esperada se o ERP recalcula o frete, enquanto duas linhas iguais podem representar uma duplicidade quando ambas usam o mesmo identificador comercial. [Validação de dados no AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Validating.html)
+
+## Defina qual equipe pode corrigir o pedido
+
+Em um fechamento mensal, a equipe técnica pode identificar que a integração recebeu o pedido duas vezes. O financeiro precisa decidir se os dois registros ainda podem ser consolidados ou se algum deles já produziu efeitos que exigem tratamento contábil. A proposta deve indicar que informações cada pessoa recebe e quem autoriza a correção quando já houve movimentação de estoque ou faturamento. Na demonstração, inclua um pedido sem efeitos posteriores e outro com uma etapa concluída. Confira se o operador consegue distinguir os caminhos no momento em que toma a decisão.
+
+Quando a correção precisa voltar à origem, peça que a fila mostre o motivo de forma útil para a equipe comercial. Um erro de código de produto pode exigir ajuste do catálogo, enquanto um desconto fora da política pode precisar de aprovação. Se o sistema agrupa as duas mensagens como falha de envio, o operador precisa pesquisar em outra ferramenta antes de agir. Meça esse tempo no piloto e registre quais divergências podem ser resolvidas com as informações disponíveis na primeira tela.
+
+## Compare a versão do pedido que cada área efetivamente recebeu
+
+Quando um comprador ajusta a quantidade após a aprovação, o portal pode mostrar a versão atual enquanto o ERP ainda trabalha com a anterior. Se a conferência compara apenas o identificador e o status, ambos os lados podem parecer corretos. Peça que o fornecedor reproduza um pedido com três mudanças em horários conhecidos. A primeira adiciona uma unidade, a segunda troca o endereço e a terceira cancela uma linha. Depois solicite evidência de qual versão chegou ao ERP e de que alterações ainda podem ser aplicadas ao processo em curso.
+
+Na demonstração, faça a atualização de endereço chegar depois de uma mudança mais recente. O operador precisa distinguir uma versão antiga, uma mudança ainda pendente e uma divergência que exige contato com o cliente. Defina como a proposta tratará cada situação quando uma entrega já estiver separada. Se o pedido puder ser expedido com o endereço antigo, cumpra o roteiro até a tela usada pela logística. Uma correção visível no painel de reconciliação só resolve o caso quando a equipe que executa a entrega recebe a informação necessária.
+
+O histórico também precisa servir a quem atende a reclamação. Solicite um exemplo em que seja possível reconstruir a ordem dos acontecimentos com os horários registrados pelas duas aplicações. Um carimbo de recepção pode vir depois do horário da alteração comercial. Combine qual registro demonstra a intenção do comprador e qual comprova a última ação no ERP. A especificação deve permitir investigar a divergência dias depois, inclusive se o pedido já tiver mudado de estado nos dois sistemas.
+
+## Preserve a relação entre o pedido e suas entregas
+
+Considere um atacadista que divide a entrega entre dois centros de distribuição. O pedido de 30 caixas vira dois registros operacionais, um com 20 e outro com 10. Se apenas o primeiro chegar, a empresa pode enxergar o pedido como recebido e ainda deixar parte da venda sem atendimento. Peça que a proposta mostre como a central de reconciliação liga os registros filhos ao pedido comercial e como identifica a quantidade que falta quando o grupo está incompleto.
+
+Acrescente ao teste duas linhas com o mesmo produto e condições comerciais diferentes. O pedido original pode usar uma linha para venda e outra para bonificação. Se a verificação soma apenas unidades por código, uma troca entre as linhas mantém a contagem e altera a natureza econômica da operação. Defina as chaves e os campos que precisam coincidir de acordo com o que cada área usa para expedir e faturar. Use a mesma amostra para avaliar propostas que trabalham com documentos inteiros e propostas que comparam item a item.
+
+Ao fechar o caso, peça que o fornecedor demonstre a situação depois de uma entrega parcial aceita pelo cliente. A quantidade restante pode virar uma pendência acordada ou ser cancelada conforme a negociação. O painel precisa indicar se ainda existe compromisso comercial e onde a decisão foi registrada. Se a empresa deseja acompanhar pedidos parcialmente atendidos, combine como o fechamento vai distinguir uma divergência técnica de um saldo legítimo aguardando estoque.
+
+## Use o fechamento real para avaliar corte e reabertura
+
+Escolha um dia de fechamento em que a operação costuma receber pedidos perto do horário de corte. Um pedido pode ter sido aprovado às 17h58 e recebido pelo ERP às 18h04. A equipe comercial pode contá-lo no dia da aprovação e a equipe fiscal pode tratá-lo no próximo período. Peça que o fornecedor reproduza o caso com os horários das fontes e mostre o resultado em cada relatório. A proposta deve declarar qual janela vale para localizar o pedido e qual vale para atribuir a diferença a um período.
+
+Inclua uma correção feita depois do fechamento. Quando a divergência era conhecida e ficou pendente, a gestão precisa recuperar o que estava aberto no momento do corte. Quando a divergência só apareceu depois, o responsável precisa saber se deve revisar o período anterior ou registrar uma ocorrência no período atual. Peça uma demonstração com os dois resultados. O acesso ao estado atual do pedido ajuda na resolução, enquanto o registro do fechamento preserva a base da decisão que já foi tomada.
+
+Organize o ensaio com quem assina o fechamento e com quem atende a fila durante o dia. O primeiro pode exigir a reprodução dos resultados de ontem. O segundo pode precisar confirmar que uma correção de hoje retirou o pedido da lista de pendências. Se a proposta oferece apenas um relatório atualizado continuamente, confira quais campos e versões precisam ser guardados para atender às duas rotinas. Solicite uma amostra que o time consiga conferir com os relatórios já usados internamente.
+
+## Meça a capacidade de investigar a fila de divergências
+
+Peça à operação que registre quantos casos consegue examinar em uma hora normal de fechamento. Uma fila com 50 diferenças pode caber na escala se quase todas tiverem o mesmo motivo e puderem ser tratadas juntas. Dez diferenças podem ocupar a tarde inteira quando exigem contato com compradores, confirmação do estoque e aprovação financeira. Entregue aos fornecedores a mesma amostra de motivos e solicite a medição do tempo desde a abertura do caso até a primeira ação útil.
+
+Teste uma manhã em que a integração volta após uma parada e a fila recebe, ao mesmo tempo, atrasos já resolvidos e pedidos ainda ausentes. O responsável precisa identificar quais entradas perderam atualidade e quais bloqueiam o restante do trabalho. Peça que ele encontre um pedido prestes a sair do prazo e explique a escolha com os dados do painel. Depois confira se a evidência usada por ele está disponível para o turno que assume à tarde. A capacidade de reconstruir a decisão vale especialmente quando o comprador telefona depois da troca de turno.
+
+Na proposta, diferencie o custo de investigar do custo de executar a correção. Uma operação pode economizar tempo localizando o pedido e continuar dependendo de uma equipe especializada para liberar o faturamento. A estimativa deve indicar quantos casos foram identificados, quanto trabalho interno permaneceu e em quais situações o fornecedor precisou intervir. Combine uma amostra de revisão para casos encerrados automaticamente. Ela ajuda a detectar divergências que voltariam ao estoque de pendências se fossem revistas por outra pessoa.
+
+## Peça uma prova de reaplicação com confirmação no sistema de destino
+
+Na prova de aceite, use um pedido que falhou por cadastro incorreto. Após corrigir o cadastro, peça que um operador autorizado reenvie a solicitação e consulte o resultado no ERP. Em seguida, encene uma interrupção depois de o ERP criar o pedido e antes de a central receber a confirmação. O operador pode supor que precisa reenviar a ação. Peça ao fornecedor que demonstre como encontra o resultado existente antes que a operação produza uma segunda separação de estoque ou tarefa de faturamento.
+
+Escolha também um pedido cuja correção não possa ser reaplicada sem nova autorização. Uma mudança de quantidade pode ser cabível antes de separar os itens e exigir outro procedimento depois que o estoque já foi baixado. Solicite exemplos dos dois estados e confira como a fila mostra o que mudou entre o diagnóstico e a tentativa de correção. Se a proposta oferecer uma ação em lote, inclua pedidos em estados diferentes. Teste se a equipe consegue verificar quais casos foram processados, quais ficaram pendentes e por qual condição.
+
+Combine como comprovar o efeito final em cada fluxo. Um pedido pode sair da fila técnica porque a mensagem foi aceita e continuar travado no ERP por falta de aprovação. Para a operação que compra a solução a fim de liberar faturamento, a prova precisa chegar ao estado definido com o financeiro. Se ela só conseguir confirmar parte do processo, contrate a primeira entrega com esse ponto de confirmação explícito e registre a dependência que falta para acompanhar o pedido até o estágio seguinte.
+
+## Verifique divergências que somem quando os totais batem
+
+Monte uma amostra com dois pedidos de mesmo valor, um ausente e o outro duplicado. Compare o total geral antes de abrir os registros individuais. Esse teste mostra se a proposta identifica a venda que falta mesmo quando a soma do período parece correta. Acrescente um terceiro pedido cujo valor diverge pela mesma quantia de um ajuste legítimo. Peça que o fornecedor explique como a ferramenta distingue alterações autorizadas de casos que precisam de revisão.
+
+Peça ao financeiro para escolher uma divergência pequena que aparece com frequência. Uma diferença de centavos pode ser tolerada quando decorre de arredondamento documentado e merece investigação quando se acumula por uma regra aplicada duas vezes. Na demonstração, acompanhe tanto o valor de cada diferença quanto o montante acumulado por motivo. Se a proposta prevê uma tolerância, confirme quem pode alterá-la, quando ela entra em vigor e como o relatório permite distinguir resultados medidos sob regras diferentes.
+
+Registre no aceite como o fornecedor demonstra cobertura sobre a população escolhida. Compare a lista de pedidos elegíveis com a lista efetivamente processada e explique as exclusões, inclusive registros sem chave ou indisponíveis durante a extração. Se o painel exibe zero divergências em um dia de falha no acesso a uma fonte, o gestor precisa identificar que parte da comparação ficou incompleta. Use um ensaio em que um lote inteiro fica indisponível e peça que o supervisor diferencie a ausência de evidência de um fechamento conferido.
+
+## Precifique a primeira entrega com o volume que precisa ser conferido
+
+Para comparar orçamentos, informe quantos pedidos entram por dia, quantas linhas costumam ter e durante quanto tempo um pedido pode receber atualizações. Uma empresa com poucas vendas e contratos de entrega parcelada pode precisar consultar o mesmo pedido por meses. Outra empresa pode lidar com muito mais registros e concluir quase todos em dois dias. Peça que cada fornecedor explique qual medida determina o custo da solução e aplique o cálculo aos mesmos recortes de volume corrente, fechamento mensal e recuperação após uma parada.
+
+Inclua o custo de ler as fontes. Se a comparação depende de extrair um relatório grande do ERP na hora em que o depósito separa pedidos, o ensaio precisa observar o efeito sobre a operação. Pergunte quais dados podem ser consultados por período e quais só aparecem em uma exportação completa. Peça uma proposta que discrimine os custos de manter acesso aos sistemas, armazenar o histórico e revisar uma regra quando a origem muda. Uma cobrança por organização pode crescer com novas filiais, mesmo quando o número de pedidos se mantém estável.
+
+Defina um calendário para avaliar o custo interno. Registre quanto tempo o financeiro dedica à conferência, quanto tempo a equipe técnica leva para coletar evidências e quanto tempo vendas gasta respondendo a compradores durante a investigação. Use ocorrências reais para montar a estimativa e identifique qual hora pode ser liberada com detecção mais rápida. Se a proposta pressupõe que o supervisor encerre casos sozinho, teste essa hipótese antes de contar a economia. A primeira entrega pode reduzir o tempo de coleta e ainda exigir a mesma aprovação para corrigir a venda.
+
+## Decida quando a correção assistida merece um investimento separado
+
+Uma empresa pode comprar a detecção e descobrir que a maior parte das divergências vem de uma rotina de cadastro já conhecida. Nesse caso, atribuir a fila à área responsável e anexar a evidência pode produzir o resultado esperado. Outra empresa pode descobrir que os incidentes se repetem depois de corrigir o cadastro porque nenhum time acompanha o retorno do pedido ao ERP. Peça duas estimativas sobre o mesmo conjunto de casos, uma com detecção e encaminhamento e outra incluindo uma ação de correção acompanhada até o estado comercial acordado.
+
+Teste primeiro um caso em que a ação é reversível e repetível, como pedir que o operador confirme o cadastro antes de solicitar nova leitura do pedido. Compare com um caso em que o registro já afetou outra área. Um pedido faturado com valor incorreto pode exigir validação financeira antes de qualquer modificação. O fornecedor deve demonstrar como a central direciona a solicitação para a função autorizada e como a equipe acompanha a decisão sem admitir um atalho na rotina de fechamento.
+
+Peça que o piloto conte ações recusadas, além das ações executadas. Uma recusa pode ser um resultado correto se o pedido mudou de estado antes de o operador agir. Registre a hora em que a correção foi solicitada, o estado que impediu a ação e o encaminhamento adotado. Use esses dados para decidir se o profissional precisa de uma tela melhor, de uma resposta da integração ou de uma regra organizacional sobre quem pode resolver aquele caso. Cada decisão tem implicações diferentes no contrato e no custo de sustentação.
+
+## Feche a proposta com um roteiro de aceite que a operação consiga repetir
+
+Escolha uma janela com pedidos típicos e uma com exceções que já geraram retrabalho. Para cada linha do roteiro, informe o resultado esperado na origem, no destino e na fila de investigação. Inclua o exemplo em que os totais batem com um pedido ausente, o exemplo em que uma atualização chega depois do corte e um caso em que a comparação fica incompleta porque uma fonte está indisponível. Defina qual área confirma o resultado e quem decide se o desvio impede a entrada em produção.
+
+No encerramento do piloto, compare o tempo de detectar uma diferença, o tempo de encaminhá-la e o tempo para confirmar sua resolução. Se o fornecedor mediu o primeiro intervalo e a empresa só percebe valor no terceiro, as partes precisam decidir qual dependência resolve a distância entre os dois. Peça uma evidência de passagem de turno e um exemplo de pedido que a área comercial consegue explicar ao cliente com a informação recebida. Essa prova ajuda a distinguir um relatório tecnicamente correto de uma entrega pronta para o fechamento.
+
+Para o diagnóstico com a Tironi Tech, leve um fechamento refeito manualmente, um pedido em que os sistemas mostraram estados diferentes e a lista de pessoas que conseguem liberar cada tipo de correção. A proposta de integração pode começar pela comparação de uma família de pedidos e pelo encaminhamento das exceções, com correção assistida nos casos em que a operação consegue confirmar o efeito no destino. Use a amostra para delimitar quais regras entram na primeira entrega e quais ainda precisam de decisão das áreas envolvidas.
+
+## Revise o encerramento de casos que voltam a divergir
+
+Uma filial encerra um caso porque o pedido reapareceu no ERP. No dia seguinte, o cliente altera o endereço e a integração deixa passar a mudança. Peça ao fornecedor que reproduza essa sequência. A equipe precisa distinguir o primeiro incidente, já resolvido, da divergência sobre uma nova versão do pedido. Se o painel simplesmente reabre o caso original, confira como ele preserva o motivo e a hora de cada ocorrência. Se cria um caso separado, verifique se o supervisor consegue localizar os dois a partir da referência comercial.
+
+Faça outro ensaio com um aviso encerrado porque o atraso estava dentro do prazo tolerado. Traga a mesma entrada para uma execução posterior sem confirmar sua chegada ao destino. O operador precisa descobrir por que o caso voltou e quanto tempo a operação já espera. A definição de prazo deve acompanhar o evento comercial, inclusive quando a coleta é repetida ou a fila muda de responsável. Peça que o financeiro confira o resultado em um relatório com a data do pedido e a data da última investigação.
+
+Reserve uma amostra mensal de casos encerrados para revisar o motivo, o destino e a evidência. Comece por divergências que voltaram a aparecer na mesma filial e por pedidos cujo impacto cresce com a demora. Se a repetição decorre da mesma regra de cadastro, a próxima entrega pode atuar na origem. Se ocorre em versões sucessivas de um pedido, examine como as mudanças atravessam os sistemas. No diagnóstico, use essa amostra para distinguir o valor de ampliar a cobertura da reconciliação do valor de corrigir o fluxo que continua gerando a pendência.
+
+Compare ainda o resultado ao longo dos turnos. Se a taxa de reabertura cair depois de uma mudança na escala, confirme se o total de pedidos conferidos permaneceu comparável e se as equipes continuaram registrando todas as exceções. Um índice só pode orientar a contratação de suporte adicional quando a empresa entende como os casos chegaram à amostra. Peça que cada número no relatório possa ser reproduzido a partir de registros autorizados e de uma regra de cálculo conhecida pela operação.
+
+Peça também a evidência de uma divergência que a equipe decidiu aceitar. Se o ERP dividir o frete entre duas entregas e a soma fechar com a aprovação comercial, registre a justificativa e quem a confirmou. Na próxima revisão, verifique se a mesma regra continua válida para pedidos de outra filial. A regra precisa representar uma prática que a operação reconhece. Se o tratamento depender de um acordo pontual com o comprador, preserve a justificativa no caso individual e mantenha os demais pedidos sujeitos à conferência.
