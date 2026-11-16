@@ -23,7 +23,7 @@ const copyByLanguage = {
   },
 };
 
-const priorityServices = searchConsolePriorityServiceSlugs
+const priorityServices = [...searchConsolePriorityServiceSlugs, "como-a-tironi-tech-atua"]
   .map((slug) => serviceLandingPages.find((page) => page.slug === slug))
   .filter(Boolean);
 

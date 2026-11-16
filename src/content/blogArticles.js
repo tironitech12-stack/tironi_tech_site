@@ -8,6 +8,7 @@ import { customerIntentArticles } from './customerIntentArticles.js';
 import { referenceArticles, referenceCategories } from './referenceArticles.js';
 import { guardedExpansionArticles } from './guardedExpansionArticles.js';
 import { searchConsoleExpansionArticles } from './searchConsoleExpansionArticles.js';
+import { consultingArticles } from './consultingArticles.js';
 import { searchConsoleArticleRevisions } from './searchConsoleArticleRevisions.js';
 import { articleServiceFor } from './articleServices.js';
 
@@ -521,7 +522,7 @@ function articleWordCount(article) {
     .split(/\s+/).length;
 }
 
-const expandedBlogArticles = [...searchConsoleExpansionArticles, ...guardedExpansionArticles, ...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
+const expandedBlogArticles = [...consultingArticles, ...searchConsoleExpansionArticles, ...guardedExpansionArticles, ...tutorialArticles, ...referenceArticles, ...customerIntentArticles, ...commercialSearchArticles, ...whatsappSearchArticles, ...growthArticles, ...leadGenerationArticles, ...pillarArticles, ...rawBlogArticles].map((article) => {
   const expandedArticle = {
     ...article,
     sections: [...article.sections, ...(articleExpansions[article.slug] || [])],

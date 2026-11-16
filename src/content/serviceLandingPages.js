@@ -18,6 +18,31 @@ const commonProcess = [
 
 export const serviceLandingPages = [
   {
+    slug: 'como-a-tironi-tech-atua',
+    keyword: 'Como a Tironi Tech atua',
+    title: 'Como a Tironi Tech desenvolve software e implanta automação com IA',
+    description: 'Compare software sob medida, implantação de plataformas e integração com CRM e ERP. Veja como a Tironi Tech aplica ChatBô, MestreLead e GeoAura a problemas de negócio.',
+    problem: 'Uma empresa pode precisar de atendimento mais rápido, prospecção organizada ou menos trabalho manual entre sistemas. Cada problema pede uma entrega e um critério de aceite próprios.',
+    outcomes: [
+      'Atendimento: demonstrar a triagem no ChatBô e a transferência de uma conversa para a equipe.',
+      'Prospecção: definir como o MestreLead organiza contatos, campanhas de e-mail e o acompanhamento no CRM.',
+      'Visibilidade: avaliar com GeoAura quais páginas respondem a buscas sobre a oferta e onde faltam informações verificáveis.',
+      'Operação: mapear quais dados passam entre CRM, ERP e software próprio, quem pode alterá-los e como tratar falhas.',
+    ],
+    solution: 'Na proposta, delimitamos um fluxo e combinamos como a equipe vai testá-lo. Uma plataforma pronta pode atender a um processo padronizado. Uma implantação com integração faz sentido quando as ferramentas atuais precisam trocar dados. Software sob medida atende regras próprias que exigem controle sobre a experiência e a evolução do sistema.',
+    proof: 'Veja projetos da Tironi Tech e as capacidades entregues. Use os exemplos para discutir quais integrações, telas e regras seriam necessárias na sua operação.',
+    proofLink: { href: '/resultados', label: 'Ver projetos e entregas da Tironi Tech' },
+    image: '/brand/tironi-symbol.png',
+    imageAlt: 'Tironi Tech',
+    guideLinks: [{ href: '/blog/como-contratar-automacao-whatsapp-empresas', label: 'Como contratar automação de WhatsApp para empresas' }, { href: '/blog/como-contratar-integracao-crm-erp', label: 'Como contratar uma integração entre CRM e ERP' }, { href: '/blog/como-contratar-modernizacao-sistema-legado', label: 'Como contratar a modernização de um sistema legado' }],
+    process: commonProcess,
+    faqs: [
+      ['Como comparar a Tironi Tech com outro fornecedor?', 'Peça aos dois fornecedores para mostrar o mesmo cenário de ponta a ponta. Compare os sistemas incluídos no escopo, o que acontece quando um dado chega incompleto, quem acompanha a implantação e como a equipe aceita a entrega.'],
+      ['O que levar para a primeira reunião?', 'Descreva uma tarefa que consome tempo ou faz a empresa perder oportunidades. Informe quem executa, quais ferramentas são usadas e como vocês avaliam se o processo deu certo.'],
+      ['É preciso substituir meu CRM ou ERP?', 'A decisão depende dos sistemas e das integrações disponíveis. O diagnóstico verifica se é mais viável conectar as ferramentas atuais, substituir uma etapa ou desenvolver um componente próprio.'],
+    ],
+  },
+  {
     slug: 'empresa-automacao-com-ia', keyword: 'Empresa de automação com IA',
     title: 'Automação com IA que reduz trabalho manual e move o processo até o resultado',
     description: 'A Tironi Tech identifica gargalos, integra sistemas e cria automações com IA para atendimento, vendas e operação, com controle humano e indicadores.',
