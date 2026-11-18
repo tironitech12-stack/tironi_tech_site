@@ -9,6 +9,18 @@ export const DEFAULT_WHATSAPP_URL =
 
 let conversionRedirectStarted = false;
 
+export function reportWhatsAppConversion(onComplete) {
+  if (typeof window === "undefined" || !getStoredCookieConsent()?.marketing || typeof window.gtag !== "function") {
+    return false;
+  }
+
+  window.gtag("event", "conversion", {
+    send_to: GOOGLE_ADS_WHATSAPP_SEND_TO,
+    event_callback: onComplete,
+  });
+  return true;
+}
+
 export function reportWhatsAppConversionAndRedirect(url = DEFAULT_WHATSAPP_URL) {
   if (typeof window === "undefined") return false;
 
@@ -20,15 +32,10 @@ export function reportWhatsAppConversionAndRedirect(url = DEFAULT_WHATSAPP_URL) 
     window.location.href = destinationUrl;
   };
 
-  if (!getStoredCookieConsent()?.marketing || typeof window.gtag !== "function") {
+  if (!reportWhatsAppConversion(redirect)) {
     redirect();
     return false;
   }
-
-  window.gtag("event", "conversion", {
-    send_to: GOOGLE_ADS_WHATSAPP_SEND_TO,
-    event_callback: redirect,
-  });
 
   window.setTimeout(redirect, 900);
 

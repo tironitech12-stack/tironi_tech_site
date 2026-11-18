@@ -1,6 +1,6 @@
 import {
   DEFAULT_WHATSAPP_URL,
-  reportWhatsAppConversionAndRedirect,
+  reportWhatsAppConversion,
 } from "../../utils/googleAdsConversion";
 import { externalRel } from "../../utils/externalRel";
 
@@ -14,10 +14,7 @@ export default function FloatingWhatsAppButton() {
       target="_blank"
       rel={externalRel()}
       aria-label="Falar com a TironiTech no WhatsApp"
-      onClick={(event) => {
-        event.preventDefault();
-        reportWhatsAppConversionAndRedirect(WHATSAPP_LEAD_HREF);
-      }}
+      onClick={() => reportWhatsAppConversion()}
     >
       <svg className="tt2-floating-whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <path
