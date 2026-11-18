@@ -17,16 +17,21 @@ export function ensureOpenAIAdsPixel() {
       return false;
     }
 
-    if (!initialized) {
-      if (!window.oaiq) {
-        const queue = function (...args) { queue.q.push(args); };
-        queue.q = [];
-        window.oaiq = queue;
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
-        document.head.appendChild(script);
-      }
+    if (!window.oaiq) {
+      const queue = function () { queue.q.push(arguments); };
+      queue.q = [];
+      window.oaiq = queue;
+      const pixelScript = document.createElement('script');
+      pixelScript.async = true;
+      pixelScript.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
+      pixelScript.addEventListener('error', () => {
+        pixelScript.remove();
+        if (window.oaiq !== queue) return;
+        delete window.oaiq;
+        initialized = false;
+        pixelConsent = undefined;
+      }, { once: true });
+      document.head.appendChild(pixelScript);
     }
     if (pixelConsent !== true) {
       window.oaiq('consent', true);
