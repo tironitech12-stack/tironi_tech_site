@@ -3,6 +3,7 @@ import {
   reportWhatsAppConversion,
 } from "../../utils/googleAdsConversion";
 import { externalRel } from "../../utils/externalRel";
+import { trackOpenAIWhatsAppClick } from "../../utils/openaiAdsConversion";
 
 const WHATSAPP_LEAD_HREF = DEFAULT_WHATSAPP_URL;
 
@@ -14,7 +15,11 @@ export default function FloatingWhatsAppButton() {
       target="_blank"
       rel={externalRel()}
       aria-label="Falar com a TironiTech no WhatsApp"
-      onClick={() => reportWhatsAppConversion()}
+      data-openai-whatsapp-click
+      onClick={() => {
+        trackOpenAIWhatsAppClick();
+        reportWhatsAppConversion();
+      }}
     >
       <svg className="tt2-floating-whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <path

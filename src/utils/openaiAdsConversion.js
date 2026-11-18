@@ -60,6 +60,7 @@ export function installOpenAIAdsTracking() {
     if (event.type === 'auxclick' ? event.button !== 1 : event.button !== 0) return;
     const anchor = event.target?.closest?.('a[href]');
     if (!anchor) return;
+    if (event.type === 'click' && anchor.hasAttribute('data-openai-whatsapp-click')) return;
     try {
       const url = new URL(anchor.href);
       const phone = url.hostname === 'wa.me' ? url.pathname.slice(1) :
