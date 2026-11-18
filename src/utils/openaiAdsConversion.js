@@ -3,10 +3,20 @@ import { COOKIE_CONSENT_UPDATED_EVENT, getStoredCookieConsent } from './cookieCo
 export const OPENAI_ADS_PIXEL_ID = 'QzffkApkFtwFMCpgsADApu';
 let initialized = false;
 let installed = false;
+let pixelConsent;
 
 export function ensureOpenAIAdsPixel() {
-  if (typeof window === 'undefined' || !getStoredCookieConsent()?.marketing) return false;
+  if (typeof window === 'undefined') return false;
+  const marketingAllowed = Boolean(getStoredCookieConsent()?.marketing);
   try {
+    if (!marketingAllowed) {
+      if (initialized && pixelConsent !== false) {
+        window.oaiq('consent', false);
+        pixelConsent = false;
+      }
+      return false;
+    }
+
     if (!initialized) {
       if (!window.oaiq) {
         const queue = function (...args) { queue.q.push(args); };
@@ -17,6 +27,12 @@ export function ensureOpenAIAdsPixel() {
         script.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
         document.head.appendChild(script);
       }
+    }
+    if (pixelConsent !== true) {
+      window.oaiq('consent', true);
+      pixelConsent = true;
+    }
+    if (!initialized) {
       window.oaiq('init', { pixelId: OPENAI_ADS_PIXEL_ID });
       initialized = true;
     }
