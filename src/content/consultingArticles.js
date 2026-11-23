@@ -3090,5 +3090,140 @@ export const consultingArticles = [
         "url": "https://business.whatsapp.com/policy"
       }
     ]
-  }
+  },
+  {
+    "slug": "como-contratar-auditoria-conversoes-organicas",
+    "date": "2026-11-23",
+    "updated": "2026-11-23",
+    "title": "Como contratar uma auditoria de conversões orgânicas para vendas B2B",
+    "description": "Compare propostas de auditoria de conversões orgânicas. Teste a origem dos contatos, a passagem pelo WhatsApp e o registro de oportunidades no CRM.",
+    "category": "SEO e GEO",
+    "readTime": "12 min de leitura",
+    "keywords": [
+      "auditoria de conversões orgânicas",
+      "atribuição de leads B2B",
+      "Search Console e CRM"
+    ],
+    "intro": "Quando o site aparece nas buscas, mas o comercial recebe contatos sem saber qual página despertou o interesse, contrate a auditoria a partir de uma ação que possa ser conferida no CRM. Escolha uma oferta prioritária e acompanhe o percurso da página ao atendimento. O diagnóstico deve esclarecer onde a origem deixa de ser identificável e quanto custa preservar informação suficiente para orientar decisões de conteúdo.",
+    "takeaways": [
+      "Defina qual ação conta como conversão e qual registro comprova o resultado.",
+      "Use páginas e consultas do Search Console para escolher o que testar.",
+      "Confira a origem e o destino do contato no CRM antes de atribuir receita."
+    ],
+    "sections": [
+      {
+        "heading": "Escolha a conversão que a equipe consegue confirmar",
+        "paragraphs": [
+          "Uma página de integração pode registrar um clique no botão e ainda terminar sem formulário enviado. Outra pode receber um pedido válido que entra no CRM sem a referência da página. Peça que o fornecedor simule os dois percursos e entregue os registros que comprovam cada etapa. Use um campo de teste para localizar a solicitação com o comercial e confira se ela aparece com o interesse correto. Só conte o que a operação consegue distinguir no relatório.",
+          "Para discutir o diagnóstico com a Tironi Tech, leve a página de serviço, um pedido que o vendedor conseguiu atender e outro cuja origem ficou desconhecida. Use a amostra para avaliar como uma análise de visibilidade com o GeoAura pode orientar a escolha da página e quais dados a empresa precisa acompanhar para verificar o efeito comercial de uma correção."
+        ]
+      },
+      {
+        "heading": "Use o Search Console para escolher onde investigar",
+        "paragraphs": [
+          "Compare páginas ligadas à mesma oferta durante um período comum e identifique quais recebem cliques de busca. Uma página pode aparecer principalmente para perguntas técnicas, enquanto outra recebe visitas de pessoas que procuram um fornecedor. Anote os termos que o relatório permite observar, o caminho disponível em cada página e o volume de conversas que a equipe consegue conferir no CRM. Use os dados de busca para selecionar as páginas do teste e os registros comerciais para verificar o que aconteceu depois de uma ação de contato.",
+          "Peça ao fornecedor que reproduza uma sessão em que o comprador entra por um artigo, abre uma página de serviço e envia o formulário em outra visita. Defina quais referências a empresa consegue observar em cada etapa. Se a origem inicial ficar indisponível, registre a solicitação em uma categoria de origem desconhecida para preservar a diferença entre falta de informação e ausência de tráfego orgânico. Faça o mesmo ensaio com um formulário iniciado diretamente na página comercial. Use os dois resultados para distinguir o trabalho de ligar páginas ao CRM do trabalho de interpretar o caminho que trouxe o comprador até elas."
+        ]
+      },
+      {
+        "heading": "Confira o caminho até o primeiro atendimento comercial",
+        "paragraphs": [
+          "Escolha uma solicitação que entra na fila geral com um interesse marcado. Peça que o vendedor use apenas os acessos habituais para identificar a oferta, a página que recebeu o formulário e a próxima etapa. Confirme se o registro continua disponível após a transferência para outra carteira. Se a informação só aparece no e-mail que anunciou a entrada, verifique quem consegue recuperá-la depois de uma mudança de turno e quanto tempo leva para reconstruir o percurso. Inclua esse tempo no diagnóstico para decidir quais referências precisam acompanhar o contato."
+        ]
+      },
+      {
+        "heading": "Diferencie a abertura do WhatsApp de uma conversa recebida",
+        "paragraphs": [
+          "Abra pelo celular o botão de contato de uma página de serviço e feche o aplicativo antes de enviar a mensagem. Depois repita o percurso e envie uma pergunta de teste. Os dois casos podem produzir o mesmo evento de clique, mas só o segundo cria trabalho para o atendimento. Peça que o auditor mostre quais etapas consegue observar, como o comercial localiza a entrada e que evidência sustenta o vínculo à página. Quando a informação não chegar ao atendimento, preserve essa lacuna no relatório.",
+          "Repita com uma pessoa que copia o número e envia a mensagem mais tarde. Compare o resultado com o de uma entrada que carrega uma referência de página no texto inicial. Se a pessoa editar o texto, confira o que a equipe ainda pode identificar. A proposta deve combinar o valor de reconhecer a origem com o risco de tornar o primeiro contato mais trabalhoso. Use o percurso mais comum da operação como base para dimensionar o teste."
+        ]
+      },
+      {
+        "heading": "Conte a solicitação uma vez mesmo quando a confirmação é repetida",
+        "paragraphs": [
+          "Envie um formulário de teste e recarregue a página de confirmação. Depois simule a situação em que a pessoa volta ao formulário porque perdeu o aviso de recebimento. Peça que o auditor compare os eventos com os registros efetivamente criados no CRM. Um clique repetido pode indicar dúvida sobre o envio. Uma segunda solicitação com outro serviço pode representar outra oportunidade. Use referências de teste distintas para verificar como cada ação aparece no relatório.",
+          "Se o CRM recebe o formulário por uma integração intermediária, peça que o auditor acompanhe também um caso enviado durante uma indisponibilidade temporária. Verifique quando o formulário foi recebido, quando a oportunidade ficou visível e como o atendimento recupera o contato depois. Na proposta com a Tironi Tech, use esse ensaio para separar o custo de corrigir a medição do custo de recuperar solicitações que a operação ainda não recebeu."
+        ]
+      },
+      {
+        "heading": "Reconstrua o caminho quando a página inicial e a página do formulário são diferentes",
+        "paragraphs": [
+          "Escolha um artigo que recebe cliques de busca e leva a uma página de serviço. Faça um envio de teste após passar pelas duas páginas e outro começando diretamente pela página de serviço. Peça ao auditor que mostre onde cada referência aparece e confirme se o CRM distingue a página consultada da página em que a pessoa solicitou atendimento. A primeira pode ajudar a escolher artigos que merecem revisão. A segunda ajuda a comercial a entender que oferta a pessoa viu antes de preencher o formulário.",
+          "Repita o percurso abrindo o formulário no dia seguinte ou em outro aparelho. Identifique quais referências continuam observáveis em cada cenário e quais precisariam ser declaradas pelo comprador. Se a proposta promete recuperar sempre a origem, peça evidência que permita repetir a conferência com esses percursos. Na decisão de contratação, avalie se o objetivo exige reconstruir uma sequência de páginas ou apenas reconhecer a oferta de interesse no registro comercial. O segundo objetivo pode ser atendido mesmo quando a informação sobre a visita inicial se perdeu."
+        ]
+      },
+      {
+        "heading": "Verifique como a equipe classifica uma solicitação sem intenção de compra",
+        "paragraphs": [
+          "Envie uma solicitação de orçamento, um pedido de suporte de cliente ativo e uma proposta de parceria pelo mesmo formulário. Peça ao responsável pela carteira que classifique os três registros usando o procedimento atual. Confira quais dados ajudam a encaminhar cada caso e quando a classificação fica disponível para a auditoria. Um formulário enviado é evidência de entrada. Para avaliar geração de demanda, use também o desfecho observado pelo comercial antes de contar a solicitação como oportunidade.",
+          "Faça a prova com um contato que começa pedindo suporte e, durante a conversa, manifesta interesse em ampliar o contrato. Registre quando surgiu uma próxima ação de venda e como a empresa preserva o motivo inicial. Se a classificação muda, o relatório precisa permitir que outra pessoa entenda por que uma entrada de suporte passou a integrar a carteira comercial. Use esse caso no diagnóstico com a Tironi Tech para decidir quais estados valem a pena acompanhar e quais campos a primeira correção precisa levar ao CRM."
+        ]
+      },
+      {
+        "heading": "Compare os números com uma amostra que o comercial consiga revisar",
+        "paragraphs": [
+          "Escolha uma semana de entradas associadas à mesma oferta. Para cada registro, confirme se alguém recebeu a solicitação, se conseguiu falar com o comprador e se houve uma próxima ação registrada. Apresente também quantas entradas ficaram sem origem identificável. Quando o volume for pequeno, descreva os casos que motivaram a decisão em vez de extrapolar uma taxa para o restante do site. A proposta de auditoria deve indicar quais informações estarão disponíveis para repetir a conferência depois de corrigir o formulário ou o encaminhamento."
+        ]
+      },
+      {
+        "heading": "Confira a atribuição quando uma campanha e a busca aparecem no mesmo percurso",
+        "paragraphs": [
+          "Simule um comprador que chega por um anúncio, volta pela busca usando o nome da empresa e depois solicita um orçamento. Peça que o auditor mostre o que cada relatório consegue recuperar e qual critério usa para atribuir a solicitação. Uma equipe pode olhar para a primeira visita conhecida ao decidir onde investir em descoberta e usar a última referência para entender o que precedeu o contato. Registre os dois critérios antes de comparar números. Uma diferença entre relatórios pode refletir a pergunta de negócio que cada um responde.",
+          "Repita o ensaio quando o vendedor envia o link da página de serviço durante a negociação. Se o contato volta pelo link para preencher um formulário, verifique como a equipe distingue a origem conhecida da oportunidade e a página usada para prestar a informação. Peça que o registro preserve a negociação existente, mesmo se o novo envio tiver dados mais completos. A empresa deve conseguir aproveitar as informações sem tratar toda interação posterior como uma oportunidade recém-gerada."
+        ]
+      },
+      {
+        "heading": "Defina o que a auditoria precisa entregar para a equipe agir",
+        "paragraphs": [
+          "Peça que cada proposta descreva o que será entregue para uma divergência reproduzível. Se o formulário gera um registro sem a página de origem, o relatório deve identificar o caminho testado, onde a referência desapareceu e qual área pode verificar a correção. Depois de ajustar o fluxo, repita o envio com uma referência de teste diferente e confira se ela aparece no CRM. Compare o preço de produzir o diagnóstico com o custo de implantar e demonstrar o ajuste.",
+          "Leve ao diagnóstico com a Tironi Tech um caso que já tem evidência suficiente para testar e outro em que faltam acessos ou registros. O primeiro pode orientar um orçamento de correção. O segundo precisa de uma etapa para recuperar informações ou delimitar o que poderá ser medido. Peça que a proposta indique quais perguntas o GeoAura pode ajudar a investigar na busca e quais respostas dependem da validação do contato pela operação comercial."
+        ]
+      },
+      {
+        "heading": "Priorize os ajustes pela decisão que os dados vão sustentar",
+        "paragraphs": [
+          "Imagine duas páginas de serviço com problemas diferentes. A primeira perde a referência de origem quando o visitante abre o formulário. A segunda identifica a página corretamente, mas encaminha pedidos de implantação para a fila de suporte. Antes de escolher qual correção entra no orçamento, estime quantos pedidos passam por cada caminho e quanto tempo levam para chegar a quem pode atendê-los. Se a supervisão já corrige o encaminhamento no mesmo turno, a perda de contexto pode ser o problema mais importante para quem decide onde investir em conteúdo. Se os pedidos aguardam dias no suporte, trate o destino como uma entrega comercial do projeto e meça o prazo até o primeiro atendimento.",
+          "Peça que a auditoria produza uma ficha que a equipe consiga revisar para cada ajuste. Inclua a página, o dispositivo usado no teste, a ação executada, a evidência no CRM e o resultado esperado depois da correção. Observe se o diagnóstico informa quem consegue alterar o fluxo e quem pode repetir a conferência. Use uma solicitação encaminhada erroneamente para verificar se o vendedor encontra o registro pelo identificador de teste, mesmo depois de transferi-lo. O próximo orçamento pode usar essa ficha para discriminar o custo de corrigir o envio, revisar o formulário ou treinar quem mantém as regras."
+        ]
+      },
+      {
+        "heading": "Use o mesmo recorte quando a página ou o formulário mudar",
+        "paragraphs": [
+          "Se a empresa trocar o endereço de uma página comercial durante o piloto, registre a data da mudança e acompanhe visitas e solicitações antes de juntar os períodos. Teste também um link antigo guardado por um vendedor. Confira para onde ele leva, em que página o comprador envia a solicitação e qual referência chega ao CRM. Se o novo endereço passou a apresentar outra oferta, peça ao responsável pelo conteúdo que indique quais registros continuam comparáveis. Essa conferência evita interpretar solicitações de serviços diferentes como mudanças na procura pelo mesmo serviço.",
+          "Repita o exercício com uma alteração no formulário que acrescenta uma pergunta sobre o serviço desejado. Se o total de entradas cai e as solicitações que chegam aos vendedores melhoram, confira quanto da mudança pode ser explicado pelo preenchimento e quanto dependeu de alterações nas visitas. Observe uma amostra de entradas abandonadas apenas na medida em que existam dados autorizados para entender o percurso. Apresente o resultado como evidência da etapa observada e combine um novo teste quando houver poucos casos para sustentar uma decisão sobre o formulário inteiro."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Um clique no botão do WhatsApp conta como lead confirmado?",
+        "answer": "Ele registra a abertura do canal. Para medir leads recebidos, defina qual conversa ou contato será registrado pelo comercial e como será feita a deduplicação."
+      },
+      {
+        "question": "O Search Console mostra quais contatos viraram oportunidades?",
+        "answer": "O relatório mostra cliques e impressões da busca. Para verificar oportunidades, a empresa precisa conferir os registros comerciais e a origem disponível no fluxo de contato."
+      },
+      {
+        "question": "O que pedir no aceite de uma auditoria?",
+        "answer": "Peça um cenário reproduzível por problema, a evidência do ponto em que a referência se perde, a área responsável e um roteiro para conferir o ajuste depois da implantação."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Google Search Console — relatório de desempenho",
+        "url": "https://support.google.com/webmasters/answer/7576553"
+      }
+    ],
+    "primaryGuide": {
+      "href": "/como-a-tironi-tech-atua",
+      "label": "Como a Tironi Tech implanta melhorias na operação",
+      "description": "Veja como transformar um problema de mensuração em escopo, roteiro de teste e critério de aceite."
+    },
+    "cta": {
+      "title": "Leve um caso de origem perdida ao diagnóstico",
+      "text": "Traga uma página de serviço e um contato que o comercial conseguiu atender. Vamos identificar quais registros permitem ligar as duas etapas.",
+      "label": "Agendar diagnóstico",
+      "href": "/formulario?interesse=club&origem=guia-auditoria-conversoes-organicas"
+    }
+  },
 ];

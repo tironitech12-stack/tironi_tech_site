@@ -20,7 +20,7 @@ export default function ServiceLandingPage({ page }) {
 
   useEffect(() => {
     applyPageMeta({
-      title: `${page.keyword} | Tironi Tech`,
+      title: page.seoTitle || `${page.keyword} | Tironi Tech`,
       description: page.description,
       path: `/${page.slug}`,
       image: page.image,
@@ -38,6 +38,15 @@ export default function ServiceLandingPage({ page }) {
         <figure><img {...getOptimizedImageAttributes(page.image, { sizes: '(max-width: 900px) 100vw, 46vw' })} alt={page.imageAlt} loading="eager" decoding="async" /><figcaption>Solução desenhada para o processo, os dados e a meta da sua empresa.</figcaption></figure>
       </div></section>
       <section className="tt-service-problem"><div className="tt2-container"><span>O GARGALO</span><h2>{page.problem}</h2><div className="tt-service-outcomes">{page.outcomes.map((item, index) => <article key={item}><small>0{index + 1}</small><p>{item}</p></article>)}</div></div></section>
+      {page.decisionPaths && <section className="tt-service-process" aria-labelledby="service-paths-title">
+        <div className="tt2-container">
+          <h2 id="service-paths-title">Qual caminho faz sentido para sua empresa?</h2>
+          <div className="tt-service-process-grid">
+            {page.decisionPaths.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
+          </div>
+          <p><a href={diagnosticHref}>Levar meu processo para o diagnóstico</a></p>
+        </div>
+      </section>}
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">APLICAÇÃO PRÁTICA</span><h2>Tecnologia ligada à operação, do primeiro dado ao próximo passo</h2></div><div><p>{page.solution}</p><p>{page.proof}</p>{page.guideLinks?.map(({ href, label }) => <p key={href}><a href={href}>{label}</a></p>)}{page.proofLink && <p><a href={page.proofLink.href}>{page.proofLink.label} →</a></p>}</div></div></section>
       {page.caseStudy && <section className="tt-service-solution" aria-labelledby="service-case-title">
         <div className="tt2-container tt-service-two-col">

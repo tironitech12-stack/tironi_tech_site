@@ -543,19 +543,9 @@ for (const article of expandedBlogArticles) {
 }
 
 const searchSnippets = {
-  'pesquisa-138-how-to-build-a-whatsapp-chatbot-guia-aplicacao': {
-    title: 'Chatbot no WhatsApp para empresas: análise e aplicação',
-    description: 'Análise em português de “How to Build a WhatsApp Chatbot”: decisões, riscos e critérios para avaliar a aplicação na operação da empresa.',
-    updated: '2026-10-13',
-  },
   'como-organizar-onboarding-cliente-b2b-primeira-entrega': {
     title: 'Onboarding de clientes B2B: da contratação à primeira entrega',
     description: 'Como organizar o onboarding de clientes B2B com responsáveis, dependências e uma primeira entrega que o cliente consegue usar e conferir.',
-  },
-  'como-responder-duvidas-proposta-whatsapp-sem-mudar-escopo-por-acidente': {
-    title: 'Dúvidas de proposta no WhatsApp: esclareça sem mudar o escopo',
-    description: 'Responda dúvidas de proposta no WhatsApp, diferencie esclarecimento de alteração e preserve escopo, prazo, preço e versão aprovada.',
-    updated: '2026-10-23',
   },
   'idempotencia-integracao-pedidos': {
     title: 'Idempotência em integrações: evite pedidos duplicados',
