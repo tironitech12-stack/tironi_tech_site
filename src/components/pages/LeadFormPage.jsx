@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getSiteText } from '../../content/siteContent';
 import { INTEREST_OPTIONS, interestLabel } from '../../content/positioning';
+import { getLeadAttribution } from '../../utils/leadAttribution';
 import { applyPageMeta } from '../../utils/pageMeta';
 import { trackFunnelEvent } from '../../utils/conversionTracking';
 import Navbar from '../layout/Navbar';
@@ -11,22 +12,12 @@ import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import '../../styles/theme.css';
 import '../../styles/form.css';
 
-const initialForm = { name: '', email: '', phone: '', company: '', interest: '', consent: false, website: '' };
-
-function getAttribution() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    source: document.referrer || 'acesso direto',
-    page: window.location.href,
-    utmSource: params.get('utm_source') || '',
-    utmMedium: params.get('utm_medium') || '',
-    utmCampaign: params.get('utm_campaign') || '',
-  };
-}
+const initialForm = { name: '', email: '', phone: '', company: '', interest: '', project: '', consent: false, website: '' };
 
 export default function LeadFormPage() {
   const { languageOptions } = useLanguage();
   const t = getSiteText('pt');
+  const formStarted = useRef(false);
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
@@ -37,18 +28,19 @@ export default function LeadFormPage() {
     const interest = interestLabel(params.get('interesse'));
     if (interest) setForm((current) => ({ ...current, interest }));
     applyPageMeta({
-      title: 'Agendar diagnóstico estratégico | Tironi Tech',
-      description: 'Agende um diagnóstico estratégico com a Tironi Tech para mapear o que trava o crescimento e definir a primeira frente de execução.',
+      title: 'Solicitar orçamento | Tironi Tech',
+      description: 'Descreva o sistema, a integração ou o processo que sua empresa precisa melhorar e solicite um orçamento à Tironi Tech.',
       path: '/formulario',
       breadcrumbs: [
         { name: 'Início', path: '/' },
         { name: 'Diagnóstico', path: '/formulario' },
       ],
     });
-    trackFunnelEvent('diagnostic_start', { origem: params.get('origem') || 'direto', interesse: params.get('interesse') || '' });
+
   }, []);
 
   function updateField(event) {
+    if (status === 'submitting') return;
     const { name, value, checked, type } = event.target;
     setForm((current) => ({ ...current, [name]: type === 'checkbox' ? checked : value }));
     if (status !== 'idle') {
@@ -59,13 +51,14 @@ export default function LeadFormPage() {
 
   async function submit(event) {
     event.preventDefault();
+    if (status === 'submitting') return;
     setStatus('submitting');
     setMessage('');
     try {
       const response = await fetch('/api/sendpulse-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, ...getAttribution() }),
+        body: JSON.stringify({ ...form, ...getLeadAttribution(), contactOrigin: new URLSearchParams(window.location.search).get('origem') || '' }),
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || 'Não foi possível enviar seus dados.');
@@ -93,9 +86,9 @@ export default function LeadFormPage() {
         <main className="tt-lead-main">
           <section className="tt-lead-intro" aria-labelledby="lead-page-title">
             <div className="tt-lead-intro-copy">
-              <span className="tt-lead-kicker">DIAGNÓSTICO ESTRATÉGICO</span>
-              <h1 id="lead-page-title">Vamos mapear o que trava o crescimento.</h1>
-              <p>Conte o contexto da operação. A conversa define a frente prioritária: o Tironi Tech Club, uma ferramenta ou um projeto específico de desenvolvimento.</p>
+              <span className="tt-lead-kicker">CONTATO COMERCIAL</span>
+              <h1 id="lead-page-title">Conte o que sua empresa precisa resolver</h1>
+              <p>Descreva o processo, o sistema ou a integração. Vamos entender o cenário e indicar o próximo passo para avaliar o projeto.</p>
               <div className="tt-lead-expectations" aria-label="Próximas etapas">
                 <article><strong>01</strong><span>Entendemos o cenário e a prioridade.</span></article>
                 <article><strong>02</strong><span>Identificamos o primeiro recorte viável.</span></article>
@@ -103,7 +96,12 @@ export default function LeadFormPage() {
               </div>
             </div>
 
-            <form className="tt-lead-form" onSubmit={submit} noValidate={false}>
+            <form className="tt-lead-form" onSubmit={submit} onFocus={() => {
+              if (!formStarted.current) {
+                formStarted.current = true;
+                trackFunnelEvent('lead_form_start', { interest: form.interest });
+              }
+            }}>
               <div className="tt-lead-form-head">
                 <span>SEUS DADOS</span>
                 <h2>Vamos conversar</h2>
@@ -120,8 +118,8 @@ export default function LeadFormPage() {
                   <input name="email" type="email" value={form.email} onChange={updateField} autoComplete="email" maxLength="160" required />
                 </label>
                 <label>
-                  <span>Telefone / WhatsApp</span>
-                  <input name="phone" type="tel" value={form.phone} onChange={updateField} autoComplete="tel" inputMode="tel" minLength="8" maxLength="24" placeholder="+55 43 99999-9999" required />
+                  <span>Telefone / WhatsApp (opcional)</span>
+                  <input name="phone" type="tel" value={form.phone} onChange={updateField} autoComplete="tel" inputMode="tel" minLength="8" maxLength="24" placeholder="+55 43 99999-9999" />
                 </label>
                 <label>
                   <span>Empresa</span>
@@ -133,6 +131,10 @@ export default function LeadFormPage() {
                     <option value="">Selecione uma opção</option>
                     {INTEREST_OPTIONS.map(([key, label]) => <option key={key} value={label}>{label}</option>)}
                   </select>
+                </label>
+                <label className="tt-lead-field-wide">
+                  <span>O que sua empresa precisa resolver?</span>
+                  <textarea name="project" value={form.project} onChange={updateField} rows="4" maxLength="900" placeholder="Ex.: conectar os pedidos do CRM ao ERP e acompanhar falhas." />
                 </label>
                 <label className="tt-lead-honeypot" aria-hidden="true">
                   <span>Website</span>
@@ -146,7 +148,7 @@ export default function LeadFormPage() {
               </label>
 
               <button className="tt-lead-submit" type="submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Enviando…' : 'Enviar meus dados'}
+                {status === 'submitting' ? 'Enviando…' : 'Enviar solicitação'}
                 <span aria-hidden="true">→</span>
               </button>
 

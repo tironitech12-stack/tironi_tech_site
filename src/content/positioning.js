@@ -1,8 +1,6 @@
-import { founderProfile } from './founderProfile.js';
-
 export const HOME_SEO = {
-  title: 'Tironi Tech | Transformação Empresarial, IA e Automação',
-  description: `Tironi Tech desde ${founderProfile.foundingYear}, com a experiência de ${founderProfile.name} em tecnologia desde ${founderProfile.careerStartYear}. Software sob medida, automação e IA para empresas.`,
+  title: 'Software sob medida e automação com IA | Tironi Tech',
+  description: 'A Tironi Tech desenvolve software sob medida, integra ERP e CRM e automatiza processos com IA. Conheça as soluções e solicite um orçamento.',
 };
 
 export const CLUB_SEO = {
@@ -495,6 +493,7 @@ export const INTEREST_OPTIONS = [
   ['desenvolvimento', 'Desenvolvimento de um projeto específico'],
   ['ferramentas', 'Ferramentas da Tironi'],
   ['automacao', 'Automação de processos empresariais'],
+  ['integracao', 'Integração de sistemas, ERP e CRM'],
   ['ia', 'Inteligência artificial para empresas'],
   ['outro', 'Outro assunto'],
 ];

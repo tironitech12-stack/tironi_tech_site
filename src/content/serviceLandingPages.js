@@ -18,11 +18,38 @@ const commonProcess = [
 
 export const serviceLandingPages = [
   {
+    slug: 'integracao-de-sistemas',
+    keyword: 'Integração de sistemas empresariais',
+    seoTitle: 'Integração de sistemas, ERP e CRM | Tironi Tech',
+    title: 'Integração de sistemas, ERP e CRM para empresas',
+    updated: '2026-11-24',
+    description: 'Conectamos as ferramentas da sua empresa para sincronizar pedidos, cadastros e estoque. Solicite uma avaliação da integração.',
+    problem: 'Quando vendas e operação usam sistemas separados, a equipe precisa redigitar dados e conferir divergências manualmente. Um pedido repetido ou uma falha silenciosa pode chegar até o faturamento.',
+    solution: 'Começamos por um fluxo completo. Identificamos a fonte de cada campo, a direção da sincronização e como a equipe vai corrigir falhas. A conexão pode usar APIs, webhooks ou arquivos, conforme os recursos dos sistemas.',
+    proof: 'O primeiro teste pode demonstrar um pedido novo, um pedido repetido e uma falha temporária. A equipe deve conseguir identificar o que foi integrado e retomar o fluxo sem criar duplicatas.',
+    outcomes: ['Pedidos, cadastros e estoque sincronizados conforme as regras da operação.', 'Falhas com registro, alerta e procedimento de recuperação.', 'Responsáveis e critérios de aceite documentados.'],
+    deliverables: ['Mapa de sistemas, campos e fontes de dados.', 'Fluxo integrado com tratamento de duplicatas e erros.', 'Roteiro de testes e orientações para acompanhar a operação.'],
+    costFactors: ['Quantidade de sistemas e fluxos.', 'Acesso e limites das APIs.', 'Qualidade dos dados, frequência e necessidade de migração.'],
+    proofLink: { href: '/#projetos', label: 'Ver projetos de sistemas e dados da Tironi Tech' },
+    download: { href: '/checklist-integracao-erp-crm.txt', label: 'Baixar checklist de integração ERP–CRM' },
+    guideLinks: [
+      { href: '/blog/como-contratar-integracao-crm-erp', label: 'Checklist para contratar uma integração CRM–ERP' },
+      { href: '/blog/como-contratar-reconciliacao-pedidos', label: 'Como validar a reconciliação de pedidos' },
+      { href: '/blog/como-contratar-monitoramento-integracoes', label: 'Como acompanhar integrações em produção' },
+    ],
+    process: commonProcess,
+    faqs: [
+      ['Preciso trocar meu ERP ou CRM?', 'A primeira avaliação verifica se os sistemas atuais oferecem acesso suficiente para a integração e se há restrições que afetam o projeto.'],
+      ['O que preciso informar para solicitar orçamento?', 'Informe quais sistemas usa, quais dados precisam circular, quem corrige divergências e com que frequência o processo acontece.'],
+      ['Como a equipe percebe se a integração falhou?', 'O projeto define quais falhas geram alerta, quem deve atuar e como reenviar ou reconciliar os registros com segurança.'],
+    ],
+  },
+  {
     slug: 'como-a-tironi-tech-atua',
     keyword: 'Como a Tironi Tech atua',
     seoTitle: 'Software sob medida, integração e IA | Tironi Tech',
-    updated: '2026-11-23',
-    title: 'Como a Tironi Tech ajuda sua empresa a escolher, implantar e evoluir software',
+    updated: '2026-11-24',
+    title: 'Quando contratar software sob medida, integração ou automação com IA',
     description: 'Saiba quando contratar software sob medida, integrar CRM e ERP ou implantar automação com IA. Veja o que a Tironi Tech entrega e como validar a proposta.',
     problem: 'Uma empresa pode precisar de atendimento mais rápido, prospecção organizada ou menos trabalho manual entre sistemas. Cada problema pede uma entrega e um critério de aceite próprios.',
     outcomes: [
@@ -34,10 +61,10 @@ export const serviceLandingPages = [
     solution: 'Começamos com uma rotina que sua equipe consegue demonstrar. Mapeamos quem executa cada etapa, onde os dados são registrados e qual resultado a primeira entrega precisa comprovar.',
     proof: 'No diagnóstico, leve um exemplo que funciona e outro que trava. Se o seu problema for orçamento no WhatsApp, mostre uma conversa que virou oportunidade e outra que ficou sem responsável. A partir desses casos, definimos o que cabe no primeiro teste.',
     decisionPaths: [
-      ['Implantar uma plataforma', 'Quando o processo é comum e a equipe precisa organizar filas, responsáveis ou registros. Em um piloto de atendimento, verifique se o ChatBô encaminha a conversa com o contexto necessário.'],
-      ['Integrar sistemas existentes', 'Quando CRM e ERP atendem à operação, mas alguém ainda copia dados entre eles. Defina qual sistema é fonte de cada informação e teste o que acontece se um pedido chegar duplicado ou a integração falhar.'],
-      ['Desenvolver software sob medida', 'Quando regras próprias, aprovações ou a experiência do cliente precisam de um sistema específico. Valide primeiro uma jornada completa, como um cliente B2B repetir um pedido com condições da própria carteira.'],
-      ['Evoluir a operação em ciclos', 'Quando há várias frentes concorrendo por tempo e orçamento. No Tironi Tech Club, a equipe prioriza uma frente, acompanha a implantação e usa os indicadores para decidir o próximo ciclo.'],
+      ['Desenvolver software sob medida', 'Quando regras, aprovações ou a experiência do cliente exigem um sistema próprio. Valide primeiro uma jornada completa.', '/software-sob-medida'],
+      ['Integrar sistemas existentes', 'Quando as ferramentas atendem à operação e alguém ainda copia dados entre elas. Identifique a fonte de cada dado e teste falhas e duplicatas.', '/integracao-de-sistemas'],
+      ['Automatizar etapas manuais', 'Quando o processo existe e tem tarefas repetitivas. Defina regras, exceções e quando a equipe precisa intervir.', '/automacao-processos-com-ia'],
+      ['Planejar um piloto de IA', 'Quando a empresa precisa escolher um processo e confirmar se os dados permitem a aplicação. Defina o que o piloto precisa demonstrar.', '/consultoria-ia-para-empresas'],
     ],
     deliverables: ['Mapa do fluxo atual com sistemas, responsáveis e exceções.', 'Escopo da primeira entrega, com dados e acessos necessários.', 'Roteiro de aceite com exemplo normal, falha e transição para atendimento manual.', 'Indicador inicial para comparar com o uso após a implantação.'],
     costFactors: ['Número de processos e integrações na primeira entrega.', 'Qualidade dos cadastros e acesso às APIs ou aos dados.', 'Permissões, necessidade de migração e suporte após a implantação.'],
@@ -173,7 +200,10 @@ export const serviceLandingPages = [
     problem: 'O processo fica preso entre e-mails, documentos, aprovações, planilhas e sistemas que não compartilham contexto.',
     outcomes: ['Entrada e classificação padronizadas', 'Aprovações e exceções encaminhadas com contexto', 'Indicadores de tempo, falha e resultado por etapa'],
     solution: 'Modelamos eventos, estados e responsabilidades. A IA trata informações variáveis; regras controlam decisões estáveis; integrações executam e registram ações.',
-    proof: 'A Tironi Tech avalia o processo completo para evitar automações locais que apenas deslocam o trabalho para outra etapa.',
+    proof: 'A Tironi Tech avalia o processo completo para identificar onde uma tarefa pode ser automatizada e onde a equipe precisa revisar a saída.',
+    guideLinks: [{ href: '/blog/como-contratar-piloto-ia-triagem-documentos', label: 'Como contratar um piloto de IA para triagem de documentos' }],
+    deliverables: ['Fluxo de entrada, validação e tratamento de exceções.', 'Critérios para revisão humana e um roteiro de testes.', 'Indicadores para comparar tempo de ciclo e intervenções antes e depois.'],
+    costFactors: ['Volume e variação dos documentos ou tarefas.', 'Quantidade de sistemas e etapas de aprovação.', 'Revisão humana, monitoramento e suporte após implantação.'],
     image: '/brand/tironi-symbol.png', imageAlt: 'Automação de processos empresariais com IA', process: commonProcess,
     faqs: [['Quais processos são melhores para começar?', 'Os frequentes, mensuráveis, baseados em informação e com exceções conhecidas.'], ['Automação com IA é segura?', 'Pode ser, quando identidade, permissão, validação, logs e supervisão são projetados desde o início.'], ['Como calcular retorno?', 'Compare tempo, custo, erro, ciclo e resultado antes e depois, incluindo implantação e operação.']],
   },
@@ -197,6 +227,8 @@ export const searchConsolePriorityServiceSlugs = [
 ];
 
 const diagnosticInterest = {
+  'integracao-de-sistemas': 'integracao',
+  'como-a-tironi-tech-atua': 'desenvolvimento',
   'software-sob-medida': 'desenvolvimento',
   'desenvolvimento-software-sob-medida': 'desenvolvimento',
   'consultoria-ia-para-empresas': 'ia',
@@ -210,5 +242,7 @@ const diagnosticInterest = {
 };
 
 export const getServiceLandingPage = (slug) => serviceLandingPages.find((page) => page.slug === slug);
+export const serviceWhatsAppPath = (page) => `https://wa.me/5543996676633?text=${encodeURIComponent(`Olá! Gostaria de conversar com a Tironi Tech sobre ${page.keyword.toLocaleLowerCase('pt-BR')}.`)}`;
+
 export const serviceDiagnosticPath = (slug) => `/formulario?interesse=${diagnosticInterest[slug] || 'club'}&origem=${slug}`;
 export { whatsapp as serviceLandingWhatsApp };

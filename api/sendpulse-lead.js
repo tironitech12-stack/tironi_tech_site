@@ -60,6 +60,8 @@ export default async function handler(request, response) {
     phone: clean(body.phone, 24),
     company: clean(body.company, 120),
     interest: clean(body.interest, 120),
+    project: clean(body.project, 900),
+    contactOrigin: clean(body.contactOrigin, 120),
     source: clean(body.source, 255),
     page: clean(body.page, 255),
     utmSource: clean(body.utmSource, 120),
@@ -71,7 +73,7 @@ export default async function handler(request, response) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) return json(response, 400, { message: 'Informe um e-mail válido.' });
   let phoneDigits = lead.phone.replace(/\D/g, '');
   if (!lead.phone.startsWith('+') && (phoneDigits.length === 10 || phoneDigits.length === 11)) phoneDigits = `55${phoneDigits}`;
-  if (phoneDigits.length < 10 || phoneDigits.length > 15) return json(response, 400, { message: 'Informe um telefone válido, com DDD.' });
+  if (lead.phone && (phoneDigits.length < 10 || phoneDigits.length > 15)) return json(response, 400, { message: 'Informe um telefone válido, com DDD.' });
 
   const addressBookId = clean(process.env.SENDPULSE_ADDRESSBOOK_ID, 32);
   if (!addressBookId) return json(response, 503, { message: 'O formulário está sendo configurado. Fale conosco pelo WhatsApp.' });
@@ -86,9 +88,11 @@ export default async function handler(request, response) {
           email: lead.email,
           variables: {
             Name: lead.name,
-            Phone: `+${phoneDigits}`,
+            ...(phoneDigits ? { Phone: `+${phoneDigits}` } : {}),
             Empresa: lead.company,
             Interesse: lead.interest,
+            ...(lead.project ? { Projeto: lead.project } : {}),
+            ...(lead.contactOrigin ? { Origem_CTA: lead.contactOrigin } : {}),
             Origem: lead.source,
             Pagina: lead.page,
             UTM_Source: lead.utmSource,

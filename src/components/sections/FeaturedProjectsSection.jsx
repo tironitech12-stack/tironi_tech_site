@@ -1,3 +1,4 @@
+import { orderHomeProjects } from '../../content/homeServices';
 import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import newstoreSorteiosLogo from "../../assets/newstore-sorteios-logo.png";
@@ -64,7 +65,7 @@ export default function FeaturedProjectsSection({ t, language = "pt" }) {
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const ease = [0.22, 1, 0.36, 1];
-  const projects = t.featuredProjects.items;
+  const projects = orderHomeProjects(t.featuredProjects.items);
 
   const handleTabKeyDown = (event, index) => {
     const nextIndex = { ArrowRight: (index + 1) % projects.length, ArrowLeft: (index - 1 + projects.length) % projects.length, Home: 0, End: projects.length - 1 }[event.key];

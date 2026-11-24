@@ -1,3 +1,4 @@
+import { homeBuyingQuestions, homeServicePaths, homeServices } from '../src/content/homeServices.js';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -187,6 +188,19 @@ const homeHtml = await read('index.html');
 // Experience must be readable before JavaScript runs, not only inside metadata or bundles.
 const visibleBody = (html) => html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1].replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '') || '';
 const homeVisibleBody = visibleBody(homeHtml);
+assert(homeVisibleBody.includes('<h1>Software sob medida e automação com IA para empresas</h1>'), 'Home must state its commercial positioning in the initial H1');
+const homeCommercialSection = homeVisibleBody.match(/<section id="onde-atuamos">[\s\S]*?<\/section>/)?.[0] || '';
+assert(homeCommercialSection.includes(escapeHtml(homeServices.pt.title)), 'Home service section must appear in initial HTML');
+for (const path of homeServicePaths) {
+  assert(homeCommercialSection.includes(`href="${path}"`), `Home service section missing ${path}`);
+}
+for (const [question] of homeBuyingQuestions) {
+  assert(homeVisibleBody.includes(escapeHtml(question)), 'Home buying questions must appear in initial HTML');
+}
+assert(sitemapUrls.has(`${origin}/integracao-de-sistemas`), 'Integration landing page must be in sitemap');
+const integrationHtml = await read('integracao-de-sistemas/index.html');
+assert(visibleBody(integrationHtml).includes('Solicitar orçamento'), 'Integration landing page must expose a commercial CTA');
+assert(visibleBody(integrationHtml).includes('interesse=integracao'), 'Integration CTA must carry the service interest');
 const founderSection = homeVisibleBody.match(/<article id="fundador"[^>]*>[\s\S]*?<\/article>/)?.[0];
 assert(founderSection, 'Founder linked from Organization must be present before JavaScript loads');
 for (const href of [founderProfile.linkedinUrl, founderProfile.businessHistoryUrl]) {
@@ -226,7 +240,7 @@ for (const service of serviceLandingPages) {
   }
   assert.deepEqual(schemaFrom(html), createServiceSchema(service), `Service schema differs from its client route: ${service.slug}`);
   assert(html.includes('<meta property="og:type" content="website">'), `Service is incorrectly marked as a blog article: ${service.slug}`);
-  if (service.image.startsWith('/brand/')) assert(html.includes('srcset='), `Missing responsive service image: ${service.slug}`);
+  if (service.image?.startsWith('/brand/')) assert(html.includes('srcset='), `Missing responsive service image: ${service.slug}`);
   for (const item of [...(service.deliverables || []), ...(service.limits || []), ...(service.costFactors || [])]) {
     assert(html.includes(escapeHtml(item)), `Service scope missing from HTML: ${service.slug}`);
   }

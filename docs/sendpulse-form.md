@@ -19,6 +19,8 @@ A lista do SendPulse deve aceitar estas variáveis:
 - `Phone`
 - `Empresa`
 - `Interesse`
+- `Projeto` (texto do briefing, quando informado)
+- `Origem_CTA` (identificador interno da página ou botão, quando disponível)
 - `Origem`
 - `Pagina`
 - `UTM_Source`
@@ -26,4 +28,4 @@ A lista do SendPulse deve aceitar estas variáveis:
 - `UTM_Campaign`
 - `Consentimento`
 
-O e-mail é o identificador principal do contato. A função converte telefones brasileiros com DDD para o prefixo internacional `+55` quando o visitante não informa o código do país.
+O e-mail continua obrigatório como identificador do contato; telefone e briefing são opcionais. `Pagina` guarda a entrada e os campos UTM são preservados durante a visita quando Analytics está autorizado. Confira na lista do SendPulse se os novos campos recebem os valores após um envio de teste. A função converte telefones brasileiros com DDD para o prefixo internacional `+55` quando o visitante não informa o código do país.

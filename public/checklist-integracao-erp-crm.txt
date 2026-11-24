@@ -1,0 +1,15 @@
+Checklist de escopo para integrar ERP e CRM
+Tironi Tech
+
+[ ] Identifique os sistemas, responsáveis e ambientes de teste.
+[ ] Escolha o primeiro fluxo e descreva o gatilho e o resultado esperado.
+[ ] Liste os campos e defina qual sistema é a fonte de verdade de cada um.
+[ ] Registre direção, frequência e volume aproximado da sincronização.
+[ ] Defina como identificar um pedido repetido e impedir duplicação.
+[ ] Liste dados obrigatórios, exceções e situações de aprovação manual.
+[ ] Combine quem recebe alertas, corrige dados e pode reenviar registros.
+[ ] Teste um pedido válido, uma duplicata e uma falha temporária do ERP.
+[ ] Compare os registros nos dois sistemas e defina como conciliar divergências.
+[ ] Nomeie quem aprova a entrega e quem acompanha a operação após a implantação.
+
+Serviço e contato: https://www.tironitech.com/integracao-de-sistemas

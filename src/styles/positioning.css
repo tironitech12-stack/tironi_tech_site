@@ -13,7 +13,7 @@
 .tt-pillars-grid h3, .tt-home-tools h3, .tt-offer h3 { margin: 0 0 8px; color: #f4f8fd; font-size: 16px; }
 .tt-pillars-grid p, .tt-home-tools p { margin: 0; font-size: 14px; }
 .tt-home-tools .tt-offer-primary, .tt-offer-primary { display: inline-flex; align-items: center; gap: 16px; margin-top: 22px; min-height: 52px; padding: 14px 18px; border-radius: 10px; color: #fff; font-weight: 650; background: linear-gradient(110deg, #086bb3, #0753c5); }
-.tt-priority-services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.tt-priority-services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
 .tt-priority-services-grid article { display: flex; flex-direction: column; padding: 20px; border: 1px solid #2a6f9647; border-radius: 14px; background: #071827cc; }
 .tt-priority-services-grid h3 { margin: 0 0 10px; font-size: 18px; }
 .tt-priority-services-grid h3 a { color: #f4f8fd; text-decoration: none; }
@@ -80,4 +80,21 @@ html[data-theme="club"] .tt-hero-pitch-title.is-statement { font-size: clamp(34p
   .tt-club-plan-table td { border: 0; white-space: normal; }
   .tt-offer-actions { align-items: stretch; }
   .tt-offer-primary { justify-content: space-between; }
+}
+
+.tt-home-service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tt-home-service-actions p {
+  margin: 0;
+  font-weight: 650;
+}
+
+#onde-atuamos {
+  scroll-margin-top: 6rem;
 }

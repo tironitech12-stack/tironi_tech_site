@@ -82,7 +82,8 @@
 .tt-lead-field-wide { grid-column: 1 / -1; }
 
 .tt-lead-fields input,
-.tt-lead-fields select {
+.tt-lead-fields select,
+.tt-lead-fields textarea {
   width: 100%;
   min-height: 50px;
   padding: 0 14px;
@@ -95,9 +96,12 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.tt-lead-fields select { color-scheme: dark; }
+.tt-lead-fields select,
+.tt-lead-fields textarea { color-scheme: dark; }
+.tt-lead-fields textarea { padding-block: 12px; resize: vertical; }
 .tt-lead-fields input:focus,
-.tt-lead-fields select:focus { border-color: #68cbff; box-shadow: 0 0 0 3px rgba(104, 203, 255, 0.12); }
+.tt-lead-fields select:focus,
+.tt-lead-fields textarea:focus { border-color: #68cbff; box-shadow: 0 0 0 3px rgba(104, 203, 255, 0.12); }
 .tt-lead-fields input::placeholder { color: #567387; }
 .tt-lead-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 

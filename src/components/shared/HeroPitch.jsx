@@ -3,7 +3,7 @@ import '../../styles/positioning.css';
 import { diagnosticHref } from '../../content/positioning';
 import { trackFunnelEvent } from '../../utils/conversionTracking';
 
-export default function HeroPitch({ copy, mobile = false, primaryHref = diagnosticHref('club', 'hero'), onPrimaryClick }) {
+export default function HeroPitch({ copy, mobile = false, primaryHref = diagnosticHref('desenvolvimento', 'hero'), onPrimaryClick }) {
   const secondaryHref = copy.secondaryHref || '/como-funciona';
   return (
     <div className="tt-hero-pitch">
@@ -29,7 +29,6 @@ export default function HeroPitch({ copy, mobile = false, primaryHref = diagnost
             className="tt-hero-pitch-primary"
             href={primaryHref}
             onClick={(event) => {
-              trackFunnelEvent('hero_cta_click', { device: mobile ? 'mobile' : 'desktop', cta: 'primary' });
               trackFunnelEvent('hero_primary_cta_click', { device: mobile ? 'mobile' : 'desktop' });
               onPrimaryClick?.(event);
             }}

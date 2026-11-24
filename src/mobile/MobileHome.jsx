@@ -1,7 +1,9 @@
+import { orderHomeProjects } from '../content/homeServices';
 import { useEffect, useState } from "react";
 import { motion as Motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import ChatboSpotlight from "../components/sections/ChatboSpotlight";
+import HomeBuyingQuestions from "../components/sections/HomeBuyingQuestions";
 import BlogHighlight from "../components/sections/BlogHighlight";
 import LogoLoop from "../components/ui/LogoLoop";
 import "../styles/client-showcase.css";
@@ -98,7 +100,7 @@ export default function MobileHome() {
   const reduceMotion = useReducedMotion();
   const solutionExperience = getSolutionExperience(language);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const mobileProjects = t.featuredProjects.items;
+  const mobileProjects = orderHomeProjects(t.featuredProjects.items);
 
   const handleProjectTabKeyDown = (event, index) => {
     const nextIndex = { ArrowRight: (index + 1) % mobileProjects.length, ArrowLeft: (index - 1 + mobileProjects.length) % mobileProjects.length, Home: 0, End: mobileProjects.length - 1 }[event.key];
@@ -147,9 +149,7 @@ export default function MobileHome() {
           <HeroPitch copy={t.hero} mobile />
         </section>
 
-        <PillarsSection />
         <CommercialSolutionsLinks />
-        <ClubHighlight />
         <BusinessResultsSection compact />
 
         <section className="mobile-section mobile-trust-section tt2-clients-section tt-client-showcase" id="clientes">
@@ -308,8 +308,11 @@ export default function MobileHome() {
           <FounderProfile language={language} />
         </section>
 
+        <PillarsSection />
+        <ClubHighlight />
         <BlogHighlight />
 
+        <HomeBuyingQuestions />
         <section className="mobile-section mobile-cta-section" id="contato">
           <span className="mobile-section-tag">{t.nav.contact}</span>
           <h2>{t.finalCta.title}</h2>

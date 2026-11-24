@@ -81,7 +81,10 @@ function useClientLocation() {
       } else if (url.origin === window.location.origin && getServiceLandingPage(url.pathname.slice(1))) {
         trackFunnelEvent('service_link_click', { service: url.pathname.slice(1) });
       } else if (url.origin === window.location.origin && url.pathname === '/formulario') {
-        trackFunnelEvent('diagnostic_link_click', { interest: url.searchParams.get('interesse') || 'outro' });
+        trackFunnelEvent('diagnostic_link_click', {
+          interest: url.searchParams.get('interesse') || 'outro',
+          origin: url.searchParams.get('origem') || 'site',
+        });
       }
     };
     document.addEventListener('click', trackContactClick, true);
