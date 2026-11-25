@@ -1,4 +1,22 @@
 import { blogArticles, coreBlogArticles } from '../src/content/blogArticles.js';
+import { buyerGuides } from '../src/content/buyerGuides/index.js';
+import { buyerGuideTracks } from '../src/content/buyerGuides/plan.js';
+import { splitArticleIntro } from '../src/utils/articleEmphasis.js';
+import assert from 'node:assert/strict';
+
+const plannedSlugs = buyerGuideTracks.flatMap(({ topics }) => topics.map(([slug]) => slug));
+assert.equal(plannedSlugs.length, 100);
+assert.equal(new Set(plannedSlugs).size, plannedSlugs.length, 'Buyer guide topics must have distinct URLs');
+
+for (const guide of buyerGuides) {
+  const published = blogArticles.filter(({ slug }) => slug === guide.slug);
+  assert.equal(published.length, 1, `Expected one article at ${guide.slug}`);
+  const [article] = published;
+  const body = article.sections.flatMap(({ paragraphs, bullets = [] }) => [...paragraphs, ...bullets]);
+  const characterCount = [...[article.intro, ...body].join(' ')].length;
+  assert(characterCount >= 20_000, `${article.slug}: only ${characterCount} editorial characters`);
+  assert(splitArticleIntro(article.intro, article.emphasis)[1], `${article.slug}: missing keyword in lead`);
+}
 
 const normalize = (value = '') => value.trim().replace(/\s+/g, ' ');
 const words = (article) => [

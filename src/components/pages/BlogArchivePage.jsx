@@ -1,8 +1,7 @@
-import { useMemo } from 'react';
-import { getBlogArticlesForLocale } from '../../content/localizedBlogArticles';
+import { blogArchiveArticles } from '../../content/blogArchiveArticles.generated';
 import BlogIndexPage from './BlogIndexPage';
 
 export default function BlogArchivePage({ locale = 'pt' }) {
-  const articles = useMemo(() => getBlogArticlesForLocale(locale), [locale]);
+  const articles = blogArchiveArticles[locale] || [];
   return <BlogIndexPage locale={locale} articlesOverride={articles} archiveMode />;
 }

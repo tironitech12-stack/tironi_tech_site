@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getSiteText } from '../../content/siteContent';
 import { serviceDiagnosticPath, serviceEvidence, serviceWhatsAppPath } from '../../content/serviceLandingPages';
+import { buyerGuideLinksByService } from '../../content/buyerGuideLinks.generated';
 import { applyPageMeta } from '../../utils/pageMeta';
 import { createServiceSchema, getRelatedServicePages } from '../../utils/servicePageSeo';
 import { getOptimizedImageAttributes } from '../../utils/optimizedImages';
@@ -17,6 +18,7 @@ export default function ServiceLandingPage({ page }) {
   const t = getSiteText('pt');
   const diagnosticHref = serviceDiagnosticPath(page.slug);
   const relatedServices = getRelatedServicePages(page.slug);
+  const buyerGuideLinks = buyerGuideLinksByService[`/${page.slug}`] || [];
 
   useEffect(() => {
     applyPageMeta({
@@ -65,6 +67,7 @@ export default function ServiceLandingPage({ page }) {
       </section>}
       <section className="tt-service-process" id="como-funciona"><div className="tt2-container"><span className="tt-service-kicker">COMO FUNCIONA</span><h2>Da oportunidade à operação em quatro movimentos</h2><div className="tt-service-process-grid">{page.process.map(([title, text], index) => <article key={title}><small>{String(index + 1).padStart(2, '0')}</small><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
       <section className="tt-service-solution"><div className="tt2-container"><span className="tt-service-kicker">SOLUÇÕES PARA SUA OPERAÇÃO</span><h2>Soluções relacionadas</h2><nav className="tt-service-hubs" aria-label="Soluções relacionadas">{relatedServices.map((candidate) => <article key={candidate.slug}><h3><a href={`/${candidate.slug}`}>{candidate.keyword}</a></h3><p>{candidate.description}</p></article>)}</nav></div></section>
+      {buyerGuideLinks.length > 0 && <section className="tt-service-solution"><div className="tt2-container"><h2>Guias para planejar a contratação</h2><ul>{buyerGuideLinks.map(({ href, label }) => <li key={href}><a href={href}>{label}</a></li>)}</ul></div></section>}
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">ESCOPO VERIFICÁVEL</span><h2>O que precisa ficar claro antes de contratar</h2></div><div><p>Uma proposta responsável descreve o processo atual, o resultado esperado, os dados necessários, as integrações, as exceções e quem aprova ações sensíveis. Para este cenário, o ponto de partida é: {page.problem}</p><p>A entrega deve incluir mapa do fluxo, arquitetura e permissões, critérios de aceite, plano de implantação, documentação e indicadores. A solução é avaliada pelo processo que melhora, e não pela quantidade de recursos ou pela promessa genérica de usar IA.</p>{page.deliverables?.length > 0 && <h3>Entregáveis para validar na proposta</h3>}<ul>{(page.deliverables || page.outcomes).map((item) => <li key={item}>{item}</li>)}</ul>{page.limits?.length > 0 && <><h3>Limites e dependências do projeto</h3><ul>{page.limits.map((item) => <li key={item}>{item}</li>)}</ul></>}</div></div></section>
       <section className="tt-service-evidence"><div className="tt2-container">{serviceEvidence.map(({ value, label }) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div></section>
       <section className="tt-service-solution"><div className="tt2-container tt-service-two-col"><div><span className="tt-service-kicker">DECISÃO</span><h2>Como comparar fornecedores e reduzir risco</h2></div><div><p>Peça uma demonstração ligada ao seu processo e valide como a solução trata informação incompleta, falhas de integração e transferência para uma pessoa. Compare custo total, tempo de implantação, propriedade dos dados, observabilidade e capacidade de evolução.</p><p>A Tironi Tech começa pelo menor fluxo completo capaz de gerar evidência. Esse recorte evita uma prova isolada que parece funcionar, mas não chega ao sistema, à equipe ou ao resultado que motivou o projeto.</p>{page.costFactors?.length > 0 && <><h3>O que determina o investimento</h3><ul>{page.costFactors.map((item) => <li key={item}>{item}</li>)}</ul></>}</div></div></section>

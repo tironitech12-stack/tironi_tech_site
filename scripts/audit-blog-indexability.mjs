@@ -2,23 +2,28 @@ import { homeBuyingQuestions, homeServicePaths, homeServices } from '../src/cont
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { blogArticles, coreBlogArticles } from '../src/content/blogArticles.js';
+import { blogArticles, blogCategories, coreBlogArticles } from '../src/content/blogArticles.js';
 import { getArticleLocales, getBlogArticlesForLocale } from '../src/content/localizedBlogArticles.js';
 import { searchConsoleArticleRevisions } from '../src/content/searchConsoleArticleRevisions.js';
 import { getBlogListingRoutes } from '../src/utils/blogListing.js';
 import { createHomeSchema } from '../src/utils/homePageSeo.js';
 import { createServiceSchema } from '../src/utils/servicePageSeo.js';
 import { blogIndexArticles } from '../src/content/blogIndexArticles.generated.js';
+import { blogArchiveArticles, blogArchiveCategories } from '../src/content/blogArchiveArticles.generated.js';
 import { corporateOverrides } from '../src/content/corporateOverrides.js';
 import { founderProfile, getFounderCopy } from '../src/content/founderProfile.js';
 import { heroImpactOverrides } from '../src/content/heroImpactOverrides.js';
 import { referenceArticles } from '../src/content/referenceArticles.js';
 import { customerIntentArticles } from '../src/content/customerIntentArticles.js';
 import { searchConsoleExpansionArticles } from '../src/content/searchConsoleExpansionArticles.js';
+import { buyerGuides } from '../src/content/buyerGuides/index.js';
+import { buyerGuideLinksByService } from '../src/content/buyerGuideLinks.generated.js';
+import { splitArticleIntro } from '../src/utils/articleEmphasis.js';
 
 const expandedParentSlugs = new Set(searchConsoleExpansionArticles
   .map(({ primaryGuide }) => primaryGuide.href.match(/^\/blog\/(.+)$/)?.[1])
   .filter(Boolean));
+const buyerGuideSlugs = new Set(buyerGuides.map(({ slug }) => slug));
 
 // These collections have no reliable original publication record. Their known
 // revision date must not be repurposed as a publication date by the factory.
@@ -28,6 +33,15 @@ for (const article of blogArticles.filter(({ slug }) => unknownPublicationSlugs.
 }
 
 assert.deepEqual(blogIndexArticles.pt.map(({ slug }) => slug), coreBlogArticles.map(({ slug }) => slug), 'Browser and prerender must retain the same editorial order');
+assert.deepEqual(blogArchiveCategories, blogCategories, 'Archive categories must match the source catalog');
+for (const locale of ['pt', 'en', 'es']) {
+  const articles = getBlogArticlesForLocale(locale);
+  assert.deepEqual(
+    blogArchiveArticles[locale].map(({ slug, title, category }) => [slug, title, category]),
+    articles.map(({ slug, title, category }) => [slug, title, category]),
+    `Archive routes and listing order must match the source catalog for ${locale}`,
+  );
+}
 assert.deepEqual(getBlogListingRoutes(blogIndexArticles.pt).map(({ schema }) => schema), getBlogListingRoutes(coreBlogArticles).map(({ schema }) => schema), 'Listing schemas and article destinations must not change when JavaScript loads');
 
 const root = resolve('dist');
@@ -95,6 +109,11 @@ for (const locale of ['pt', 'en', 'es']) {
     assert(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `Unexpected noindex: ${url}`);
     assert(html.includes('<meta name="robots" content="index, follow'), `Missing index rule: ${url}`);
     assert(html.includes(`<link rel="canonical" href="${url}">`), `Incorrect canonical: ${url}`);
+    if (buyerGuideSlugs.has(article.slug)) {
+      const [, emphasis] = splitArticleIntro(article.intro, article.emphasis);
+      assert(html.includes(`<strong>${escapeHtml(emphasis)}</strong>`), `Missing keyword emphasis: ${url}`);
+      assert(html.includes(`href="${article.cta.href}"`), `Missing tracked lead form link: ${url}`);
+    }
     if (article.date) {
       assert(html.includes(`<meta property="article:published_time" content="${article.date}">`), `Missing article:published_time: ${url}`);
     } else {
@@ -232,9 +251,21 @@ for (const listing of getBlogListingRoutes(coreBlogArticles)) {
   }
 }
 assert.equal(listedArticleSlugs.size, coreBlogArticles.length, 'Pagination must expose every selected article');
+const contentMapBody = visibleBody(await read('mapa-do-site/index.html'));
+for (const { slug } of buyerGuides) {
+  assert(contentMapBody.includes(`href="/blog/${slug}"`), `Content map missing buyer guide: ${slug}`);
+}
 for (const service of serviceLandingPages) {
   const html = await read(`${service.slug}/index.html`);
   const body = visibleBody(html);
+  const servicePath = `/${service.slug}`;
+  const expectedGuideLinks = buyerGuides.filter(({ primaryGuide }) => primaryGuide.href === servicePath)
+    .slice(0, 4).map(({ slug }) => `/blog/${slug}`);
+  assert.deepEqual((buyerGuideLinksByService[servicePath] || []).map(({ href }) => href), expectedGuideLinks);
+  for (const href of expectedGuideLinks) {
+    assert(body.includes(`href="${href}"`), `Missing buyer guide link: ${servicePath} -> ${href}`);
+    assert(sitemapUrls.has(`${origin}${href}`), `Service links to an unpublished guide: ${href}`);
+  }
   for (const { value, label } of serviceEvidence) {
     assert(body.includes(`>${escapeHtml(value)}<`) && body.includes(escapeHtml(label)), `Service experience metric missing from visible HTML: ${service.slug}, ${label}`);
   }

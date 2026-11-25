@@ -8,6 +8,7 @@ import FloatingWhatsAppButton from '../ui/FloatingWhatsAppButton';
 import ArticleVisual from '../blog/ArticleVisual';
 import { applyPageMeta } from '../../utils/pageMeta';
 import { externalRel } from '../../utils/externalRel';
+import { splitArticleIntro } from '../../utils/articleEmphasis';
 import '../../styles/theme.css';
 import '../../styles/blog.css';
 
@@ -115,7 +116,7 @@ export default function BlogArticlePage({ slug, locale = 'pt' }) {
                 <ol>{article.sections.map((section, index) => <li key={section.heading}><a href={`#secao-${index + 1}`}>{section.heading}</a></li>)}</ol>
               </aside>
               <div className="tt-article-body">
-                <p className="tt-article-lead">{article.intro}</p>
+                <p className="tt-article-lead">{splitArticleIntro(article.intro, article.emphasis).map((part, index) => index === 1 && part ? <strong key="emphasis">{part}</strong> : part)}</p>
                 <aside className="tt-article-offer">
                   <p>{copy.offer}</p>
                   {article.primaryGuide ? <p>{article.primaryGuide.description || 'Conheça a aplicação deste tema na sua empresa:'} <a href={article.primaryGuide.href}>{article.primaryGuide.label}</a>.</p> : null}

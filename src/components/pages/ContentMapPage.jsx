@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { blogArticles, blogCategories } from '../../content/blogArticles';
+import { blogArchiveArticles, blogArchiveCategories } from '../../content/blogArchiveArticles.generated';
 import { serviceLandingPages } from '../../content/serviceLandingPages';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
@@ -10,9 +10,9 @@ import '../../styles/blog.css';
 
 export default function ContentMapPage() {
   const { t, language, setLanguage, languageOptions } = useLanguage();
-  const groups = useMemo(() => blogCategories.filter((category) => category !== 'Todos').map((category) => ({
+  const groups = useMemo(() => blogArchiveCategories.filter((category) => category !== 'Todos').map((category) => ({
     category,
-    articles: blogArticles.filter((article) => article.category === category),
+    articles: blogArchiveArticles.pt.filter((article) => article.category === category),
   })).filter((group) => group.articles.length), []);
 
   useEffect(() => {
