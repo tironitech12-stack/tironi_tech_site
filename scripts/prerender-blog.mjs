@@ -21,6 +21,10 @@ if (!template.includes('<div id="root"></div>')) {
   throw new Error('Prerender requires the fresh Vite HTML template. Run npm run build before generating pages again.');
 }
 const origin = 'https://www.tironitech.com';
+// Search Console exports from 2026-11-25 for the indexing experiment.
+const refreshPaths = new Set(
+  (await readFile(new URL('./indexing-refresh-paths.txt', import.meta.url), 'utf8')).trim().split(/\r?\n/)
+);
 
 const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -64,7 +68,7 @@ function pageTemplate({ title, description, path, body, schema, articleData = nu
     .replace(/<html\s+lang="[^"]*"/, () => `<html lang="${locale === 'pt' ? 'pt-BR' : locale}"`)
     .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, () => `<meta name="description" content="${escapeHtml(description)}" />`)
-    .replace('</head>', () => `    ${tags}\n  </head>`)
+    .replace('</head>', () => `    ${tags}\n${refreshPaths.has(path) ? ' ' : ''}  </head>`)
     .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`)
     .replace('</body>', () => `${articleData ? `<script id="tt-article-data" type="application/json">${JSON.stringify(articleData).replaceAll('<', '\\u003c')}</script>` : ''}</body>`);
 }
