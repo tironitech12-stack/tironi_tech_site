@@ -11,6 +11,13 @@ import { documentPilot } from './documentPilot.js';
 import { erpDecision } from './erpDecision.js';
 import { erpReadOnlyAgent } from './erpReadOnlyAgent.js';
 import { workOrderPreparationAgent } from './workOrderPreparationAgent.js';
+import { orderExceptionAgent } from './orderExceptionAgent.js';
+import { catalogEquivalentSearchAgent } from './catalogEquivalentSearchAgent.js';
+import { qualityIncidentReportAgent } from './qualityIncidentReportAgent.js';
+import { crmMeetingRecordAgent } from './crmMeetingRecordAgent.js';
+import { renewalDossierAgent } from './renewalDossierAgent.js';
+import { supplierSlaExceptionAgent } from './supplierSlaExceptionAgent.js';
+import { parallelSoftwareMigration } from './parallelSoftwareMigration.js';
 import { freightAudit } from './freightAudit.js';
 import { industrialAfterSales } from './industrialAfterSales.js';
 import { industrialConfigurator } from './industrialConfigurator.js';
@@ -115,6 +122,13 @@ export const buyerGuides = [
   purchasingAnalystAgent,
   erpReadOnlyAgent,
   workOrderPreparationAgent,
+  orderExceptionAgent,
+  catalogEquivalentSearchAgent,
+  qualityIncidentReportAgent,
+  crmMeetingRecordAgent,
+  renewalDossierAgent,
+  supplierSlaExceptionAgent,
+  parallelSoftwareMigration,
 ].map((article) => {
   const { title, category, service, label, interest } = topics.get(article.slug);
   return {
