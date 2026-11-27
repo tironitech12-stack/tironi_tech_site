@@ -125,6 +125,11 @@ export const serviceLandingPages = [
   },
   {
     slug: 'consultoria-ia-para-empresas', keyword: 'Consultoria de IA para empresas',
+    updated: '2026-11-27',
+    guideLinks: [
+      { href: '/blog/ia-para-vendas-aplicacoes-resultados', label: 'Como priorizar aplicações de IA em vendas por resultado' },
+      { href: '/blog/pesquisa-092-ai-tools-for-b2b-sales-prospecting-guia-aplicacao', label: 'Como testar IA na prospecção B2B antes de contratar' },
+    ],
     title: 'Da dúvida sobre IA a um plano executável, priorizado e mensurável',
     description: 'Consultoria de IA para empresas é o trabalho de escolher o caso de uso, organizar dados e riscos e implantar a primeira melhoria com quem também executa. Não termina em um relatório.',
     problem: 'Há muitas ideias, fornecedores e ferramentas, mas pouca clareza sobre onde começar, quanto investir e como provar retorno.',
@@ -136,7 +141,8 @@ export const serviceLandingPages = [
   },
   {
     slug: 'agentes-de-ia-para-empresas', keyword: 'Agentes de IA para empresas',
-    updated: '2026-10-29',
+    updated: '2026-11-27',
+    guideLinks: [{ href: '/blog/pesquisa-418-scaling-ai-agent-infrastructure-with-mcp-google-guia-aplicacao', label: 'Avaliar o uso de MCP em uma operação com agentes' }],
     title: 'Agentes de IA que consultam, decidem e agem dentro de limites claros',
     description: 'Desenvolvimento de agentes de IA conectados a documentos, CRM, ERP, APIs e equipes humanas para atendimento, vendas e processos internos.',
     problem: 'Um chatbot que apenas conversa não resolve tarefas que dependem de consultar dados, aplicar regras e registrar uma ação.',
@@ -184,6 +190,7 @@ export const serviceLandingPages = [
   },
   {
     slug: 'desenvolvimento-software-sob-medida', keyword: 'Desenvolvimento de software sob medida',
+    guideLinks: [{ href: '/blog/pesquisa-187-cursor-ai-coding-agent-guia-aplicacao', label: 'Como avaliar um piloto de Cursor para desenvolvimento empresarial' }],
     title: 'Desenvolvimento de software sob medida com produto, engenharia e IA no mesmo plano',
     description: 'Da descoberta ao lançamento: aplicações web, SaaS, portais, sistemas empresariais e integrações construídos para uma necessidade específica.',
     problem: 'Projetos atrasam quando requisitos viram uma lista de telas sem prioridade, validação com usuários ou estratégia de evolução.',

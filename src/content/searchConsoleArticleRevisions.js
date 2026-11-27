@@ -2,6 +2,29 @@ import { seoGrowthArticleRevisions } from './seoGrowthArticleRevisions.js';
 
 // Editorial revisions of existing URLs; no new pages are created.
 const previousSearchConsoleArticleRevisions = {
+  'pesquisa-092-ai-tools-for-b2b-sales-prospecting-guia-aplicacao': {
+    title: 'Como testar IA na prospecção B2B antes de contratar uma ferramenta',
+    description: 'Compare ferramentas de IA para prospecção B2B com a mesma carteira de contas e meça a qualidade dos contatos, a revisão e o resultado no CRM.',
+    updated: '2026-11-27',
+    intro: 'Para testar IA na prospecção B2B, selecione contas que representam sua carteira, defina o que o comercial considera um contato válido e compare a saída da ferramenta com a pesquisa atual. Use o piloto para medir o esforço até um contato aprovado no CRM.',
+    keywords: ['IA na prospecção B2B', 'teste de ferramenta de prospecção', 'qualificação de contatos no CRM'],
+    emphasis: 'IA na prospecção B2B',
+    primaryGuide: { href: '/consultoria-ia-para-empresas', label: 'Consultoria de IA para empresas', description: 'Defina a carteira de teste, o indicador comercial e os critérios para contratar o piloto.' },
+    takeaways: ['Compare as ferramentas usando as mesmas contas.', 'Meça contatos aprovados e tempo de revisão.', 'Teste a gravação no CRM antes de liberar o uso.'],
+    sections: [
+      { heading: 'Monte uma amostra com contas fáceis e difíceis', paragraphs: ['Selecione empresas de um mesmo segmento, incluindo contas já conhecidas, contas novas e empresas com nomes parecidos. Para cada conta, registre o domínio, o porte aproximado e o papel procurado. Dê a mesma amostra à equipe e aos fornecedores. Reserve contas que não foram usadas para configurar a ferramenta para a rodada de aceite.', 'Inclua pelo menos uma empresa já trabalhada por outra carteira. O resultado deve indicar quem tem responsabilidade no CRM e como a equipe trata um contato que já existe. Confira se a ferramenta mantém a referência da empresa quando encontra filiais com nomes semelhantes.'] },
+      { heading: 'Meça a qualidade antes de ativar qualquer sequência comercial', paragraphs: ['Peça que o comercial aprove os contatos com critérios explícitos, como vínculo com a empresa, função compatível e evidência de origem. Separe os casos que precisam de validação. Um contato sugerido com dados insuficientes continua pendente até a equipe confirmar a informação.', 'Em um exemplo fictício, um fornecedor retorna 80 contatos e o comercial aprova 48. Outro retorna 60 e a equipe aprova 45. Compare a cobertura de contas e o tempo para revisar os resultados. Se o primeiro leva quatro horas de trabalho e o segundo duas, inclua esse esforço antes de comparar o custo por contato aprovado.'] },
+      { heading: 'Verifique a entrada no CRM e prepare o aceite', paragraphs: ['Em homologação, grave um contato novo, repita a entrada e confira o que acontece quando o CRM já tem um responsável. Preserve origem, conta e histórico. Teste também a atualização de um campo com informação revisada pela equipe. A demonstração deve mostrar qual alteração pode ser automática e qual precisa de aprovação.', 'Leve ao orçamento a quantidade de contas, o tempo observado de revisão e o critério de contato válido. Solicite preços separados para integração, consumo e acompanhamento. Compare as propostas pela entrega confirmada no CRM e defina como o comercial vai medir oportunidades aceitas depois que o piloto entrar em operação.'] },
+    ],
+    faqs: [
+      { question: 'Como comparar ferramentas de IA para prospecção B2B?', answer: 'Use as mesmas contas, critérios de contato válido e condições de integração. Compare cobertura, acerto e tempo de revisão.' },
+      { question: 'O que verificar antes de enviar contatos ao CRM?', answer: 'Confirme vínculo com a conta, origem, responsáveis existentes e o comportamento quando o mesmo contato é recebido novamente.' },
+    ],
+  },
+  'ia-para-vendas-aplicacoes-resultados': {
+    updated: '2026-11-27',
+    primaryGuide: { href: '/consultoria-ia-para-empresas', label: 'Consultoria de IA para empresas', description: 'Compare as aplicações pelo impacto no funil e escolha a primeira hipótese para testar.' },
+  },
   'pesquisa-138-how-to-build-a-whatsapp-chatbot-guia-aplicacao': {
     updated: '2026-10-23',
     primaryGuide: { href: '/automacao-whatsapp-com-ia', label: 'Automação de WhatsApp com IA', description: 'Veja como aplicar atendimento, qualificação e transferência humana em um fluxo conectado à operação.' },
