@@ -18,6 +18,36 @@ import { crmMeetingRecordAgent } from './crmMeetingRecordAgent.js';
 import { renewalDossierAgent } from './renewalDossierAgent.js';
 import { supplierSlaExceptionAgent } from './supplierSlaExceptionAgent.js';
 import { parallelSoftwareMigration } from './parallelSoftwareMigration.js';
+import { branchLegacyPilot } from './branchLegacyPilot.js';
+import { retireLegacyModules } from './retireLegacyModules.js';
+import { legacyDataExtraction } from './legacyDataExtraction.js';
+import { closingWindowIntegration } from './closingWindowIntegration.js';
+import { operationalCreditPortal } from './operationalCreditPortal.js';
+import { undocumentedSoftwareHandover } from './undocumentedSoftwareHandover.js';
+import { legacyPricingParity } from './legacyPricingParity.js';
+import { internalSystemRefactoring } from './internalSystemRefactoring.js';
+import { legacyHistoryConsultation } from './legacyHistoryConsultation.js';
+import { multichannelProductValidation } from './multichannelProductValidation.js';
+import { customerBranchMasterData } from './customerBranchMasterData.js';
+import { monthEndBalanceReconciliation } from './monthEndBalanceReconciliation.js';
+import { productionDispatchLotTraceability } from './productionDispatchLotTraceability.js';
+import { unbilledOrderDiagnosis } from './unbilledOrderDiagnosis.js';
+import { settlementOrderReconciliation } from './settlementOrderReconciliation.js';
+import { purchaseInventoryDiscrepancyDashboard } from './purchaseInventoryDiscrepancyDashboard.js';
+import { priceTableDistribution } from './priceTableDistribution.js';
+import { financialIntegrationObservability } from './financialIntegrationObservability.js';
+import { catalogUnitConversionMigration } from './catalogUnitConversionMigration.js';
+import { softwareHoursOrDeliverables } from './softwareHoursOrDeliverables.js';
+import { softwareSupportFirstNinetyDays } from './softwareSupportFirstNinetyDays.js';
+import { softwareInternalTeamTransfer } from './softwareInternalTeamTransfer.js';
+import { multiBranchSoftwareAcceptance } from './multiBranchSoftwareAcceptance.js';
+import { thirdPartyIntegrationScope } from './thirdPartyIntegrationScope.js';
+import { phasedSoftwareDelivery } from './phasedSoftwareDelivery.js';
+import { softwareDataPortability } from './softwareDataPortability.js';
+import { customSoftwareThreeYearCost } from './customSoftwareThreeYearCost.js';
+import { representativeSoftwareAcceptance } from './representativeSoftwareAcceptance.js';
+import { softwareBenefitsMeasurement } from './softwareBenefitsMeasurement.js';
+import { aiAutomationCostPerResolution } from './aiAutomationCostPerResolution.js';
 import { freightAudit } from './freightAudit.js';
 import { industrialAfterSales } from './industrialAfterSales.js';
 import { industrialConfigurator } from './industrialConfigurator.js';
@@ -129,6 +159,36 @@ export const buyerGuides = [
   renewalDossierAgent,
   supplierSlaExceptionAgent,
   parallelSoftwareMigration,
+  branchLegacyPilot,
+  retireLegacyModules,
+  legacyDataExtraction,
+  closingWindowIntegration,
+  operationalCreditPortal,
+  undocumentedSoftwareHandover,
+  legacyPricingParity,
+  internalSystemRefactoring,
+  legacyHistoryConsultation,
+  multichannelProductValidation,
+  customerBranchMasterData,
+  monthEndBalanceReconciliation,
+  productionDispatchLotTraceability,
+  unbilledOrderDiagnosis,
+  settlementOrderReconciliation,
+  purchaseInventoryDiscrepancyDashboard,
+  priceTableDistribution,
+  financialIntegrationObservability,
+  catalogUnitConversionMigration,
+  softwareHoursOrDeliverables,
+  softwareSupportFirstNinetyDays,
+  softwareInternalTeamTransfer,
+  multiBranchSoftwareAcceptance,
+  thirdPartyIntegrationScope,
+  phasedSoftwareDelivery,
+  softwareDataPortability,
+  customSoftwareThreeYearCost,
+  representativeSoftwareAcceptance,
+  softwareBenefitsMeasurement,
+  aiAutomationCostPerResolution,
 ].map((article) => {
   const { title, category, service, label, interest } = topics.get(article.slug);
   return {
