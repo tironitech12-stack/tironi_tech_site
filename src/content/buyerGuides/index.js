@@ -48,6 +48,15 @@ import { customSoftwareThreeYearCost } from './customSoftwareThreeYearCost.js';
 import { representativeSoftwareAcceptance } from './representativeSoftwareAcceptance.js';
 import { softwareBenefitsMeasurement } from './softwareBenefitsMeasurement.js';
 import { aiAutomationCostPerResolution } from './aiAutomationCostPerResolution.js';
+import { automationCommercialRuleMaintenance } from './automationCommercialRuleMaintenance.js';
+import { aiHumanReviewCapacity } from './aiHumanReviewCapacity.js';
+import { aiAutomationContingencyTesting } from './aiAutomationContingencyTesting.js';
+import { aiPilotSeasonalDemand } from './aiPilotSeasonalDemand.js';
+import { aiModelMigrationBudget } from './aiModelMigrationBudget.js';
+import { aiHistoricalReprocessing } from './aiHistoricalReprocessing.js';
+import { aiShiftRollout } from './aiShiftRollout.js';
+import { aiRulesTriageComparison } from './aiRulesTriageComparison.js';
+import { aiPilotExpansionInvestment } from './aiPilotExpansionInvestment.js';
 import { freightAudit } from './freightAudit.js';
 import { industrialAfterSales } from './industrialAfterSales.js';
 import { industrialConfigurator } from './industrialConfigurator.js';
@@ -189,9 +198,19 @@ export const buyerGuides = [
   representativeSoftwareAcceptance,
   softwareBenefitsMeasurement,
   aiAutomationCostPerResolution,
+  automationCommercialRuleMaintenance,
+  aiHumanReviewCapacity,
+  aiAutomationContingencyTesting,
+  aiPilotSeasonalDemand,
+  aiModelMigrationBudget,
+  aiHistoricalReprocessing,
+  aiShiftRollout,
+  aiRulesTriageComparison,
+  aiPilotExpansionInvestment,
 ].map((article) => {
   const { title, category, service, label, interest } = topics.get(article.slug);
   return {
+    sources: [],
     ...article,
     title,
     category,
